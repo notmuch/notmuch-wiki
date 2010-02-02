@@ -1,0 +1,11 @@
+Some [[directives|ikiwiki/directive]] that use
+[[PageSpecs|ikiwiki/pagespec]] allow
+specifying the order that matching pages are shown in. The following sort
+orders can be specified.
+
+* `age` - List pages from the most recently created to the oldest.
+* `mtime` - List pages with the most recently modified first.
+* `title` - Order by title.
+* `title_natural` - Only available if [[!cpan Sort::Naturally]] is
+  installed. Orders by title, but numbers in the title are treated
+  as such, ("1 2 9 10 20" instead of "1 10 2 20 9")

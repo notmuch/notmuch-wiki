@@ -1,0 +1,87 @@
+[[!meta robots="noindex, follow"]]
+[[!if test="enabled(template)"
+then="This wiki has templates **enabled**."
+else="This wiki has templates **disabled**."
+]]
+
+Templates are files that can be filled out and inserted into pages in the
+wiki.
+
+[[!if test="enabled(template) and enabled(inline)" then="""
+
+These templates are available for inclusion onto other pages in this
+wiki:
+
+[[!inline pages="templates/* and !*/discussion" feeds=no archive=yes
+sort=title template=titlepage]]
+"""]]
+
+## Using a template
+
+Using a template works like this:
+
+	\[[!template id=note text="""Here is the text to insert into my note."""]]
+
+This fills out the [[note]] template, filling in the `text` field with
+the specified value, and inserts the result into the page.
+
+Generally, a value can include any markup that would be allowed in the wiki
+page outside the template. Triple-quoting the value even allows quotes to
+be included in it. Combined with multi-line quoted values, this allows for
+large chunks of marked up text to be embedded into a template:
+
+        \[[!template id=foo name="Sally" color="green" age=8 notes="""
+        * \[[Charley]]'s sister.
+        * "I want to be an astronaut when I grow up."
+        * Really 8 and a half.
+        """]]
+
+## Creating a template
+
+To create a template, simply add a template directive to a page, and the 
+page will provide a link that can be used to create the template. The template
+is a regular wiki page, located in the `templates/` subdirectory inside
+the source directory of the wiki.
+
+The template uses the syntax used by the [[!cpan HTML::Template]] perl
+module, which allows for some fairly complex things to be done. Consult its
+documentation for the full syntax, but all you really need to know are a
+few things:
+
+* Each parameter you pass to the template directive will generate a 
+  template variable. There are also some pre-defined variables like PAGE
+  and BASENAME.
+* To insert the value of a variable, use `<TMPL_VAR variable>`. Wiki markup
+  in the value will first be converted to html.
+* To insert the raw value of a variable, with wiki markup not yet converted
+  to html, use `<TMPL_VAR raw_variable>`.
+* To make a block of text conditional on a variable being set use
+  `<TMPL_IF NAME="variable">text</TMPL_IF>`.
+* To use one block of text if a variable is set and a second if it's not,
+  use `<TMPL_IF NAME="variable">text<TMPL_ELSE>other text</TMPL_IF>`
+
+Here's a sample template:
+
+        <span class="infobox">
+        Name: \[[<TMPL_VAR raw_name>]]<br />
+        Age: <TMPL_VAR age><br />
+        <TMPL_IF NAME="color">
+        Favorite color: <TMPL_VAR color><br />
+        <TMPL_ELSE>
+        No favorite color.<br />
+        </TMPL_IF>
+        <TMPL_IF NAME="notes">
+        <hr />
+        <TMPL_VAR notes>
+        </TMPL_IF>
+        </span>
+
+The filled out template will be formatted the same as the rest of the page
+that contains it, so you can include WikiLinks and all other forms of wiki
+markup in the template. Note though that such WikiLinks will not show up as
+backlinks to the page that uses the template.
+
+Note the use of "raw_name" inside the [[ikiwiki/WikiLink]] generator. This
+ensures that if the name contains something that might be mistaken for wiki
+markup, it's not converted to html before being processed as a
+[[ikiwiki/WikiLink]].
