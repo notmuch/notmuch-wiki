@@ -58,7 +58,7 @@ notmuch&#64;notmuchmail.org (subscription is not required, but you can
 <a href="http://notmuchmail.org/mailman/listinfo/notmuch">subscribe to
 the notmuch list</a> if you would like to). You can also browse the
 <a href="http://notmuchmail.org/pipermail/notmuch/">online archives</a>
-or the mailing list or download an <a href="http://notmuchmail.org/archives/notmuch.mbox>mbox file</a>
+or the mailing list or download an <a href="http://notmuchmail.org/archives/notmuch.mbox">mbox file</a>
 of the entire mailing-list. The mb2md utility can then be used to
 convert the archives to maildir format which is convenient for
 reading the archives within notmuch itself.
