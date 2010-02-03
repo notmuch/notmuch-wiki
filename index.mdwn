@@ -70,6 +70,6 @@ convert the archives to maildir format which is convenient for
 reading the archives within notmuch itself.
 
 This wiki is maintained used [ikiwiki](http://ikiwiki.info). You can pull and
-push changes using the following URL (not authentication necessary):
+push changes using the following URL (no authentication necessary):
 
     git://notmuchmail.org/git/notmuch-wiki
