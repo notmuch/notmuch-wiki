@@ -44,7 +44,9 @@ you've been looking for.
 Either way, please feel free to jump in. All of the code for Notmuch
 is available as <a
 href="http://www.fsf.org/licensing/essays/free-sw.html">free
-software</a> released under the GNU GPL version 3. The latest versions
+software</a> released under the GNU 
+<a href="http://www.fsf.org/licensing/licenses/gpl.html">GPL version 
+3</a>. The latest versions
 can be checked out via git with this command:
 
 	git clone git://notmuchmail.org/git/notmuch
@@ -69,7 +71,7 @@ of the entire mailing-list. The mb2md utility can then be used to
 convert the archives to maildir format which is convenient for
 reading the archives within notmuch itself.
 
-This wiki is maintained used [ikiwiki](http://ikiwiki.info). You can pull and
+This wiki is maintained using [ikiwiki](http://ikiwiki.info). You can pull and
 push changes using the following URL (no authentication necessary):
 
     git://notmuchmail.org/git/notmuch-wiki
