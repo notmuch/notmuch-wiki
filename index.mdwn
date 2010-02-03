@@ -68,3 +68,8 @@ or the mailing list or download an <a href="http://notmuchmail.org/archives/notm
 of the entire mailing-list. The mb2md utility can then be used to
 convert the archives to maildir format which is convenient for
 reading the archives within notmuch itself.
+
+This wiki is maintained used [ikiwiki](http://ikiwiki.info). You can pull and
+push changes using the following URL (not authentication necessary):
+
+    git://notmuchmail.org/git/notmuch-wiki
