@@ -47,11 +47,17 @@ href="http://www.fsf.org/licensing/essays/free-sw.html">free
 software</a> released under the GNU GPL version 3. The latest versions
 can be checked out via git with this command:
 
-
 	git clone git://notmuchmail.org/git/notmuch
 
 Or you can browse the <a href="http://git.notmuchmail.org/git/notmuch">
 Notmuch code history</a> online.
+
+Patches are most welcome and should be sent to notmuch&#64;notmuchmail.org.
+Please try to follow the [patch submission guidelines of the Git
+project](http://repo.or.cz/w/git.git?a=blob;f=Documentation/SubmittingPatches;hb=HEAD)
+when submitting patches to notmuch. We are currently test-driving a [Patchwork
+instance](http://patchwork.madduck.net/project/notmuch) to help us keep track
+of [the patches](http://patchwork.madduck.net/project/notmuch/list).
 
 Comments? Please feel free to email the notmuch mailing list:
 notmuch&#64;notmuchmail.org (subscription is not required, but you can
