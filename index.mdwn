@@ -58,8 +58,8 @@ Patches are most welcome and should be sent to notmuch&#64;notmuchmail.org.
 Please try to follow the [patch submission guidelines of the Git
 project](http://repo.or.cz/w/git.git?a=blob;f=Documentation/SubmittingPatches;hb=HEAD)
 when submitting patches to notmuch. We are currently test-driving a [Patchwork
-instance](http://patchwork.madduck.net/project/notmuch) to help us keep track
-of [the patches](http://patchwork.madduck.net/project/notmuch/list).
+instance](http://patchwork.notmuchmail.org/project/notmuch) to help us keep track
+of [the patches](http://patchwork.notmuchmail.org/project/notmuch/list).
 
 Comments? Please feel free to email the notmuch mailing list:
 notmuch&#64;notmuchmail.org (subscription is not required, but you can
