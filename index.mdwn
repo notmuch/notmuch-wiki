@@ -51,8 +51,12 @@ can be checked out via git with this command:
 
 	git clone git://notmuchmail.org/git/notmuch
 
-Or you can browse the <a href="http://git.notmuchmail.org/git/notmuch">
-Notmuch code history</a> online.
+Or you can browse the <a
+href="http://git.notmuchmail.org/git/notmuch">Notmuch code history</a>
+online. And finally, you can <a
+href="http://notmuchmail.org/mailman/listinfo/notmuch-commits">subscribe
+to the notmuch-commits list</a> to watch every commit made to notmuch
+(and to the notmuchmail.org web site).
 
 Patches are most welcome and should be sent to notmuch&#64;notmuchmail.org.
 Please try to follow the [patch submission guidelines of the Git
