@@ -42,6 +42,9 @@ would love a good library interface for fast, global search with
 support for arbitrary tags, then Notmuch also may be exactly what
 you've been looking for.
 
+
+## Source code
+
 Either way, please feel free to jump in. All of the code for Notmuch
 is available as <a
 href="http://www.fsf.org/licensing/essays/free-sw.html">free
@@ -52,12 +55,12 @@ can be checked out via git with this command:
 
 	git clone git://notmuchmail.org/git/notmuch
 
-Or you can browse the <a
+You can browse the <a
 href="http://git.notmuchmail.org/git/notmuch">Notmuch code history</a>
 online. And finally, you can <a
 href="http://notmuchmail.org/mailman/listinfo/notmuch-commits">subscribe
 to the notmuch-commits list</a> to watch every commit made to notmuch
-(and to the notmuchmail.org web site).
+and the notmuchmail.org web site.
 
 Patches are most welcome and should be sent to notmuch&#64;notmuchmail.org.
 Please try to follow the [patch submission guidelines of the Git
@@ -66,15 +69,18 @@ when submitting patches to notmuch. We are currently test-driving a [Patchwork
 instance](http://patchwork.notmuchmail.org/project/notmuch) to help us keep track
 of [the patches](http://patchwork.notmuchmail.org/project/notmuch/list).
 
+## Contact: Email & IRC
+
 Comments? Please feel free to email the notmuch mailing list:
 notmuch&#64;notmuchmail.org (subscription is not required, but you can
 <a href="http://notmuchmail.org/mailman/listinfo/notmuch">subscribe to
 the notmuch list</a> if you would like to). You can also browse the
 <a href="http://notmuchmail.org/pipermail/notmuch/">online archives</a>
-or the mailing list or download an <a href="http://notmuchmail.org/archives/notmuch.mbox">mbox file</a>
-of the entire mailing-list. The mb2md utility can then be used to
-convert the archives to maildir format which is convenient for
-reading the archives within notmuch itself.
+of the mailing list, read them as a <a href="http://n3.nabble.com/notmuch-f198994.html">web forum (nabble)</a>), or download a <a href="http://notmuchmail.org/archives/notmuch.mbox">mbox file</a> of the entire mailing-list. 
+
+The mb2md utility can be used to convert the archives to maildir format which is convenient for reading the archives within notmuch itself.
+
+If you prefer real-time chat, there is often someone on the IRC channel #notmuch@irc.freenode.net.
 
 ### Website
 
