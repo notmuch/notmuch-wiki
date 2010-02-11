@@ -1,3 +1,13 @@
 /* ikiwiki local style sheet */
 
 /* Add local styling here, instead of modifying style.css. */
+
+.left {
+    float: left;
+    padding-right: 0.5em;
+}
+
+.right {
+    float: right;
+    padding-left: 0.5em;
+}

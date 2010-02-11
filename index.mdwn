@@ -1,3 +1,4 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Why Notmuch?
 
 * "Not much mail" is what Notmuch thinks about your email
