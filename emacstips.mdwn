@@ -1,0 +1,8 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+#Tips and Tricks for using notmuch with Emacs
+
+* How to do FCC/BCC...
+
+* How to customize notmuch-folders
+
+* ...

@@ -73,18 +73,22 @@ of [the patches](http://patchwork.notmuchmail.org/project/notmuch/list).
 
 Comments? Please feel free to email the notmuch mailing list:
 notmuch&#64;notmuchmail.org (subscription is not required, but you can
-<a href="http://notmuchmail.org/mailman/listinfo/notmuch">subscribe to
-the notmuch list</a> if you would like to). You can also browse the
+subscribe to the [notmuch list](http://notmuchmail.org/mailman/listinfo/notmuch) if you would like to). You can also browse the
 <a href="http://notmuchmail.org/pipermail/notmuch/">online archives</a>
-of the mailing list, read them as a <a href="http://n3.nabble.com/notmuch-f198994.html">web forum (nabble)</a>), or download a <a href="http://notmuchmail.org/archives/notmuch.mbox">mbox file</a> of the entire mailing-list. 
+of the mailing list, read them as a <a href="http://n3.nabble.com/notmuch-f198994.html">web forum (nabble)</a>, or download a <a href="http://notmuchmail.org/archives/notmuch.mbox">mbox file</a> of the entire mailing-list. 
 
 The mb2md utility can be used to convert the archives to maildir format which is convenient for reading the archives within notmuch itself.
 
-If you prefer real-time chat, there is often someone on the IRC channel #notmuch@irc.freenode.net.
+If you prefer real-time chat, there is often someone on the [#notmuch](irc://chat.freenode.net/#notmuch)@irc.freenode.net IRC channel.
 
+## Emacs Tips and Tricks
+
+The best supported interface to notmuch is based on emacs and can be tweaked extensively. We have started to collect some tips and tricks [here](/emacstips).
 ### Website
 
 This wiki is maintained using [ikiwiki](http://ikiwiki.info). You can pull and
 push changes using the following URL (no authentication necessary):
 
     git://notmuchmail.org/git/notmuch-wiki
+
+As the above is still broken, you will currently need to use [this](http://git.cworth.org/git/notmuch-wiki?a=commit;h=023952dcb7cbf5d4bd9c8ba2c79bac11d54af1d4), in order to change this site.
