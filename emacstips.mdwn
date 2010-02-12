@@ -3,6 +3,61 @@
 
 * How to do FCC/BCC...
 
+  Any notmuch reply will automatically include your primary email
+  address in a BCC so that any messages you send will (eventually) end
+  up in your mail store as well.
+
+  But this doesn't do anything for messages that you compose that are
+  not replies. So we need to get sane message-mode FCC figured
+  out. Some investigation is still needed here.
+
 * How to customize notmuch-folders
 
-* ...
+  There's a "notmuch-folder" command available in the emacs client
+  that displays a list of "folders" and the number of messages in
+  each. Each folder is simply a named search specification. To
+  configure this mode, edit your ${HOME}/.emacs file and include text
+  something like the following:
+
+	(setq notmuch-folders '(("inbox" . "tag:inbox")
+				("unread" . "tag:inbox AND tag:unread")
+				("notmuch" . "tag:inbox AND to:notmuchmail.org")))
+
+  Of course, you can have any number of folders, each configured
+  with any supported search terms (see "notmuch help search-terms").
+
+* Viewing HTML messages with an external viewer
+
+  The emacs client can often display an HTML message inline, but it
+  sometimes fails for one reason or another, (or is perhaps inadequate
+  if you really need to see the graphical presentation of the HTML
+  message).
+
+  In this case, it can be useful to display the message in an external
+  viewer, such as a web browser. Here's a little script that Keith
+  Packard wrote, which he calls view-html:
+
+	#!/bin/sh
+	dir=3D`mktemp -d`
+	trap "rm -r $dir" 0
+	cat "$@" > "$dir"/msg
+	if munpack -C "$dir" -t < "$dir"/msg 2>&1 | grep 'Did not find'; then
+	    sed -n '/[Hh][Tt][Mm][Ll]/,$p' "$dir"/msg > $dir/part1.html
+	    rm "$dir"/msg
+	fi
+	for i in "$dir"/part*; do
+	    if grep -q -i -e '<html>' -e 'text/html' "$i"; then
+		iceweasel "$i" &
+		sleep 3
+		exit 0
+	    fi
+	done
+
+  Save that script somewhere in your ${PATH}, make it executable, and
+  change the invocation of iceweasel to any other HTML viewer if
+  necessary. Then within the emacs client, press "|" to pipe the
+  current message, then type "view-html".
+
+  Keith mentions the following caveat, "Note that if iceweasel isn't
+  already running, it seems to shut down when the script exits. I
+  don't know why."
