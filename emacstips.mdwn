@@ -19,9 +19,9 @@
   configure this mode, edit your ${HOME}/.emacs file and include text
   something like the following:
 
-	(setq notmuch-folders '(("inbox" . "tag:inbox")
-				("unread" . "tag:inbox AND tag:unread")
-				("notmuch" . "tag:inbox AND to:notmuchmail.org")))
+		(setq notmuch-folders '(("inbox" . "tag:inbox")
+					("unread" . "tag:inbox AND tag:unread")
+					("notmuch" . "tag:inbox AND to:notmuchmail.org")))
 
   Of course, you can have any number of folders, each configured
   with any supported search terms (see "notmuch help search-terms").
@@ -37,21 +37,21 @@
   viewer, such as a web browser. Here's a little script that Keith
   Packard wrote, which he calls view-html:
 
-	#!/bin/sh
-	dir=3D`mktemp -d`
-	trap "rm -r $dir" 0
-	cat "$@" > "$dir"/msg
-	if munpack -C "$dir" -t < "$dir"/msg 2>&1 | grep 'Did not find'; then
-	    sed -n '/[Hh][Tt][Mm][Ll]/,$p' "$dir"/msg > $dir/part1.html
-	    rm "$dir"/msg
-	fi
-	for i in "$dir"/part*; do
-	    if grep -q -i -e '<html>' -e 'text/html' "$i"; then
-		iceweasel "$i" &
-		sleep 3
-		exit 0
-	    fi
-	done
+		#!/bin/sh
+		dir=3D`mktemp -d`
+		trap "rm -r $dir" 0
+		cat "$@" > "$dir"/msg
+		if munpack -C "$dir" -t < "$dir"/msg 2>&1 | grep 'Did not find'; then
+		    sed -n '/[Hh][Tt][Mm][Ll]/,$p' "$dir"/msg > $dir/part1.html
+		    rm "$dir"/msg
+		fi
+		for i in "$dir"/part*; do
+		    if grep -q -i -e '<html>' -e 'text/html' "$i"; then
+			iceweasel "$i" &
+			sleep 3
+			exit 0
+		    fi
+		done
 
   Save that script somewhere in your ${PATH}, make it executable, and
   change the invocation of iceweasel to any other HTML viewer if
