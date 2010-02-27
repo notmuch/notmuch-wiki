@@ -1,0 +1,18 @@
+# Initial Tagging
+
+This page collects scripts and strategies for organizing mail using
+notmuch and doing automated initial tagging.
+
+* [This
+  email](http://notmuchmail.org/pipermail/notmuch/2010/001691.html)
+  (and related thread) details Carl Worth's approach to tagging. It is
+  email id:87r5o8stbj.fsf@yoom.home.cworth.org in the notmuch mailing
+  list archives.
+
+
+* [This
+  email](http://notmuchmail.org/pipermail/notmuch/2010/001690.html)
+  (and related thread) details one user's setup, which includes using
+  the inbox tag as a "new mail" flag. It is email
+  id:87hbp5j9dv.fsf@hackervisions.org in the notmuch mailing list
+  archives.
