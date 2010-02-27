@@ -42,6 +42,15 @@ would love a good library interface for fast, global search with
 support for arbitrary tags, then Notmuch also may be exactly what
 you've been looking for.
 
+## Documentation
+
+So far, there is notmuch documentation.  Eventually, the wiki will
+contain a reference for users.  This is what we have so far:
+
+* [[initialtagging|Initial Tagging]]
+
+Apart from the wiki, help is available via email.  Join the mailing
+list.  Read the archives.  Ask questions.
 
 ## Source code
 
