@@ -44,10 +44,11 @@ you've been looking for.
 
 ## Documentation
 
-So far, there is notmuch documentation.  Eventually, the wiki will
+So far, there is not much documentation.  Eventually, the wiki will
 contain a reference for users.  This is what we have so far:
 
 * [[initialtagging|Initial Tagging]]
+* [[emacstips|Emacs Tips]]
 
 Apart from the wiki, help is available via email.  Join the mailing
 list.  Read the archives.  Ask questions.
@@ -93,6 +94,7 @@ If you prefer real-time chat, there is often someone on the [#notmuch](irc://cha
 ## Emacs Tips and Tricks
 
 The best supported interface to notmuch is based on emacs and can be tweaked extensively. We have started to collect some tips and tricks [here](/emacstips).
+
 ### Website
 
 This wiki is maintained using [ikiwiki](http://ikiwiki.info). You can pull and
