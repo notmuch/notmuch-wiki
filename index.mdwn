@@ -47,8 +47,8 @@ you've been looking for.
 So far, there is not much documentation.  Eventually, the wiki will
 contain a reference for users.  This is what we have so far:
 
-* [[initialtagging|Initial Tagging]]
-* [[emacstips|Emacs Tips]]
+* [Initial Tagging](/initial_tagging)
+* [Emacstips](/emacstips)
 
 Apart from the wiki, help is available via email.  Join the mailing
 list.  Read the archives.  Ask questions.
