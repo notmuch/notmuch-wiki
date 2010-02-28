@@ -97,9 +97,6 @@ The best supported interface to notmuch is based on emacs and can be tweaked ext
 
 ### Website
 
-This wiki is maintained using [ikiwiki](http://ikiwiki.info). You can pull and
-push changes using the following URL (no authentication necessary):
-
-    git://notmuchmail.org/git/notmuch-wiki
-
-As the above is still broken, you will currently need to use [this](http://git.cworth.org/git/notmuch-wiki?a=commit;h=023952dcb7cbf5d4bd9c8ba2c79bac11d54af1d4), in order to change this site.
+This wiki is maintained using
+[ikiwiki](http://ikiwiki.info). Instructions on how to edit it can be
+found [here](/wikiwriteaccess).
