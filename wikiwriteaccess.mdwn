@@ -2,9 +2,8 @@
 
 This website is a wiki maintained using
 [ikiwiki](http://ikiwiki.info). You can pull and push changes using
-the following URL using
-[this](http://git.cworth.org/git/notmuch-wiki?a=commit;h=023952dcb7cbf5d4bd9c8ba2c79bac11d54af1d4)
-ssh key:
+the following URL and
+[this ssh key](http://git.cworth.org/git/notmuch-wiki?a=commit;h=023952dcb7cbf5d4bd9c8ba2c79bac11d54af1d4):
 
     git://notmuchmail.org/git/notmuch-wiki
 
@@ -15,10 +14,11 @@ a few lines to ~/.ssh/config:
     Host *.notmuchmail.org
         IdentityFile ~/.ssh/notmuch_wiki.key
 
-Checkout the branch with:
+Clone the wiki branch with:
 
     git clone git://notmuchmail.org/git/notmuch-wiki
 
 Push to the wiki with:
 
     git push anongit@git.notmuchmail.org:/git/notmuch-wiki
+
