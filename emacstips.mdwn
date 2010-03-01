@@ -49,9 +49,9 @@ If you want to use mail address autocompletion, check out [bbdb](http://bbdb.sou
 Type your message and send it off with ctrl-c ctrl-c. By default message mode will use your /usr/sbin/sendmail command to send a mail, so make sure that works.
 One annoying standard configuration of message mode is that it will hide the sent mail in your emacs frame stack, but it will not close it. If you type several mails in an emacs session they will accumulate and make switching between buffers more annoying. You can avoid that behavior by adding `(setq message-kill-buffer-on-exit t)` in your .emacs file which will really close the mail window after sending it.
 
-Currently, there is a slight problem with copying the sent mail into your "outbox". While conventional MUAs will automatically copy your sent mail to a "Sent" folder, notmuch will never touch your mail store and your sent mails will not be searchable by default. When replying with 'r' notmuch will insert a BCC header to yourself, but when sending a mail with 'm' or 'ctrl-x m', it will not (and can not as ctrl-x m does not involve notmuch at all). Please see the specific advice on "[how to do FCC/BCC](fcc)" for more details on how to set up notmuch to obey your preferences.
+Currently, there is a slight problem with copying the sent mail into your "outbox". While conventional MUAs will automatically copy your sent mail to a "Sent" folder, notmuch will never touch your mail store and your sent mails will not be searchable by default. When replying with 'r' notmuch will insert a BCC header to yourself, but when sending a mail with 'm' or 'ctrl-x m', it will not (and can not as ctrl-x m does not involve notmuch at all). Please see the specific advice on "[how to do FCC/BCC](#fcc)" for more details on how to set up notmuch to obey your preferences.
 
-===3rd party application
+###3rd party application
 
 As its name implies, notmuch isn't really doing that much (which is part of its appeal to many of us). However, it enables a whole ecosystem of surrounding scripts to work in conjunction with notmuch
 
