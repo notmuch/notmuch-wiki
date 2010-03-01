@@ -22,3 +22,5 @@ Push to the wiki with:
 
     git push anongit@git.notmuchmail.org:/git/notmuch-wiki
 
+
+The syntax used on the pages is [markdown](http://daringfireball.net/projects/markdown/syntax). In order to preview your modifications you can copy and paste the page in this [online preview](http://daringfireball.net/projects/markdown/dingus).
