@@ -1,6 +1,43 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 #Tips and Tricks for using notmuch with Emacs
 
+The main client based on notmuch is notmuch.el, which is included in the notmuch package. It is might, and allows you to configure a lot of things, however, it might not be immediately obvious how, and how the general workflow generally looks like. This first section will describe a typical workflow and setup, while the section [Advanced tips and tweaks] below, focuses on more specific questions.
+
+##Typical setup and workflow
+
+notmuch requires either a MailDir or a "mh" -style maildirectory to operate on (It basically simply requires that each mail is in a file of it's own). Most people therefore use "[offlineimap](http://software.complete.org/software/projects/show/offlineimap)" or "mbsync" in order to synchronize their IMAP or pop mail server with a local mail store. offlineimap is quite useful and widely tested, it also offers a handy hook that will come in useful a bit later in our setup. So go install and configure offlineimap so you can simply run offlineimap and have an updated maildir. In the [Account xxx] section of your .offineimaprc file your can specify a "presynchook" and "postsynchook" command that will get run whenever you sync. Point postsynchook to a script that gets run on every sync and that will do the automatic tagging and updating of your notmuch database.
+
+The script will look somewhat like this:
+
+    #/bin/sh
+    # incorporate all new mails in the database
+    notmuch new
+    #apply some automatic tags
+    notmuch tag +notmuch from:notmuch@notmuchmail.org and not tag:notmuch
+    ...more tag rules...
+
+One advanced setup with automatic tagging has been described by James Vasile here (id: _87hbp5j9dv.fsf@hackervisions.org_). Carl Worth has described his script in this mail (id: _87r5o8stbj.fsf@yoom.home.cworth.org_). See more on message ids below.
+
+-----
+
+__A note on message ids__: Confused by those message ids? Get used to it because they are an importance part of the notmuch workflow. Every send message has a unique message id, just like a website has a unique url. On the notmuch mailing list people will throw around message ids and expect people to just find the right mails, as this is what notmuch makes easy. In order to find a specific message, hit 's' for search and type: "id:messageidhere". If you incorporated the notmuch mail archive, you can e.g. try to find id:87r5o8stbj.fsf@yoom.home.cworth.org. Don't have the notmuch archive back to Feb 25, 2010? Fortunately gmane (and probably others allow to search for message id in their archives as well. You'll find this message under [http://mid.gmane.org/87r5o8stbj.fsf@yoom.home.cworth.org] (incidentally, this server seems to be down right now).
+
+-----
+
+OK, messages are in your maildir and they have the tags you want them to have (of course you will be assigning more tags manually as you parse through your mail.). Now, on to actually using notmuch in emacs. If you added the correct bits to your .emacs file you will be able to start notmuch by typing "M-x notmuch" (or M-x notmuch-folder). If you want to start notmuch immediately when starting emacs you can also call emacs as "emacs -f notmuch" (and create a handy shortcut on your desktop for that).
+
+notmuch (the search view) and notmuch-folder are the 2 main views that can be used to navigate through your mail.
+[TODO: to be continued...]
+
+###Sending mail
+Notmuch itself does not provide any facilities for sending mail. Fortunately, emacs comes with "message mode" which offers that functionality. This also means that there are various methods to invoke the mail sending command. One possibility is to use "CTRL-x m" which will invoke a new "message mail" window. The second possibility is to type 'm' when you are in a notmuch window. And finally, when looking at a message or thread in notmuch you can type 'r' to start a reply.
+
+If you want to use mail address autocompletion, check out [bbdb](http://bbdb.sourceforge.net) which works nicely together with message mode.
+
+Type your message and send it off with ctrl-c ctrl-c. By default message mode will use your /usr/sbin/sendmail command to send a mail, so make sure that works.
+One annoying standard configuration of message mode is that it will hide the sent mail in your emacs frame stack, but it will not close it. If you type several mails in an emacs session they will accumulate and make switching between buffers more annoying. You can avoid that behavior by adding `(setq message-kill-buffer-on-exit t)` in your .emacs file which will really close the mail window after sending it.
+
+##Advanced tips and tweaks
 * How to do FCC/BCC...
 
   Any notmuch reply will automatically include your primary email
