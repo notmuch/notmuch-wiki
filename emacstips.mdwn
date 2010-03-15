@@ -124,6 +124,33 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   already running, it seems to shut down when the script exits. I
   don't know why."
 
+* msmtp, message mode and multiple accounts
+
+  As an alternative to running a mail server such as sendmail or
+  postfix just to send email, it is possible to use
+  [msmtp](http://msmtp.sourceforge.net/).  This small application will
+  look like /usr/bin/sendmail to a MUA such as emacs message mode, but
+  will just forward the email to an external SMTP server.  It's fairly
+  easy to set up and it support several account for using different
+  SMTP servers.  A typical scenario is that you want to use the
+  company SMTP server for email coming from your company email
+  address, and your personal server for personal email.  If msmtp is
+  passed the envelope address on the command line (the , it will
+  automatically pick the matching account.  The only trick here seems
+  to be getting emacs to actually pass the envelope from.  There are a
+  number of overlapping configuration variables that control this, and
+  it's a little confusion, but setting these three works for me:
+
+   - mail-specify-envelope-from: t
+
+   - message-sendmail-envelope-from: header
+
+   - mail-envelope-from: header
+
+  With that in place, you need a .msmtprc with the accounts configured
+  for the domains you want to send out using specific SMTP servers and
+  the rest will go to the default account.
+
 * <span id="sync_maildir_flags">how to sync notmuch tags and maildir flags]</span>
 
   __[TODO: This is a wiki. write me!]__
