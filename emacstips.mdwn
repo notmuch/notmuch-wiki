@@ -73,7 +73,7 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   not replies. So we need to get sane message-mode FCC figured
   out. Some investigation is still needed here.
 
-* * <span id="customize_notmuch_folder">How to customize notmuch-folders</span>
+* <span id="customize_notmuch_folder">How to customize notmuch-folders</span>
 
   There's a "notmuch-folder" command available in the emacs client
   that displays a list of "folders" and the number of messages in
