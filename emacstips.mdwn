@@ -88,6 +88,11 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   Of course, you can have any number of folders, each configured
   with any supported search terms (see "notmuch help search-terms").
 
+  Personally, I find it fairly useful to add "not tag:delete" to those
+  views as I use that tag to mark messages as deleted and it
+  automatically removes them from my standard views. Use whatever
+  seems most useful to you.
+
 * Viewing HTML messages with an external viewer
 
   The emacs client can often display an HTML message inline, but it
