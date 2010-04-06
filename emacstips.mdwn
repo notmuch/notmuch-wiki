@@ -153,7 +153,20 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   for the domains you want to send out using specific SMTP servers and
   the rest will go to the default account.
 
-* <span id="sync_maildir_flags">how to sync notmuch tags and maildir flags]</span>
+* <span id="sync_maildir_flags">how to sync notmuch tags and maildir
+  flags]</span>
 
-  __[TODO: This is a wiki. write me!]__
-  [mention patches that exist to honor maildir tags and notmuchsync.]
+  There is no built-in support for sunchronizing your notmuch tags
+  with your imap maildir flags (seen, replied, trashed, etc). However
+  there are currently 2 ways in which you can achieve
+  synchronization. In order to sync new notmuch tags to maildir flags,
+  there is a python tool called
+  [notmuchsync](http://spaetz.github.com/notmuchsync/) that allows
+  synchronization in either direction or pruning of deleted files.  
+
+  The second solution allows for fast maildir flag to notmuch tag
+  synchronization (and only in that direction) requires patching the
+  notmuch source code. The patch has been posted in this mail
+  *id:1267450136-31749-1-git-send-email-Sebastian@SSpaeth.de* and can
+  be viewed as a [source diff in this git
+  repository](http://github.com/spaetz/notmuch-all-feature/commit/df3b087cefb85e9d16fd17540e348bcb854dd7ee).
