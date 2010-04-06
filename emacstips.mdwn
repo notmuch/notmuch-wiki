@@ -57,6 +57,7 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
 
 * [notmuchsync](http://spaetz.github.com/notmuchsync/)
   notmuchsync is a python tool that allows
+* [cnotmuch](http://pypi.python/pypi/cnotmuch) python bindings for the notmuch shared library. Extensive API documentation available.
 * gitmuch?
 * ...
 
