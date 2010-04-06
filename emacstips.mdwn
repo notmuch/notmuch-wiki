@@ -56,8 +56,9 @@ Currently, there is a slight problem with copying the sent mail into your "outbo
 As its name implies, notmuch isn't really doing that much (which is part of its appeal to many of us). However, it enables a whole ecosystem of surrounding scripts to work in conjunction with notmuch
 
 * [notmuchsync](http://spaetz.github.com/notmuchsync/)
-  notmuchsync is a python tool that allows
-* [cnotmuch](http://pypi.python/pypi/cnotmuch) python bindings for the notmuch shared library. Extensive API documentation available.
+  notmuchsync is a python tool that allows synchronization of maildir flags to/from notmuch tags.
+* [cnotmuch](http://pypi.python.org/pypi/cnotmuch) python bindings for the notmuch shared library. Extensive API documentation available.
+* [addrlookup](http://github.com/spaetz/vala-notmuch) vala spplication that can be used for interactive email address completion.
 * gitmuch?
 * ...
 
