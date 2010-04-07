@@ -78,18 +78,18 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   python script (which should be rewritten in lisp and integrated into
   the notmuch frontend, really, but is not difficult to setup.
 
-  This is the code, I needed in my .emacs file to make it work with
+  This is the code I needed in my .emacs file to make it work with
   the python wrapper that I called mddeliver.py:
 
-     ;; fcc handler
-     (defun maildir-deliver-region(destdir)
-       (shell-command-on-region
-         (point-min) (point-max)
-         (concat "/usr/local/bin/mddeliver.py -c -s -d " destdir)))
-     (setq message-fcc-handler-function 'maildir-deliver-region)
-     (defun my-message-header-setup ()
-       (message-add-header "Fcc: ~/mail/INBOX.Sent"))
-     (add-hook 'message-send-hook 'my-message-header-setup)
+          ;; fcc handler
+          (defun maildir-deliver-region(destdir)
+            (shell-command-on-region
+              (point-min) (point-max)
+              (concat "/usr/local/bin/mddeliver.py -c -s -d " destdir)))
+          (setq message-fcc-handler-function 'maildir-deliver-region)
+          (defun my-message-header-setup ()
+            (message-add-header "Fcc: ~/mail/INBOX.Sent"))
+          (add-hook 'message-send-hook 'my-message-header-setup)
 
 * <span id="customize_notmuch_folder">How to customize notmuch-folders</span>
 
@@ -201,4 +201,9 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
 
   - you need the addrlookup binary, first of all. Grab http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c and build it with *cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch*. That should give you the binary that you can test already.
 
-  - EUDC is integrated into emacs and can be used for tab completion of email addresses. The code I use is here http://gist.github.com/359425. It was announce in this mail (id:87fx3uflkx.fsf@jhu.edu) which contains links to the git repositories which contain the files.
+  - EUDC is integrated into emacs and can be used for tab completion
+    of email addresses. The code I use is here
+    http://gist.github.com/359425. It was announce in [this
+    mail](http://mid.gmane.org/87fx3uflkx.fsf@jhu.edu)
+    (id:87fx3uflkx.fsf@jhu.edu) which contains links to the git
+    repositories which contain the files.
