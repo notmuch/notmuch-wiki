@@ -78,6 +78,19 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   python script (which should be rewritten in lisp and integrated into
   the notmuch frontend, really, but is not difficult to setup.
 
+  This is the code, I needed in my .emacs file to make it work with
+  the python wrapper that I called mddeliver.py:
+
+     ;; fcc handler
+     (defun maildir-deliver-region(destdir)
+       (shell-command-on-region
+         (point-min) (point-max)
+         (concat "/usr/local/bin/mddeliver.py -c -s -d " destdir)))
+     (setq message-fcc-handler-function 'maildir-deliver-region)
+     (defun my-message-header-setup ()
+       (message-add-header "Fcc: ~/mail/INBOX.Sent"))
+     (add-hook 'message-send-hook 'my-message-header-setup)
+
 * <span id="customize_notmuch_folder">How to customize notmuch-folders</span>
 
   There's a "notmuch-folder" command available in the emacs client
