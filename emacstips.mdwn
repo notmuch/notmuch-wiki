@@ -76,7 +76,10 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   mail](http://mid.gmane.org/878wbj4nfq.fsf@servo.finestructure.net)
   (id:878wbj4nfq.fsf@servo.finestructure.net). It involves a trivial
   python script (which should be rewritten in lisp and integrated into
-  the notmuch frontend, really, but is not difficult to setup.
+  the notmuch frontend, really) but is not difficult to setup. It will
+  deliver your sent mail directly to the "sent" folder of you local
+  maildir repository (and thus be synchronized via offlineimap with
+  your imap server).
 
   This is the code I needed in my .emacs file to make it work with
   the python wrapper that I called mddeliver.py:
@@ -91,7 +94,7 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
             (message-add-header "Fcc: ~/mail/INBOX.Sent"))
           (add-hook 'message-send-hook 'my-message-header-setup)
 
-* <span id="customize_notmuch_folder">How to customize notmuch-folders</span>
+* <span id="customize_notmuch_folder">**How to customize notmuch-folders**</span>
 
   There's a "notmuch-folder" command available in the emacs client
   that displays a list of "folders" and the number of messages in
@@ -111,7 +114,7 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   automatically removes them from my standard views. Use whatever
   seems most useful to you.
 
-* Viewing HTML messages with an external viewer
+* **Viewing HTML messages with an external viewer**
 
   The emacs client can often display an HTML message inline, but it
   sometimes fails for one reason or another, (or is perhaps inadequate
@@ -147,7 +150,7 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   already running, it seems to shut down when the script exits. I
   don't know why."
 
-* msmtp, message mode and multiple accounts
+* **msmtp, message mode and multiple accounts**
 
   As an alternative to running a mail server such as sendmail or
   postfix just to send email, it is possible to use
@@ -176,8 +179,8 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   for the domains you want to send out using specific SMTP servers and
   the rest will go to the default account.
 
-* <span id="sync_maildir_flags">how to sync notmuch tags and maildir
-  flags</span>
+* <span id="sync_maildir_flags">**how to sync notmuch tags and maildir
+  flags**</span>
 
   There is no built-in support for sunchronizing your notmuch tags
   with your imap maildir flags (seen, replied, trashed, etc). However
@@ -200,14 +203,14 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   Alternatively, you use the notmuch database as a mail address book
   itself. You need a command line tool that outputs likely address
   candidates based on a search string. There is a python tool
-  [notmuch_address.py](which can be fetched with `git clone
+  notmuch_address.py (which can be fetched with `git clone
   http://jkr.acm.jhu.edu/git/notmuch_addresses.git`) (slower, but no
   compilation required so good for testing the setup) or the
   vala-based addrlookup (faster, but needs compiling).  This is how
   you compile the (3rd party) tool "addrlookup" to give you address
   completion:
 
-  - you need the addrlookup binary, first of all. Grab http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c and build it with *cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch*. That should give you the binary that you can test already.
+  - you need the addrlookup binary, first of all. Grab http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c and build it with `cc -o addrlookup addrlookup.c ``pkg-config --cflags --libs gobject-2.0`` -lnotmuch`. That should give you the binary that you can test already.
 
   - EUDC is integrated into emacs and can be used for tab completion
     of email addresses. The code I use is here
@@ -220,9 +223,10 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
 
   Sometimes it is good to let the world know which email client you use, so others know which quirks to expect. And it is no shame to let others know that you are way ahead of mail2.0. Notmuch is mail3.0 (at least)!
 
-  [This mail](http://mid.gmane.org/87y6gtnkch.fsf@SSpaeth.de) (id:87y6gtnkch.fsf@SSpaeth.de) posted some code, that -when inserted in your .emacs file- will add a User-Agent header (which is hidden during composing and in notmuch show, but which can be seen when viewing all headers of a mail):
+  [This mail](http://mid.gmane.org/87y6gtnkch.fsf@SSpaeth.de) (id:87y6gtnkch.fsf@SSpaeth.de) posted the below code, that -when inserted in your .emacs file- will add a User-Agent header (which is hidden during composing and in notmuch show, but which can be seen when viewing all headers of a mail). The header will looke like this:
+  `User-Agent: notmuch version 0.1-92-g3893a9a (Emacs 23.1.1/x86_64-pc-linux-gnu)`
 
-          If you insert this slab of code, you will get a User-Agent header for notmuch 
+
                   ;; set the User-Agent string whenever we invoke message mode
                   (add-hook 'message-mode-hook '(lambda()
                       ;; check if User-Agent is a required header and set it if not
