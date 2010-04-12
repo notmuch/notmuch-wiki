@@ -222,21 +222,21 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
 
   [This mail](http://mid.gmane.org/87y6gtnkch.fsf@SSpaeth.de) (id:87y6gtnkch.fsf@SSpaeth.de) posted some code, that -when inserted in your .emacs file- will add a User-Agent header (which is hidden during composing and in notmuch show, but which can be seen when viewing all headers of a mail):
 
-  If you insert this slab of code, you will get a User-Agent header for notmuch 
-          ;; set the User-Agent string whenever we invoke message mode
-          (add-hook 'message-mode-hook '(lambda()
-              ;; check if User-Agent is a required header and set it if not
-              (if (not (memq 'User-Agent message-required-mail-headers))
-                  (setq message-required-mail-headers 
-                        (append message-required-mail-headers '(User-Agent))))
-              ;; hide the User-Agent header if not already hidden
-              (if (not (memq '"^User-Agent:" message-hidden-headers))
-                  (setq message-hidden-headers 
-                        (append message-hidden-headers '("^User-Agent:"))))
-              ;; create user agent string
-              (let ((notmuch-user-agent (concat 
-                                         (substring (shell-command-to-string (concat notmuch-command " --version")) 0 -1)
-                                         " (Emacs " emacs-version "/"
-                                          system-configuration ")")))
-                (setq message-newsreader notmuch-user-agent))
-          ))
+          If you insert this slab of code, you will get a User-Agent header for notmuch 
+                  ;; set the User-Agent string whenever we invoke message mode
+                  (add-hook 'message-mode-hook '(lambda()
+                      ;; check if User-Agent is a required header and set it if not
+                      (if (not (memq 'User-Agent message-required-mail-headers))
+                          (setq message-required-mail-headers 
+                                (append message-required-mail-headers '(User-Agent))))
+                      ;; hide the User-Agent header if not already hidden
+                      (if (not (memq '"^User-Agent:" message-hidden-headers))
+                          (setq message-hidden-headers 
+                                (append message-hidden-headers '("^User-Agent:"))))
+                      ;; create user agent string
+                      (let ((notmuch-user-agent (concat 
+                                                 (substring (shell-command-to-string (concat notmuch-command " --version")) 0 -1)
+                                                 " (Emacs " emacs-version "/"
+                                                  system-configuration ")")))
+                        (setq message-newsreader notmuch-user-agent))
+                  ))
