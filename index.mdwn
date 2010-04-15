@@ -91,6 +91,11 @@ The mb2md utility can be used to convert the archives to maildir format which is
 
 If you prefer real-time chat, there is often someone on the [#notmuch](irc://chat.freenode.net/#notmuch)@irc.freenode.net IRC channel.
 
+## Feature ideas - bin list
+
+We have started a <a href="http://notmuchmail.org/feature-requests/">feature requests</a> page on this wiki. 
+No, things you add there won't automatically get implemented - but it's a nice way to collect ideas.
+
 ## Emacs Tips and Tricks
 
 The best supported interface to notmuch is based on emacs and can be tweaked extensively. We have started to collect some tips and tricks [here](/emacstips).
