@@ -3,12 +3,12 @@
 
 ## Emacs client
 
-+ Add 'd' keybinding
+; Add 'd' keybinding : 
 Removes unread and inbox tags, adds deleted tag. 
 When used from a search results view, it deletes the thread that the cursor is on
 When used from the thread view, it deletes the currently displayed message inside the thread
 
-+ add 'D' keybinding
+; add 'D' keybinding :
 Removes unread and inbox tags, adds deleted tag. 
 When used from a search results view, it deletes the thread that the cursor is on (just like 'd')
 When used from the thread view, it deletes the currently displayed thread (and not just the message)
@@ -16,20 +16,21 @@ When used from the thread view, it deletes the currently displayed thread (and n
 
 ## notmuch 
 
-+ Add folder keyword
+; Add folder keyword :
 Allows to search for messages in a specific folder
 
-+ Allow anchors in searches
+; Allow anchors in searches :
 notmuch search from:domain.org$ only matches if "domain.org" is at the end of the From: header
 notmuch search from:^username only matches if "username" is at the beginning of the From: header (right after the ':')
 This leaves the interesting question if we want a way to bind to the actual address component.
 
-+ Add Received: header to the indexed header components
+; Add Received header to the indexed header components :
+allows for searches based on the arrival path of an email
 
 ## 3rd part apps
 
 ### notmuchsync
 
-+ Add feature to move files in the maildir hierarchy
+; Add feature to move files in the maildir hierarchy :
 notmuchsync --move "searchstring" "targetfolder"
 Where searchstring is any valid notmuch search
