@@ -3,37 +3,37 @@
 
 ## Emacs client
 
-+ Add 'd' keybinding
-Removes unread and inbox tags, adds deleted tag. 
-When used from a search results view, it deletes the thread that the cursor is on
++ Add 'd' keybinding<br>
+Removes unread and inbox tags, adds deleted tag.<br>
+When used from a search results view, it deletes the thread that the cursor is on<br>
 When used from the thread view, it deletes the currently displayed message inside the thread
 
-+ add 'D' keybinding
-Removes unread and inbox tags, adds deleted tag. 
-When used from a search results view, it deletes the thread that the cursor is on (just like 'd')
-When used from the thread view, it deletes the currently displayed thread (and not just the message)
++ add 'D' keybinding<br>
+Removes unread and inbox tags, adds deleted tag.<br>
+When used from a search results view, it deletes the thread that the cursor is on (just like 'd')<br>
+When used from the thread view, it deletes the currently displayed thread (and not just the message)<br>
 
-+ add '???' keybinding
-Skips current thread without archiving it
++ add '???' keybinding<br>
+Skips current thread without archiving it<br>
 Right now 'n' gets me to the end of a thread, but not to the beginning of the next thread. 'a' gets you to the next thread, but archives the current one.
 
 ## notmuch 
 
-+ Add folder keyword
++ Add folder keyword<br>
 Allows to search for messages in a specific folder
 
-+ Allow anchors in searches
-notmuch search from:domain.org$ only matches if "domain.org" is at the end of the From: header
-notmuch search from:^username only matches if "username" is at the beginning of the From: header (right after the ':')
++ Allow anchors in searches<br>
+notmuch search from:domain.org$ only matches if "domain.org" is at the end of the From: header<br>
+notmuch search from:^username only matches if "username" is at the beginning of the From: header (right after the ':')<br>
 This leaves the interesting question if we want a way to bind to the actual address component.
 
-+ Add Received: header to the indexed header components
++ Add Received: header to the indexed header components<br>
 allows for searches based on the arrival path
 
 ## 3rd part apps
 
 ### notmuchsync
 
-+ Add feature to move files in the maildir hierarchy
-notmuchsync --move "searchstring" "targetfolder"
++ Add feature to move files in the maildir hierarchy<br>
+notmuchsync --move "searchstring" "targetfolder"<br>
 Where searchstring is any valid notmuch search
