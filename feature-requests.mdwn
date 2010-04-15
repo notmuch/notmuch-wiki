@@ -13,6 +13,9 @@ Removes unread and inbox tags, adds deleted tag.
 When used from a search results view, it deletes the thread that the cursor is on (just like 'd')
 When used from the thread view, it deletes the currently displayed thread (and not just the message)
 
++ add '???' keybinding
+Skips current thread without archiving it
+Right now 'n' gets me to the end of a thread, but not to the beginning of the next thread. 'a' gets you to the next thread, but archives the current one.
 
 ## notmuch 
 
