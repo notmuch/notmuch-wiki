@@ -35,6 +35,7 @@
 
      This should allow us to override many of the default behaviors of emacs message mode without affecting people using message mode from gnus
      Things we'd might want to allow here include
+
 ++   select from address (with the configured email addresses as default choices to pick from)
 ++   set user-agent string
 
