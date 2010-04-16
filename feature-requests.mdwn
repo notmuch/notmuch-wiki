@@ -31,6 +31,18 @@
      beginning of the next thread. 'a' gets you to the next thread,
      but archives the current one.
 
++    add notmuch-message-mode
+
+     This should allow us to override many of the default behaviors of emacs message mode without affecting people using message mode from gnus
+     Things we'd might want to allow here include
+++   select from address (with the configured email addresses as default choices to pick from)
+++   set user-agent string
+
++    allow different "real names" for the optional email addresses
+
+     if only one name is configured, use that for all addresses;
+     if other_names are configured, match those with the other_email addresses
+
 ## notmuch 
 
 +    Add folder keyword
