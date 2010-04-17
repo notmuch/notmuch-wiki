@@ -65,6 +65,10 @@
 
      allows for searches based on the arrival path
 
++    Add Reply-To: header to the indexed header components
+
+     allows for searches based on the return address
+
 ## 3rd party apps
 
 ### notmuchsync
