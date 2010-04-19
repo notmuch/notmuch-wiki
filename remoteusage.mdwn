@@ -67,6 +67,12 @@ be necessary in the furture.
 	
 Save this to a file, "remote-notmuch.sh", in your path.
 
+Now you can run "remote-notmuch.sh new". You can call the script
+anything you like. If you don't have a notmuch instance on your client
+computer, you can even call it "notmuch" and have totally transparent
+usage. (Since I run "new" from an emacs keybinding, I've never
+bothered with this renaming.)
+
 ##Configure your emacs client##
 
 Add the following to your .emacs (this is on your client machine):
@@ -90,6 +96,28 @@ The purpose of these lines is to allow emacs to have access to the raw
 files, via TRAMP, so that it can extract attachments and parse
 HTML. Work is afoot to make notmuch handle these tasks itself, so this
 part should soon be unecessary.
+
+##A tip to speed things up##
+If you have openssh >= 0.4, you can make use of the "ControlMaster"
+feature. This allows you to reuse an existing connection. Therefore
+if you keep a connection open, you won't have to authenticate every
+time.
+
+Add the following to your ~/.ssh/config file:
+
+    Host server_name 
+    ControlMaster auto
+    ControlPath ~/.ssh/master0%r@%h:%p
+    
+You can also se the Host to "*", if you want to use it for all
+connections. I usually have an interactive ssh connection to my home
+computer open, so I don't need to do anything more. But if not, you
+can always run:
+
+    ssh -Nf server_name
+
+which will open up a background connection, which you can then reuse
+for all of your notmuch commands.
 
 ##Problems##
 Some things won't work perfectly, and there might be some unexpected
