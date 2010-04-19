@@ -107,7 +107,7 @@ Add the following to your ~/.ssh/config file:
 
     Host server_name 
     ControlMaster auto
-    ControlPath ~/.ssh/master0%r@%h:%p
+    ControlPath ~/.ssh/master-%r@%h:%p
     
 You can also se the Host to "*", if you want to use it for all
 connections. I usually have an interactive ssh connection to my home
