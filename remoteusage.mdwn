@@ -44,27 +44,27 @@ entries. This is currently necessary so that the emacs process-filter
 doesn't chop off messages. It's an obvious hack, and hopefully won't
 be necessary in the furture.
 
-	#!/usr/bin/env bash
-	
-	SSH_BIN="/path/to/ssh/on/client"
-	USER="user_name"
-	HOST="server_name"
-	NOTMUCH_REMOTE_BIN="/path/to/notmuch/on/server"
-	
-	if [ $1 = "search" ]; then
-	    COUNT=0;
-	    OUT=`$SSH_BIN $USER@$HOST $NOTMUCH_REMOTE_BIN $@`
-	    echo "$OUT" | while read line; do
-		COUNT=`expr $COUNT + 1`
-		echo "$line";
-		if [ $COUNT = 10 ]; then
-		    sleep 0.1;
-		fi
-	    done
-	else
-	    $SSH_BIN $USER@$HOST $NOTMUCH_REMOTE_BIN $@
-	fi
-	
+    #!/usr/bin/env bash
+    
+    SSH_BIN="/path/to/ssh/on/client"
+    USER="user_name"
+    HOST="server_name"
+    NOTMUCH_REMOTE_BIN="/path/to/notmuch/on/server"
+    
+    if [ $1 = "search" ]; then
+        COUNT=0;
+        OUT=`$SSH_BIN $USER@$HOST $NOTMUCH_REMOTE_BIN $@`
+        echo "$OUT" | while read line; do
+            COUNT=`expr $COUNT + 1`
+            echo "$line";
+            if [ $COUNT = 10 ]; then
+                sleep 0.1;
+            fi
+        done
+    else
+        $SSH_BIN $USER@$HOST $NOTMUCH_REMOTE_BIN $@
+    fi
+    	
 Save this to a file, "remote-notmuch.sh", in your path.
 
 Now you can run "remote-notmuch.sh new". You can call the script
