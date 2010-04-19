@@ -1,5 +1,7 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
-# Why Notmuch?
+# Notmuch -- The mail indexer
+
+## Why Notmuch?
 
 * "Not much mail" is what Notmuch thinks about your email
   collection. Even if you receive 12000 messages per month or have on
@@ -31,11 +33,10 @@
   here? Not much.  </ul>
 
 Notmuch is still in the early stages of development, but there are
-already three user interfaces available for it (one for emacs, one for
-vim, and another using curses for running within a terminal). If
-you've been looking for a fast, global-search and tag-based email
-reader to use within your text editor or in a terminal, then Notmuch
-may be exactly what you've been looking for.
+already two user interfaces available for it (one for emacs and one
+for vim). If you've been looking for a fast, global-search and
+tag-based email reader to use within your text editor or in a
+terminal, then Notmuch may be exactly what you've been looking for.
 
 Otherwise, if you're a developer of an existing email program and
 would love a good library interface for fast, global search with
