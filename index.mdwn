@@ -50,6 +50,7 @@ contain a reference for users.  This is what we have so far:
 
 * [Initial Tagging](/initial_tagging)
 * [Emacstips](/emacstips)
+* [Remote Usage](/remoteusage)
 
 Apart from the wiki, help is available via email.  Join the mailing
 list.  Read the archives.  Ask questions.
