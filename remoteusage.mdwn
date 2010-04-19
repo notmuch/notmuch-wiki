@@ -1,0 +1,111 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+#Using notmuch remotely#
+
+##Why?##
+It is hard to keep nomuch tags in sync across multiple instances of
+notmuch, on multiple computers. Though you can do this with "notmuch
+dump" and "notmuch restore", it is often preferable to be able to use
+notmuch on a remote computer as if it were present on a local
+computer.
+
+The following guidelines show how I have accomplished this. It isn't
+perfect, but it works pretty well, and allows me to access notmuch on
+my home computer, using only an emacs client on my netbook or work
+computer, a trivial shell script, a few settings in my .emacs, and
+ssh.
+
+Note that this is all something of a hack, and future versions of
+notmuch will likely make all of these steps much more
+transparent. I'll note particularly which things should become
+unneccessary with future version. At the moment though, this does
+work, and might enable some of you to use notmuch away from your
+primary computer.
+
+##What you will need##
+You will need to have the following items in place:
+
+1.  a working notmuch on one computer (let's call that computer
+"server"). The notmuch should be at least version 0.2.
+2.  a working notmuch emacs interface on another computer (let's call
+that computer "client")
+3.   password-free login (public key authentication) from client to
+server. [Here](http://sial.org/howto/openssh/publickey-auth/) is a
+good page on how to set it up.
+4.   a reasonably fast connection. (This isn't really *neccessary*, but
+if your connection is too slow, this won't be very pleasant to use,
+and certainly won't seem transparent.)
+
+##Write a simple wrapper shell script##
+Now we will need to write a simple shell script that replaces the
+call to the notmuch binary with a call to notmuch over ssh. 
+
+Note that this shell script also pauses briefly after every ten search
+entries. This is currently necessary so that the emacs process-filter
+doesn't chop off messages. It's an obvious hack, and hopefully won't
+be necessary in the furture.
+
+	#!/usr/bin/env bash
+	
+	SSH_BIN="/path/to/ssh/on/client"
+	USER="user_name"
+	HOST="server_name"
+	NOTMUCH_REMOTE_BIN="/path/to/notmuch/on/server"
+	
+	if [ $1 = "search" ]; then
+	    COUNT=0;
+	    OUT=`$SSH_BIN $USER@$HOST $NOTMUCH_REMOTE_BIN $@`
+	    echo "$OUT" | while read line; do
+		COUNT=`expr $COUNT + 1`
+		echo "$line";
+		if [ $COUNT = 10 ]; then
+		    sleep 0.1;
+		fi
+	    done
+	else
+	    $SSH_BIN $USER@$HOST $NOTMUCH_REMOTE_BIN $@
+	fi
+	
+Save this to a file, "remote-notmuch.sh", in your path.
+
+##Configure your emacs client##
+
+Add the following to your .emacs (this is on your client machine):
+
+    (setq notmuch-command "/path/to/your/remote-notmuch.sh")
+
+At least until 0.3 or 0.4, you will also need to add the following. It
+should become unnecessary pretty soon though:
+
+    (setq notmuch-remote-host "user_name@server_name")
+    
+    (defadvice notmuch-show-get-filename (around
+    				      notmuch-show-get-remote-filename
+    				      activate)
+      (setq ad-return-value (concat "/ssh:"
+    				notmuch-remote-host
+    				":"
+    				ad-do-it)))
+
+The purpose of these lines is to allow emacs to have access to the raw
+files, via TRAMP, so that it can extract attachments and parse
+HTML. Work is afoot to make notmuch handle these tasks itself, so this
+part should soon be unecessary.
+
+##Problems##
+Some things won't work perfectly, and there might be some unexpected
+mismatches between normal usage and this sort of usage. If you're
+using this approach and run into any problems, please feel free to
+list them here. And, of course, if you improve on any of these
+approaches, please do edit this page and let people know!
+				
+				
+
+ 
+
+
+    
+
+	
+
+
+
