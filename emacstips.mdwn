@@ -244,3 +244,20 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
                                                   system-configuration ")")))
                         (setq message-newsreader notmuch-user-agent))
                   ))
+
+
+* <span id="sign_messages_gpg">**how to sign/encrypt my messages with
+  gpg**</span>
+
+  You can manually sign your messages with gpg by
+  invoking `M-x mml-secure-sign-pgpmime` (or
+  `M-x mml-secure-encrypt-pgpmime`). To do so by default, I use this hook in
+  my .emacs file:
+
+                      ;;sign messages by default
+                      (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
+
+  This inserts the blurb `<#part sign=pgpmime>` into the beginning of
+  my mail text body and will be converted into a pgp signature when
+  sending (so I can just manually delete that line if I do not want a
+  mail to be signed).
