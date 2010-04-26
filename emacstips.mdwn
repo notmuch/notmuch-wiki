@@ -249,10 +249,12 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
 * <span id="sign_messages_gpg">**how to sign/encrypt my messages with
   gpg**</span>
 
-  You can manually sign your messages with gpg by
-  invoking `M-x mml-secure-sign-pgpmime` (or
-  `M-x mml-secure-encrypt-pgpmime`). To do so by default, I use this hook in
-  my .emacs file:
+  You can manually sign your messages with gpg by invoking `M-x
+  mml-secure-sign-pgpmime` (or `M-x
+  mml-secure-encrypt-pgpmime`). These functions are available via the
+  convenient (*cough cough*) keybindings `C-c C-m s p` and `C-c C-m c
+  p` by default. To sign my outgoing mail by default, I use this hook
+  in my .emacs file:
 
                       ;;sign messages by default
                       (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
