@@ -81,6 +81,8 @@ when submitting patches to notmuch. We are currently test-driving a [Patchwork
 instance](http://patchwork.notmuchmail.org/project/notmuch) to help us keep track
 of [the patches](http://patchwork.notmuchmail.org/project/notmuch/list).
 
+Source code of notmuch releases can be downloaded [here](http://notmuchmail.org/releases/).
+
 ## Contact: Email & IRC
 
 Comments? Please feel free to email the notmuch mailing list:
