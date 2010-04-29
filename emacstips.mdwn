@@ -44,11 +44,16 @@ __[TODO: describe common search strategies that notmuch users use]__
 ###Sending mail
 Notmuch itself does not provide any facilities for sending mail. Fortunately, emacs comes with "message mode" which offers that functionality. This also means that there are various methods to invoke the mail sending command. One possibility is to use "CTRL-x m" which will invoke a new "message mail" window. The second possibility is to type 'm' when you are in a notmuch window. And finally, when looking at a message or thread in notmuch you can type 'r' to start a reply.
 
-If you want to use mail address autocompletion, check out [bbdb](http://bbdb.sourceforge.net) which works nicely together with message mode.
+If you want to use mail address autocompletion, check out [bbdb](http://bbdb.sourceforge.net) which works nicely together with message mode. There are also possibilities to use notmuch itself as an address book, see "[how to get email address completion](#address_completion)" on how to set that up.
 
 Type your message and send it off with ctrl-c ctrl-c. By default message mode will use your /usr/sbin/sendmail command to send a mail, so make sure that works.
 One annoying standard configuration of message mode is that it will hide the sent mail in your emacs frame stack, but it will not close it. If you type several mails in an emacs session they will accumulate and make switching between buffers more annoying. You can avoid that behavior by adding `(setq message-kill-buffer-on-exit t)` in your .emacs file which will really close the mail window after sending it.
 
+#### Attaching files
+Using the `M-x mml-attach-file` command, you can attach any file to be send with your mail. By default this command is bound to <menu-bar> <Attachments> <Attach File...>, or the key binding `C-c RET f, C-c C-a`. For those of us who sometimes prefer graphics, you can also simply drag and drop files from a file
+manager into a mail composition window to have it attached. The variable `mml-dnd-attach-options` (M-x customize-variable<RET>`mml-dnd-attach-options`) can be set to allow the prompting for various attachment options (such as inline/attachement) if you want to do that. At least in Ubuntu it works by dragging from the file manager without any modifications.
+
+####FCC/BCC
 Currently, there is a slight problem with copying the sent mail into your "outbox". While conventional MUAs will automatically copy your sent mail to a "Sent" folder, notmuch will never touch your mail store and your sent mails will not be searchable by default. When replying with 'r' notmuch will insert a BCC header to yourself, but when sending a mail with 'm' or 'ctrl-x m', it will not (and can not as ctrl-x m does not involve notmuch at all). Please see the specific advice on "[how to do FCC/BCC](#fcc)" for more details on how to set up notmuch to obey your preferences.
 
 ###3rd party application
