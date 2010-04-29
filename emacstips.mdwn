@@ -77,27 +77,19 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   up in your mail store as well. But this doesn't do anything for
   messages that you compose that are not replies.
 
-  Another method is described in [this
-  mail](http://mid.gmane.org/878wbj4nfq.fsf@servo.finestructure.net)
-  (id:878wbj4nfq.fsf@servo.finestructure.net). It involves a trivial
-  python script (which should be rewritten in lisp and integrated into
-  the notmuch frontend, really) but is not difficult to setup. It will
-  deliver your sent mail directly to the "sent" folder of you local
-  maildir repository (and thus be synchronized via offlineimap with
-  your imap server).
-
-  This is the code I needed in my .emacs file to make it work with
-  the python wrapper that I called mddeliver.py:
-
-          ;; fcc handler
-          (defun maildir-deliver-region(destdir)
-            (shell-command-on-region
-              (point-min) (point-max)
-              (concat "/usr/local/bin/mddeliver.py -c -s -d " destdir)))
-          (setq message-fcc-handler-function 'maildir-deliver-region)
-          (defun my-message-header-setup ()
-            (message-add-header "Fcc: ~/mail/INBOX.Sent"))
-          (add-hook 'message-send-hook 'my-message-header-setup)
+  Another method is to save the file in a folder of your local
+  Maildir, usually called FCC (file carbon copy). You can achieve this
+  by setting the variables `message-directory` (which defines a base
+  directory) and `notmuch-fcc-dirs` which defines the subdirectory
+  relative to message-directory in which to save the mail. Enter a
+  directory (without the maildir /cur ending which will be appended
+  automatically). To customize both variables at the same time, use
+  the fancy command `M-x customize` `M-x
+  customize-apropos<RET>\(notmuch-fcc-dirs\)\|\(message-directory\)`.
+  This method will even allow you to select different outboxes
+  depending on your selected from address, if you need that
+  functionality. Please see the documentation on the variable in the
+  customization window for how to do so.
 
 * <span id="customize_notmuch_folder">**How to customize notmuch-folders**</span>
 
