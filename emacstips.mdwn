@@ -218,33 +218,6 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
     (id:87fx3uflkx.fsf@jhu.edu) which contains links to the git
     repositories which contain the files.
 
-* <span id="insert_user_agent">**how to insert a user agent header**</span>
-
-  Sometimes it is good to let the world know which email client you use, so others know which quirks to expect. And it is no shame to let others know that you are way ahead of mail2.0. Notmuch is mail3.0 (at least)!
-
-  [This mail](http://mid.gmane.org/87y6gtnkch.fsf@SSpaeth.de) (id:87y6gtnkch.fsf@SSpaeth.de) posted the below code, that -when inserted in your .emacs file- will add a User-Agent header (which is hidden during composing and in notmuch show, but which can be seen when viewing all headers of a mail). The header will looke like this:
-  `User-Agent: notmuch version 0.1-92-g3893a9a (Emacs 23.1.1/x86_64-pc-linux-gnu)`
-
-
-		;; set the User-Agent string whenever we invoke message mode
-		(add-hook 'message-mode-hook '(lambda()
-		    ;; check if User-Agent is a required header and set it if not
-		    (if (not (memq 'User-Agent message-required-mail-headers))
-		        (setq message-required-mail-headers 
-		              (append message-required-mail-headers '(User-Agent))))
-		    ;; hide the User-Agent header if not already hidden
-		    (if (not (memq '"^User-Agent:" message-hidden-headers))
-		        (setq message-hidden-headers 
-		              (append message-hidden-headers '("^User-Agent:"))))
-		    ;; create user agent string
-		    (let ((notmuch-user-agent (concat 
-		                               (substring (shell-command-to-string (concat notmuch-command " --version")) 0 -1)
-		                               " (Emacs " emacs-version "/"
-		                                system-configuration ")")))
-		      (setq message-newsreader notmuch-user-agent))
-		))
-		
-
 * <span id="sign_messages_gpg">**how to sign/encrypt my messages with
   gpg**</span>
 
