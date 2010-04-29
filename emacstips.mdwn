@@ -84,8 +84,10 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   relative to message-directory in which to save the mail. Enter a
   directory (without the maildir /cur ending which will be appended
   automatically). To customize both variables at the same time, use
-  the fancy command `M-x
-  customize-apropos<RET>\(notmuch-fcc-dirs\)\|\(message-directory\)`.
+  the fancy command:
+
+		M-x customize-apropos<RET>\(notmuch-fcc-dirs\)\|\(message-directory\)
+
   This method will even allow you to select different outboxes
   depending on your selected from address, if you need that
   functionality. Please see the documentation on the variable in the
@@ -224,24 +226,24 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   `User-Agent: notmuch version 0.1-92-g3893a9a (Emacs 23.1.1/x86_64-pc-linux-gnu)`
 
 
-                  ;; set the User-Agent string whenever we invoke message mode
-                  (add-hook 'message-mode-hook '(lambda()
-                      ;; check if User-Agent is a required header and set it if not
-                      (if (not (memq 'User-Agent message-required-mail-headers))
-                          (setq message-required-mail-headers 
-                                (append message-required-mail-headers '(User-Agent))))
-                      ;; hide the User-Agent header if not already hidden
-                      (if (not (memq '"^User-Agent:" message-hidden-headers))
-                          (setq message-hidden-headers 
-                                (append message-hidden-headers '("^User-Agent:"))))
-                      ;; create user agent string
-                      (let ((notmuch-user-agent (concat 
-                                                 (substring (shell-command-to-string (concat notmuch-command " --version")) 0 -1)
-                                                 " (Emacs " emacs-version "/"
-                                                  system-configuration ")")))
-                        (setq message-newsreader notmuch-user-agent))
-                  ))
-
+		;; set the User-Agent string whenever we invoke message mode
+		(add-hook 'message-mode-hook '(lambda()
+		    ;; check if User-Agent is a required header and set it if not
+		    (if (not (memq 'User-Agent message-required-mail-headers))
+		        (setq message-required-mail-headers 
+		              (append message-required-mail-headers '(User-Agent))))
+		    ;; hide the User-Agent header if not already hidden
+		    (if (not (memq '"^User-Agent:" message-hidden-headers))
+		        (setq message-hidden-headers 
+		              (append message-hidden-headers '("^User-Agent:"))))
+		    ;; create user agent string
+		    (let ((notmuch-user-agent (concat 
+		                               (substring (shell-command-to-string (concat notmuch-command " --version")) 0 -1)
+		                               " (Emacs " emacs-version "/"
+		                                system-configuration ")")))
+		      (setq message-newsreader notmuch-user-agent))
+		))
+		
 
 * <span id="sign_messages_gpg">**how to sign/encrypt my messages with
   gpg**</span>
