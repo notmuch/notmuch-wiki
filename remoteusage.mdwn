@@ -39,7 +39,7 @@ and certainly won't seem transparent.)
 Now we will need to write a simple shell script that replaces the
 call to the notmuch binary with a call to notmuch over ssh. 
 
-Note that this shell script also pauses briefly after every ten search
+Note that this shell script also pauses briefly after every message
 entries. This is currently necessary so that the emacs process-filter
 doesn't chop off messages. It's an obvious hack, and hopefully won't
 be necessary in the furture.
@@ -52,14 +52,10 @@ be necessary in the furture.
     NOTMUCH_REMOTE_BIN="/path/to/notmuch/on/server"
     
     if [ $1 = "search" ]; then
-        COUNT=0;
         OUT=`$SSH_BIN $USER@$HOST $NOTMUCH_REMOTE_BIN $@`
         echo "$OUT" | while read line; do
-            COUNT=`expr $COUNT + 1`
             echo "$line";
-            if [ $COUNT = 10 ]; then
-                sleep 0.1;
-            fi
+            sleep 0.1;
         done
     else
         $SSH_BIN $USER@$HOST $NOTMUCH_REMOTE_BIN $@
