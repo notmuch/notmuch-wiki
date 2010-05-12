@@ -54,7 +54,7 @@ be necessary in the furture.
     USER="user_name"
     SSH_HOST="server_name"
     NOTMUCH_REMOTE_BIN="/path/to/notmuch/on/server"
-    CACHE=${HOME}/.notmuch-cache.d
+    CACHE="${HOME}/.notmuch-cache.d"
 
     notmuch_run ()
     {
