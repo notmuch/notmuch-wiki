@@ -120,9 +120,11 @@ message text.
 
     (defun notmuch-show-get-filename ()
       (let* ((orig-filename (notmuch-show-get-prop :filename))
-             (retvalue (shell-command-to-string (concat notmuch-command 
-                                                        " --get "
-                                                        orig-filename))))
+             (retvalue (progn 
+                         (message "Downloading... ")
+                         (shell-command-to-string (concat notmuch-command 
+                                                          " --get "
+                                                          orig-filename)))))
         (replace-regexp-in-string "\n" "" retvalue)))
 
 This will will use the "--get" option of the above
