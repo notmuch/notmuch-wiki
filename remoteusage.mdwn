@@ -62,7 +62,6 @@ be necessary in the furture.
 	    $SSH_BIN $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN $@ | while read line; do
                 sleep 0.1
                 echo "${line}"
-
     	    done
         else
     	    $SSH_BIN $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN $@
@@ -81,8 +80,8 @@ be necessary in the furture.
         scp ${SSH_HOST}:${1} "${FILE_DIR}" > /dev/null 2>&1
         retcode="${?}"
         if [ "${retcode}" -ne "0" ]; then
-    	echo "Failed to fetch file" 1>&2
-    	exit ${retcode}
+    	    echo "Failed to fetch file" 1>&2
+    	    exit ${retcode}
         fi
     }
     
