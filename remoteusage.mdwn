@@ -59,7 +59,7 @@ be necessary in the furture.
     notmuch_run ()
     {
         if [ $1 = "search" ]; then
-	    $SSH_BIN $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN $@ | while read line; do
+            $SSH_BIN $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN $@ | while read line; do
                 sleep 0.1
                 echo "${line}"
     	    done
