@@ -1,0 +1,13 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+#How to...
+
+##<span id="print_filenames">.. print only filenames of a search</span>
+
+Given you have the python bindings installed (or simply set your PYTHONPATH environment variable to point to the .../bindings/python directory), this script will print the filenames of a matching search:
+
+                                #!/usr/bin/env python
+                                import sys
+                                import notmuch
+                                
+                                q = notmuch.Database().create_query(" ".join(sys.argv[1:]))
+                                for m in q.search_messages(): print m.get_filename()
