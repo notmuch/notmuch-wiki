@@ -76,26 +76,26 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   Here's an example of how to add a key binding to notmuch-show-mode
   to toggle a "deleted" tag:
 
-      (define-key notmuch-show-mode-map "d"
-         (lambda ()
-            "toggle deleted tag for message"
-            (interactive)
-            (if (member "deleted" (notmuch-show-get-tags))
-                (notmuch-show-remove-tag "deleted")
-              (notmuch-show-add-tag "deleted"))))
+		(define-key notmuch-show-mode-map "d"
+		  (lambda ()
+		    "toggle deleted tag for message"
+		    (interactive)
+		    (if (member "deleted" (notmuch-show-get-tags))
+		        (notmuch-show-remove-tag "deleted")
+		      (notmuch-show-add-tag "deleted"))))
 
   You can do the same for threads in notmuch-search-mode by just
   replacing "show" with "search" in the called functions.  This
   definition makes use of a lambda function, but you could just as
   easily defined a separate function first:
 
-      (defun notmuch-show-toggle-deleted-tag()
-         "toggle deleted tag for message"
-         (interactive)
-         (if (member "deleted" (notmuch-show-get-tags))
-             (notmuch-show-remove-tag "deleted")
-           (notmuch-show-add-tag "deleted")))
-      (define-key notmuch-show-mode-map "d" 'notmuch-show-toggle-deleted-tag)
+		(defun notmuch-show-toggle-deleted-tag()
+		  "toggle deleted tag for message"
+		  (interactive)
+		  (if (member "deleted" (notmuch-show-get-tags))
+		      (notmuch-show-remove-tag "deleted")
+		    (notmuch-show-add-tag "deleted")))
+		(define-key notmuch-show-mode-map "d" 'notmuch-show-toggle-deleted-tag)
 
 * <span id="fcc">**How to do FCC/BCC...**</span>
 
@@ -113,7 +113,7 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   automatically). To customize both variables at the same time, use
   the fancy command:
 
-      M-x customize-apropos<RET>\(notmuch-fcc-dirs\)\|\(message-directory\)
+		M-x customize-apropos<RET>\(notmuch-fcc-dirs\)\|\(message-directory\)
 
   This method will even allow you to select different outboxes
   depending on your selected from address, if you need that
@@ -128,9 +128,9 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   configure this mode, edit your ${HOME}/.emacs file and include text
   something like the following:
 
-      (setq notmuch-folders '(("inbox" . "tag:inbox")
-                              ("unread" . "tag:inbox AND tag:unread")
-                              ("notmuch" . "tag:inbox AND to:notmuchmail.org")))
+		(setq notmuch-folders '(("inbox" . "tag:inbox")
+					("unread" . "tag:inbox AND tag:unread")
+					("notmuch" . "tag:inbox AND to:notmuchmail.org")))
 
   Of course, you can have any number of folders, each configured
   with any supported search terms (see "notmuch help search-terms").
