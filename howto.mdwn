@@ -1,7 +1,7 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 #How to...
 
-##<span id="print_filenames">.. print only filenames of a search</span>
+* <span id="print_filenames">.. print only filenames of a search</span>
 
 Given you have the python bindings installed (or simply set your PYTHONPATH environment variable to point to the .../bindings/python directory), this script will print the filenames of a matching search:
 
@@ -11,3 +11,27 @@ Given you have the python bindings installed (or simply set your PYTHONPATH envi
                                 
                                 q = notmuch.Database().create_query(" ".join(sys.argv[1:]))
                                 for m in q.search_messages(): print m.get_filename()
+
+* <span id="sync_maildir_flags">.. sync notmuch tags and maildir flags</span>
+
+  Some IMAP users rely on maildir flags that convey the status "seen",
+  "replied", "trashed", in order to synchronize the status of their
+  mail across mail clients (a [maildir
+  flag](http://cr.yp.to/proto/maildir.html) is simply a defined part
+  of their filename).  Notmuch will by default happily ignore those
+  flags and will never modify them either, as there is no built-in
+  support for sunchronizing your notmuch tags with your imap maildir
+  flags (seen, replied, trashed, etc). However there are currently 2
+  ways in which you can achieve synchronization.
+
+  [notmuchsync](http://spaetz.github.com/notmuchsync/) is a utility
+  that allows synchronization in either direction, as well as pruning
+  of deleted files.
+
+  The second solution allows for fast maildir flag to notmuch tag
+  synchronization (and only in that direction) requires patching the
+  notmuch source code. The patch has been posted in this mail
+  *id:1267450136-31749-1-git-send-email-Sebastian@SSpaeth.de* and can
+  be viewed as a [source diff in this git
+  repository](http://github.com/spaetz/notmuch-all-feature/commit/df3b087cefb85e9d16fd17540e348bcb854dd7ee).
+
