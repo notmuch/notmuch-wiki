@@ -220,27 +220,27 @@ works by dragging from the file manager without any modifications.
     itself.  To do this you need a command line tool that outputs
     likely address candidates based on a search string.   There are currently two available:
 
-    * The python tool notmuch_address.py ('git clone http://jkr.acm.jhu.edu/git/notmuch_addresses.git`)
-    (slower, but no compilation required so good for testing the
-    setup)
+    * The python tool notmuch_address.py ('git clone
+      http://jkr.acm.jhu.edu/git/notmuch_addresses.git`) (slower, but
+      no compilation required so good for testing the setup)
 
     * The vala-based
       [addrlookup](http://github.com/spaetz/vala-notmuch) (faster, but
       needs compiling).  This is how you compile the (3rd party) tool
       "addrlookup" to give you address completion:
 
-      - you need the addrlookup binary, first of all. Grab
+      * you need the addrlookup binary, first of all. Grab
         http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c
         and build it with `cc -o addrlookup addrlookup.c ``pkg-config
         --cflags --libs gobject-2.0`` -lnotmuch`. That should give you
         the binary that you can test already.
 
-    - EUDC is integrated into emacs and can be used for tab completion
-      of email addresses. The code I use is here
-      http://gist.github.com/359425. It was announce in [this
-      mail](http://mid.gmane.org/87fx3uflkx.fsf@jhu.edu)
-      (id:87fx3uflkx.fsf@jhu.edu) which contains links to the git
-      repositories which contain the files.
+      * EUDC is integrated into emacs and can be used for tab
+        completion of email addresses. The code I use is here
+        http://gist.github.com/359425. It was announce in [this
+        mail](http://mid.gmane.org/87fx3uflkx.fsf@jhu.edu)
+        (id:87fx3uflkx.fsf@jhu.edu) which contains links to the git
+        repositories which contain the files.
 
 * <span id="sign_messages_gpg">**how to sign/encrypt my messages with
   gpg**</span>
