@@ -48,6 +48,7 @@ you've been looking for.
 So far, there is not much documentation.  Eventually, the wiki will
 contain a reference for users.  This is what we have so far:
 
+* [General how-tos](/howto)
 * [Initial Tagging](/initial_tagging)
 * [Emacstips](/emacstips)
 * [Remote Usage](/remoteusage)
