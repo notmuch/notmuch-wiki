@@ -1,18 +1,25 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 #How to...
 
-* <span id="print_filenames">.. print only filenames of a search</span>
+Some tips about how to do some useful things with notmuch, and the
+various "third party" notmuch utilities.
 
-Given you have the python bindings installed (or simply set your PYTHONPATH environment variable to point to the .../bindings/python directory), this script will print the filenames of a matching search:
+* <span id="print_filenames">Print only filenames of a search</span>
 
-                                #!/usr/bin/env python
-                                import sys
-                                import notmuch
-                                
-                                q = notmuch.Database().create_query(" ".join(sys.argv[1:]))
-                                for m in q.search_messages(): print m.get_filename()
+  Given you have the python bindings installed (or simply set your
+  PYTHONPATH environment variable to point to the .../bindings/python
+  directory), this script will print the filenames of a matching
+  search:
 
-* <span id="sync_maildir_flags">.. sync notmuch tags and maildir flags</span>
+                             #!/usr/bin/env python
+                             import sys
+                             import notmuch
+                             search = " ".join(sys.argv[1:])
+                             q = notmuch.Database().create_query(search)
+                             for m in q.search_messages():
+                                 print m.get_filename()
+
+* <span id="sync_maildir_flags">Sync notmuch tags and maildir flags</span>
 
   Some IMAP users rely on maildir flags that convey the status "seen",
   "replied", "trashed", in order to synchronize the status of their
