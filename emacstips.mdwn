@@ -1,68 +1,74 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 #Tips and Tricks for using notmuch with Emacs
 
-The main client based on notmuch is notmuch.el, which is included in the notmuch package. It is might, and allows you to configure a lot of things, however, it might not be immediately obvious how, and how the general workflow generally looks like. This [first section](#typical_workflow) will describe a typical workflow and setup, while the section [Advanced tips and tweaks](#advanced_tips) below, focuses on more specific questions.
+The main Notmuch message reading client is **notmuch.el**, which is an
+[emacs](http://www.gnu.org/software/emacs/) major mode, and is
+included in the notmuch package.
 
-<h2 id="typical_workflow">Typical setup and workflow</h2>
+## Setup
 
-### Set up & receiving mails
+To use the Notmuch emacs mode, first add the following line to your
+.emacs rc file:
 
-Notmuch requires either a MailDir or a "mh"-style maildirectory to operate on. (It basically requires any setup in which each mail is in a file of it's own.) Most people use "[offlineimap](http://software.complete.org/software/projects/show/offlineimap)" or "[mbsync](http://isync.sourceforge.net/)" in order to synchronize their IMAP or pop mail server with a local mail store. offlineimap is quite useful and widely tested, it also offers a handy hook that will come in useful a bit later in our setup. 
+	(require 'notmuch)
 
-So go install and configure offlineimap so you can simply run offlineimap and have an updated maildir. In the [Account xxx] section of your .offineimaprc file your can specify a "presynchook" and "postsynchook" command that will get run whenever you sync. Point _postsynchook_ to a script that gets run on every sync and that will do the automatic tagging and updating of your notmuch database.
+Then, either run "emacs -f notmuch", or execute the command "M-x
+notmuch" from within a running emacs.
 
-The script will look somewhat like this:
+## Navigating & reading mails
 
->     #/bin/sh
->     # incorporate all new mails in the database
->     notmuch new > /dev/null
->     #apply some automatic tags
->     notmuch tag +notmuch from:notmuch@notmuchmail.org and not tag:notmuch
->     ...more tag rules...
+When first starting notmuch in emacs, you will be presented with the
+notmuch "hello" page.  From here you can do searches, see lists of
+recent searches, saved searches, message tags, help information, etc.
 
-If you don't need automatic tagging, just use "notmuch new > /dev/null" as your synchook. One advanced setup with automatic tagging has been described by James Vasile here (id: _87hbp5j9dv.fsf@hackervisions.org_). Carl Worth has described his script in this mail (id: _87r5o8stbj.fsf@yoom.home.cworth.org_) in the same thread.
+Executing a search will open a new buffer in notmuch-search-mode
+displaying the search results.  Each line in the search results
+represents a message thread.  Hitting the '?' key will show help for
+this mode.
 
-> __A note on message ids__: Confused by those message ids? Get used to them, because they are an importance part of the notmuch workflow. Every send message has a unique message id, just like a website has a unique url. On the notmuch mailing list people will throw around message ids and expect people to just find the right mails, as this is what notmuch makes easy. In order to find a specific message, hit 's' for search and type: "id:messageidhere". If you incorporated the notmuch mail archive, you can e.g. try to find id:87r5o8stbj.fsf@yoom.home.cworth.org. Don't have the notmuch archive back to Feb 25, 2010? Fortunately gmane (and probably others allow to search for message id in their archives as well. You'll find this message under [http://mid.gmane.org/87r5o8stbj.fsf@yoom.home.cworth.org](http://mid.gmane.org/87r5o8stbj.fsf@yoom.home.cworth.org) (incidentally, this server seems to be down right now).
+In general, the 'q' will kill the current notmuch buffer and return
+you to the previous buffer (sort of like a 'pop').
 
-### Navigating & reading mails
-OK, messages are now in your maildir and they have the tags you want them to have (of course you will be assigning more tags manually as you parse through your mail.). Now, on to actually using notmuch in emacs. If you added the correct bits to your .emacs file you will be able to start notmuch by typing "M-x notmuch" (or M-x notmuch-folder). If you want to start notmuch immediately when starting emacs you can also call emacs as "emacs -f notmuch" (and create a handy shortcut on your desktop for that).
+In search mode, navigating to a thread and hitting return will then
+open a new buffer in notmuch-show-mode, which will show the actual
+message contents of the thread.
 
-notmuch (the search view) and notmuch-folder are the 2 main views that can be used to navigate through your mail.
-The default notmuch "home" is a notmuch-search view with all all mail threads in which a message has been tagged as "inbox". Just navigate that page and read threads by hitting <RETURN> on one of them. This will open a notmuch thread view with all messages in this thread. Threads are a powerful construct in notmuch as a thread really represents a discussion around a single topic. In difference to other mail applications, you will often find very long threads in notmuch mail conversations, or people reviving very old threads with a reply.
+## Sending mail
 
-The second way of navigating notmuch mails, is by using the notmuch-folder view which you can invoke with `M-x notmuch-folder` (or using the F key if you applied the patch from mail id: 1265889583-25406-1-git-send-email-dme@dme.org (Feb 11st, 2010)). For information on how to customize your notmuch-folder views, see [here](#customize_notmuch_folder). This view provides you with "virtual folders" that allow you to browse all emails topic-by-topic. For example, if you want to browse all notmuch related mail every 10 minutes, but check out mails from your boss only once a day, this will be one convenient way to do it. It will also give you a nice overview of how many (unread) emails you have for each folder. Those folders are virtual in that a mail can easily be part of several folders at the same time and the folders will be updated on-the-fly every time you hit `=`.
+In any notmuch mode, you can start a new message by hitting the 'm'
+key.  To reply to a message or thread, just hit the 'r' key.
 
-Last but not least, you can always search for a specific mail. Notmuch provides very powerful search possibilities which allows you to find mail threads easily without having to file them away into umpteenth mail folders as you might have been doing in your Thunderbird, Mail.app, or Outlook.
+When composing new messages, you will be entered in emacs's
+"message-mode", which is a powerful mode for composing and sending
+messages.  When in message move, you can type "C-c ?" for help.
 
-### search strategies
-__[TODO, describe s, f, t keys and some exemplary searches]__.
-__[TODO: describe common search strategies that notmuch users use]__
+If you would like to use address autocompletion, see the [address
+completion howto](#address_completion)" below.
 
-###Sending mail
-Notmuch itself does not provide any facilities for sending mail. Fortunately, emacs comes with "message mode" which offers that functionality. This also means that there are various methods to invoke the mail sending command. One possibility is to use "CTRL-x m" which will invoke a new "message mail" window. The second possibility is to type 'm' when you are in a notmuch window. And finally, when looking at a message or thread in notmuch you can type 'r' to start a reply.
+When you are ready to send a message, type "C-c C-c".  By default
+message mode will use your sendmail command to send mail, so make sure
+that works.  One annoying standard configuration of message mode is
+that it will hide the sent mail in your emacs frame stack, but it will
+not close it. If you type several mails in an emacs session they will
+accumulate and make switching between buffers more annoying. You can
+avoid that behavior by adding `(setq message-kill-buffer-on-exit t)`
+in your .emacs file which will really close the mail window after
+sending it.
 
-If you want to use mail address autocompletion, check out [bbdb](http://bbdb.sourceforge.net) which works nicely together with message mode. There are also possibilities to use notmuch itself as an address book, see "[how to get email address completion](#address_completion)" on how to set that up.
+## Attaching files
 
-Type your message and send it off with ctrl-c ctrl-c. By default message mode will use your /usr/sbin/sendmail command to send a mail, so make sure that works.
-One annoying standard configuration of message mode is that it will hide the sent mail in your emacs frame stack, but it will not close it. If you type several mails in an emacs session they will accumulate and make switching between buffers more annoying. You can avoid that behavior by adding `(setq message-kill-buffer-on-exit t)` in your .emacs file which will really close the mail window after sending it.
+Using the `M-x mml-attach-file` command, you can attach any file to be
+send with your mail. By default this command is bound to the menu item
+`Attachments--Attach File` with the key binding `C-c C-a`.  The
+variable `mml-dnd-attach-options` (M-x
+customize-variable<RET>`mml-dnd-attach-options`) can be set to allow
+the prompting for various attachment options (such as
+inline/attachement) if you want to do that.
 
-#### Attaching files
-Using the `M-x mml-attach-file` command, you can attach any file to be send with your mail. By default this command is bound to the menu item `Attachments--Attach File`, or the key binding `CTRL-c CTRL-a`. For those who prefer graphics, you can also simply drag and drop files from a file
-manager into a mail composition window to have it attached. The variable `mml-dnd-attach-options` (M-x customize-variable<RET>`mml-dnd-attach-options`) can be set to allow the prompting for various attachment options (such as inline/attachement) if you want to do that. At least in Ubuntu it works by dragging from the file manager without any modifications.
-
-####FCC/BCC
-Currently, there is a slight problem with copying the sent mail into your "outbox". While conventional MUAs will automatically copy your sent mail to a "Sent" folder, notmuch will never touch your mail store and your sent mails will not be searchable by default. When replying with 'r' notmuch will insert a BCC header to yourself, but when sending a mail with 'm' or 'ctrl-x m', it will not (and can not as ctrl-x m does not involve notmuch at all). Please see the specific advice on "[how to do FCC/BCC](#fcc)" for more details on how to set up notmuch to obey your preferences.
-
-###3rd party application
-
-As its name implies, notmuch isn't really doing that much (which is part of its appeal to many of us). However, it enables a whole ecosystem of surrounding scripts to work in conjunction with notmuch
-
-* [notmuchsync](http://spaetz.github.com/notmuchsync/)
-  notmuchsync is a python tool that allows synchronization of maildir flags to/from notmuch tags.
-* [cnotmuch](http://pypi.python.org/pypi/cnotmuch) python bindings for the notmuch shared library. Extensive API documentation available.
-* [addrlookup](http://github.com/spaetz/vala-notmuch) vala spplication that can be used for interactive email address completion.
-* gitmuch?
-* ...
+For those who prefer graphics, you can also simply drag and drop files
+from a file manager into a mail composition window to have it attached
+(assuming you are using emacs with X support).  At least in Ubuntu it
+works by dragging from the file manager without any modifications.
 
 -----
 
@@ -203,26 +209,38 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
   the rest will go to the default account.
 
 * <span id="address_completion">**how to get email address completion**</span>
-  There are 2 solutions. Use "bbdb" which allows you to maintain a mail database and gives you mail address completion with the tab key.
 
-  Alternatively, you use the notmuch database as a mail address book
-  itself. You need a command line tool that outputs likely address
-  candidates based on a search string. There is a python tool
-  notmuch_address.py (which can be fetched with `git clone
-  http://jkr.acm.jhu.edu/git/notmuch_addresses.git`) (slower, but no
-  compilation required so good for testing the setup) or the
-  vala-based addrlookup (faster, but needs compiling).  This is how
-  you compile the (3rd party) tool "addrlookup" to give you address
-  completion:
+  There are currently two solutions to this:
 
-  - you need the addrlookup binary, first of all. Grab http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c and build it with `cc -o addrlookup addrlookup.c ``pkg-config --cflags --libs gobject-2.0`` -lnotmuch`. That should give you the binary that you can test already.
+  * [bbdb](http://bbdb.sourceforge.net) is a contact database for
+    emacs that works quite nicely together with message mode,
+    including address autocompletion.
 
-  - EUDC is integrated into emacs and can be used for tab completion
-    of email addresses. The code I use is here
-    http://gist.github.com/359425. It was announce in [this
-    mail](http://mid.gmane.org/87fx3uflkx.fsf@jhu.edu)
-    (id:87fx3uflkx.fsf@jhu.edu) which contains links to the git
-    repositories which contain the files.
+  * You can also use the notmuch database as a mail address book
+    itself.  To do this you need a command line tool that outputs
+    likely address candidates based on a search string.   There are currently two available:
+
+    * The python tool notmuch_address.py ('git clone http://jkr.acm.jhu.edu/git/notmuch_addresses.git`)
+    (slower, but no compilation required so good for testing the
+    setup)
+
+    * The vala-based
+      [addrlookup](http://github.com/spaetz/vala-notmuch) (faster, but
+      needs compiling).  This is how you compile the (3rd party) tool
+      "addrlookup" to give you address completion:
+
+      - you need the addrlookup binary, first of all. Grab
+        http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c
+        and build it with `cc -o addrlookup addrlookup.c ``pkg-config
+        --cflags --libs gobject-2.0`` -lnotmuch`. That should give you
+        the binary that you can test already.
+
+    - EUDC is integrated into emacs and can be used for tab completion
+      of email addresses. The code I use is here
+      http://gist.github.com/359425. It was announce in [this
+      mail](http://mid.gmane.org/87fx3uflkx.fsf@jhu.edu)
+      (id:87fx3uflkx.fsf@jhu.edu) which contains links to the git
+      repositories which contain the files.
 
 * <span id="sign_messages_gpg">**how to sign/encrypt my messages with
   gpg**</span>
