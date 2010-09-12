@@ -70,6 +70,33 @@ As its name implies, notmuch isn't really doing that much (which is part of its 
 -----
 
 <h2 id="advanced_tips">Advanced tips and tweaks</h2>
+
+* <span id="custom_keybinding">**Add a keybinding to add/remove/toggle a tag.**</span>
+
+  Here's an example of how to add a key binding to notmuch-show-mode
+  to toggle a "deleted" tag:
+
+		(define-key notmuch-show-mode-map "d"
+		  (lambda ()
+		    "toggle deleted tag for message"
+		    (interactive)
+		    (if (member "deleted" (notmuch-show-get-tags))
+		        (notmuch-show-remove-tag "deleted")
+		      (notmuch-show-add-tag "deleted"))))
+
+  You can do the same for threads in notmuch-search-mode by just
+  replacing "show" with "search" in the called functions.  This
+  definition makes use of a lambda function, but you could just as
+  easily defined a separate function first:
+
+		(defun notmuch-show-toggle-deleted-tag()
+		  "toggle deleted tag for message"
+		  (interactive)
+		  (if (member "deleted" (notmuch-show-get-tags))
+		      (notmuch-show-remove-tag "deleted")
+		    (notmuch-show-add-tag "deleted")))
+		(define-key notmuch-show-mode-map "d" 'notmuch-show-toggle-deleted-tag)
+
 * <span id="fcc">**How to do FCC/BCC...**</span>
 
   Any notmuch reply will automatically include your primary email
