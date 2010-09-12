@@ -4,7 +4,7 @@
 Some tips about how to do some useful things with notmuch, and the
 various "third party" notmuch utilities.
 
-* <span id="receive_mail">Receiving mail</span>
+* <span id="receive_mail">**Receive mail**</span>
 
   Notmuch requires either [maildir
   flag](http://cr.yp.to/proto/maildir.html) or a "mh"-style
@@ -28,7 +28,7 @@ various "third party" notmuch utilities.
 
 See the [initial tagging page](/initial_taggin) for more info on intial tagging of messages.
 
-* <span id="print_filenames">Print only filenames of a search</span>
+* <span id="print_filenames">**Print only filenames of a search (python bindings)**</span>
 
   Notmuch includes python bindings to the notmuch shared library,
   called [cnotmuch](http://pypi.python.org/pypi/cnotmuch).  Extensive
@@ -47,7 +47,7 @@ See the [initial tagging page](/initial_taggin) for more info on intial tagging 
                              for m in q.search_messages():
                                  print m.get_filename()
 
-* <span id="sync_maildir_flags">Sync notmuch tags and maildir flags</span>
+* <span id="sync_maildir_flags">**Sync notmuch tags and maildir flags**</span>
 
   Some IMAP users rely on maildir flags that convey the status "seen",
   "replied", "trashed", in order to synchronize the status of their
