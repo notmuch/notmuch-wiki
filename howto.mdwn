@@ -4,12 +4,40 @@
 Some tips about how to do some useful things with notmuch, and the
 various "third party" notmuch utilities.
 
+* <span id="receive_mail">Receiving mail</span>
+
+  Notmuch requires either [maildir
+  flag](http://cr.yp.to/proto/maildir.html) or a "mh"-style
+  maildirectory to operate on.  Basically any setup in which each mail
+  is in a file of it's own will work.  Here are some generally
+  well-regarded mail retrieval tools:
+
+  * [offlineimap](http://software.complete.org/software/projects/show/offlineimap) - quite
+    useful and widely tested, it also offers a handy hook that
+    will come in useful a bit later in our setup.  Also supports
+    "presynchook" and "postsynchook" command that will get run
+    whenever you sync.  Point _postsynchook_ to a script that gets run
+    on every sync and that will do the automatic updating and tagging
+    of your notmuch database.
+
+  * [mbsync](http://isync.sourceforge.net/)
+
+  * [getmail](http://pyropus.ca/software/getmail/)
+
+  * [fetchmail](http://fetchmail.berlios.de/)
+
+See the [initial tagging page](/initial_taggin) for more info on intial tagging of messages.
+
 * <span id="print_filenames">Print only filenames of a search</span>
 
-  Given you have the python bindings installed (or simply set your
-  PYTHONPATH environment variable to point to the .../bindings/python
-  directory), this script will print the filenames of a matching
-  search:
+  Notmuch includes python bindings to the notmuch shared library,
+  called [cnotmuch](http://pypi.python.org/pypi/cnotmuch).  Extensive
+  API documentation available.
+
+  The bindings are very simple to use.  As an example, given you have
+  the python bindings installed (or simply set your PYTHONPATH
+  environment variable to point to the .../bindings/python directory),
+  this script will print the filenames of a matching search:
 
                              #!/usr/bin/env python
                              import sys
@@ -32,8 +60,8 @@ various "third party" notmuch utilities.
   ways in which you can achieve synchronization.
 
   [notmuchsync](http://spaetz.github.com/notmuchsync/) is a utility
-  that allows synchronization in either direction, as well as pruning
-  of deleted files.
+  (based on the cnotmuch python bindings) that allows synchronization
+  in either direction, as well as pruning of deleted files.
 
   The second solution allows for fast maildir flag to notmuch tag
   synchronization (and only in that direction) requires patching the
@@ -41,4 +69,3 @@ various "third party" notmuch utilities.
   *id:1267450136-31749-1-git-send-email-Sebastian@SSpaeth.de* and can
   be viewed as a [source diff in this git
   repository](http://github.com/spaetz/notmuch-all-feature/commit/df3b087cefb85e9d16fd17540e348bcb854dd7ee).
-
