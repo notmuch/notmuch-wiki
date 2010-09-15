@@ -74,10 +74,35 @@ works by dragging from the file manager without any modifications.
 
 <h2 id="advanced_tips">Advanced tips and tweaks</h2>
 
-* <span id="custom_keybinding">**Add a keybinding to add/remove/toggle a tag.**</span>
+* <span id="custom_keybinding">**Add a key binding to add/remove/toggle a tag.**</span>
 
-  Here's an example of how to add a key binding to notmuch-show-mode
-  to toggle a "deleted" tag:
+  The notmuch-{search,show}-{add,remove}-tag functions are very useful
+  for making quick tag key bindings.  For instance, here's an example
+  of how to make a key binding to add the "spam" tag and remove the
+  "inbox" tag in notmuch-show-mode:
+
+		(define-key notmuch-show-mode-map "S"
+		  (lambda ()
+		    "mark message as spam"
+		    (interactive)
+		    (notmuch-show-add-tag "spam")
+		    (notmuch-show-remove-tag "inbox")))
+
+  You can do the same for threads in notmuch-search-mode by just
+  replacing "show" with "search" in the called functions.
+
+  The definition above makes use of a lambda function, but you could
+  also define a separate function first:
+
+		(defun notmuch-show-tag-spam()
+		  "mark message as spam"
+		  (interactive)
+		  (notmuch-show-add-tag "spam")
+		  (notmuch-show-remove-tag "inbox")))
+		(define-key notmuch-show-mode-map "S" 'notmuch-show-tag-spam)
+
+  Here's a more complicated example of how to add a toggle "deleted"
+  key:
 
 		(define-key notmuch-show-mode-map "d"
 		  (lambda ()
@@ -86,19 +111,6 @@ works by dragging from the file manager without any modifications.
 		    (if (member "deleted" (notmuch-show-get-tags))
 		        (notmuch-show-remove-tag "deleted")
 		      (notmuch-show-add-tag "deleted"))))
-
-  You can do the same for threads in notmuch-search-mode by just
-  replacing "show" with "search" in the called functions.  This
-  definition makes use of a lambda function, but you could just as
-  easily defined a separate function first:
-
-		(defun notmuch-show-toggle-deleted-tag()
-		  "toggle deleted tag for message"
-		  (interactive)
-		  (if (member "deleted" (notmuch-show-get-tags))
-		      (notmuch-show-remove-tag "deleted")
-		    (notmuch-show-add-tag "deleted")))
-		(define-key notmuch-show-mode-map "d" 'notmuch-show-toggle-deleted-tag)
 
 * <span id="fcc">**How to do FCC/BCC...**</span>
 
