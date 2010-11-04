@@ -12,8 +12,8 @@ various "third party" notmuch utilities.
   is in a file of it's own will work.  Here are some generally
   well-regarded mail retrieval tools:
 
-  * [offlineimap](http://software.complete.org/software/projects/show/offlineimap) - quite
-    useful and widely tested, it also offers a handy hook that
+  * [offlineimap](https://github.com/jgoerzen/offlineimap/wiki/) -
+    quite useful and widely tested, it also offers a handy hook that
     will come in useful a bit later in our setup.  Also supports
     "presynchook" and "postsynchook" command that will get run
     whenever you sync.  Point _postsynchook_ to a script that gets run
