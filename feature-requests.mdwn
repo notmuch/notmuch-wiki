@@ -38,6 +38,14 @@
      if only one name is configured, use that for all addresses;
      if other_names are configured, match those with the other_email addresses
 
++   clicking on "id:Message-ID@example.com" in notmuch-show buffer should search for the referenced message
+
+    ATM the Message-ID is clickable but results in composing a
+    new email addressed to the Message-Id (which 'looks like' an
+    email address) in message mode.  Instead clicking or C-c RET
+    should search the referenced email and show it in a
+    notmuch-show buffer.
+
 ## notmuch 
 
 +    Add folder keyword
