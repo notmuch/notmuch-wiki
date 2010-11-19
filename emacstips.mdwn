@@ -70,6 +70,20 @@ from a file manager into a mail composition window to have it attached
 (assuming you are using emacs with X support).  At least in Ubuntu it
 works by dragging from the file manager without any modifications.
 
+And for those who prefer working from command line, the following
+script opens new emacs window with empty message and attaches files
+mentioned as script arguments. (Note: The script expects that you have
+`(server-start)` in your .emacs)
+
+    #!/bin/sh
+    attach_cmds=""
+    while [ "$1" ]; do
+        attach_cmds="$attach_cmds (mml-attach-file \"$1\")"
+        shift
+    done
+    emacsclient -a '' -c -e "(progn (compose-mail) $attach_cmds)"
+
+
 -----
 
 <h2 id="advanced_tips">Advanced tips and tweaks</h2>
