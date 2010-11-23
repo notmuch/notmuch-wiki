@@ -82,6 +82,10 @@ of [the patches](http://patchwork.notmuchmail.org/project/notmuch/list).
 
 Source code of notmuch releases can be downloaded [here](http://notmuchmail.org/releases/).
 
+## Binary packages
+
+* [Debian](http://packages.debian.org/search?keywords=notmuch), [Ubuntu](http://packages.ubuntu.com/search?keywords=notmuch)
+
 ## Contact: Email & IRC
 
 Comments? Please feel free to email the notmuch mailing list:
