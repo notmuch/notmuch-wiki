@@ -86,6 +86,10 @@ Source code of notmuch releases can be downloaded [here](http://notmuchmail.org/
 
 * [Debian](http://packages.debian.org/search?keywords=notmuch), [Ubuntu](http://packages.ubuntu.com/search?keywords=notmuch)
 
+## Screenshots
+
+* [[Emacs UI screenshots|screenshots]]
+
 ## Contact: Email & IRC
 
 Comments? Please feel free to email the notmuch mailing list:
