@@ -8,12 +8,12 @@ included in the notmuch package.
 ## Setup
 
 To use the Notmuch emacs mode, first add the following line to your
-.emacs rc file:
+`.emacs` rc file:
 
 	(require 'notmuch)
 
-Then, either run "emacs -f notmuch", or execute the command "M-x
-notmuch" from within a running emacs.
+Then, either run "emacs -f notmuch", or execute the command `M-x
+notmuch` from within a running emacs.
 
 ## Navigating & reading mails
 
@@ -21,7 +21,7 @@ When first starting notmuch in emacs, you will be presented with the
 notmuch "hello" page.  From here you can do searches, see lists of
 recent searches, saved searches, message tags, help information, etc.
 
-Executing a search will open a new buffer in notmuch-search-mode
+Executing a search will open a new buffer in `notmuch-search-mode`
 displaying the search results.  Each line in the search results
 represents a message thread.  Hitting the '?' key will show help for
 this mode.
@@ -30,7 +30,7 @@ In general, the 'q' will kill the current notmuch buffer and return
 you to the previous buffer (sort of like a 'pop').
 
 In search mode, navigating to a thread and hitting return will then
-open a new buffer in notmuch-show-mode, which will show the actual
+open a new buffer in `notmuch-show-mode`, which will show the actual
 message contents of the thread.
 
 ## Sending mail
@@ -39,36 +39,36 @@ In any notmuch mode, you can start a new message by hitting the 'm'
 key.  To reply to a message or thread, just hit the 'r' key.
 
 When composing new messages, you will be entered in emacs's
-"message-mode", which is a powerful mode for composing and sending
-messages.  When in message move, you can type "C-c ?" for help.
+`message-mode`, which is a powerful mode for composing and sending
+messages.  When in message move, you can type `C-c ?` for help.
 
-If you would like to use address autocompletion, see the [address
-completion howto](#address_completion)" below.
+If you would like to use address autocompletion when composing
+messages, see [address completion](#address_completion).
 
-When you are ready to send a message, type "C-c C-c".  By default
+When you are ready to send a message, type `C-c C-c`.  By default
 message mode will use your sendmail command to send mail, so make sure
 that works.  One annoying standard configuration of message mode is
 that it will hide the sent mail in your emacs frame stack, but it will
 not close it. If you type several mails in an emacs session they will
 accumulate and make switching between buffers more annoying. You can
 avoid that behavior by adding `(setq message-kill-buffer-on-exit t)`
-in your .emacs file which will really close the mail window after
+in your `.emacs` file which will really close the mail window after
 sending it.
 
 ## Attaching files
 
 Using the `M-x mml-attach-file` command, you can attach any file to be
 send with your mail. By default this command is bound to the menu item
-`Attachments--Attach File` with the key binding `C-c C-a`.  The
-variable `mml-dnd-attach-options` (M-x
-customize-variable<RET>`mml-dnd-attach-options`) can be set to allow
+*Attachments--Attach File* with the key binding `C-c C-a`.  The
+variable `mml-dnd-attach-options` (`M-x
+customize-variable<RET>mml-dnd-attach-options`) can be set to allow
 the prompting for various attachment options (such as
-inline/attachement) if you want to do that.
+inline/attachment) if you want to do that.
 
-For those who prefer graphics, you can also simply drag and drop files
-from a file manager into a mail composition window to have it attached
-(assuming you are using emacs with X support).  At least in Ubuntu it
-works by dragging from the file manager without any modifications.
+For those who prefer a more graphical interface, you can also simply
+drag and drop files from a file manager into a mail composition window
+to have them attached. In Ubuntu this works without any modifications
+if files are dragged from the file manager.
 
 And for those who prefer working from command line, the following
 script opens new emacs window with empty message and attaches files
@@ -86,14 +86,14 @@ mentioned as script arguments. (Note: The script expects that you have
 
 -----
 
-<h2 id="advanced_tips">Advanced tips and tweaks</h2>
+# Advanced tips and tweaks
 
-* <span id="custom_keybinding">**Add a key binding to add/remove/toggle a tag.**</span>
+## Add a key binding to add/remove/toggle a tag
 
-  The notmuch-{search,show}-{add,remove}-tag functions are very useful
-  for making quick tag key bindings.  For instance, here's an example
-  of how to make a key binding to add the "spam" tag and remove the
-  "inbox" tag in notmuch-show-mode:
+The `notmuch-{search,show}-{add,remove}-tag` functions are very useful
+for making quick tag key bindings.  For instance, here's an example
+of how to make a key binding to add the "spam" tag and remove the
+"inbox" tag in notmuch-show-mode:
 
 		(define-key notmuch-show-mode-map "S"
 		  (lambda ()
@@ -102,11 +102,11 @@ mentioned as script arguments. (Note: The script expects that you have
 		    (notmuch-show-add-tag "spam")
 		    (notmuch-show-remove-tag "inbox")))
 
-  You can do the same for threads in notmuch-search-mode by just
-  replacing "show" with "search" in the called functions.
+You can do the same for threads in `notmuch-search-mode` by just
+replacing "show" with "search" in the called functions.
 
-  The definition above makes use of a lambda function, but you could
-  also define a separate function first:
+The definition above makes use of a lambda function, but you could
+also define a separate function first:
 
 		(defun notmuch-show-tag-spam()
 		  "mark message as spam"
@@ -115,8 +115,8 @@ mentioned as script arguments. (Note: The script expects that you have
 		  (notmuch-show-remove-tag "inbox")))
 		(define-key notmuch-show-mode-map "S" 'notmuch-show-tag-spam)
 
-  Here's a more complicated example of how to add a toggle "deleted"
-  key:
+Here's a more complicated example of how to add a toggle "deleted"
+key:
 
 		(define-key notmuch-show-mode-map "d"
 		  (lambda ()
@@ -126,59 +126,59 @@ mentioned as script arguments. (Note: The script expects that you have
 		        (notmuch-show-remove-tag "deleted")
 		      (notmuch-show-add-tag "deleted"))))
 
-* <span id="fcc">**How to do FCC/BCC...**</span>
+## How to do FCC/BCC...
 
-  Any notmuch reply will automatically include your primary email
-  address in a BCC so that any messages you send will (eventually) end
-  up in your mail store as well. But this doesn't do anything for
-  messages that you compose that are not replies.
-
-  Another method is to save the file in a folder of your local
-  Maildir, usually called FCC (file carbon copy). You can achieve this
-  by setting the variables `message-directory` (which defines a base
-  directory) and `notmuch-fcc-dirs` which defines the subdirectory
-  relative to message-directory in which to save the mail. Enter a
-  directory (without the maildir /cur ending which will be appended
-  automatically). To customize both variables at the same time, use
-  the fancy command:
+The Emacs interface to notmuch will automatically add an `Fcc`
+header to your outgoing mail so that any messages you send will also
+be saved in your mail store. You can control where this copy of the
+message is saved by setting the variables `message-directory` (which
+defines a base directory) and `notmuch-fcc-dirs` which defines the
+subdirectory relative to `message-directory` in which to save the
+mail. Enter a directory (without the maildir `/cur` ending which
+will be appended automatically). To customize both variables at the
+same time, use the fancy command:
 
 		M-x customize-apropos<RET>\(notmuch-fcc-dirs\)\|\(message-directory\)
 
-  This method will even allow you to select different outboxes
-  depending on your selected from address, if you need that
-  functionality. Please see the documentation on the variable in the
-  customization window for how to do so.
+This mechanism also allows you to select different folders to be
+used for the outgoing mail depending on your selected `From`
+address. Please see the documentation for the variable
+`notmuch-fcc-dirs` in the customization window for how to arrange
+this.
 
-* <span id="customize_notmuch_folder">**How to customize notmuch-folders**</span>
+## How to customize `notmuch-saved-searches`
 
-  There's a "notmuch-folder" command available in the emacs client
-  that displays a list of "folders" and the number of messages in
-  each. Each folder is simply a named search specification. To
-  configure this mode, edit your ${HOME}/.emacs file and include text
-  something like the following:
+When starting notmuch, a list of saved searches and message counts is
+displayed, replacing the older `notmuch-folders` command. The set of
+saved searches displayed can be modified directly from the notmuch
+interface (using the `[save]` button next to a previous search) or by
+customising the variable `notmuch-saved-searches`.
 
-		(setq notmuch-folders '(("inbox" . "tag:inbox")
-					("unread" . "tag:inbox AND tag:unread")
-					("notmuch" . "tag:inbox AND to:notmuchmail.org")))
+An example setting might be:
 
-  Of course, you can have any number of folders, each configured
-  with any supported search terms (see "notmuch help search-terms").
+		(setq notmuch-saved-searches '(("inbox" . "tag:inbox")
+				("unread" . "tag:inbox AND tag:unread")
+				("notmuch" . "tag:inbox AND to:notmuchmail.org")))
 
-  Personally, I find it fairly useful to add "not tag:delete" to those
-  views as I use that tag to mark messages as deleted and it
-  automatically removes them from my standard views. Use whatever
-  seems most useful to you.
+Of course, you can have any number of saved searches, each configured
+with any supported search terms (see "notmuch help search-terms").
 
-* **Viewing HTML messages with an external viewer**
+Some users find it useful to add `and not tag:delete` to those
+searches, as they use the `delete` tag to mark messages as
+deleted. This causes messages that are marked as deleted to be removed
+from the commonly used views of messages.  Use whatever seems most
+useful to you.
 
-  The emacs client can often display an HTML message inline, but it
-  sometimes fails for one reason or another, (or is perhaps inadequate
-  if you really need to see the graphical presentation of the HTML
-  message).
+## Viewing HTML messages with an external viewer
 
-  In this case, it can be useful to display the message in an external
-  viewer, such as a web browser. Here's a little script that Keith
-  Packard wrote, which he calls view-html:
+The emacs client can often display an HTML message inline, but it
+sometimes fails for one reason or another, (or is perhaps inadequate
+if you really need to see the graphical presentation of the HTML
+message).
+
+In this case, it can be useful to display the message in an external
+viewer, such as a web browser. Here's a little script that Keith
+Packard wrote, which he calls `view-html`:
 
 		#!/bin/sh
 		dir=3D`mktemp -d`
@@ -196,89 +196,88 @@ mentioned as script arguments. (Note: The script expects that you have
 		    fi
 		done
 
-  Save that script somewhere in your ${PATH}, make it executable, and
-  change the invocation of iceweasel to any other HTML viewer if
-  necessary. Then within the emacs client, press "|" to pipe the
-  current message, then type "view-html".
+Save that script somewhere in your `${PATH}`, make it executable,
+and change the invocation of `iceweasel` to any other HTML viewer if
+necessary. Then within the emacs client, press '|' to pipe the
+current message, then type "view-html".
 
-  Keith mentions the following caveat, "Note that if iceweasel isn't
-  already running, it seems to shut down when the script exits. I
-  don't know why."
+Keith mentions the following caveat, "Note that if iceweasel isn't
+already running, it seems to shut down when the script exits. I
+don't know why."
 
-* **msmtp, message mode and multiple accounts**
+## msmtp, message mode and multiple accounts
 
-  As an alternative to running a mail server such as sendmail or
-  postfix just to send email, it is possible to use
-  [msmtp](http://msmtp.sourceforge.net/).  This small application will
-  look like /usr/bin/sendmail to a MUA such as emacs message mode, but
-  will just forward the email to an external SMTP server.  It's fairly
-  easy to set up and it support several account for using different
-  SMTP servers.  The msmtp pages have several examples.
+As an alternative to running a mail server such as sendmail or
+postfix just to send email, it is possible to use
+[msmtp](http://msmtp.sourceforge.net/).  This small application will
+look like `/usr/bin/sendmail` to a MUA such as emacs message mode, but
+will just forward the email to an external SMTP server.  It's fairly
+easy to set up and it support several account for using different
+SMTP servers.  The msmtp pages have several examples.
 
-  A typical scenario is that you want to use the company SMTP server
-  for email coming from your company email address, and your personal
-  server for personal email.  If msmtp is passed the envelope address
-  on the command line (the -f/--from option) it will automatically
-  pick the matching account.  The only trick here seems to be getting
-  emacs to actually pass the envelope from.  There are a number of
-  overlapping configuration variables that control this, and it's a
-  little confusion, but setting these three works for me:
+A typical scenario is that you want to use the company SMTP server
+for email coming from your company email address, and your personal
+server for personal email.  If msmtp is passed the envelope address
+on the command line (the -f/--from option) it will automatically
+pick the matching account.  The only trick here seems to be getting
+emacs to actually pass the envelope from.  There are a number of
+overlapping configuration variables that control this, and it's a
+little confusion, but setting these three works for me:
 
-   - mail-specify-envelope-from: t
+ - `mail-specify-envelope-from`: `t`
 
-   - message-sendmail-envelope-from: header
+ - `message-sendmail-envelope-from`: `header`
 
-   - mail-envelope-from: header
+ - `mail-envelope-from`: `header`
 
-  With that in place, you need a .msmtprc with the accounts configured
-  for the domains you want to send out using specific SMTP servers and
-  the rest will go to the default account.
+With that in place, you need a `.msmtprc` with the accounts configured
+for the domains you want to send out using specific SMTP servers and
+the rest will go to the default account.
 
-* <span id="address_completion">**how to get email address completion**</span>
+## <span id="address_completion">Address completion when composing</span>
 
-  There are currently two solutions to this:
+There are currently two solutions to this:
 
-  [bbdb](http://bbdb.sourceforge.net) is a contact database for emacs
-  that works quite nicely together with message mode, including
-  address autocompletion.
+[bbdb](http://bbdb.sourceforge.net) is a contact database for emacs
+that works quite nicely together with message mode, including
+address autocompletion.
 
-  You can also use the notmuch database as a mail address book itself.
-  To do this you need a command line tool that outputs likely address
-  candidates based on a search string.  There are currently two
-  available:
+You can also use the notmuch database as a mail address book itself.
+To do this you need a command line tool that outputs likely address
+candidates based on a search string.  There are currently two
+available:
 
-    * The python tool notmuch\_address.py ('git clone
-      http://jkr.acm.jhu.edu/git/notmuch_addresses.git`) (slower, but
-      no compilation required so good for testing the setup)
+  * The python tool `notmuch\_address.py` (`git clone
+    http://jkr.acm.jhu.edu/git/notmuch_addresses.git`) (slower, but
+    no compilation required so good for testing the setup)
 
-    * The vala-based
-      [addrlookup](http://github.com/spaetz/vala-notmuch) (faster, but
-      needs compiling).  The addrlookup binary needs to be compiled.
-      Grab
-      http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c
-      and build it with:
+  * The vala-based
+    [addrlookup](http://github.com/spaetz/vala-notmuch) (faster, but
+    needs compiling).  The addrlookup binary needs to be compiled.
+    Grab
+    `http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c`
+    and build it with:
 
-                      cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch
+                    cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch
 
-  EUDC is integrated into emacs and is needed for tab completion of
-  email addresses. See [this
-  mail](http://mid.gmane.org/87fx3uflkx.fsf@jhu.edu)
-  (id:87fx3uflkx.fsf@jhu.edu) for more information.
+EUDC is integrated into emacs and is needed for tab completion of
+email addresses. See [this
+mail](http://mid.gmane.org/87fx3uflkx.fsf@jhu.edu)
+(id:87fx3uflkx.fsf@jhu.edu) for more information.
 
-* <span id="sign_messages_gpg">**how to sign/encrypt my messages with
-  gpg**</span>
+## How to sign/encrypt messages with gpg
 
-  You can manually sign your messages with gpg by invoking `M-x
-  mml-secure-sign-pgpmime` (or `M-x
-  mml-secure-encrypt-pgpmime`). These functions are available via the
-  convenient (*cough cough*) keybindings `C-c C-m s p` and `C-c C-m c
-  p` by default. To sign my outgoing mail by default, I use this hook
-  in my .emacs file:
+Messages can by signed using gpg by invoking `M-x
+mml-secure-sign-pgpmime` (or `M-x
+mml-secure-encrypt-pgpmime`). These functions are available via the
+standard `message-mode` keybindings `C-c C-m s p` and `C-c C-m c
+p`. To sign outgoing mail by default, use the `message-setup-hook`
+in your `.emacs` file:
 
-                      ;;sign messages by default
-                      (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
+                    ;; Sign messages by default.
+                    (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
 
-  This inserts the blurb `<#part sign=pgpmime>` into the beginning of
-  my mail text body and will be converted into a pgp signature when
-  sending (so I can just manually delete that line if I do not want a
-  mail to be signed).
+This inserts the required `<#part sign=pgpmime>` into the beginning
+of the mail text body and will be converted into a pgp signature
+when sending (so one can just manually delete that line if signing
+is not required).
