@@ -247,7 +247,7 @@ To do this you need a command line tool that outputs likely address
 candidates based on a search string.  There are currently two
 available:
 
-  * The python tool `notmuch\_address.py` (`git clone
+  * The python tool `notmuch_address.py` (`git clone
     http://jkr.acm.jhu.edu/git/notmuch_addresses.git`) (slower, but
     no compilation required so good for testing the setup)
 
