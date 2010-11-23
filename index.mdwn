@@ -14,7 +14,7 @@
   that you can keep your inbox tamed and focus on what really matters
   in your life, (which is surely not email).
 
-* Notmuch is an answer to <a href="http://sup.rubyforge.org/">Sup</a>.
+* Notmuch is an answer to [Sup](http://sup.rubyforge.org/).
   Sup is a very good email program written by William Morgan (and
   others) and is the direct inspiration for Notmuch. Notmuch began as
   an effort to rewrite performance-critical pieces of Sup in C rather
@@ -27,10 +27,10 @@
 * Notmuch is not much of an email program. It doesn't receive messages
   (no POP or IMAP suport). It doesn't send messages (no mail composer,
   no network code at all). And for what it does do (email search) that
-  work is provided by an external library, <a
-  href="http://xapian.org/">Xapian</a>. So if Notmuch provides no user
+  work is provided by an external library,
+  [Xapian](http://xapian.org).  So if Notmuch provides no user
   interface and Xapian does all the heavy lifting, then what's left
-  here? Not much.  </ul>
+  here? Not much.
 
 Notmuch is still in the early stages of development, but there are
 already two user interfaces available for it (one for emacs and one
@@ -50,7 +50,7 @@ contain a reference for users.  This is what we have so far:
 
 * [General how-tos](/howto)
 * [Initial Tagging](/initial_tagging)
-* [Emacstips](/emacstips)
+* [Tips for using notmuch within Emacs](/emacstips)
 * [Remote Usage](/remoteusage)
 
 Apart from the wiki, help is available via email.  Join the mailing
@@ -59,21 +59,19 @@ list.  Read the archives.  Ask questions.
 ## Source code
 
 Either way, please feel free to jump in. All of the code for Notmuch
-is available as <a
-href="http://www.fsf.org/licensing/essays/free-sw.html">free
-software</a> released under the GNU 
-<a href="http://www.fsf.org/licensing/licenses/gpl.html">GPL version 
-3</a>. The latest versions
-can be checked out via git with this command:
+is available as [free
+software](http://www.fsf.org/licensing/essays/free-sw.html) released
+under the GNU [GPL version
+3](http://www.fsf.org/licensing/licenses/gpl.html). The latest
+versions can be checked out via git with this command:
 
 	git clone git://notmuchmail.org/git/notmuch
 
-You can browse the <a
-href="http://git.notmuchmail.org/git/notmuch">Notmuch code history</a>
-online. And finally, you can <a
-href="http://notmuchmail.org/mailman/listinfo/notmuch-commits">subscribe
-to the notmuch-commits list</a> to watch every commit made to notmuch
-and the notmuchmail.org web site.
+You can browse the [Notmuch code
+history](http://git.notmuchmail.org/git/notmuch) online. And finally,
+you can [subscribe to the `notmuch-commits`
+list](http://notmuchmail.org/mailman/listinfo/notmuch-commits) to watch
+every commit made to notmuch and the notmuchmail.org web site.
 
 Patches are most welcome and should be sent to notmuch&#64;notmuchmail.org.
 Please try to follow the [patch submission guidelines of the Git
@@ -88,22 +86,28 @@ Source code of notmuch releases can be downloaded [here](http://notmuchmail.org/
 
 Comments? Please feel free to email the notmuch mailing list:
 notmuch&#64;notmuchmail.org (subscription is not required, but you can
-subscribe to the [notmuch list](http://notmuchmail.org/mailman/listinfo/notmuch) if you would like to). You can also browse the
-<a href="http://notmuchmail.org/pipermail/notmuch/">online archives</a>
-of the mailing list, read them as a <a href="http://n3.nabble.com/notmuch-f198994.html">web forum (nabble)</a>, or download a <a href="http://notmuchmail.org/archives/notmuch.mbox">mbox file</a> of the entire mailing-list. 
+subscribe to the [notmuch
+list](http://notmuchmail.org/mailman/listinfo/notmuch) if you would
+like to). You can also browse the [online
+archives](http://notmuchmail.org/pipermail/notmuch/) of the mailing
+list, read them as a [web forum
+(nabble)](http://n3.nabble.com/notmuch-f198994.html), or download an
+[mbox file](http://notmuchmail.org/archives/notmuch.mbox) of the entire
+mailing-list.
 
-The mb2md utility can be used to convert the archives to maildir format which is convenient for reading the archives within notmuch itself.
+The `mb2md` utility can be used to convert the archives to maildir
+format which is convenient for reading the archives within notmuch
+itself.
 
-If you prefer real-time chat, there is often someone on the [#notmuch](irc://chat.freenode.net/#notmuch)@irc.freenode.net IRC channel.
+If you prefer real-time chat, there is often someone on the
+[#notmuch](irc://chat.freenode.net/#notmuch)@irc.freenode.net IRC
+channel.
 
-## Feature ideas - bin list
+## Feature Ideas
 
-We have started a <a href="http://notmuchmail.org/feature-requests/">feature requests</a> page on this wiki. 
-No, things you add there won't automatically get implemented - but it's a nice way to collect ideas.
-
-## Emacs Tips and Tricks
-
-The best supported interface to notmuch is based on emacs and can be tweaked extensively. We have started to collect some tips and tricks [here](/emacstips).
+We have started a [feature requests](/feature-requests) page on this
+wiki.  No, things you add there won't automatically get implemented -
+but it's a nice way to collect ideas.
 
 ### Website
 
