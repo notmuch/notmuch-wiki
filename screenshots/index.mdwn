@@ -1,8 +1,0 @@
-[!meta title=Screenshots]
-
-## Notmuch 0.5 -- Emacs UI
-
-[!img Screenshot-notmuch-hello.png alt="Hello screen"]
-[!img Screenshot-notmuch-search.png alt="Search results"]
-[!img Screenshot-notmuch-show.png alt="Thread view"]
-[!img Screenshot-notmuch-thread.png alt="Collapsed thread"]
