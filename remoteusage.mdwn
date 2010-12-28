@@ -36,6 +36,12 @@ if your connection is too slow, this won't be very pleasant to use,
 and certainly won't seem transparent.)
 
 ##Write a wrapper shell script##
+
+/!\ From reading about `notmuch show --format=raw` in the 0.5 (2010-11-11)
+release's *New command-line features* section of the `NEWS` file, it appears to
+me that step *2.* is no longer needed, and this whole procedure can be
+simplified a lot.  But I haven't tested / confirmed this yet.
+
 Now we will need to write a simple shell script that does two things:
 
 1.  replaces the call to the notmuch binary with a call to notmuch
@@ -159,15 +165,3 @@ mismatches between normal usage and this sort of usage. If you're
 using this approach and run into any problems, please feel free to
 list them here. And, of course, if you improve on any of these
 approaches, please do edit this page and let people know!
-				
-				
-
- 
-
-
-    
-
-	
-
-
-
