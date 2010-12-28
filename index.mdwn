@@ -48,10 +48,10 @@ you've been looking for.
 So far, there is not much documentation.  Eventually, the wiki will
 contain a reference for users.  This is what we have so far:
 
-* [General how-tos](/howto)
-* [Initial Tagging](/initial_tagging)
-* [Tips for using notmuch within Emacs](/emacstips)
-* [Remote Usage](/remoteusage)
+  * [[General how-tos|howto]]
+  * [[Initial_Tagging]]
+  * [[Tips for using notmuch within Emacs|emacstips]]
+  * [[Remote Usage|remoteusage]]
 
 Apart from the wiki, help is available via email.  Join the mailing
 list.  Read the archives.  Ask questions.
@@ -113,7 +113,7 @@ channel.
 
 ## Feature Ideas
 
-We have started a [feature requests](/feature-requests) page on this
+We have started a [[feature requests|feature-requests]] page on this
 wiki.  No, things you add there won't automatically get implemented -
 but it's a nice way to collect ideas.
 
@@ -121,4 +121,4 @@ but it's a nice way to collect ideas.
 
 This wiki is maintained using
 [ikiwiki](http://ikiwiki.info). Instructions on how to edit it can be
-found [here](/wikiwriteaccess).
+found [[here|wikiwriteaccess]].

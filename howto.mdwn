@@ -26,7 +26,7 @@ various "third party" notmuch utilities.
 
   * [fetchmail](http://fetchmail.berlios.de/)
 
-  See the [initial tagging page](/initial_tagging) for more info on intial tagging of messages.
+  See the [[initial_tagging]] page for more info on intial tagging of messages.
 
 * <span id="print_filenames">**Print only filenames of a search (python bindings)**</span>
 
