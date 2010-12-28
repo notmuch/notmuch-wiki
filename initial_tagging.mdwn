@@ -4,13 +4,13 @@ This page collects scripts and strategies for organizing mail using
 notmuch and doing automated initial tagging.
 
 Here's a very general and ad-hoc approach to initial message tagging.
-The [new] config section allows you to control which tags new messages
-receive.  This sets all new messages to get the "new" tag:
+The `[new]` config section allows you to control which tags new messages
+receive.  This sets all new messages to get the *new* tag:
 
     [new]
     tags=new;
 
-After running "notmuch new", all new messages will be marked "new".
+After running `notmuch new`, all new messages will be marked *new*.
 You can then do various tag post-processing by just acting on messages
 with that tag.  For instance, a post-processing script might do the
 following:
@@ -30,7 +30,8 @@ following:
 Since the post-processing is only acting on a few messages, it is
 generally extrememly fast.
 
-## Other solutions
+
+# Other solutions
 
 * [This
   email](http://notmuchmail.org/pipermail/notmuch/2010/001691.html)
@@ -45,3 +46,11 @@ generally extrememly fast.
   the inbox tag as a "new mail" flag. It is email
   id:87hbp5j9dv.fsf@hackervisions.org in the notmuch mailing list
   archives.
+
+
+# Notmuch Delivery Agent -- `notmuch-deliver`
+
+The [Notmuch Delivery Agent](http://github.com/alip/notmuch-deliver/)
+([announcement](http://notmuchmail.org/pipermail/notmuch/2010/002871.html)) is
+a tool for delivering emails to maildir, add them to the Notmuch database, and
+tag them as desired.
