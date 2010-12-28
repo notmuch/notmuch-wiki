@@ -40,7 +40,7 @@ key.  To reply to a message or thread, just hit the 'r' key.
 
 When composing new messages, you will be entered in emacs's
 `message-mode`, which is a powerful mode for composing and sending
-messages.  When in message move, you can type `C-c ?` for help.
+messages.  When in message mode, you can type `C-c ?` for help.
 
 If you would like to use address autocompletion when composing
 messages, see [address completion](#address_completion).
@@ -73,7 +73,7 @@ if files are dragged from the file manager.
 And for those who prefer working from command line, the following
 script opens new emacs window with empty message and attaches files
 mentioned as script arguments. (Note: The script expects that you have
-`(server-start)` in your .emacs)
+`(server-start)` in your `.emacs` file.)
 
     #!/bin/sh
     attach_cmds=""
@@ -182,7 +182,7 @@ viewer, such as a web browser. Here's a little script that Keith
 Packard wrote, which he calls `view-html`:
 
 		#!/bin/sh
-		dir=3D`mktemp -d`
+		dir=`mktemp -d`
 		trap "rm -r $dir" 0
 		cat "$@" > "$dir"/msg
 		if munpack -C "$dir" -t < "$dir"/msg 2>&1 | grep 'Did not find'; then
@@ -282,3 +282,7 @@ This inserts the required `<#part sign=pgpmime>` into the beginning
 of the mail text body and will be converted into a pgp signature
 when sending (so one can just manually delete that line if signing
 is not required).
+
+Alternatively, you may prefer to use `mml-secure-message-sign-pgpmime` instead
+of `mml-secure-sign-pgpmime` to sign the whole message instead of just one
+part.
