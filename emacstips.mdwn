@@ -78,7 +78,8 @@ mentioned as script arguments. (Note: The script expects that you have
     #!/bin/sh
     attach_cmds=""
     while [ "$1" ]; do
-        attach_cmds="$attach_cmds (mml-attach-file \"$1\")"
+        fullpath=$(readlink --canonicalize $1)
+        attach_cmds="$attach_cmds (mml-attach-file \"$fullpath\")"
         shift
     done
     emacsclient -a '' -c -e "(progn (compose-mail) $attach_cmds)"
