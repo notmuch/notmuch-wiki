@@ -99,7 +99,7 @@ list](http://notmuchmail.org/mailman/listinfo/notmuch) if you would
 like to). You can also browse the [online
 archives](http://notmuchmail.org/pipermail/notmuch/) of the mailing
 list, read them as a [web forum
-(nabble)](http://n3.nabble.com/notmuch-f198994.html), or download an
+(nabble)](http://notmuch.198994.n3.nabble.com/), or download an
 [mbox file](http://notmuchmail.org/archives/notmuch.mbox) of the entire
 mailing-list.
 
