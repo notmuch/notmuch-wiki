@@ -37,18 +37,20 @@ and certainly won't seem transparent.)
 
 ##Write a wrapper shell script##
 
-/!\ From reading about `notmuch show --format=raw` in the 0.5 (2010-11-11)
-release's *New command-line features* section of the `NEWS` file, it appears to
-me that step *2.* is no longer needed, and this whole procedure can be
-simplified a lot.  But I haven't tested / confirmed this yet.
+/!\ Now that notmuch (>=0.5) allows for "raw" downloading of messages, a lot
+of the hacks in the older script, posted in 2010, are no longer necessary.
 
 Now we will need to write a simple shell script that does two things:
 
 1.  replaces the call to the notmuch binary with a call to notmuch
 over ssh.
-2.  offers, via the "--get" option, a utility for downloading raw
-message text over scp (this is necessary for attachments) and
-caching for future use.
+2.  caches messages when the entire raw message is downloaded. This
+avoids the need to constantly download large attachments over and
+over. (NB: this just checks to see if a message with the same id
+has already been cached. If you delete an attachment on the server,
+that could lead to an out-of-date cache. It would probably make more
+sense in the future to concatenate a hash of the message id and a hash 
+of the message.)
 
 Note that this shell script also pauses briefly after every message
 entries. This is currently necessary so that the emacs process-filter
@@ -62,16 +64,9 @@ be necessary in the furture.
     NOTMUCH_REMOTE_BIN="/path/to/notmuch/on/server"
     CACHE="${HOME}/.notmuch-cache.d"
 
-    notmuch_run ()
+    hash_name ()
     {
-        if [ $1 = "search" ]; then
-            $SSH_BIN $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN $@ | while read line; do
-                sleep 0.1
-                echo "${line}"
-    	    done
-        else
-    	    $SSH_BIN $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN $@
-        fi
+        echo -n ${1} | sha1sum | awk '{print $1}'
     }
     
     check_for_file_name ()
@@ -79,63 +74,68 @@ be necessary in the furture.
         [ -f "${CACHE}/${1}" ]
     }
     
-    fetch_file ()
+    notmuch_run ()
     {
-        FILE_DIR="${CACHE}/$(dirname ${1})"
-        [ -d "${FILE_DIR}" ] || mkdir -p "${FILE_DIR}"
-        scp ${SSH_HOST}:${1} "${FILE_DIR}" > /dev/null 2>&1
-        retcode="${?}"
-        if [ "${retcode}" -ne "0" ]; then
-    	    echo "Failed to fetch file" 1>&2
-    	    exit ${retcode}
+        [ -d "${CACHE}" ] || mkdir -p "${CACHE}"
+        CMD=$1
+        shift
+        ARGS=`echo $@ | sed 's/\\$/\\\\$/g'`
+        $SSH_BIN $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN ${CMD} ${ARGS}
+    }
+    
+    notmuch_search ()
+    {
+        #COUNTER=1 
+        notmuch_run search $@ |
+        while read line; do
+    	sleep 0.02
+    	#[ $((COUNTER % 3)) == "0" ] && sleep 0.03
+        	echo "${line}"
+    	#COUNTER=$((COUNTER + 1))
+        done
+    }
+    
+    
+    notmuch_show ()
+    {
+        if [ ${1} = "--format=raw" ]; then 
+    	hashed=`hash_name ${2}`
+        	check_for_file_name ${hashed} || 
+    	notmuch_run show --format=raw ${2} > "${CACHE}/${hashed}"
+        	cat "${CACHE}/${hashed}"
+        else 
+        	notmuch_run show $@
         fi
     }
     
-    notmuch_get ()
-    {
-        [ -d "${CACHE}" ] || mkdir -p "${CACHE}"
-     
-        check_for_file_name || 
-        fetch_file ${1} && 
-        printf "${CACHE}/${1}\n"
-    }
     
-    if [ ${1} = "--get" ]; then
-        notmuch_get $2
+    if [ ${1} = "search" ]; then
+        shift
+        notmuch_search $@
+    elif [ ${1} = "show" ]; then
+        shift
+        notmuch_show $@
     else
         notmuch_run $@
     fi
+    
     	
 Save this to a file, "remote-notmuch.sh", in your path.
 
 Now you can run "remote-notmuch.sh new". You can call the script
-anything you like. If you don't have a notmuch instance on your client
-computer, you can even call it "notmuch" and have totally transparent
+anything you like. I actually have $HOME/bin/notmuch linked to that
+script, so I can transparent
 usage. (Since I run "new" from an emacs keybinding, I've never
 bothered with this renaming.)
 
 ##Configure your emacs client##
 
-Add the following to your .emacs (this is on your client machine):
+The only thing you need to do is tell your emacs client to use the
+script. Add the following to your .emacs (this is on your client
+machine):
 
     (setq notmuch-command "/path/to/your/remote-notmuch.sh")
 
-Now add the following, to overwrite the way in which notmuch gets raw
-message text. 
-
-    (defun notmuch-show-get-filename ()
-      (let* ((orig-filename (notmuch-show-get-prop :filename))
-             (retvalue (progn 
-                         (message "Downloading... ")
-                         (shell-command-to-string (concat notmuch-command 
-                                                          " --get "
-                                                          orig-filename)))))
-        (replace-regexp-in-string "\n" "" retvalue)))
-
-This will will use the "--get" option of the above
-script. Note that it only has to do this for attachments or for
-viewing the raw file, and only the first time. After that, it is
-cached.
 
 ##A tip to speed things up##
 If you have openssh >= 0.4, you can make use of the "ControlMaster"
