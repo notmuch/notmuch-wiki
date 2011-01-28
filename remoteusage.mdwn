@@ -90,7 +90,7 @@ be necessary in the furture.
         notmuch_run search $@ |
         while read line; do
     	    sleep 0.02
-	    echo "${line}"
+            echo "${line}"
         done
     }
     
