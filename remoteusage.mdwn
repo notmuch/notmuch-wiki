@@ -87,13 +87,10 @@ be necessary in the furture.
     
     notmuch_search ()
     {
-        #COUNTER=1 
         notmuch_run search $@ |
         while read line; do
-    	sleep 0.02
-    	#[ $((COUNTER % 3)) == "0" ] && sleep 0.03
-        	echo "${line}"
-    	#COUNTER=$((COUNTER + 1))
+    	    sleep 0.02
+	    echo "${line}"
         done
     }
     
@@ -101,12 +98,12 @@ be necessary in the furture.
     notmuch_show ()
     {
         if [ ${1} = "--format=raw" ]; then 
-    	hashed=`hash_name ${2}`
-        	check_for_file_name ${hashed} || 
-    	notmuch_run show --format=raw ${2} > "${CACHE}/${hashed}"
-        	cat "${CACHE}/${hashed}"
+    	    hashed=`hash_name ${2}`
+            check_for_file_name ${hashed} || 
+    	    notmuch_run show --format=raw ${2} > "${CACHE}/${hashed}"
+            cat "${CACHE}/${hashed}"
         else 
-        	notmuch_run show $@
+            notmuch_run show $@
         fi
     }
     
