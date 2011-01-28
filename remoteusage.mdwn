@@ -79,9 +79,9 @@ be necessary in the furture.
         [ -d "${CACHE}" ] || mkdir -p "${CACHE}"
         CMD=$1
         shift
-	# we need to a little sanitizing of msg ids so the shell
+        # we need to a little sanitizing of msg ids so the shell
         # doesn't mangle them
-	ARGS=`echo $@ | sed 's/[\\$\\*\\!]/\\\&/g'`
+        ARGS=`echo $@ | sed 's/[\\$\\*\\!]/\\\&/g'`
         $SSH_BIN $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN ${CMD} ${ARGS}
     }
     
