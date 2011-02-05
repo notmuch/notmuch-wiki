@@ -89,7 +89,7 @@ be necessary in the furture.
     {
         notmuch_run search $@ |
         while read line; do
-    	    sleep 0.02
+    	    sleep 0.02   # Workaround a bug (missing lines) in the emacs interface
             echo "${line}"
         done
     }
