@@ -2,25 +2,22 @@
 
 This website is a wiki maintained using
 [ikiwiki](http://ikiwiki.info). You can pull and push changes using
-the following URL and
-[this ssh key](http://git.cworth.org/git/notmuch-wiki?a=commit;h=023952dcb7cbf5d4bd9c8ba2c79bac11d54af1d4):
+the following URL:
 
     git://notmuchmail.org/git/notmuch-wiki
-
-Eventually, you will be able to push and pull without authentication,
-but until then, you can use the key by copying it to ~/.ssh and adding
-a few lines to ~/.ssh/config:
-
-    Host *.notmuchmail.org
-        IdentityFile ~/.ssh/notmuch_wiki.key
 
 Clone the wiki branch with:
 
     git clone git://notmuchmail.org/git/notmuch-wiki
 
-Push to the wiki with:
+Then you can edit the wiki locally, commit the changes with:
 
-    git push anongit@git.notmuchmail.org:/git/notmuch-wiki
+    git add ...
+    git commit
+
+and push back to the wiki:
+
+    git push
 
 
 The syntax used on the pages is [markdown](http://daringfireball.net/projects/markdown/syntax). In order to preview your modifications you can copy and paste the page in this [online preview](http://daringfireball.net/projects/markdown/dingus).
