@@ -73,3 +73,27 @@ various "third party" notmuch utilities.
   *id:1267450136-31749-1-git-send-email-Sebastian@SSpaeth.de* and can
   be viewed as a [source diff in this git
   repository](http://github.com/spaetz/notmuch-all-feature/commit/df3b087cefb85e9d16fd17540e348bcb854dd7ee).
+
+* <span id="print_filenames">**Using notmuch with Mutt**</span>
+
+  Notmuch is a great mail indexing tool than can also be used *in conjunction*
+  with existing Mail User Agents (MUA) instead of replacing them. The advantage
+  of such mixed solutions is that users can benefit from notmuch features (such
+  as full-text search and thread reconstruction) without *having to* change
+  MUA.
+  
+  A popular geek MUA is [the Mutt e-mail client](http://www.mutt.org);
+  integrating notmuch with Mutt is fairly straightforward. An
+  [**how to use Notmuch with Mutt**](http://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/)
+  has been written by Stefano Zacchiroli, together with some glue code. Check
+  out the
+  [howto](http://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/)
+  for more information.
+  
+  <small>(Note by the howto author: I've linked the howto from this wiki rather
+  than splicing it in, in order to avoid duplication of information. If you
+  think it would be better to have it here, feel free to copy the text
+  here. The howto is
+  [available](http://git.upsilon.cc/cgi-bin/gitweb.cgi?p=zack-homepage.git;a=history;f=blog/posts/2011/01/how_to_use_Notmuch_with_Mutt.mdwn)
+  in markdown syntax from the Git repository of my homepage.)</small>
+
