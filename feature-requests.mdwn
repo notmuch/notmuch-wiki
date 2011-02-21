@@ -48,6 +48,25 @@
 
 ## notmuch 
 
++    Allow a custom location for .notmuch
+
+     The notmuch index is currently saved in .notmuch under the user's
+     Maildir and there's no configuration option to change that.
+
+     This is problematic with both tools that sync Maildirs and with IMAP
+     servers that consider .notmuch a Maildir subfolder (e.g. dovecot)
+
+     A better solution would be to add a configuration option for this so
+     that it can be put e.g. in ~/.notmuch
+
++    Add a list or pattern for subfolders to ignore
+
+     Some people are crazy enough to archive e.g. their Spam in their
+     Maildir and perhaps they'd prefer not having them indexed on notmuch.
+
+     Having a configuration option to exclude or include certain subparts of
+     the user's Maildir would be a very nice feature to have.
+
 +    Index more headers.  Some desired headers:
 
   + Received: allows for searches based on the arrival path
