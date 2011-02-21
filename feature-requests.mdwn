@@ -48,10 +48,6 @@
 
 ## notmuch 
 
-+    Add folder keyword
-
-     Allows to search for messages in a specific folder.
-
 +    Index more headers.  Some desired headers:
 
   + Received: allows for searches based on the arrival path
