@@ -87,6 +87,10 @@
 
 ### notmuchsync
 
++    NOTE: most of notmuchsync's functionality has been integrated in
+     notmuch 0.5. It probably doesn't make much sense to requests features
+     for it, rather than notmuch itself.
+
 +    Add feature to move files in the maildir hierarchy
 
      notmuchsync --move "searchstring" "targetfolder"
