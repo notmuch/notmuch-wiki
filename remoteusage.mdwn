@@ -90,6 +90,9 @@ be necessary in the furture.
         notmuch_run search $@ |
         while read line; do
     	    sleep 0.02   # Workaround a bug (missing lines) in the emacs interface
+                         # NOTE: This workaround is no longer necessary as of 
+                         # git rev eead2382. You can just run 
+                         # `notmuch_run search $@'                      
             echo "${line}"
         done
     }
