@@ -47,6 +47,17 @@ generally extrememly fast.
   id:87hbp5j9dv.fsf@hackervisions.org in the notmuch mailing list
   archives.
 
+* [This email](http://notmuchmail.org/pipermail/notmuch/2011/003976.html)
+  details another user's setup, which uses a dedicated tag for marking new mail,
+  which is then sorted with a python script using Bogofilter for spam detection.
+  This is generally a great deal faster than a shell-scripted approach.
+  This approach introduces a workflow built around a "watch" tag. Here, the user
+  is only presented with threads as they are started. At this point the user can
+  choose to watch the thread, in which case future messages will be tagged with
+  "inbox", or ignore it. This provides an excellent means for dealing with a
+  large flux of messages with a low signal-to-noise.  It is email
+  id:"87tyfu3k5a.fsf@gmail.com" in the notmuch mailing list archives.
+
 
 # Notmuch Delivery Agent -- `notmuch-deliver`
 
