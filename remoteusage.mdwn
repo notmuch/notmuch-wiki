@@ -29,7 +29,7 @@ You will need to have the following items in place:
 2.  a working notmuch emacs interface on another computer (let's call
 that computer "client")
 3.   password-free login (public key authentication) from client to
-server. [Here](http://sial.org/howto/openssh/publickey-auth/) is a
+server. [Here](http://www.debian-administration.org/articles/152) is a
 good page on how to set it up.
 4.   a reasonably fast connection. (This isn't really *neccessary*, but
 if your connection is too slow, this won't be very pleasant to use,
