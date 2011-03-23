@@ -180,7 +180,7 @@ controlled by the `mm-text-html-renderer` variable.
 
 The first option is theorically better, because it can generate
 strings formatted for emacs and do whatever you want, e.g., substitute
-text inside <b> tags for bold text in the buffer. The library, however
+text inside &lt;b&gt; tags for bold text in the buffer. The library, however
 is still in a very early development phase and cannot yet process
 properly many elements, like tables and <style> directives, and even
 the generated text is often poorly formatted.
