@@ -189,11 +189,11 @@ Among the available browsers, w3m seems to do a better job converting
 the html, and if you have the w3m emacs package, you can use it,
 instead of the w3m-standalone, and thus preserve the text formatting.
 
-But if the rendering fails for one reason or another, (or is perhaps
-inadequate if you really need to see the graphical presentation of the
-HTML message), it can be useful to display the message in an external
-viewer, such as a web browser. Here's a little script that Keith
-Packard wrote, which he calls `view-html`:
+But if the rendering fails for one reason or another, or if you really
+need to see the graphical presentation of the HTML message, it can be
+useful to display the message in an external viewer, such as a web
+browser. Here's a little script that Keith Packard wrote, which he
+calls `view-html`:
 
 		#!/bin/sh
 		dir=`mktemp -d`
