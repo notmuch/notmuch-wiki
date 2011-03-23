@@ -174,12 +174,24 @@ useful to you.
 
 ## Viewing HTML messages with an external viewer
 
-The emacs client can often display an HTML message inline, but it
-sometimes fails for one reason or another, (or is perhaps inadequate
-if you really need to see the graphical presentation of the HTML
-message).
+The emacs client can display an HTML message inline using either the
+`html2text` library or some text browser, like w3m or lynx. This is
+controlled by the `mm-text-html-renderer` variable.
 
-In this case, it can be useful to display the message in an external
+The first option is theorically better, because it can generate
+strings formatted for emacs and do whatever you want, e.g., substitute
+text inside <b> tags for bold text in the buffer. The library, however
+is still in a very early development phase and cannot yet process
+properly many elements, like tables and <style> directives, and even
+the generated text is often poorly formatted.
+
+Among the available browsers, w3m seems to do a better job converting
+the html, and if you have the w3m emacs package, you can use it,
+instead of the w3m-standalone, and thus preserve the text formatting.
+
+But if the rendering fails for one reason or another, (or is perhaps
+inadequate if you really need to see the graphical presentation of the
+HTML message), it can be useful to display the message in an external
 viewer, such as a web browser. Here's a little script that Keith
 Packard wrote, which he calls `view-html`:
 
