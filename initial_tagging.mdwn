@@ -24,7 +24,7 @@ following:
     # tag all message from notmuch mailing list
     notmuch tag +notmuch -- to:notmuch@notmuchmail.org
 
-    # finally, retag all "new" messages s "inbox" and "unread"
+    # finally, retag all "new" messages "inbox" and "unread"
     notmuch tag +inbox +unread -new -- tag:new
 
 Since the post-processing is only acting on a few messages, it is
