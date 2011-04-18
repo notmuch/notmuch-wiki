@@ -30,9 +30,9 @@ various "third party" notmuch utilities.
 
 * <span id="print_filenames">**Print only filenames of a search (python bindings)**</span>
 
-  Notmuch includes python bindings to the notmuch shared library,
-  called [cnotmuch](http://pypi.python.org/pypi/cnotmuch).  Extensive
-  API documentation is available.
+  Notmuch includes [python bindings](http://pypi.python.org/pypi/notmuch)
+  to the notmuch shared library. Extensive API documentation
+  [is available](http://packages.python.org/notmuch).
 
   The bindings are very simple to use.  As an example, given you have
   the python bindings installed (or simply set your PYTHONPATH
