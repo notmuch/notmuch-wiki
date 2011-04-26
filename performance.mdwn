@@ -18,20 +18,20 @@ database format, but also used in case of `chert`.
 
 ### Migrate from flint to chert
 
-1. make sure you are using xapian 1.2.x (depends on your distribution)
+Make sure you are using xapian 1.2.x (depends on your distribution)
 
-XXX: add examples
+XXX: add examples for different distributions
 
-2. Backup your notmuch tags:
+Backup your notmuch tags:
 
     $ cd
     $ notmuch dump notmuch-dump-b4chert
 
-3. Move away your old database:
+Move away your old database:
 
     $ mv $(notmuch config get database.path)/.notmuch/ notmuch-db-b4chert
 
-4. Find and import your messages, a new and fresh database will be
+Find and import your messages, a new and fresh database will be
 created:
 
     $ XAPIAN_PREFER_CHERT=1 notmuch new
@@ -44,23 +44,21 @@ somebody more knowledgeable.
 After the initial import it is definitely not necessary to define
 `XAPIAN_PREFER_CHERT` for subsequent calls of `notmuch new`.
 
-5. Restore your tags:
+Restore your tags:
 
     $ notmuch restore notmuch-dump-b4chert
 
-6. Check whether you are on chert now:
+Check whether you are on chert now:
 
     $ ls $(notmuch config get database.path)/.notmuch/xapian/iam*
     iamchert
 
   If it says `iamflint`, most likely you are still using xapian 1.0.x.
 
-7. Clean-up
-
-If you are sure everything is fine, you can delete the old things. The
-dump of your tags you might want to keep anyway as a backup - on the
-other hand you should have some mechanism in place to make regular
-backups of your notmuch database:
+Clean-up: if you are sure everything is fine, you can delete the old
+things. The dump of your tags you might want to keep anyway as a
+backup - on the other hand you should have some mechanism in place to
+make regular backups of your notmuch database:
 
     $ rm notmuch-dump-b4chert
     $ rm -R notmuch-db-b4chert
