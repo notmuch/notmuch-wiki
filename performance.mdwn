@@ -114,4 +114,4 @@ use:
 
 See the ongoing discussion:
 
-http://notmuchmail.org/pipermail/notmuch/2011/004197.html
+* [Optimization for notmuch tag by implicit filters](http://notmuchmail.org/pipermail/notmuch/2011/004197.html)
