@@ -1,5 +1,7 @@
 # Optimize notmuch's performance
 
+[[!toc levels=2]]
+
 ## Xapian 1.2.x database format: chert vs. flint
 
 Xapian 1.2 (in contrast to 1.0.x) uses a new database format called
@@ -99,3 +101,17 @@ Remove old and renamed compacted, if compacting went well:
 
 * [Pieter Praet](http://notmuchmail.org/pipermail/notmuch/2011/004175.html)
 
+
+## Tagging: use filters!
+
+Instead of just:
+
+    $ notmuch tag +foo
+
+use:
+
+    $ notmuch tag +foo -- not tag:foo
+
+See the ongoing discussion:
+
+http://notmuchmail.org/pipermail/notmuch/2011/004197.html
