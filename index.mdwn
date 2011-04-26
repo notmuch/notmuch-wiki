@@ -52,6 +52,7 @@ contain a reference for users.  This is what we have so far:
   * [[Initial_Tagging]]
   * [[Tips for using notmuch within Emacs|emacstips]]
   * [[Remote Usage|remoteusage]]
+  * [[Performance|performance]]
 
 Apart from the wiki, help is available via email.  Join the mailing
 list.  Read the archives.  Ask questions.
