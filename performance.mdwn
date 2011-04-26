@@ -95,9 +95,9 @@ Remove old and renamed compacted, if compacting went well:
 
 ### More information about this in the email archives:
 
-* [id:xyz, Carl Worth](http://notmuchmail.org/pipermail/notmuch/2010/001105.html)
+* [Carl Worth](http://notmuchmail.org/pipermail/notmuch/2010/001105.html)
 
-* [id:xyz, Sebastian Spaeth](http://notmuchmail.org/pipermail/notmuch/2011/004048.html)
+* [Sebastian Spaeth](http://notmuchmail.org/pipermail/notmuch/2011/004048.html)
 
-* [id:xyz, Pieter Praet](http://notmuchmail.org/pipermail/notmuch/2011/004175.html)
+* [Pieter Praet](http://notmuchmail.org/pipermail/notmuch/2011/004175.html)
 
