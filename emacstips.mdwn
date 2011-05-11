@@ -263,7 +263,7 @@ candidates based on a search string.  There are currently two
 available:
 
   * The python tool `notmuch_address.py` (`git clone
-    http://jkr.acm.jhu.edu/git/notmuch_addresses.git`) (slower, but
+    http://commonmeasure.org/~jkr/git/notmuch_addresses.git`) (slower, but
     no compilation required so good for testing the setup)
 
   * The vala-based
