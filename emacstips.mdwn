@@ -275,10 +275,12 @@ available:
 
                     cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch
 
-EUDC is integrated into emacs and is needed for tab completion of
-email addresses. See [this
-mail](http://mid.gmane.org/87fx3uflkx.fsf@jhu.edu)
-(id:87fx3uflkx.fsf@jhu.edu) for more information.
+You can perform tab-completion using either of these programs. Just add the following to your .emacs:
+
+    (require 'notmuch-address)
+    (setq notmuch-address-command "/path/to/address_fetching_program")
+    (notmuch-address-message-insinuate)
+
 
 ## How to sign/encrypt messages with gpg
 
