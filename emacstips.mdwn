@@ -54,9 +54,9 @@ that it will hide the sent mail in your emacs frame stack, but it will
 not close it. If you type several mails in an emacs session they will
 accumulate and make switching between buffers more annoying. You can
 avoid that behavior by adding `(setq message-kill-buffer-on-exit t)`
-in your `.emacs` file (or doing `M-x customize-variable
-message-kill-buffer-on-exit`) which will really close the mail window
-after sending it.
+in your `.emacs` file (or doing `M-x customize-variable<RET>
+message-kill-buffer-on-exit<RET>`) which will really close the mail
+window after sending it.
 
 ## Attaching files
 
