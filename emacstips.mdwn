@@ -54,18 +54,18 @@ that it will hide the sent mail in your emacs frame stack, but it will
 not close it. If you type several mails in an emacs session they will
 accumulate and make switching between buffers more annoying. You can
 avoid that behavior by adding `(setq message-kill-buffer-on-exit t)`
-in your `.emacs` file (or doing `M-x customize-variable<RET>
-message-kill-buffer-on-exit<RET>`) which will really close the mail
-window after sending it.
+in your `.emacs` file (or doing `M-x
+customize-variable<RET>message-kill-buffer-on-exit<RET>`) which will
+really close the mail window after sending it.
 
 ## Attaching files
 
 Using the `M-x mml-attach-file` command, you can attach any file to be
-send with your mail. By default this command is bound to the menu item
-*Attachments--Attach File* with the key binding `C-c C-a`.  The
+sent with your mail. By default this command is bound to the menu item
+*Attachments--Attach File* with the key binding `C-c C-a`. The
 variable `mml-dnd-attach-options` (`M-x
-customize-variable<RET>mml-dnd-attach-options`) can be set to allow
-the prompting for various attachment options (such as
+customize-variable<RET>mml-dnd-attach-options<RET>`) can be set to
+allow the prompting for various attachment options (such as
 inline/attachment) if you want to do that.
 
 For those who prefer a more graphical interface, you can also simply
