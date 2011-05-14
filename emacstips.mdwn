@@ -223,13 +223,13 @@ don't know why."
 
 ## msmtp, message mode and multiple accounts
 
-As an alternative to running a mail server such as sendmail or
-postfix just to send email, it is possible to use
-[msmtp](http://msmtp.sourceforge.net/).  This small application will
+As an alternative to running a mail server such as sendmail or postfix
+just to send email, it is possible to use
+[msmtp](http://msmtp.sourceforge.net/). This small application will
 look like `/usr/bin/sendmail` to a MUA such as emacs message mode, but
-will just forward the email to an external SMTP server.  It's fairly
-easy to set up and it support several account for using different
-SMTP servers.  The msmtp pages have several examples.
+will just forward the email to an external SMTP server. It's fairly
+easy to set up and it supports several accounts for using different
+SMTP servers. The msmtp pages have several examples.
 
 A typical scenario is that you want to use the company SMTP server
 for email coming from your company email address, and your personal
