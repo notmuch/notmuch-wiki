@@ -47,15 +47,16 @@ messages.  When in message mode, you can type `C-c ?` for help.
 If you would like to use address autocompletion when composing
 messages, see [address completion](#address_completion).
 
-When you are ready to send a message, type `C-c C-c`.  By default
+When you are ready to send a message, type `C-c C-c`. By default
 message mode will use your sendmail command to send mail, so make sure
-that works.  One annoying standard configuration of message mode is
+that works. One annoying standard configuration of message mode is
 that it will hide the sent mail in your emacs frame stack, but it will
 not close it. If you type several mails in an emacs session they will
 accumulate and make switching between buffers more annoying. You can
 avoid that behavior by adding `(setq message-kill-buffer-on-exit t)`
-in your `.emacs` file which will really close the mail window after
-sending it.
+in your `.emacs` file (or doing M-x customize-variable
+message-kill-buffer-on-exit) which will really close the mail window
+after sending it.
 
 ## Attaching files
 
