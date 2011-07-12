@@ -12,7 +12,7 @@ various "third party" notmuch utilities.
   is in a file of its own will work.  Here are some generally
   well-regarded mail retrieval tools:
 
-  * [offlineimap](https://github.com/jgoerzen/offlineimap/wiki/) -
+  * [offlineimap](https://github.com/nicolas33/offlineimap/) -
     quite useful and widely tested, it also offers a handy hook that
     will come in useful a bit later in our setup.  Also supports
     "presynchook" and "postsynchook" command that will get run
