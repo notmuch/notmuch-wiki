@@ -1,3 +1,5 @@
+[[!meta date="2010-11-11]]
+
 Notmuch 0.5 (2010-11-11)
 ========================
 New, general features

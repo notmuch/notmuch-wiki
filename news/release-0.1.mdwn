@@ -1,3 +1,5 @@
+[[!meta date="2010-04-05"]]
+
 Notmuch 0.1 (2010-04-05)
 ========================
 This is the first release of the notmuch mail system.
