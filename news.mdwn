@@ -1,0 +1,5 @@
+[[!meta title="News"]]
+
+# News #
+
+[[!inline pages="./news/* and !*/Discussion" rootpage="news" show="50"]]

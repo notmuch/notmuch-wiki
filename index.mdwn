@@ -43,6 +43,10 @@ would love a good library interface for fast, global search with
 support for arbitrary tags, then Notmuch also may be exactly what
 you've been looking for.
 
+## News
+
+[[The latest new from notmuch|news]]
+
 ## Documentation
 
 So far, there is not much documentation.  Eventually, the wiki will
