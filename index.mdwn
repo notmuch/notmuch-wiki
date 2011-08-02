@@ -45,7 +45,7 @@ you've been looking for.
 
 ## News
 
-[[The latest new from notmuch|news]]
+[[The latest news from notmuch|news]]
 
 ## Documentation
 
