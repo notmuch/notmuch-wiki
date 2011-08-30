@@ -25,7 +25,7 @@ describe the patch. This text is copied directly into the SCM
 (i.e. git) changelog.
 
 Include comments and other data (such as diffstat) you don't wish to
-be in the kernel changelog following a `---` terminator line. The
+be in the changelog following a `---` terminator line. The
 terminator must be on a line by itself.
 
 If you run `git log` on your cloned notmuch repository you see how log
