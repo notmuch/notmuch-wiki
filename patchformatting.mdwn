@@ -1,0 +1,173 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# Patch Formatting
+
+This text is mostly based on 
+[http://linux.yyz.us/patch-format.html](http://linux.yyz.us/patch-format.html);
+ here modified to the simplest case possible that is suitable in this
+software. `git format-patch` produces base for this kind of patches.
+See mailing list archives for somewhat more complex scenarios.  At the
+end there are some tips how to get your patches sent.
+
+## 1. Email subject format
+
+The subject line has format:
+
+      [PATCH] one line summary
+
+I.e: a constant prefix `[PATCH]` followed by one line summary. The 
+65-character limit seems to be common among many projects so that
+is good guideline to follow here too.
+
+## 2. Email body contents: description
+
+At the beginning of your email, use as many lines as you wish to
+describe the patch. This text is copied directly into the SCM
+(i.e. git) changelog.
+
+Include comments and other data (such as diffstat) you don't wish to
+be in the kernel changelog following a `---` terminator line. The
+terminator must be on a line by itself.
+
+If you run `git log` on your cloned notmuch repository you see how log
+messages get structured from Subject: line and body contents. One 
+description line, one empty line and then, usually multiline description
+following. Conversely, notmuch-wiki git log messages are often just one 
+line long -- as the description (and the reasoning for it) is usually 
+the content itself.
+
+## 3. Email body contents: patch
+
+### Sub-Rule Number One: 
+
+Patches must be reviewable in a standard Linux email client. This
+means in particular, no compression and no base64
+encoding. Attachments are discouraged, but some corporate mail systems
+provide no other way to send patches.
+
+### Sub-Rule Number Two: 
+
+Patch must be apply-able by a script that has no knowledge of [MIME]
+encoding. You must make sure your mailer does not escape standard
+US-ASCII characters, wrap long lines, or encode plaintext patches in
+base64 (or any other encoding).
+
+### Sub-Rule Number Three: 
+
+Patch must be rooted one level above notmuch source tree. i.e.
+
+      diff --git a/emacs/notmuch-mua.el b/emacs/notmuch-mua.el
+      index 556d2bf..274c5da 100644
+      --- a/emacs/notmuch-mua.el
+      +++ b/emacs/notmuch-mua.el
+
+or in other words, the patch must be apply-able using
+
+      patch -sp1 < foo.patch
+
+## 4. One patch per email
+
+This cannot be stressed enough. Even when you are resending a change
+for the 5th time, resist the urge to attach 20 patches to a single
+email. If you do send multiple emails, make sure the second and
+subsequent emails are sent as replies to the first, to keep them all
+together in a thread.
+
+The mailing list archive & the above link to linux patch formatting
+guidelines are good source of information how to format more complex
+subject line for set of related patches.
+
+## 5. Sign your work
+
+( currently notmuch in use )
+
+## 6. Avoid attachments and MIME
+
+Attachments make it more difficult to review and comment on your
+patches. MIME (the mechanism by which files are attached to an email)
+has historically created a problem for patch import scripts. Some
+unfortunate email programs insist upon base64 encoding for all
+attachments, which completely shrouds the patch to some scripts and
+mailers.
+
+## 7. Follow these instructions even when resending
+
+Quite often, when a patch receives comments, the patch author will
+(deep in an email thread) include a revised version of their patch but
+omit the email subject one-line summary, and overall patch
+description. This isn't script friendly, and requires the patch
+description to be hand-edited.
+
+For more details, read Documentation/SubmittingPatches 
+in the linux kernel source tree.
+
+
+## Tips for producing and sending your patches.
+
+After you've been editing your changes under cloned notmuch git repository
+first commit your changes... preferably (to you) to a separate branch;
+if you forgot to branch before starting you can do it now -- your modified
+working tree will follow.
+
+Then write your commit message with the rules above, i.e.
+
+      first commit line; one line description, up to 65 chars
+      
+      after one empty line, a detailed description of your patch
+      the description most usually spans over multiple lines.
+
+Now that you're committed your changes, enter
+
+      git format-patch HEAD^
+
+This outputs something like
+
+      0001-one-line-description.patch
+
+This is the file name of your patch with content:
+
+      From <-40-character-sha1-hexadecimal-string-> Day Mon DD HH:MM:SS YYYY
+      From: user.name <user.email>
+      Date: Day, DD Mon YYYY HH:MM:SS TZOFF
+      Subject: [PATCH] first commit line; one line description, up to 65 chars
+
+      after one empty line, a detailed description of your patch
+      the description most usually spans over multiple lines.
+      ---
+       <diffstat lines>
+       nn files changed, nn insertions(+) nn deletions(-)
+
+      diff --git a/<1st filename> b/<1st filename>
+      ...
+
+Now, after that `---` line and before first `diff --git ...` line
+any discussion about the patch can be started by the patch supplier; 
+those lines are ignored by `git am` tool which is (eventually) used to 
+apply the patch to the repository.
+
+If you have `git send-email` command available (and you can send emails
+from any of your shell accounts) you can use that to send your patches.
+Read the `git-send-email` manual page for information how to do so.
+
+One alternative way to send your patches is to use, for example, the
+emacs mail client you've already used to send mails to notmuch mailing list.
+In this case you have to be very careful to keep the patch contents
+unchanged:
+
+1. Start composing new mail
+
+2. Enter notmuch mailing list address to To: field.
+
+3. Go to the body part of the email
+
+4. Enter C-x i (M-x insert-file) and insert the patch file to the buffer
+
+5. Replace Subject: line from the Subject line of the patch.
+
+6. Remove everything before the description content from the beginning of the body. 
+
+7. Fill the discussion part after `---` unless you have done so (and there is anything to discuss).
+
+8. Check your text once more and then enter C-c C-c (message-send-and-exit).
+
+When your patches appear on the mailing list read the comments and take part 
+to the discussion and prepare to do adjustments to your patches.
