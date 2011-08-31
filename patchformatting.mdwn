@@ -1,121 +1,49 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Patch Formatting
 
-This text is mostly based on 
-[http://linux.yyz.us/patch-format.html](http://linux.yyz.us/patch-format.html);
- here modified to the simplest case possible that is suitable in this
-software. `git format-patch` produces base for this kind of patches.
-See mailing list archives for somewhat more complex scenarios.  At the
-end there are some tips how to get your patches sent.
+## How to Begin
 
-## 1. Email subject format
+Before you intend to provide patches outside of your local circle
+you should check the following:
 
-The subject line has format:
+1. Run `git log` and examine quite a few commit messages.
 
-      [PATCH] one line summary
+2. Read mailing list (archives) and follow the discussions on the patches sent.
 
-I.e: a constant prefix `[PATCH]` followed by one line summary. The 
-65-character limit seems to be common among many projects so that
-is good guideline to follow here too.
+3. Get familiar with coding conventions used (in any particular project).
 
-## 2. Email body contents: description
+This way you get some insight of the look and feel of the patches sent,
+both the way code should be written, how to write commit log messages
+and how to participate patch discussions.
 
-At the beginning of your email, use as many lines as you wish to
-describe the patch. This text is copied directly into the SCM
-(i.e. git) changelog.
-
-Include comments and other data (such as diffstat) you don't wish to
-be in the changelog following a `---` terminator line. The
-terminator must be on a line by itself.
-
-If you run `git log` on your cloned notmuch repository you see how log
-messages get structured from Subject: line and body contents. One 
-description line, one empty line and then, usually multiline description
-following. Conversely, notmuch-wiki git log messages are often just one 
-line long -- as the description (and the reasoning for it) is usually 
-the content itself.
-
-## 3. Email body contents: patch
-
-### Sub-Rule Number One: 
-
-Patches must be reviewable in a standard Linux email client. This
-means in particular, no compression and no base64
-encoding. Attachments are discouraged, but some corporate mail systems
-provide no other way to send patches.
-
-### Sub-Rule Number Two: 
-
-Patch must be apply-able by a script that has no knowledge of [MIME]
-encoding. You must make sure your mailer does not escape standard
-US-ASCII characters, wrap long lines, or encode plaintext patches in
-base64 (or any other encoding).
-
-### Sub-Rule Number Three: 
-
-Patch must be rooted one level above notmuch source tree. i.e.
-
-      diff --git a/emacs/notmuch-mua.el b/emacs/notmuch-mua.el
-      index 556d2bf..274c5da 100644
-      --- a/emacs/notmuch-mua.el
-      +++ b/emacs/notmuch-mua.el
-
-or in other words, the patch must be apply-able using
-
-      patch -sp1 < foo.patch
-
-## 4. One patch per email
-
-This cannot be stressed enough. Even when you are resending a change
-for the 5th time, resist the urge to attach 20 patches to a single
-email. If you do send multiple emails, make sure the second and
-subsequent emails are sent as replies to the first, to keep them all
-together in a thread.
-
-The mailing list archive & the above link to linux patch formatting
-guidelines are good source of information how to format more complex
-subject line for set of related patches.
-
-## 5. Sign your work
-
-( currently notmuch in use )
-
-## 6. Avoid attachments and MIME
-
-Attachments make it more difficult to review and comment on your
-patches. MIME (the mechanism by which files are attached to an email)
-has historically created a problem for patch import scripts. Some
-unfortunate email programs insist upon base64 encoding for all
-attachments, which completely shrouds the patch to some scripts and
-mailers.
-
-## 7. Follow these instructions even when resending
-
-Quite often, when a patch receives comments, the patch author will
-(deep in an email thread) include a revised version of their patch but
-omit the email subject one-line summary, and overall patch
-description. This isn't script friendly, and requires the patch
-description to be hand-edited.
-
-For more details, read Documentation/SubmittingPatches 
-in the linux kernel source tree.
-
-
-## Tips for producing and sending your patches.
+## Committing changes (locally)
 
 After you've been editing your changes under cloned notmuch git repository
 first commit your changes... preferably (to you) to a separate branch;
 if you forgot to branch before starting you can do it now -- your modified
 working tree will follow.
 
-Then write your commit message with the rules above, i.e.
+Enter your commit message in following format:
 
       first commit line; one line description, up to 65 chars
       
-      after one empty line, a detailed description of your patch
+      After one empty line, a detailed description of your changes
       the description most usually spans over multiple lines.
 
-Now that you're committed your changes, enter
+The 65-character (limit) seems to be common among many projects so
+that is good guideline to follow here too.
+
+## Remember: one patch per email
+
+Every patch should (must!) contain only one bugfix or new feature.
+
+Eric S. Raymond has written good 'Software Release Practice HOWTO'.
+Check what he has to say about this issue. 
+
+## Prepare patches for e-mail submission
+
+If you're made just one commit (containing just one bugfix or new feature)
+you can run
 
       git format-patch HEAD^
 
@@ -139,14 +67,52 @@ This is the file name of your patch with content:
       diff --git a/<1st filename> b/<1st filename>
       ...
 
-Now, after that `---` line and before first `diff --git ...` line
-any discussion about the patch can be started by the patch supplier; 
-those lines are ignored by `git am` tool which is (eventually) used to 
-apply the patch to the repository.
+If you have committed more patches, and want to prepare all of those
+you can check with `git log` a 40-char commit-sha1 of the last commit
+*since* you want to generate patch files. When you enter 
 
-If you have `git send-email` command available (and you can send emails
-from any of your shell accounts) you can use that to send your patches.
-Read the `git-send-email` manual page for information how to do so.
+      git format patch commit-sha1(-prefix)
+
+every commit *after* that commit-sha1 will be used to generate 
+patch files...
+
+## Using git send-email to send patches.
+
+If you try to execute `git send-email` and you'll get
+
+      git: 'send-email' is not a git command. See 'git --help'.
+
+Then you're using git installation where send-email command is distributed
+in separate package. In Debian/Ububtu/RedHat/Fedora the package is named
+`git-email`. Use the package manager in your distribution to install this
+package (or ask administrator to do this if you don't have privileges to do so).
+
+Playing with `git send-email` is pretty safe. By default it will ask questions,
+finally whether the email is to be sent or not. In normal cases you may
+just need to set smtp server (in case local sendmail is not configured to
+work properly). Check through `git-send-email` manual page and play with it.
+
+In case of one-file you might want to use
+
+      git send-email --annotate 0001-* 
+
+(other options omitted) to add a 'discussion' part into your
+email. The `git am` tool which is eventually used to submit the patch
+will ignore anything after first `---` and before the `diff --git ...`
+in the mail message (see example content above). In this case be careful
+you don't break the commit log message or the patch content.
+
+In case of multi-patch send, `git send-email --compose 00*.patch` can be
+used to send an introductory message (as separate email). This also follows
+the principle of sending only one patch per mail -- by sending each patch
+in separate mails.
+
+After you've played (perhaps with `--dry-run`) a bit, send first test emails
+to your own email address to see how the messages appear in your mailbox. 
+In this phase you can "streamline" your `git send-email` options for
+actual patch sending to the mailing list.
+
+## Sending one patch using compatible (emacs) email client.
 
 One alternative way to send your patches is to use, for example, the
 emacs mail client you've already used to send mails to notmuch mailing list.
@@ -159,7 +125,7 @@ unchanged:
 
 3. Go to the body part of the email
 
-4. Enter C-x i (M-x insert-file) and insert the patch file to the buffer
+4. Enter `C-x i` (M-x insert-file) and insert the patch file to the buffer
 
 5. Replace Subject: line from the Subject line of the patch.
 
@@ -167,7 +133,7 @@ unchanged:
 
 7. Fill the discussion part after `---` unless you have done so (and there is anything to discuss).
 
-8. Check your text once more and then enter C-c C-c (message-send-and-exit).
+8. Check your text once more and then enter `C-c C-c` (message-send-and-exit).
 
 When your patches appear on the mailing list read the comments and take part 
 to the discussion and prepare to do adjustments to your patches.
