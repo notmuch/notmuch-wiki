@@ -76,7 +76,11 @@ you can check with `git log` a 40-char commit-sha1 of the last commit
 every commit *after* that commit-sha1 will be used to generate 
 patch files...
 
-## Using git send-email to send patches.
+## Sending patches
+
+### Using git send-email
+
+(This is the preferred way)
 
 If you try to execute `git send-email` and you'll get
 
@@ -112,10 +116,10 @@ to your own email address to see how the messages appear in your mailbox.
 In this phase you can "streamline" your `git send-email` options for
 actual patch sending to the mailing list.
 
-## Sending one patch using compatible (emacs) email client.
+### Sending one patch using compatible (emacs) email client.
 
 One alternative way to send your patches is to use, for example, the
-emacs mail client you've already used to send mails to notmuch mailing list.
+emacs mail client you've already used to send mails to mailing list.
 In this case you have to be very careful to keep the patch contents
 unchanged:
 
