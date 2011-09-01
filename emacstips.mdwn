@@ -96,6 +96,40 @@ mentioned as script arguments. (Note: The script expects that you have
 
 # Advanced tips and tweaks
 
+## Use separate emacs lisp file for notmuch configuration
+
+Instead of adding notmuch configuration code to `.emacs`, there
+is an option to collect those to a separate file (which is only
+loaded when `notmuch` is invoked). To do this, write, for example
+a file called `~/.emacs.d/my-notmuch.el`:
+
+	  ;; my-notmuch.el -- my notmuch mail configuration
+	  ;;
+	  
+	  ;; add here stuff required to be configured *before*
+	  ;; notmuch is loaded;
+
+	  ; uncomment and modify in case some elisp files are not found in load-path
+	  ; (add-to-list 'load-path "~/vc/ext/notmuch/emacs")
+
+	  ;; load notmuch 
+	  (require 'notmuch)
+
+	  ;; add here stuff required to be configured *after*
+	  ;; notmuch is loaded;
+		
+	  ;(setq user-mail-address (notmuch-user-primary-email)
+	  ;      user-full-name (notmuch-user-name))
+
+	  ; uncomment & modify if you want to use external smtp server to send mail
+	  ; (setq smtpmail-smtp-server "smtp.server.tld"
+	  ;       message-send-mail-function 'message-smtpmail-send-it)
+
+Then, add to `.emacs`:
+
+	  (autoload 'notmuch "~/.emacs.d/my-notmuch" "notmuch mail" t)
+
+
 ## Add a key binding to add/remove/toggle a tag
 
 The `notmuch-{search,show}-{add,remove}-tag` functions are very useful
