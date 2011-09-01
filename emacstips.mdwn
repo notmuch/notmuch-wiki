@@ -14,6 +14,10 @@ To use the Notmuch emacs mode, first add the following line to your
 
 	(require 'notmuch)
 
+or you can load the package via autoload:
+
+	(autoload 'notmuch "notmuch" "notmuch mail" t)
+
 Then, either run "emacs -f notmuch", or execute the command `M-x
 notmuch` from within a running emacs.
 
