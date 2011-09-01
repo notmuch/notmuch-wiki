@@ -37,12 +37,13 @@ that is good guideline to follow here too.
 
 Every patch should (must!) contain only one bugfix or new feature.
 
-Eric S. Raymond has written good 'Software Release Practice HOWTO'.
+Eric S. Raymond has written good 
+[Software Release Practice HOWTO](http://tldp.org/HOWTO/Software-Release-Practice-HOWTO/).
 Check what he has to say about this issue. 
 
 ## Prepare patches for e-mail submission
 
-If you're made just one commit (containing just one bugfix or new feature)
+If you've made just one commit (containing just one bugfix or new feature)
 you can run
 
       git format-patch HEAD^
@@ -71,7 +72,7 @@ If you have committed more patches, and want to prepare all of those
 you can check with `git log` a 40-char commit-sha1 of the last commit
 *since* you want to generate patch files. When you enter 
 
-      git format patch commit-sha1(-prefix)
+      git format-patch <commit-sha1(-prefix)>
 
 every commit *after* that commit-sha1 will be used to generate 
 patch files...
@@ -82,7 +83,7 @@ patch files...
 
 (This is the preferred way)
 
-If you try to execute `git send-email` and you'll get
+If you try to execute `git send-email` and you get
 
       git: 'send-email' is not a git command. See 'git --help'.
 
@@ -125,7 +126,7 @@ unchanged:
 
 1. Start composing new mail
 
-2. Enter notmuch mailing list address to To: field.
+2. Enter notmuch mailing list address into To: field.
 
 3. Go to the body part of the email
 
