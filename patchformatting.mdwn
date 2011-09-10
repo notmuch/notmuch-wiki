@@ -119,6 +119,10 @@ actual patch sending to the mailing list.
 
 ### Sending one patch using compatible (emacs) email client.
 
+Sometimes using git-send-email is not possible; It is not installed by
+default and you don't have privileges to install it or you are not
+able to compile it as it has more build-time requirements as git itself.
+
 One alternative way to send your patches is to use, for example, the
 emacs mail client you've already used to send mails to mailing list.
 In this case you have to be very careful to keep the patch contents
