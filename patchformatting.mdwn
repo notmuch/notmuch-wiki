@@ -10,7 +10,7 @@ you should check the following:
 
 2. Read mailing list (archives) and follow the discussions on the patches sent.
 
-3. Get familiar with coding conventions used (in any particular project).
+3. Get familiar with coding conventions used.
 
 This way you get some insight of the look and feel of the patches sent,
 both the way code should be written, how to write commit log messages
