@@ -41,6 +41,16 @@ Eric S. Raymond has written good
 [Software Release Practice HOWTO](http://tldp.org/HOWTO/Software-Release-Practice-HOWTO/).
 Check what he has to say about this issue. 
 
+### Test Suite Enhancements
+
+New features as well as bug fixes should typically come with test suite
+enhancements.  The test suite changes should be done first (tagged as *expected
+to fail*), and the feature implementation or bug fix should come second
+(removing the *expected to fail* tag).  This way, the test suite specifies the
+behavior you're trying to implement, be it a new feature or a bug fix.  By
+defining beforehand exactly what you expect to happen, everyone can confirm
+that your patch achieves what it is meant it to.
+
 ## Prepare patches for e-mail submission
 
 If you've made just one commit (containing just one bugfix or new feature)
