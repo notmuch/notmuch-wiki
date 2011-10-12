@@ -1,0 +1,66 @@
+[[!meta date="2011-10-11"]]
+
+Notmuch 0.9 (2011-10-01)
+========================
+
+New, general features
+---------------------
+
+Correct handling of interruptions during "notmuch new"
+
+  "notmuch new" now operates as a series of small, self-consistent
+  transactions, so it can correctly resume after an interruption or
+  crash.  Previously, interruption could lose existing tags, fail to
+  detect messages on resume, or leave the database in a state
+  temporarily or permanently inconsistent with the mail store.
+
+Library changes
+---------------
+
+New functions
+
+  notmuch_database_begin_atomic and notmuch_database_end_atomic allow
+  multiple database operations to be performed atomically.
+
+  notmuch_database_find_message_by_filename does exactly what it says.
+
+API changes
+
+  notmuch_database_find_message (and n_d_f_m_by_filename) now return
+  a status indicator and uses an output parameter for the
+  message. This change required changing the SONAME of libnotmuch to
+  libnotmuch.so.2
+
+Python bindings changes
+-----------------------
+
+  - Re-encode python unicode objects to utf-8 before passing back to
+    libnotmuch.
+  - Support Database().begin_atomic()/end_atomic()
+  - Support Database().find_message_by_filename()
+    NB! This needs a db opened in READ-WRITE mode currently, or it will crash
+    the python process. The is a limitation (=bug) of the underlying libnotmuch.
+  - Fixes where we would not throw NotmuchErrors when we should (Justus Winter)
+  - Update for n_d_find_message* API changes (see above).
+
+Ruby bindings changes
+---------------------
+
+  - Wrap new library functions notmuch_database_{begin,end}_atomic.
+  - Add new exception Notmuch::UnbalancedAtomicError. 
+  - Rename destroy  to destroy! according to Ruby naming conventions.
+  - Update for n_d_find_message* API changes (see above).
+
+Emacs improvements
+------------------
+
+  * Add gpg callback to crypto sigstatus buttons to retrieve/refresh
+    signing key.
+  * Add notmuch-show-refresh-view function (and corresponding binding)
+    to refresh the view of a notmuch-show buffer.
+
+Reply formatting cleanup
+------------------------
+
+  "notmuch reply" no longer includes notification that non-leafnode
+  MIME parts are being suppressed.
