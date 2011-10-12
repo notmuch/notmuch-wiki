@@ -19,14 +19,14 @@ Library changes
 
 New functions
 
-  notmuch_database_begin_atomic and notmuch_database_end_atomic allow
+  notmuch\_database\_begin\_atomic and notmuch\_database\_end\_atomic allow
   multiple database operations to be performed atomically.
 
-  notmuch_database_find_message_by_filename does exactly what it says.
+  notmuch\_database\_find\_message\_by\_filename does exactly what it says.
 
 API changes
 
-  notmuch_database_find_message (and n_d_f_m_by_filename) now return
+  notmuch\_database\_find\_message (and n\_d\_f\_m\_by\_filename) now return
   a status indicator and uses an output parameter for the
   message. This change required changing the SONAME of libnotmuch to
   libnotmuch.so.2
@@ -36,20 +36,20 @@ Python bindings changes
 
   - Re-encode python unicode objects to utf-8 before passing back to
     libnotmuch.
-  - Support Database().begin_atomic()/end_atomic()
-  - Support Database().find_message_by_filename()
+  - Support Database().begin\_atomic()/end\_atomic()
+  - Support Database().find\_message\_by\_filename()
     NB! This needs a db opened in READ-WRITE mode currently, or it will crash
     the python process. The is a limitation (=bug) of the underlying libnotmuch.
   - Fixes where we would not throw NotmuchErrors when we should (Justus Winter)
-  - Update for n_d_find_message* API changes (see above).
+  - Update for n\_d\_find\_message* API changes (see above).
 
 Ruby bindings changes
 ---------------------
 
-  - Wrap new library functions notmuch_database_{begin,end}_atomic.
+  - Wrap new library functions notmuch\_database\_{begin,end}\_atomic.
   - Add new exception Notmuch::UnbalancedAtomicError. 
   - Rename destroy  to destroy! according to Ruby naming conventions.
-  - Update for n_d_find_message* API changes (see above).
+  - Update for n\_d\_find\_message* API changes (see above).
 
 Emacs improvements
 ------------------
