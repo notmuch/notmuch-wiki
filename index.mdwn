@@ -79,8 +79,7 @@ list](http://notmuchmail.org/mailman/listinfo/notmuch-commits) to watch
 every commit made to notmuch and the notmuchmail.org web site.
 
 Patches are most welcome and should be sent to notmuch&#64;notmuchmail.org.
-Please try to follow the [patch submission guidelines of the Git
-project](http://repo.or.cz/w/git.git?a=blob;f=Documentation/SubmittingPatches;hb=HEAD)
+Please try to follow the [[patch submission guidelines|patchformatting]]
 when submitting patches to notmuch. We are currently test-driving a [Patchwork
 instance](http://patchwork.notmuchmail.org/project/notmuch) to help us keep track
 of [the patches](http://patchwork.notmuchmail.org/project/notmuch/list).
