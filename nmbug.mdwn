@@ -1,0 +1,80 @@
+# Experimental Tag Sharing / Pseudo-Bug-Tracking for/with notmuch
+
+## getting set up
+
+1. The current set of patches against notmuch master is in branch nmbug, 
+
+    git://pivot.cs.unb.ca/notmuch.git
+
+    - you want the script contrib/nmbug, but you need the bleeding edge version 
+      of notmuch as well.
+      
+2. The current tag repo is at
+
+    git clone git://pivot.cs.unb.ca/nmbug.git $HOME/.nmbug
+
+
+## Using nmbug
+
+    # suck in the tags
+    $ nmbug restore
+
+    [ do some tagging; see below for conventions ]
+    
+    $ nmbug commit
+
+
+## Submitting tags.
+
+   For the moment, we are using a central repo, hosted at
+    
+        git@pivot.cs.unb.ca:pub/nmbug
+        
+   To get push access, send your public key (ideally in a gpg signed
+   email) to David Bremner.  There is a convenience command
+   
+       nmbug push
+       
+   But you will have to change your url with
+   
+       git remote origin set-url git@pivot.cs.unb.ca:pub/nmbug
+
+## Tagging conventions
+
+    notmuch::bug                is a bug report
+    notmuch::emacs              is a patch/bug for the emacs UI
+    notmuch::feature            provides a new feature
+    notmuch::fix                fixes a bug
+    notmuch::obsolete           replaced by some other patch
+    notmuch::patch           
+    notmuch::portability        improves portability
+    notmuch::pushed             is pushed to master
+    notmuch::review             is a review
+    notmuch::reviewed           has been (well) reviewed
+    notmuch::test               provides a new test/or improves testing
+
+## Design notes
+
+### Disk format.
+
+The on-disk format is a set of files $HOME/.nmbug/tags/$SHA1, where
+$SHA1 is the hash of the message-id. This is mainly a simple way to
+avoid problems with strange message-ids. Each file has the format
+
+    msg-id: $id
+    tag: <tag>
+    tag: <tag>
+    [...]
+    
+The motivation is to make merges easier, relative to the notmuch dump
+format.  The msg-id: and tag: headers are not really needed, but it
+does make the format extensible.
+
+### Assumptions
+
+- Currently the parser of nmbug (like that of notmuch restore) assumes 
+  that there are no spaces message-ids.
+    
+    
+    
+
