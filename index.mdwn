@@ -70,7 +70,7 @@ under the GNU [GPL version
 3](http://www.fsf.org/licensing/licenses/gpl.html). The latest
 versions can be checked out via git with this command:
 
-	git clone git://notmuchmail.org/git/notmuch
+    git clone git://notmuchmail.org/git/notmuch
 
 You can browse the [Notmuch code
 history](http://git.notmuchmail.org/git/notmuch) online. And finally,
@@ -83,6 +83,7 @@ Please try to follow the [[patch submission guidelines|patchformatting]]
 when submitting patches to notmuch. We are currently test-driving a [Patchwork
 instance](http://patchwork.notmuchmail.org/project/notmuch) to help us keep track
 of [the patches](http://patchwork.notmuchmail.org/project/notmuch/list).
+For another experiment in patch tracking, see [[nmbug]].
 
 Source code of notmuch releases can be downloaded [here](http://notmuchmail.org/releases/).
 
