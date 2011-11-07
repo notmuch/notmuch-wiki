@@ -70,7 +70,7 @@ them, the tree looks something like
     tags/87aa8j7hqu.fsf@zancas.localnet/patch
     tags/87aa8j7hqu.fsf@zancas.localnet/pushed
 
-The `%25` represents hex code for a character that cannut be used directly
+The `%25` represents hex code for a character that cannot be used directly
 (in this case %, only because it is needed as an escape).
 
 ### Assumptions
