@@ -6,18 +6,18 @@
 
     git://pivot.cs.unb.ca/notmuch.git
 
-    - you want the script contrib/nmbug, but you need the bleeding edge version 
-      of notmuch as well.
+    Currently you need at least the version of notmuch in master, and
+    the script in contrib/nmbug.
       
 2. The current tag repo is at
 
-    git clone git://pivot.cs.unb.ca/nmbug.git $HOME/.nmbug
+    git clone --bare git://pivot.cs.unb.ca/nmbug.git $HOME/.nmbug
 
 
 ## Using nmbug
 
     # suck in the tags
-    $ nmbug restore
+    $ nmbug checkout
 
     [ do some tagging; see below for conventions ]
     
@@ -57,23 +57,26 @@
 
 ### Disk format.
 
-The on-disk format is a set of files $HOME/.nmbug/tags/$SHA1, where
-$SHA1 is the hash of the message-id. This is mainly a simple way to
-avoid problems with strange message-ids. Each file has the format
+The tags are stored in a bare-repo, which means they are not obviously
+visible. There is an `nmbug archive` command analogous to `git
+archive` Tags are represented as empty files in the tree; if you extra
+them, the tree looks something like
 
-    msg-id: $id
-    tag: <tag>
-    tag: <tag>
-    [...]
-    
-The motivation is to make merges easier, relative to the notmuch dump
-format.  The msg-id: and tag: headers are not really needed, but it
-does make the format extensible.
+
+    tags/878waiwi0f.wl%25james@hackervisions.org/
+    tags/878waiwi0f.wl%25james@hackervisions.org/emacs
+    tags/878waiwi0f.wl%25james@hackervisions.org/patch
+    tags/87aa8j7hqu.fsf@zancas.localnet/
+    tags/87aa8j7hqu.fsf@zancas.localnet/patch
+    tags/87aa8j7hqu.fsf@zancas.localnet/pushed
+
+The `%25` represents hex code for a character that cannut be used directly
+(in this case %, only because it is needed as an escape).
 
 ### Assumptions
 
 - Currently the parser of nmbug (like that of notmuch restore) assumes 
-  that there are no spaces message-ids.
+  that there are no spaces in message-ids.
     
     
     
