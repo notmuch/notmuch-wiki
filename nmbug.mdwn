@@ -13,17 +13,22 @@
 
     git clone --bare git://pivot.cs.unb.ca/nmbug.git $HOME/.nmbug
 
-
 ## Using nmbug
 
-    # suck in the tags
-    $ nmbug checkout
+    # get the latest version of the tags
+    $ nmbug pull
 
-    [ do some tagging; see below for conventions ]
+    # do some tagging; see below for conventions 
     
+    $ notmuch tag +notmuch::patch $id
+    
+    # optionally inspect your changes
+    $ nmbug status      
+    A   tags/$id/patch
+    
+    # write the tag changes from the notmuch
     $ nmbug commit
-
-
+    
 ## Submitting tags.
 
    For the moment, we are using a central repo, hosted at
