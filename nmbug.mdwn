@@ -45,7 +45,7 @@
     # make the tag changes
     $ notmuch tag +notmuch::patch id
 
-    # double checkout your changes
+    # double check your changes
     $ nmbug status
     A tags/id/patch
     
