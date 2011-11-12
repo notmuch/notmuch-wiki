@@ -13,7 +13,7 @@
 
     git clone --bare git://pivot.cs.unb.ca/nmbug.git $HOME/.nmbug
 
-## Using nmbug
+## Using nmbug, simple example
 
     # get the latest version of the tags
     $ nmbug pull
@@ -22,13 +22,36 @@
     
     $ notmuch tag +notmuch::patch $id
     
-    # optionally inspect your changes
-    $ nmbug status      
-    A   tags/$id/patch
-    
     # write the tag changes from the notmuch
     $ nmbug commit
+
+## Using nmbug, doing the same thing with more steps
+
+    # get the latest version of the tags
+    $ nmbug fetch
+
+    # Optionally inspect the fetched changes
+
+    $ nmbug status      
+    a   tags/id1/patch
+    d   tags/id2/pushed     
     
+    # merge the fetched tags into notmuch
+    $ nmbug merge
+    
+    # observe status is clear now,
+    $ nmbug status
+
+    # make the tag changes
+    $ notmuch tag +notmuch::patch id
+
+    # double checkout your changes
+    $ nmbug status
+    A tags/id/patch
+    
+    # write the tag changes 
+    $ nmbug commit
+
 ## Submitting tags.
 
    For the moment, we are using a central repo, hosted at
