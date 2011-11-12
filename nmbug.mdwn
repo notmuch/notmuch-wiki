@@ -6,9 +6,9 @@
 
 2. Get nmbug script using
 
-      git clone git://pivot.cs.unb.ca/notmuch.git notmuch-nmbug
-      cd notmuch-nmbug
-      git branch -b nmbug origin/nmbug
+      git clone git://pivot.cs.unb.ca/notmuch.git notmuch-nmbug  
+      cd notmuch-nmbug  
+      git branch -b nmbug origin/nmbug  
 
     The script is now available in contrib/nmbug
       
