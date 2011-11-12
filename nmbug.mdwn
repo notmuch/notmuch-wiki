@@ -9,7 +9,7 @@
     Currently you need at least the version of notmuch in master, and
     the script in contrib/nmbug.
       
-2. The current tag repo is at
+2. The current tag repo can be obtained by
 
     git clone --bare git://pivot.cs.unb.ca/nmbug.git $HOME/.nmbug
 
@@ -22,7 +22,7 @@
     
     $ notmuch tag +notmuch::patch $id
     
-    # write the tag changes from the notmuch
+    # write the tag changes from the notmuch database
     $ nmbug commit
 
 ## Using nmbug, doing the same thing with more steps
@@ -33,8 +33,8 @@
     # Optionally inspect the fetched changes
 
     $ nmbug status      
-    a   tags/id1/patch
-    d   tags/id2/pushed     
+     a   tags/id1/patch
+     d   tags/id2/pushed     
     
     # merge the fetched tags into notmuch
     $ nmbug merge
