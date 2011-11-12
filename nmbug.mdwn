@@ -73,6 +73,7 @@
     notmuch::emacs              is a patch/bug for the emacs UI
     notmuch::feature            provides a new feature
     notmuch::fix                fixes a bug
+    notmuch::moreinfo           waiting for feedback from patch proposer or others
     notmuch::obsolete           replaced by some other patch
     notmuch::patch           
     notmuch::portability        improves portability
@@ -86,8 +87,9 @@
 
 I use the following search (in my case as a saved search in emacs).
     
-    tag:notmuch::patch and not tag:notmuch::pushed and 
-        not tag:notmuch::obsolete and not tag:notmuch::wip
+    tag:notmuch::patch and not tag:notmuch::pushed and \
+        not tag:notmuch::obsolete and not tag:notmuch::wip \
+            and not tag:notmuch::moreinfo
         
 Another interesting search is 
 
