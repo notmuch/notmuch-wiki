@@ -80,7 +80,15 @@
     notmuch::review             is a review
     notmuch::reviewed           has been (well) reviewed
     notmuch::test               provides a new test/or improves testing
+    notmuch::wip                is "work in progress", posted for review or comment.
 
+## Tracking the patch queue
+
+    I use the following search (in my case as saved search in emacs).
+    
+    tag:notmuch::patch and not tag:notmuch::pushed and 
+        not tag:notmuch::obsolete and not tag:notmuch::wip
+        
 ## Design notes
 
 ### Disk format.
