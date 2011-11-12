@@ -6,21 +6,21 @@
 
 2. Get nmbug script using
 
-    git clone git://pivot.cs.unb.ca/notmuch.git notmuch-nmbug
-    cd notmuch-nmbug
-    git branch -b nmbug origin/nmbug
+      git clone git://pivot.cs.unb.ca/notmuch.git notmuch-nmbug
+      cd notmuch-nmbug
+      git branch -b nmbug origin/nmbug
 
-The script is now available in contrib/nmbug
+    The script is now available in contrib/nmbug
       
 3. The current tag repo can be obtained by
 
-    git clone --bare git://pivot.cs.unb.ca/nmbug.git $HOME/.nmbug
+      git clone --bare git://pivot.cs.unb.ca/nmbug.git $HOME/.nmbug
 
-Check that your git is recent enough by entering
+    Check that your git is recent enough by entering
 
-    git --git-dir=$HOME/.nmbug fetch
+      git --git-dir=$HOME/.nmbug fetch
 
-If you get failures then you need to update your git (as well).
+    If you get failures then you need to update your git (as well).
 
 ## Using nmbug, simple example
 
