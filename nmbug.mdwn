@@ -2,17 +2,11 @@
 
 ## Getting set up
 
-1. Install and use notmuch version notmuch 0.9+23~g556c5fa or newer (enter notmuch --version to check your version)
+1. Install and use notmuch version notmuch 0.9+63~gebd1adc or newer.
 
-2. Get nmbug script using
-
-      git clone git://pivot.cs.unb.ca/notmuch.git notmuch-nmbug  
-      cd notmuch-nmbug  
-      git branch -b nmbug origin/nmbug  
-
-    The script is now available in contrib/nmbug
+   The nmbug script is available in contrib/nmbug
       
-3. The current tag repo can be obtained by
+2. The current tag repo can be obtained by
 
       git clone --bare git://pivot.cs.unb.ca/nmbug.git $HOME/.nmbug
 
