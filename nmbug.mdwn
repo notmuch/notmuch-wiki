@@ -88,7 +88,8 @@
 
 ## Tracking the patch queue
 
-I use the following search (in my case as a saved search in emacs).
+I (David Bremner) use the following search (in my case as a saved
+search in emacs).
     
     tag:notmuch::patch and not tag:notmuch::pushed and \
         not tag:notmuch::obsolete and not tag:notmuch::wip \
