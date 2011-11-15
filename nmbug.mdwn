@@ -93,9 +93,10 @@ search in emacs).
     
     tag:notmuch::patch and not tag:notmuch::pushed and \
         not tag:notmuch::obsolete and not tag:notmuch::wip \
-            and not tag:notmuch::moreinfo
-        
-Another interesting search is 
+            and not tag:notmuch::moreinfo and not tag:notmuch::contrib
+
+You might or might not want as many exclusions.  Another interesting
+search is
 
     tag:notmuch::reviewed and not tag:notmuch::pushed
     
