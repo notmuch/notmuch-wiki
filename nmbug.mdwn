@@ -68,7 +68,7 @@
        
    But you will have to change your url with
    
-       git remote origin set-url git@pivot.cs.unb.ca:pub/nmbug
+       git --git-dir=$HOME/.nmbug remote set-url origin git@pivot.cs.unb.ca:pub/nmbug
 
 ## Tagging conventions
 
