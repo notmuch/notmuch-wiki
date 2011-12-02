@@ -1,17 +1,20 @@
 # Experimental Tag Sharing / Pseudo-Bug-Tracking for/with notmuch
 
-## getting set up
+## Getting set up
 
-1. The current set of patches against notmuch master is in branch nmbug, 
+1. Install and use notmuch version notmuch 0.9+63~gebd1adc or newer.
 
-    git://pivot.cs.unb.ca/notmuch.git
-
-    Currently you need at least the version of notmuch in master, and
-    the script in contrib/nmbug.
+   The nmbug script is available in contrib/nmbug
       
 2. The current tag repo can be obtained by
 
-    git clone --bare git://pivot.cs.unb.ca/nmbug.git $HOME/.nmbug
+      git clone --bare git://pivot.cs.unb.ca/nmbug.git $HOME/.nmbug
+
+    Check that your git is recent enough by entering
+
+      git --git-dir=$HOME/.nmbug fetch
+
+    If you get failures then you need to update your git (as well).
 
 ## Using nmbug, simple example
 
@@ -65,7 +68,7 @@
        
    But you will have to change your url with
    
-       git remote origin set-url git@pivot.cs.unb.ca:pub/nmbug
+       git --git-dir=$HOME/.nmbug remote set-url origin git@pivot.cs.unb.ca:pub/nmbug
 
 ## Tagging conventions
 
@@ -85,13 +88,15 @@
 
 ## Tracking the patch queue
 
-I use the following search (in my case as a saved search in emacs).
+I (David Bremner) use the following search (in my case as a saved
+search in emacs).
     
     tag:notmuch::patch and not tag:notmuch::pushed and \
         not tag:notmuch::obsolete and not tag:notmuch::wip \
-            and not tag:notmuch::moreinfo
-        
-Another interesting search is 
+            and not tag:notmuch::moreinfo and not tag:notmuch::contrib
+
+You might or might not want as many exclusions.  Another interesting
+search is
 
     tag:notmuch::reviewed and not tag:notmuch::pushed
     

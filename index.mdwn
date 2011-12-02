@@ -87,6 +87,8 @@ For another experiment in patch tracking, see [[nmbug]].
 
 Source code of notmuch releases can be downloaded [here](http://notmuchmail.org/releases/).
 
+There is a buildbot [here](http://buildbot.notmuchmail.org/grid) (configuration [here](https://github.com/tomprince/buildbot-configs/tree/notmuch)).
+
 ## Binary packages
 
 * [Debian](http://packages.debian.org/search?keywords=notmuch), [Ubuntu](http://packages.ubuntu.com/search?keywords=notmuch)
