@@ -33,6 +33,26 @@ Enter your commit message in following format:
 The 65-character (limit) seems to be common among many projects so
 that is good guideline to follow here too.
 
+### Activating default pre-commit hook
+
+Git provides a default pre-commit hook which, when activated, checks
+(at least) for whitespace errors (trailing whitespace and space before
+tab). It is better to notice this kind of "errors" early than have
+patch reviewers to mention about those.
+
+The hook, when activated, is named as .git/hooks/pre-commit and it
+has execute permissions set on. By default, when git tree is cloned
+your hooks dir may have default, inactive pre-commit hook available
+as:
+
+1. .git/hooks/pre-commit  without execute permission set
+
+2. .git/hooks/pre-commit.sample  usually with execute permission set
+
+In case of 2, enter `cp .git/hooks/pre-commit.sample .git/hooks/pre-commit`.
+And, now enter `chmod a+x .git/hooks/pre-commit` in case it does not
+have execute permission set.
+
 ## Remember: one patch per email
 
 Every patch should (must!) contain only one bugfix or new feature.
