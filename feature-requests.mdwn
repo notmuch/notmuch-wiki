@@ -76,6 +76,12 @@
      This leaves the interesting question if we want a way to bind to
      the actual address component.
 
++    Add folder tags to mail automatically
+
+     Add the name of the IMAP folder as the tag for mails.  This way,
+     server-side filtering can be directly used by notmuch to tag all
+     incoming mail.
+
 ## 3rd party apps
 
 ### notmuchsync
