@@ -78,7 +78,7 @@ tag:notmuch::patch and not tag:notmuch::pushed  and not tag:notmuch::obsolete an
  <tr><td> 2011-07-17
 </td><td> <a href=http://mid.gmane.org/1310874973-28437-1-git-send-email-anarcat@koumbit.org>id:1310874973-28437-1-git-send-email-anarcat@koumbit.org</a>
 </td></tr>
- <tr><td> 
+ <tr><td> Antoine Beaupré <anarcat@koumbit.org>
 </td><td> [PATCH 1/2] lib: Add back the synchronization of 'T' flag with deleted tag.
 </td></tr>
 
@@ -92,7 +92,7 @@ tag:notmuch::patch and not tag:notmuch::pushed  and not tag:notmuch::obsolete an
  <tr><td> 2011-08-08
 </td><td> <a href=http://mid.gmane.org/1312799218-10243-1-git-send-email-anarcat@koumbit.org>id:1312799218-10243-1-git-send-email-anarcat@koumbit.org</a>
 </td></tr>
- <tr><td> 
+ <tr><td> Antoine Beaupré <anarcat@koumbit.org>
 </td><td> [PATCH] run notmuch-hello-mode-hook at the end of the hello mode setup
 </td></tr>
 
@@ -159,7 +159,7 @@ tag:notmuch::patch and not tag:notmuch::pushed  and not tag:notmuch::obsolete an
 </td><td> [PATCH 2/2] test/test-lib.sh: launch smtp-dummy with --background and finally kill(1) it.
 </td></tr>
 
- <tr><td><br /> 
+ <tr><td><br /> 2011-12-13
 </td><td><br /> <a href=http://mid.gmane.org/1323797532-597-3-git-send-email-schnouki@schnouki.net>id:1323797532-597-3-git-send-email-schnouki@schnouki.net</a>
 </td></tr>
  <tr><td> Thomas Jost <schnouki@schnouki.net>
@@ -180,7 +180,7 @@ tag:notmuch::patch and not tag:notmuch::pushed  and not tag:notmuch::obsolete an
 </td><td> [PATCH v3 4/4] emacs: add notmuch-hello-hook
 </td></tr>
 
- <tr><td><br /> 
+ <tr><td><br /> 2011-12-13
 </td><td><br /> <a href=http://mid.gmane.org/1323806207-31888-1-git-send-email-david@tethera.net>id:1323806207-31888-1-git-send-email-david@tethera.net</a>
 </td></tr>
  <tr><td> David Bremner <david@tethera.net>
