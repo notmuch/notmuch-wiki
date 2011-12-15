@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>nmbug report generator</title>
+<link rel="stylesheet" type="text/css" href="highlight.css">
+</head>
+<body class="hl">
+<pre class="hl"><span class="hl slc">#!/usr/bin/python</span>
+<span class="hl slc">#</span>
+<span class="hl slc"># Copyright © 2011 David Bremner &lt;david&#64;tethera.net&gt;</span>
+<span class="hl slc"># License: Same as notmuch</span>
+
+<span class="hl kwa">import</span> datetime
+<span class="hl kwa">import</span> notmuch
+<span class="hl kwa">import</span> sys
+
+QUERY <span class="hl opt">=</span> <span class="hl str">&quot;tag:notmuch::patch and not tag:notmuch::pushed&quot;</span>
+QUERY <span class="hl opt">+=</span> <span class="hl str">&quot;  and not tag:notmuch::obsolete and not tag:notmuch::wip&quot;</span>
+QUERY <span class="hl opt">+=</span> <span class="hl str">&quot; and not tag:notmuch::stale and not tag:notmuch::contrib&quot;</span>
+QUERY <span class="hl opt">+=</span> <span class="hl str">&quot; and not tag:notmuch::python and not tag:notmuch::vim&quot;</span>
+QUERY <span class="hl opt">+=</span> <span class="hl str">&quot; and not tag:notmuch::moreinfo&quot;</span>
+
+<span class="hl kwa">def</span> <span class="hl kwd">html_row</span><span class="hl opt">(*</span>args<span class="hl opt">):</span>
+    <span class="hl kwa">print</span> <span class="hl str">'  &lt;tr&gt;&lt;td&gt;'</span>
+    <span class="hl kwa">print</span> <span class="hl str">'    &lt;/td&gt;&lt;td&gt;'</span><span class="hl opt">.</span><span class="hl kwd">join</span><span class="hl opt">(</span>args<span class="hl opt">).</span><span class="hl kwd">encode</span><span class="hl opt">(</span><span class="hl str">'utf-8'</span><span class="hl opt">)</span>
+    <span class="hl kwa">print</span> <span class="hl str">'  &lt;/td&gt;&lt;/tr&gt;'</span>
+
+db <span class="hl opt">=</span> notmuch<span class="hl opt">.</span><span class="hl kwd">Database</span><span class="hl opt">(</span>mode<span class="hl opt">=</span>notmuch<span class="hl opt">.</span>Database<span class="hl opt">.</span>MODE<span class="hl opt">.</span>READ_WRITE<span class="hl opt">)</span>
+q_new <span class="hl opt">=</span> notmuch<span class="hl opt">.</span><span class="hl kwd">Query</span><span class="hl opt">(</span>db<span class="hl opt">,</span> QUERY<span class="hl opt">)</span>
+q_new<span class="hl opt">.</span><span class="hl kwd">set_sort</span><span class="hl opt">(</span>notmuch<span class="hl opt">.</span>Query<span class="hl opt">.</span>SORT<span class="hl opt">.</span>OLDEST_FIRST<span class="hl opt">)</span>
+
+headers <span class="hl opt">= [</span><span class="hl str">'date'</span><span class="hl opt">,</span><span class="hl str">'from'</span><span class="hl opt">,</span><span class="hl str">'subject'</span><span class="hl opt">]</span>
+last <span class="hl opt">= {}</span>
+
+<span class="hl kwa">for</span> header <span class="hl kwa">in</span> headers<span class="hl opt">:</span>
+    last<span class="hl opt">[</span>header<span class="hl opt">] =</span> <span class="hl kwa">None</span>
+
+<span class="hl kwa">print</span> <span class="hl str">'&lt;h2&gt;Notmuch Patches&lt;/h2&gt;'</span>
+
+<span class="hl kwa">print</span> <span class="hl str">'Generated: %s&lt;br&gt;'</span> <span class="hl opt">%</span> datetime<span class="hl opt">.</span>date<span class="hl opt">.</span><span class="hl kwd">today</span><span class="hl opt">()</span>
+
+<span class="hl kwa">print</span> <span class="hl str">'For more infomation see &lt;a href=&quot;http://notmuchmail.org/nmbug&quot;&gt;nmbug&lt;/a&gt;'</span>
+
+<span class="hl kwa">print</span> <span class="hl str">'&lt;h3&gt;Query&lt;/h3&gt;'</span>
+<span class="hl kwa">print</span> QUERY
+
+<span class="hl kwa">print</span> <span class="hl str">'&lt;h3&gt;Result&lt;/h3&gt;'</span>
+
+
+<span class="hl kwa">print</span> <span class="hl str">'&lt;table&gt;'</span>
+<span class="hl kwa">for</span> m <span class="hl kwa">in</span> q_new<span class="hl opt">.</span><span class="hl kwd">search_messages</span><span class="hl opt">():</span>
+
+    out <span class="hl opt">= {};</span>
+
+    <span class="hl kwa">for</span> header <span class="hl kwa">in</span> headers<span class="hl opt">:</span>
+	<span class="hl kwa">if</span> header <span class="hl opt">!=</span> <span class="hl str">'date'</span><span class="hl opt">:</span>
+	    val <span class="hl opt">=</span> m<span class="hl opt">.</span><span class="hl kwd">get_header</span><span class="hl opt">(</span>header<span class="hl opt">)</span>
+	<span class="hl kwa">else</span><span class="hl opt">:</span>
+	    val <span class="hl opt">=</span> datetime<span class="hl opt">.</span>date<span class="hl opt">.</span><span class="hl kwd">fromtimestamp</span><span class="hl opt">(</span>m<span class="hl opt">.</span><span class="hl kwd">get_date</span><span class="hl opt">()).</span><span class="hl kwd">isoformat</span><span class="hl opt">()</span>
+
+	<span class="hl kwa">if</span> last<span class="hl opt">[</span>header<span class="hl opt">] ==</span> val<span class="hl opt">:</span>
+	    out<span class="hl opt">[</span>header<span class="hl opt">] =</span> <span class="hl str">&quot;&quot;</span>
+	<span class="hl kwa">else</span><span class="hl opt">:</span>
+	    out<span class="hl opt">[</span>header<span class="hl opt">] =</span> val
+	    last<span class="hl opt">[</span>header<span class="hl opt">] =</span> val
+
+    mid<span class="hl opt">=</span>m<span class="hl opt">.</span><span class="hl kwd">get_message_id</span><span class="hl opt">()</span>
+
+    out<span class="hl opt">[</span><span class="hl str">'id'</span><span class="hl opt">] =</span> <span class="hl str">'&lt;a href=http://mid.gmane.org/%s&gt;id:%s&lt;/a&gt;'</span> <span class="hl opt">% (</span>mid<span class="hl opt">,</span>mid<span class="hl opt">)</span>
+
+    <span class="hl kwd">html_row</span><span class="hl opt">(</span>out<span class="hl opt">[</span><span class="hl str">'date'</span><span class="hl opt">],</span>out<span class="hl opt">[</span><span class="hl str">'from'</span><span class="hl opt">],</span>out<span class="hl opt">[</span><span class="hl str">'subject'</span><span class="hl opt">],</span>out<span class="hl opt">[</span><span class="hl str">'id'</span><span class="hl opt">])</span>
+
+<span class="hl slc">#    print '%(date)-10.10s %(from)-20.20s %(subject)-40.40s id:%(id)s' %  out</span>
+<span class="hl kwa">print</span> <span class="hl str">'&lt;/table&gt;'</span>
+</pre>
+</body>
+</html>
+<!--HTML generated by highlight 3.5, http://www.andre-simon.de/-->
