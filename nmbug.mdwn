@@ -1,5 +1,10 @@
 # Experimental Tag Sharing / Pseudo-Bug-Tracking for/with notmuch
 
+## Web View
+
+There is a dump of (one view of) the nmbug [[status|nmbug/status]]. It is even more
+experimental than everything else here, and currently manually updated.
+
 ## Getting set up
 
 1. Install and use notmuch version notmuch 0.9+63~gebd1adc or newer.
