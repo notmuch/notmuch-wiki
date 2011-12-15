@@ -1,5 +1,5 @@
 <h2>Notmuch Patches</h2>
-Generated: 2011-12-14
+Generated: 2011-12-14<br>
 For more infomation see <a href="http://notmuchmail.org/nmbug">nmbug</a>
 <h3>Query</h3>
 tag:notmuch::patch and not tag:notmuch::pushed  and not tag:notmuch::obsolete and not tag:notmuch::wip and not tag:notmuch::stale and not tag:notmuch::contrib and not tag:notmuch::python and not tag:notmuch::vim and not tag:notmuch::moreinfo
