@@ -1,5 +1,5 @@
 <h2>Notmuch Patches</h2>
-Generated: 2011-12-14<br>
+Generated: 2011-12-15<br>
 For more infomation see <a href="http://notmuchmail.org/nmbug">nmbug</a>
 <h3>Query</h3>
 tag:notmuch::patch and not tag:notmuch::pushed  and not tag:notmuch::obsolete and not tag:notmuch::wip and not tag:notmuch::stale and not tag:notmuch::contrib and not tag:notmuch::python and not tag:notmuch::vim and not tag:notmuch::moreinfo
@@ -57,22 +57,7 @@ tag:notmuch::patch and not tag:notmuch::pushed  and not tag:notmuch::obsolete an
 2011-09-29    </td><td>Thomas Schwinge <thomas@schwinge.name>    </td><td>[PATCH] Repeatability when copying a whole directory into a new one.    </td><td><a href=http://mid.gmane.org/1317338806-7414-1-git-send-email-thomas@schwinge.name>id:1317338806-7414-1-git-send-email-thomas@schwinge.name</a>
   </td></tr>
   <tr><td>
-2011-10-29    </td><td>David Bremner <david@tethera.net>    </td><td>[PATCH 1/4] notmuch-restore: add tests for new --match command line argument.    </td><td><a href=http://mid.gmane.org/1319857491-12298-2-git-send-email-david@tethera.net>id:1319857491-12298-2-git-send-email-david@tethera.net</a>
-  </td></tr>
-  <tr><td>
-    </td><td>    </td><td>[PATCH 2/4] notmuch-restore: implement argument parsing for --match    </td><td><a href=http://mid.gmane.org/1319857491-12298-3-git-send-email-david@tethera.net>id:1319857491-12298-3-git-send-email-david@tethera.net</a>
-  </td></tr>
-  <tr><td>
-    </td><td>    </td><td>[PATCH 3/4] test/dump-restore: add tests for notmuch restore --match    </td><td><a href=http://mid.gmane.org/1319857491-12298-4-git-send-email-david@tethera.net>id:1319857491-12298-4-git-send-email-david@tethera.net</a>
-  </td></tr>
-  <tr><td>
-    </td><td>    </td><td>[PATCH 4/4] notmuch-restore: implement --match functionality    </td><td><a href=http://mid.gmane.org/1319857491-12298-5-git-send-email-david@tethera.net>id:1319857491-12298-5-git-send-email-david@tethera.net</a>
-  </td></tr>
-  <tr><td>
-    </td><td>Ivy Foster <joyfulgirl@archlinux.us>    </td><td>[PATCH 3/3] Add notmuch-hello-mode-hook    </td><td><a href=http://mid.gmane.org/87hb2rlps7.fsf@nausicaa.localdomain>id:87hb2rlps7.fsf@nausicaa.localdomain</a>
-  </td></tr>
-  <tr><td>
-2011-10-31    </td><td>Jameson Graef Rollins <jrollins@finestructure.net>    </td><td>[PATCH] Fix formatting for restore and dump help documentation.    </td><td><a href=http://mid.gmane.org/1320087685-19782-1-git-send-email-jrollins@finestructure.net>id:1320087685-19782-1-git-send-email-jrollins@finestructure.net</a>
+2011-10-29    </td><td>Ivy Foster <joyfulgirl@archlinux.us>    </td><td>[PATCH 3/3] Add notmuch-hello-mode-hook    </td><td><a href=http://mid.gmane.org/87hb2rlps7.fsf@nausicaa.localdomain>id:87hb2rlps7.fsf@nausicaa.localdomain</a>
   </td></tr>
   <tr><td>
 2011-11-18    </td><td>Jani Nikula <jani@nikula.org>    </td><td>[PATCH] emacs: create patch filename from subject for inline patch fake parts    </td><td><a href=http://mid.gmane.org/1321657368-13872-1-git-send-email-jani@nikula.org>id:1321657368-13872-1-git-send-email-jani@nikula.org</a>
@@ -81,43 +66,19 @@ tag:notmuch::patch and not tag:notmuch::pushed  and not tag:notmuch::obsolete an
 2011-12-07    </td><td>David Bremner <david@tethera.net>    </td><td>[PATCH] debian: add a recommends for w3m-el or w3m-el-snapshot to notmuch-emacs    </td><td><a href=http://mid.gmane.org/1323310386-21573-1-git-send-email-david@tethera.net>id:1323310386-21573-1-git-send-email-david@tethera.net</a>
   </td></tr>
   <tr><td>
-2011-12-09    </td><td>Austin Clements <amdragon@MIT.EDU>    </td><td>[PATCH 1/4] show: Pass notmuch_message_t instead of path to show_message_body.    </td><td><a href=http://mid.gmane.org/1323460468-4030-2-git-send-email-amdragon@mit.edu>id:1323460468-4030-2-git-send-email-amdragon@mit.edu</a>
-  </td></tr>
-  <tr><td>
-    </td><td>    </td><td>[PATCH 2/4] Introduce a generic tree-like abstraction for MIME traversal.    </td><td><a href=http://mid.gmane.org/1323460468-4030-3-git-send-email-amdragon@mit.edu>id:1323460468-4030-3-git-send-email-amdragon@mit.edu</a>
-  </td></tr>
-  <tr><td>
-    </td><td>    </td><td>[PATCH 3/4] Utility function to seek in MIME trees in depth-first order.    </td><td><a href=http://mid.gmane.org/1323460468-4030-4-git-send-email-amdragon@mit.edu>id:1323460468-4030-4-git-send-email-amdragon@mit.edu</a>
-  </td></tr>
-  <tr><td>
-    </td><td>    </td><td>[PATCH 4/4] show: Rewrite show_message_body to use the MIME tree interface.    </td><td><a href=http://mid.gmane.org/1323460468-4030-5-git-send-email-amdragon@mit.edu>id:1323460468-4030-5-git-send-email-amdragon@mit.edu</a>
-  </td></tr>
-  <tr><td>
-2011-12-11    </td><td>Jameson Graef Rollins <jrollins@finestructure.net>    </td><td>[PATCH] debian: add upstream-tag and fix debian-tag configs for git-buildpackage    </td><td><a href=http://mid.gmane.org/1323652869-9348-1-git-send-email-jrollins@finestructure.net>id:1323652869-9348-1-git-send-email-jrollins@finestructure.net</a>
-  </td></tr>
-  <tr><td>
-2011-12-12    </td><td>Jani Nikula <jani@nikula.org>    </td><td>[PATCH v3] emacs: support "notmuch new" as a notmuch-poll-script    </td><td><a href=http://mid.gmane.org/1323723004-32605-1-git-send-email-jani@nikula.org>id:1323723004-32605-1-git-send-email-jani@nikula.org</a>
-  </td></tr>
-  <tr><td>
 2011-12-13    </td><td>Tomi Ollila <tomi.ollila@iki.fi>    </td><td>[PATCH 1/2] test/smtp-dummy: add --background option for going background after listen(2)    </td><td><a href=http://mid.gmane.org/1323766883-17607-1-git-send-email-tomi.ollila@iki.fi>id:1323766883-17607-1-git-send-email-tomi.ollila@iki.fi</a>
   </td></tr>
   <tr><td>
     </td><td>    </td><td>[PATCH 2/2] test/test-lib.sh: launch smtp-dummy with --background and finally kill(1) it.    </td><td><a href=http://mid.gmane.org/1323766883-17607-2-git-send-email-tomi.ollila@iki.fi>id:1323766883-17607-2-git-send-email-tomi.ollila@iki.fi</a>
   </td></tr>
   <tr><td>
-    </td><td>Thomas Jost <schnouki@schnouki.net>    </td><td>[PATCH v3 1/4] emacs: Let the user choose where to compose new mails    </td><td><a href=http://mid.gmane.org/1323797532-597-2-git-send-email-schnouki@schnouki.net>id:1323797532-597-2-git-send-email-schnouki@schnouki.net</a>
-  </td></tr>
-  <tr><td>
-    </td><td>    </td><td>[PATCH v3 2/4] emacs: Add a face for crypto parts headers    </td><td><a href=http://mid.gmane.org/1323797532-597-3-git-send-email-schnouki@schnouki.net>id:1323797532-597-3-git-send-email-schnouki@schnouki.net</a>
+    </td><td>Thomas Jost <schnouki@schnouki.net>    </td><td>[PATCH v3 2/4] emacs: Add a face for crypto parts headers    </td><td><a href=http://mid.gmane.org/1323797532-597-3-git-send-email-schnouki@schnouki.net>id:1323797532-597-3-git-send-email-schnouki@schnouki.net</a>
   </td></tr>
   <tr><td>
     </td><td>    </td><td>[PATCH v3 3/4] emacs: rename notmuch-decimal-separator to notmuch-thousands-separator    </td><td><a href=http://mid.gmane.org/1323797532-597-4-git-send-email-schnouki@schnouki.net>id:1323797532-597-4-git-send-email-schnouki@schnouki.net</a>
   </td></tr>
   <tr><td>
     </td><td>    </td><td>[PATCH v3 4/4] emacs: add notmuch-hello-hook    </td><td><a href=http://mid.gmane.org/1323797532-597-5-git-send-email-schnouki@schnouki.net>id:1323797532-597-5-git-send-email-schnouki@schnouki.net</a>
-  </td></tr>
-  <tr><td>
-    </td><td>tomi.ollila@iki.fi    </td><td>[PATCH] notmuch: unref charset_filter (once more) to fix one memory leak    </td><td><a href=http://mid.gmane.org/1323800328-17014-1-git-send-email-tomi.ollila@iki.fi>id:1323800328-17014-1-git-send-email-tomi.ollila@iki.fi</a>
   </td></tr>
   <tr><td>
     </td><td>David Bremner <david@tethera.net>    </td><td>[PATCH] test: optionally print subtest number    </td><td><a href=http://mid.gmane.org/1323806207-31888-1-git-send-email-david@tethera.net>id:1323806207-31888-1-git-send-email-david@tethera.net</a>
