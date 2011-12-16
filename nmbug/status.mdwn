@@ -9,25 +9,11 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </blockquote>
 <table>
 
- <tr><td><br /> 2010-02-17
-</td><td><br /> id:"1266408746-28549-1-git-send-email-Sebastian@SSpaeth.de"
-</td></tr>
- <tr><td>Sebastian Spaeth <Sebastian@SSpaeth.de>
-</td><td><a href="http://mid.gmane.org/1266408746-28549-1-git-send-email-Sebastian@SSpaeth.de">[notmuch] [PATCH] notmuch.el: bind 'd' to new function notmuch-search-delete-thread-or-region</a>
-</td></tr>
-
  <tr><td><br /> 2010-11-03
 </td><td><br /> id:"1288804736-5173-3-git-send-email-david@tethera.net"
 </td></tr>
  <tr><td>david@tethera.net
 </td><td><a href="http://mid.gmane.org/1288804736-5173-3-git-send-email-david@tethera.net">[PATCH 2/4] Perl script to generate online help.</a>
-</td></tr>
-
- <tr><td><br /> 2011-07-16
-</td><td><br /> id:"1310841600-28281-1-git-send-email-anarcat@koumbit.org"
-</td></tr>
- <tr><td>Antoine Beaupré <anarcat@koumbit.org>
-</td><td><a href="http://mid.gmane.org/1310841600-28281-1-git-send-email-anarcat@koumbit.org">[PATCH 1/2] add notmuch keybinding 'd'</a>
 </td></tr>
 
  <tr><td><br /> 2011-09-29
@@ -42,13 +28,6 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td></tr>
  <tr><td>Ivy Foster <joyfulgirl@archlinux.us>
 </td><td><a href="http://mid.gmane.org/87hb2rlps7.fsf@nausicaa.localdomain">[PATCH 3/3] Add notmuch-hello-mode-hook</a>
-</td></tr>
-
- <tr><td><br /> 2011-11-25
-</td><td><br /> id:"1322218492-8300-2-git-send-email-aidecoe@aidecoe.name"
-</td></tr>
- <tr><td>Amadeusz Żołnowski <aidecoe@aidecoe.name>
-</td><td><a href="http://mid.gmane.org/1322218492-8300-2-git-send-email-aidecoe@aidecoe.name">[PATCH 2/2] Fixed warnings for test/symbol-test.cc.</a>
 </td></tr>
 
  <tr><td><br /> 2011-12-07
@@ -170,6 +149,13 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td></tr>
  <tr><td>
 </td><td><a href="http://mid.gmane.org/1310313335-4159-7-git-send-email-pieter@praet.org">[PATCH 6/6] emacs: make `notmuch-search-operate-all' operate on threads, not messages</a>
+</td></tr>
+
+ <tr><td><br /> 2011-07-16
+</td><td><br /> id:"1310841600-28281-1-git-send-email-anarcat@koumbit.org"
+</td></tr>
+ <tr><td>Antoine Beaupré <anarcat@koumbit.org>
+</td><td><a href="http://mid.gmane.org/1310841600-28281-1-git-send-email-anarcat@koumbit.org">[PATCH 1/2] add notmuch keybinding 'd'</a>
 </td></tr>
 
  <tr><td><br /> 2011-07-17
