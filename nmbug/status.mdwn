@@ -7,171 +7,143 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 <table>
 
  <tr><td><br /> 2010-02-17
-</td><td><br /> <a href=http://mid.gmane.org/1266408746-28549-1-git-send-email-Sebastian@SSpaeth.de>id:1266408746-28549-1-git-send-email-Sebastian@SSpaeth.de</a>
+</td><td><br /> id:"1266408746-28549-1-git-send-email-Sebastian@SSpaeth.de"
 </td></tr>
  <tr><td> Sebastian Spaeth <Sebastian@SSpaeth.de>
-</td><td> [notmuch] [PATCH] notmuch.el: bind 'd' to new function notmuch-search-delete-thread-or-region
+</td><td> <a href="http://mid.gmane.org/1266408746-28549-1-git-send-email-Sebastian@SSpaeth.de">[notmuch] [PATCH] notmuch.el: bind 'd' to new function notmuch-search-delete-thread-or-region</a>
 </td></tr>
 
  <tr><td><br /> 2010-11-03
-</td><td><br /> <a href=http://mid.gmane.org/1288804736-5173-3-git-send-email-david@tethera.net>id:1288804736-5173-3-git-send-email-david@tethera.net</a>
+</td><td><br /> id:"1288804736-5173-3-git-send-email-david@tethera.net"
 </td></tr>
  <tr><td> david@tethera.net
-</td><td> [PATCH 2/4] Perl script to generate online help.
-</td></tr>
-
- <tr><td><br /> 2011-06-28
-</td><td><br /> <a href=http://mid.gmane.org/f61587e58c92cced75894665a2a03282748e8141.1309244829.git.jani@nikula.org>id:f61587e58c92cced75894665a2a03282748e8141.1309244829.git.jani@nikula.org</a>
-</td></tr>
- <tr><td> Jani Nikula <jani@nikula.org>
-</td><td> [PATCH 1/4] emacs: Add functions and bindings to archive and mark thread as read
-</td></tr>
-
- <tr><td> 
-</td><td> <a href=http://mid.gmane.org/98912bf031b0a23a703db4be82b24d3d83d5ee9e.1309244829.git.jani@nikula.org>id:98912bf031b0a23a703db4be82b24d3d83d5ee9e.1309244829.git.jani@nikula.org</a>
-</td></tr>
- <tr><td> 
-</td><td> [PATCH 2/4] emacs: Add option to make adding saved searches append, not prepend
-</td></tr>
-
- <tr><td> 
-</td><td> <a href=http://mid.gmane.org/e599ef4e125ba9410bb7fefe3208a39079ba8383.1309244829.git.jani@nikula.org>id:e599ef4e125ba9410bb7fefe3208a39079ba8383.1309244829.git.jani@nikula.org</a>
-</td></tr>
- <tr><td> 
-</td><td> [PATCH 3/4] emacs: Add pseudo saved search to match mail that no saved search matches
-</td></tr>
-
- <tr><td> 
-</td><td> <a href=http://mid.gmane.org/21340f6b77dcd4f27bb06a39236f276cdfb5b2f7.1309244829.git.jani@nikula.org>id:21340f6b77dcd4f27bb06a39236f276cdfb5b2f7.1309244829.git.jani@nikula.org</a>
-</td></tr>
- <tr><td> 
-</td><td> [PATCH 4/4] emacs: Add pseudo tag to match all messages that have no tags
+</td><td> <a href="http://mid.gmane.org/1288804736-5173-3-git-send-email-david@tethera.net">[PATCH 2/4] Perl script to generate online help.</a>
 </td></tr>
 
  <tr><td><br /> 2011-07-08
-</td><td><br /> <a href=http://mid.gmane.org/1310150817-15213-2-git-send-email-daniel.schoepe@googlemail.com>id:1310150817-15213-2-git-send-email-daniel.schoepe@googlemail.com</a>
+</td><td><br /> id:"1310150817-15213-2-git-send-email-daniel.schoepe@googlemail.com"
 </td></tr>
  <tr><td> Daniel Schoepe <daniel.schoepe@googlemail.com>
-</td><td> [PATCH v2 1/3] emacs: Document notmuch-show-get-message-properties
+</td><td> <a href="http://mid.gmane.org/1310150817-15213-2-git-send-email-daniel.schoepe@googlemail.com">[PATCH v2 1/3] emacs: Document notmuch-show-get-message-properties</a>
 </td></tr>
 
  <tr><td> 
-</td><td> <a href=http://mid.gmane.org/1310150817-15213-3-git-send-email-daniel.schoepe@googlemail.com>id:1310150817-15213-3-git-send-email-daniel.schoepe@googlemail.com</a>
+</td><td> id:"1310150817-15213-3-git-send-email-daniel.schoepe@googlemail.com"
 </td></tr>
  <tr><td> 
-</td><td> [PATCH v2 2/3] emacs: Add thread-outline functionality
+</td><td> <a href="http://mid.gmane.org/1310150817-15213-3-git-send-email-daniel.schoepe@googlemail.com">[PATCH v2 2/3] emacs: Add thread-outline functionality</a>
 </td></tr>
 
  <tr><td> 
-</td><td> <a href=http://mid.gmane.org/1310150817-15213-4-git-send-email-daniel.schoepe@googlemail.com>id:1310150817-15213-4-git-send-email-daniel.schoepe@googlemail.com</a>
+</td><td> id:"1310150817-15213-4-git-send-email-daniel.schoepe@googlemail.com"
 </td></tr>
  <tr><td> 
-</td><td> [PATCH v2 3/3] emacs: Test for thread-outlining
+</td><td> <a href="http://mid.gmane.org/1310150817-15213-4-git-send-email-daniel.schoepe@googlemail.com">[PATCH v2 3/3] emacs: Test for thread-outlining</a>
 </td></tr>
 
  <tr><td><br /> 2011-07-16
-</td><td><br /> <a href=http://mid.gmane.org/1310841600-28281-1-git-send-email-anarcat@koumbit.org>id:1310841600-28281-1-git-send-email-anarcat@koumbit.org</a>
+</td><td><br /> id:"1310841600-28281-1-git-send-email-anarcat@koumbit.org"
 </td></tr>
  <tr><td> Antoine Beaupré <anarcat@koumbit.org>
-</td><td> [PATCH 1/2] add notmuch keybinding 'd'
+</td><td> <a href="http://mid.gmane.org/1310841600-28281-1-git-send-email-anarcat@koumbit.org">[PATCH 1/2] add notmuch keybinding 'd'</a>
 </td></tr>
 
  <tr><td><br /> 2011-07-17
-</td><td><br /> <a href=http://mid.gmane.org/1310874973-28437-1-git-send-email-anarcat@koumbit.org>id:1310874973-28437-1-git-send-email-anarcat@koumbit.org</a>
+</td><td><br /> id:"1310874973-28437-1-git-send-email-anarcat@koumbit.org"
 </td></tr>
  <tr><td> Antoine Beaupré <anarcat@koumbit.org>
-</td><td> [PATCH 1/2] lib: Add back the synchronization of 'T' flag with deleted tag.
+</td><td> <a href="http://mid.gmane.org/1310874973-28437-1-git-send-email-anarcat@koumbit.org">[PATCH 1/2] lib: Add back the synchronization of 'T' flag with deleted tag.</a>
 </td></tr>
 
  <tr><td> 
-</td><td> <a href=http://mid.gmane.org/1310874973-28437-2-git-send-email-anarcat@koumbit.org>id:1310874973-28437-2-git-send-email-anarcat@koumbit.org</a>
+</td><td> id:"1310874973-28437-2-git-send-email-anarcat@koumbit.org"
 </td></tr>
  <tr><td> 
-</td><td> [PATCH 2/2] lib: add 'safe' setting for flags
+</td><td> <a href="http://mid.gmane.org/1310874973-28437-2-git-send-email-anarcat@koumbit.org">[PATCH 2/2] lib: add 'safe' setting for flags</a>
 </td></tr>
 
  <tr><td><br /> 2011-08-08
-</td><td><br /> <a href=http://mid.gmane.org/1312799218-10243-1-git-send-email-anarcat@koumbit.org>id:1312799218-10243-1-git-send-email-anarcat@koumbit.org</a>
+</td><td><br /> id:"1312799218-10243-1-git-send-email-anarcat@koumbit.org"
 </td></tr>
  <tr><td> Antoine Beaupré <anarcat@koumbit.org>
-</td><td> [PATCH] run notmuch-hello-mode-hook at the end of the hello mode setup
+</td><td> <a href="http://mid.gmane.org/1312799218-10243-1-git-send-email-anarcat@koumbit.org">[PATCH] run notmuch-hello-mode-hook at the end of the hello mode setup</a>
 </td></tr>
 
  <tr><td><br /> 2011-09-05
-</td><td><br /> <a href=http://mid.gmane.org/1315196076-9254-1-git-send-email-self@antono.info>id:1315196076-9254-1-git-send-email-self@antono.info</a>
+</td><td><br /> id:"1315196076-9254-1-git-send-email-self@antono.info"
 </td></tr>
  <tr><td> Antono Vasiljev <self@antono.info>
-</td><td> [PATCH] Perform mail polling asynchronously
+</td><td> <a href="http://mid.gmane.org/1315196076-9254-1-git-send-email-self@antono.info">[PATCH] Perform mail polling asynchronously</a>
 </td></tr>
 
- <tr><td><br /> 2011-09-30
-</td><td><br /> <a href=http://mid.gmane.org/1317338806-7414-1-git-send-email-thomas@schwinge.name>id:1317338806-7414-1-git-send-email-thomas@schwinge.name</a>
+ <tr><td><br /> 2011-09-29
+</td><td><br /> id:"1317338806-7414-1-git-send-email-thomas@schwinge.name"
 </td></tr>
  <tr><td> Thomas Schwinge <thomas@schwinge.name>
-</td><td> [PATCH] Repeatability when copying a whole directory into a new one.
+</td><td> <a href="http://mid.gmane.org/1317338806-7414-1-git-send-email-thomas@schwinge.name">[PATCH] Repeatability when copying a whole directory into a new one.</a>
 </td></tr>
 
  <tr><td><br /> 2011-10-29
-</td><td><br /> <a href=http://mid.gmane.org/87hb2rlps7.fsf@nausicaa.localdomain>id:87hb2rlps7.fsf@nausicaa.localdomain</a>
+</td><td><br /> id:"87hb2rlps7.fsf@nausicaa.localdomain"
 </td></tr>
  <tr><td> Ivy Foster <joyfulgirl@archlinux.us>
-</td><td> [PATCH 3/3] Add notmuch-hello-mode-hook
+</td><td> <a href="http://mid.gmane.org/87hb2rlps7.fsf@nausicaa.localdomain">[PATCH 3/3] Add notmuch-hello-mode-hook</a>
 </td></tr>
 
- <tr><td><br /> 2011-11-19
-</td><td><br /> <a href=http://mid.gmane.org/1321657368-13872-1-git-send-email-jani@nikula.org>id:1321657368-13872-1-git-send-email-jani@nikula.org</a>
+ <tr><td><br /> 2011-11-18
+</td><td><br /> id:"1321657368-13872-1-git-send-email-jani@nikula.org"
 </td></tr>
  <tr><td> Jani Nikula <jani@nikula.org>
-</td><td> [PATCH] emacs: create patch filename from subject for inline patch fake parts
+</td><td> <a href="http://mid.gmane.org/1321657368-13872-1-git-send-email-jani@nikula.org">[PATCH] emacs: create patch filename from subject for inline patch fake parts</a>
 </td></tr>
 
- <tr><td><br /> 2011-12-08
-</td><td><br /> <a href=http://mid.gmane.org/1323310386-21573-1-git-send-email-david@tethera.net>id:1323310386-21573-1-git-send-email-david@tethera.net</a>
+ <tr><td><br /> 2011-12-07
+</td><td><br /> id:"1323310386-21573-1-git-send-email-david@tethera.net"
 </td></tr>
  <tr><td> David Bremner <david@tethera.net>
-</td><td> [PATCH] debian: add a recommends for w3m-el or w3m-el-snapshot to notmuch-emacs
+</td><td> <a href="http://mid.gmane.org/1323310386-21573-1-git-send-email-david@tethera.net">[PATCH] debian: add a recommends for w3m-el or w3m-el-snapshot to notmuch-emacs</a>
 </td></tr>
 
  <tr><td><br /> 2011-12-13
-</td><td><br /> <a href=http://mid.gmane.org/1323766883-17607-1-git-send-email-tomi.ollila@iki.fi>id:1323766883-17607-1-git-send-email-tomi.ollila@iki.fi</a>
+</td><td><br /> id:"1323766883-17607-1-git-send-email-tomi.ollila@iki.fi"
 </td></tr>
  <tr><td> Tomi Ollila <tomi.ollila@iki.fi>
-</td><td> [PATCH 1/2] test/smtp-dummy: add --background option for going background after listen(2)
+</td><td> <a href="http://mid.gmane.org/1323766883-17607-1-git-send-email-tomi.ollila@iki.fi">[PATCH 1/2] test/smtp-dummy: add --background option for going background after listen(2)</a>
 </td></tr>
 
  <tr><td> 
-</td><td> <a href=http://mid.gmane.org/1323766883-17607-2-git-send-email-tomi.ollila@iki.fi>id:1323766883-17607-2-git-send-email-tomi.ollila@iki.fi</a>
+</td><td> id:"1323766883-17607-2-git-send-email-tomi.ollila@iki.fi"
 </td></tr>
  <tr><td> 
-</td><td> [PATCH 2/2] test/test-lib.sh: launch smtp-dummy with --background and finally kill(1) it.
+</td><td> <a href="http://mid.gmane.org/1323766883-17607-2-git-send-email-tomi.ollila@iki.fi">[PATCH 2/2] test/test-lib.sh: launch smtp-dummy with --background and finally kill(1) it.</a>
 </td></tr>
 
  <tr><td><br /> 2011-12-13
-</td><td><br /> <a href=http://mid.gmane.org/1323797532-597-4-git-send-email-schnouki@schnouki.net>id:1323797532-597-4-git-send-email-schnouki@schnouki.net</a>
+</td><td><br /> id:"1323797532-597-4-git-send-email-schnouki@schnouki.net"
 </td></tr>
  <tr><td> Thomas Jost <schnouki@schnouki.net>
-</td><td> [PATCH v3 3/4] emacs: rename notmuch-decimal-separator to notmuch-thousands-separator
+</td><td> <a href="http://mid.gmane.org/1323797532-597-4-git-send-email-schnouki@schnouki.net">[PATCH v3 3/4] emacs: rename notmuch-decimal-separator to notmuch-thousands-separator</a>
 </td></tr>
 
  <tr><td> 
-</td><td> <a href=http://mid.gmane.org/1323797532-597-5-git-send-email-schnouki@schnouki.net>id:1323797532-597-5-git-send-email-schnouki@schnouki.net</a>
+</td><td> id:"1323797532-597-5-git-send-email-schnouki@schnouki.net"
 </td></tr>
  <tr><td> 
-</td><td> [PATCH v3 4/4] emacs: add notmuch-hello-hook
+</td><td> <a href="http://mid.gmane.org/1323797532-597-5-git-send-email-schnouki@schnouki.net">[PATCH v3 4/4] emacs: add notmuch-hello-hook</a>
 </td></tr>
 
  <tr><td><br /> 2011-12-13
-</td><td><br /> <a href=http://mid.gmane.org/1323806207-31888-1-git-send-email-david@tethera.net>id:1323806207-31888-1-git-send-email-david@tethera.net</a>
+</td><td><br /> id:"1323806207-31888-1-git-send-email-david@tethera.net"
 </td></tr>
  <tr><td> David Bremner <david@tethera.net>
-</td><td> [PATCH] test: optionally print subtest number
+</td><td> <a href="http://mid.gmane.org/1323806207-31888-1-git-send-email-david@tethera.net">[PATCH] test: optionally print subtest number</a>
 </td></tr>
 
  <tr><td><br /> 2011-12-15
-</td><td><br /> <a href=http://mid.gmane.org/1323978118-23954-1-git-send-email-schnouki@schnouki.net>id:1323978118-23954-1-git-send-email-schnouki@schnouki.net</a>
+</td><td><br /> id:"1323978118-23954-1-git-send-email-schnouki@schnouki.net"
 </td></tr>
  <tr><td> Thomas Jost <schnouki@schnouki.net>
-</td><td> [PATCH] Fix build with binutils-2.22
+</td><td> <a href="http://mid.gmane.org/1323978118-23954-1-git-send-email-schnouki@schnouki.net">[PATCH] Fix build with binutils-2.22</a>
 </td></tr>
 
 </table>
