@@ -1,5 +1,5 @@
 <h2>Notmuch Patches</h2>
-Generated: 2011-12-16<br />
+Generated: 2011-12-18<br />
 For more infomation see <a href="http://notmuchmail.org/nmbug">nmbug</a>
 <h3>Ready</h3>
 These patches are under consideration for pushing.
@@ -8,34 +8,6 @@ The view is generated from the following query:
 tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and not tag:notmuch::wip and not tag:notmuch::stale and not tag:notmuch::contrib and not tag:notmuch::python and not tag:notmuch::vim and not tag:notmuch::moreinfo and not tag:notmuch::needs-review
 </blockquote>
 <table>
-
- <tr><td><br /> 2010-11-03
-</td><td><br /> id:"1288804736-5173-3-git-send-email-david@tethera.net"
-</td></tr>
- <tr><td>david@tethera.net
-</td><td><a href="http://mid.gmane.org/1288804736-5173-3-git-send-email-david@tethera.net">[PATCH 2/4] Perl script to generate online help.</a>
-</td></tr>
-
- <tr><td><br /> 2011-09-29
-</td><td><br /> id:"1317338806-7414-1-git-send-email-thomas@schwinge.name"
-</td></tr>
- <tr><td>Thomas Schwinge <thomas@schwinge.name>
-</td><td><a href="http://mid.gmane.org/1317338806-7414-1-git-send-email-thomas@schwinge.name">[PATCH] Repeatability when copying a whole directory into a new one.</a>
-</td></tr>
-
- <tr><td><br /> 2011-10-29
-</td><td><br /> id:"87hb2rlps7.fsf@nausicaa.localdomain"
-</td></tr>
- <tr><td>Ivy Foster <joyfulgirl@archlinux.us>
-</td><td><a href="http://mid.gmane.org/87hb2rlps7.fsf@nausicaa.localdomain">[PATCH 3/3] Add notmuch-hello-mode-hook</a>
-</td></tr>
-
- <tr><td><br /> 2011-12-07
-</td><td><br /> id:"1323310386-21573-1-git-send-email-david@tethera.net"
-</td></tr>
- <tr><td>David Bremner <david@tethera.net>
-</td><td><a href="http://mid.gmane.org/1323310386-21573-1-git-send-email-david@tethera.net">[PATCH] debian: add a recommends for w3m-el or w3m-el-snapshot to notmuch-emacs</a>
-</td></tr>
 
  <tr><td><br /> 2011-12-13
 </td><td><br /> id:"1323766883-17607-1-git-send-email-tomi.ollila@iki.fi"
@@ -51,18 +23,32 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td><td><a href="http://mid.gmane.org/1323766883-17607-2-git-send-email-tomi.ollila@iki.fi">[PATCH 2/2] test/test-lib.sh: launch smtp-dummy with --background and finally kill(1) it.</a>
 </td></tr>
 
- <tr><td><br /> 2011-12-13
-</td><td><br /> id:"1323806207-31888-1-git-send-email-david@tethera.net"
+ <tr><td><br /> 2011-12-17
+</td><td><br /> id:"1324167681-26984-2-git-send-email-dmitry.kurochkin@gmail.com"
 </td></tr>
- <tr><td>David Bremner <david@tethera.net>
-</td><td><a href="http://mid.gmane.org/1323806207-31888-1-git-send-email-david@tethera.net">[PATCH] test: optionally print subtest number</a>
+ <tr><td>Dmitry Kurochkin <dmitry.kurochkin@gmail.com>
+</td><td><a href="http://mid.gmane.org/1324167681-26984-2-git-send-email-dmitry.kurochkin@gmail.com">[PATCH v4 1/4] test: add `notmuch-hello-mode-hook-counter'</a>
 </td></tr>
 
- <tr><td><br /> 2011-12-15
-</td><td><br /> id:"1323978118-23954-1-git-send-email-schnouki@schnouki.net"
+ <tr><td> 
+</td><td> id:"1324167681-26984-3-git-send-email-dmitry.kurochkin@gmail.com"
 </td></tr>
- <tr><td>Thomas Jost <schnouki@schnouki.net>
-</td><td><a href="http://mid.gmane.org/1323978118-23954-1-git-send-email-schnouki@schnouki.net">[PATCH] Fix build with binutils-2.22</a>
+ <tr><td>
+</td><td><a href="http://mid.gmane.org/1324167681-26984-3-git-send-email-dmitry.kurochkin@gmail.com">[PATCH v4 2/4] test: add test for `notmuch-hello-mode-hook'</a>
+</td></tr>
+
+ <tr><td> 
+</td><td> id:"1324167681-26984-4-git-send-email-dmitry.kurochkin@gmail.com"
+</td></tr>
+ <tr><td>
+</td><td><a href="http://mid.gmane.org/1324167681-26984-4-git-send-email-dmitry.kurochkin@gmail.com">[PATCH v4 3/4] test: add broken test for `notmuch-hello-mode-hook' called during update</a>
+</td></tr>
+
+ <tr><td> 
+</td><td> id:"1324167681-26984-5-git-send-email-dmitry.kurochkin@gmail.com"
+</td></tr>
+ <tr><td>
+</td><td><a href="http://mid.gmane.org/1324167681-26984-5-git-send-email-dmitry.kurochkin@gmail.com">[PATCH v4 4/4] emacs: do not call `notmuch-hello-mode' on update</a>
 </td></tr>
 
 </table>
@@ -368,6 +354,13 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td><td><a href="http://mid.gmane.org/1321657368-13872-1-git-send-email-jani@nikula.org">[PATCH] emacs: create patch filename from subject for inline patch fake parts</a>
 </td></tr>
 
+ <tr><td><br /> 2011-12-07
+</td><td><br /> id:"1323310386-21573-1-git-send-email-david@tethera.net"
+</td></tr>
+ <tr><td>David Bremner <david@tethera.net>
+</td><td><a href="http://mid.gmane.org/1323310386-21573-1-git-send-email-david@tethera.net">[PATCH] debian: add a recommends for w3m-el or w3m-el-snapshot to notmuch-emacs</a>
+</td></tr>
+
  <tr><td><br /> 2011-12-09
 </td><td><br /> id:"1323460468-4030-2-git-send-email-amdragon@mit.edu"
 </td></tr>
@@ -415,6 +408,20 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td></tr>
  <tr><td>
 </td><td><a href="http://mid.gmane.org/1323797532-597-5-git-send-email-schnouki@schnouki.net">[PATCH v3 4/4] emacs: add notmuch-hello-hook</a>
+</td></tr>
+
+ <tr><td><br /> 2011-12-17
+</td><td><br /> id:"1324135695-15487-1-git-send-email-david@tethera.net"
+</td></tr>
+ <tr><td>David Bremner <david@tethera.net>
+</td><td><a href="http://mid.gmane.org/1324135695-15487-1-git-send-email-david@tethera.net">[PATCH] uncrustify.cfg: initial support for notmuch coding style</a>
+</td></tr>
+
+ <tr><td><br /> 2011-12-17
+</td><td><br /> id:"1324136868-6662-1-git-send-email-aaronecay@gmail.com"
+</td></tr>
+ <tr><td>Aaron Ecay <aaronecay@gmail.com>
+</td><td><a href="http://mid.gmane.org/1324136868-6662-1-git-send-email-aaronecay@gmail.com">[PATCH] [emacs] Don't quote lambda forms</a>
 </td></tr>
 
 </table>
