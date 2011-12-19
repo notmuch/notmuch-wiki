@@ -1,5 +1,5 @@
 <h2>Notmuch Patches</h2>
-Generated: 2011-12-18<br />
+Generated: 2011-12-19<br />
 For more infomation see <a href="http://notmuchmail.org/nmbug">nmbug</a>
 <h3>Ready</h3>
 These patches are under consideration for pushing.
@@ -23,7 +23,7 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td><td><a href="http://mid.gmane.org/1323766883-17607-2-git-send-email-tomi.ollila@iki.fi">[PATCH 2/2] test/test-lib.sh: launch smtp-dummy with --background and finally kill(1) it.</a>
 </td></tr>
 
- <tr><td><br /> 2011-12-17
+ <tr><td><br /> 2011-12-18
 </td><td><br /> id:"1324167681-26984-2-git-send-email-dmitry.kurochkin@gmail.com"
 </td></tr>
  <tr><td>Dmitry Kurochkin <dmitry.kurochkin@gmail.com>
@@ -144,7 +144,7 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td><td><a href="http://mid.gmane.org/1310841600-28281-1-git-send-email-anarcat@koumbit.org">[PATCH 1/2] add notmuch keybinding 'd'</a>
 </td></tr>
 
- <tr><td><br /> 2011-07-17
+ <tr><td><br /> 2011-07-16
 </td><td><br /> id:"1310874973-28437-1-git-send-email-anarcat@koumbit.org"
 </td></tr>
  <tr><td>Antoine Beaupré <anarcat@koumbit.org>
@@ -193,7 +193,7 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td><td><a href="http://mid.gmane.org/4652bdba350f4ff9c3bd2333d725a5ebabb5950a.1315384432.git.jani@nikula.org">[PATCH 2/2] emacs: Fix notmuch-mua-user-agent defcustom</a>
 </td></tr>
 
- <tr><td><br /> 2011-09-13
+ <tr><td><br /> 2011-09-14
 </td><td><br /> id:"1315949524-4948-2-git-send-email-tomi.ollila@iki.fi"
 </td></tr>
  <tr><td>tomi.ollila@iki.fi
@@ -347,7 +347,7 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td><td><a href="http://mid.gmane.org/1320869169-32596-1-git-send-email-schnouki@schnouki.net">[PATCH v2] emacs: Let the user choose where to compose new mails</a>
 </td></tr>
 
- <tr><td><br /> 2011-11-18
+ <tr><td><br /> 2011-11-19
 </td><td><br /> id:"1321657368-13872-1-git-send-email-jani@nikula.org"
 </td></tr>
  <tr><td>Jani Nikula <jani@nikula.org>
