@@ -9,55 +9,6 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </blockquote>
 <table>
 
- <tr><td><br /> 2011-12-13
-</td><td><br /> id:"1323766883-17607-1-git-send-email-tomi.ollila@iki.fi"
-</td></tr>
- <tr><td>Tomi Ollila <tomi.ollila@iki.fi>
-</td><td><a href="http://mid.gmane.org/1323766883-17607-1-git-send-email-tomi.ollila@iki.fi">[PATCH 1/2] test/smtp-dummy: add --background option for going background after listen(2)</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"1323766883-17607-2-git-send-email-tomi.ollila@iki.fi"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/1323766883-17607-2-git-send-email-tomi.ollila@iki.fi">[PATCH 2/2] test/test-lib.sh: launch smtp-dummy with --background and finally kill(1) it.</a>
-</td></tr>
-
- <tr><td><br /> 2011-12-18
-</td><td><br /> id:"1324167681-26984-2-git-send-email-dmitry.kurochkin@gmail.com"
-</td></tr>
- <tr><td>Dmitry Kurochkin <dmitry.kurochkin@gmail.com>
-</td><td><a href="http://mid.gmane.org/1324167681-26984-2-git-send-email-dmitry.kurochkin@gmail.com">[PATCH v4 1/4] test: add `notmuch-hello-mode-hook-counter'</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"1324167681-26984-3-git-send-email-dmitry.kurochkin@gmail.com"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/1324167681-26984-3-git-send-email-dmitry.kurochkin@gmail.com">[PATCH v4 2/4] test: add test for `notmuch-hello-mode-hook'</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"1324167681-26984-4-git-send-email-dmitry.kurochkin@gmail.com"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/1324167681-26984-4-git-send-email-dmitry.kurochkin@gmail.com">[PATCH v4 3/4] test: add broken test for `notmuch-hello-mode-hook' called during update</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"1324167681-26984-5-git-send-email-dmitry.kurochkin@gmail.com"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/1324167681-26984-5-git-send-email-dmitry.kurochkin@gmail.com">[PATCH v4 4/4] emacs: do not call `notmuch-hello-mode' on update</a>
-</td></tr>
-
- <tr><td><br /> 2011-12-20
-</td><td><br /> id:"1324368106-24802-1-git-send-email-dme@dme.org"
-</td></tr>
- <tr><td>David Edmondson <dme@dme.org>
-</td><td><a href="http://mid.gmane.org/1324368106-24802-1-git-send-email-dme@dme.org">[PATCH v2] emacs: Add `notmuch-jump-to-recent-buffer'.</a>
-</td></tr>
-
 </table>
 <h3>Review</h3>
 These patches are under review, or waiting for feedback.
@@ -397,6 +348,20 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td></tr>
 
  <tr><td><br /> 2011-12-13
+</td><td><br /> id:"1323766883-17607-1-git-send-email-tomi.ollila@iki.fi"
+</td></tr>
+ <tr><td>Tomi Ollila <tomi.ollila@iki.fi>
+</td><td><a href="http://mid.gmane.org/1323766883-17607-1-git-send-email-tomi.ollila@iki.fi">[PATCH 1/2] test/smtp-dummy: add --background option for going background after listen(2)</a>
+</td></tr>
+
+ <tr><td> 
+</td><td> id:"1323766883-17607-2-git-send-email-tomi.ollila@iki.fi"
+</td></tr>
+ <tr><td>
+</td><td><a href="http://mid.gmane.org/1323766883-17607-2-git-send-email-tomi.ollila@iki.fi">[PATCH 2/2] test/test-lib.sh: launch smtp-dummy with --background and finally kill(1) it.</a>
+</td></tr>
+
+ <tr><td><br /> 2011-12-13
 </td><td><br /> id:"1323797532-597-2-git-send-email-schnouki@schnouki.net"
 </td></tr>
  <tr><td>Thomas Jost <schnouki@schnouki.net>
@@ -429,6 +394,27 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td></tr>
  <tr><td>Aaron Ecay <aaronecay@gmail.com>
 </td><td><a href="http://mid.gmane.org/1324136868-6662-1-git-send-email-aaronecay@gmail.com">[PATCH] [emacs] Don't quote lambda forms</a>
+</td></tr>
+
+ <tr><td><br /> 2011-12-18
+</td><td><br /> id:"1324214111-32079-2-git-send-email-david@tethera.net"
+</td></tr>
+ <tr><td>David Bremner <david@tethera.net>
+</td><td><a href="http://mid.gmane.org/1324214111-32079-2-git-send-email-david@tethera.net">[PATCH Draft 2 1/9] hex-escape: (en|de)code strings to/from restricted character set</a>
+</td></tr>
+
+ <tr><td> 
+</td><td> id:"1324214111-32079-3-git-send-email-david@tethera.net"
+</td></tr>
+ <tr><td>
+</td><td><a href="http://mid.gmane.org/1324214111-32079-3-git-send-email-david@tethera.net">[PATCH Draft 2 2/9] test/hex-xcode: new test binary</a>
+</td></tr>
+
+ <tr><td> 
+</td><td> id:"1324214111-32079-4-git-send-email-david@tethera.net"
+</td></tr>
+ <tr><td>
+</td><td><a href="http://mid.gmane.org/1324214111-32079-4-git-send-email-david@tethera.net">[PATCH Draft 2 3/9] test/hex-escaping: new test for hex escaping routines</a>
 </td></tr>
 
  <tr><td><br /> 2011-12-20
