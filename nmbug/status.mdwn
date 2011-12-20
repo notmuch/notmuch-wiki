@@ -26,31 +26,10 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 <table>
 
  <tr><td><br /> 2011-07-11
-</td><td><br /> id:"1310377427-7656-1-git-send-email-Sebastian@SSpaeth.de"
+</td><td><br /> id:"1310377785-7887-1-git-send-email-Sebastian@SSpaeth.de"
 </td></tr>
  <tr><td>Sebastian Spaeth <Sebastian@SSpaeth.de>
-</td><td><a href="http://mid.gmane.org/1310377427-7656-1-git-send-email-Sebastian@SSpaeth.de">[PATCH] python: Encode query string as a utf-8 byte array</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"1310377785-7887-1-git-send-email-Sebastian@SSpaeth.de"
-</td></tr>
- <tr><td>
 </td><td><a href="http://mid.gmane.org/1310377785-7887-1-git-send-email-Sebastian@SSpaeth.de">[PATCH v2] python: Encode query string as a utf-8 byte array</a>
-</td></tr>
-
- <tr><td><br /> 2011-09-26
-</td><td><br /> id:"1316999137-28257-3-git-send-email-4winter@informatik.uni-hamburg.de"
-</td></tr>
- <tr><td>Justus Winter <4winter@informatik.uni-hamburg.de>
-</td><td><a href="http://mid.gmane.org/1316999137-28257-3-git-send-email-4winter@informatik.uni-hamburg.de">[PATCH 3/9] python: reorder the arguments of NotmuchError.__init__()</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"1316999137-28257-8-git-send-email-4winter@informatik.uni-hamburg.de"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/1316999137-28257-8-git-send-email-4winter@informatik.uni-hamburg.de">[PATCH 8/9] python: use the new exception classes and update the documentation</a>
 </td></tr>
 
 </table>
@@ -265,6 +244,13 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td></tr>
  <tr><td>Justus Winter <4winter@informatik.uni-hamburg.de>
 </td><td><a href="http://mid.gmane.org/1316999137-28257-7-git-send-email-4winter@informatik.uni-hamburg.de">[PATCH 7/9] python: provide more exception classes</a>
+</td></tr>
+
+ <tr><td> 
+</td><td> id:"1316999137-28257-8-git-send-email-4winter@informatik.uni-hamburg.de"
+</td></tr>
+ <tr><td>
+</td><td><a href="http://mid.gmane.org/1316999137-28257-8-git-send-email-4winter@informatik.uni-hamburg.de">[PATCH 8/9] python: use the new exception classes and update the documentation</a>
 </td></tr>
 
  <tr><td><br /> 2011-10-03
