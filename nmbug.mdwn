@@ -132,30 +132,29 @@ These patches are more comments and suggestions.
     notmuch::$n                 this patch should be considered for 
                                 release $n
 
-## TRACKING the patch queue
+## Tracking the patch queue
 
 I (David Bremner) use the following search (in my case as a saved
-search in emacs).
+search in emacs):
     
     tag:notmuch::patch and not tag:notmuch::pushed and \
         not tag:notmuch::obsolete and not tag:notmuch::wip \
             and not tag:notmuch::moreinfo and not tag:notmuch::contrib
 
 You might or might not want as many exclusions.  Another interesting
-search is
+search is:
 
     tag:notmuch::reviewed and not tag:notmuch::pushed
     
     
 ## Design notes
 
-### Disk format.
+### Disk format
 
 The tags are stored in a bare-repo, which means they are not obviously
 visible. There is an `nmbug archive` command analogous to `git
 archive` Tags are represented as empty files in the tree; if you extra
-them, the tree looks something like
-
+them, the tree looks something like:
 
     tags/878waiwi0f.wl%25james@hackervisions.org/
     tags/878waiwi0f.wl%25james@hackervisions.org/emacs
