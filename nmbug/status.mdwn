@@ -9,25 +9,25 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </blockquote>
 <table>
 
- <tr><td><br /> 2011-12-17
-</td><td><br /> id:"1324136868-6662-1-git-send-email-aaronecay@gmail.com"
-</td></tr>
- <tr><td>Aaron Ecay <aaronecay@gmail.com>
-</td><td><a href="http://mid.gmane.org/1324136868-6662-1-git-send-email-aaronecay@gmail.com">[PATCH] [emacs] Don't quote lambda forms</a>
-</td></tr>
-
  <tr><td><br /> 2011-12-20
-</td><td><br /> id:"1324394404-2574-1-git-send-email-dme@dme.org"
+</td><td><br /> id:"cover.1324410479.git.jani@nikula.org"
 </td></tr>
- <tr><td>David Edmondson <dme@dme.org>
-</td><td><a href="http://mid.gmane.org/1324394404-2574-1-git-send-email-dme@dme.org">[PATCH] notmuch: Quiet buildbot warnings.</a>
+ <tr><td>Jani Nikula <jani@nikula.org>
+</td><td><a href="http://mid.gmane.org/cover.1324410479.git.jani@nikula.org">[PATCH v2 0/2] emacs: trivial defcustom fixes</a>
 </td></tr>
 
- <tr><td><br /> 2011-12-21
-</td><td><br /> id:"1324430894-5002-1-git-send-email-schnouki@schnouki.net"
+ <tr><td> 
+</td><td> id:"8c69566692e6e7c36e3c3cfcfba2c1122e5c10b1.1324410479.git.jani@nikula.org"
 </td></tr>
- <tr><td>Thomas Jost <schnouki@schnouki.net>
-</td><td><a href="http://mid.gmane.org/1324430894-5002-1-git-send-email-schnouki@schnouki.net">[PATCH] emacs: add notmuch-hello-refresh-hook</a>
+ <tr><td>
+</td><td><a href="http://mid.gmane.org/8c69566692e6e7c36e3c3cfcfba2c1122e5c10b1.1324410479.git.jani@nikula.org">[PATCH v2 1/2] emacs: Fix notmuch-hello-tag-list-make-query defcustom</a>
+</td></tr>
+
+ <tr><td> 
+</td><td> id:"f57278c429382294021bd5e6959886a5e44af594.1324410479.git.jani@nikula.org"
+</td></tr>
+ <tr><td>
+</td><td><a href="http://mid.gmane.org/f57278c429382294021bd5e6959886a5e44af594.1324410479.git.jani@nikula.org">[PATCH v2 2/2] emacs: Fix notmuch-mua-user-agent defcustom</a>
 </td></tr>
 
 </table>
@@ -237,13 +237,6 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td></tr>
  <tr><td>Jani Nikula <jani@nikula.org>
 </td><td><a href="http://mid.gmane.org/864e58d004c991bcb823e0f61f33eb8cbbbb5b76.1316804530.git.jani@nikula.org">[PATCH 1/2] emacs: Fix notmuch-hello-tag-list-make-query defcustom</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"4f5151bf4b16ca977c6cfe7e4bf2bf909281675b.1316804530.git.jani@nikula.org"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/4f5151bf4b16ca977c6cfe7e4bf2bf909281675b.1316804530.git.jani@nikula.org">[PATCH 2/2] emacs: Fix notmuch-mua-user-agent defcustom</a>
 </td></tr>
 
  <tr><td><br /> 2011-09-25
