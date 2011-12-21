@@ -10,16 +10,9 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 <table>
 
  <tr><td><br /> 2011-12-20
-</td><td><br /> id:"cover.1324410479.git.jani@nikula.org"
+</td><td><br /> id:"8c69566692e6e7c36e3c3cfcfba2c1122e5c10b1.1324410479.git.jani@nikula.org"
 </td></tr>
  <tr><td>Jani Nikula <jani@nikula.org>
-</td><td><a href="http://mid.gmane.org/cover.1324410479.git.jani@nikula.org">[PATCH v2 0/2] emacs: trivial defcustom fixes</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"8c69566692e6e7c36e3c3cfcfba2c1122e5c10b1.1324410479.git.jani@nikula.org"
-</td></tr>
- <tr><td>
 </td><td><a href="http://mid.gmane.org/8c69566692e6e7c36e3c3cfcfba2c1122e5c10b1.1324410479.git.jani@nikula.org">[PATCH v2 1/2] emacs: Fix notmuch-hello-tag-list-make-query defcustom</a>
 </td></tr>
 
