@@ -1,5 +1,5 @@
 <h2>Notmuch Patches</h2>
-Generated: 2011-12-20<br />
+Generated: 2011-12-21<br />
 For more infomation see <a href="http://notmuchmail.org/nmbug">nmbug</a>
 <h3>Maybe Ready (Core and Emacs)</h3>
 These patches are under consideration for pushing.
@@ -14,6 +14,20 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td></tr>
  <tr><td>Aaron Ecay <aaronecay@gmail.com>
 </td><td><a href="http://mid.gmane.org/1324136868-6662-1-git-send-email-aaronecay@gmail.com">[PATCH] [emacs] Don't quote lambda forms</a>
+</td></tr>
+
+ <tr><td><br /> 2011-12-20
+</td><td><br /> id:"1324394404-2574-1-git-send-email-dme@dme.org"
+</td></tr>
+ <tr><td>David Edmondson <dme@dme.org>
+</td><td><a href="http://mid.gmane.org/1324394404-2574-1-git-send-email-dme@dme.org">[PATCH] notmuch: Quiet buildbot warnings.</a>
+</td></tr>
+
+ <tr><td><br /> 2011-12-21
+</td><td><br /> id:"1324430894-5002-1-git-send-email-schnouki@schnouki.net"
+</td></tr>
+ <tr><td>Thomas Jost <schnouki@schnouki.net>
+</td><td><a href="http://mid.gmane.org/1324430894-5002-1-git-send-email-schnouki@schnouki.net">[PATCH] emacs: add notmuch-hello-refresh-hook</a>
 </td></tr>
 
 </table>
