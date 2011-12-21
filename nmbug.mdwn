@@ -95,7 +95,7 @@ Most patches will be initially tagged:
 
     notmuch::needs-review       needs some (more) review
 
-unless the are tagged:
+unless they are tagged:
 
     notmuch::trivial            looks harmless
 
