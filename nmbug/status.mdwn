@@ -1,5 +1,5 @@
 <h2>Notmuch Patches</h2>
-Generated: 2011-12-21<br />
+Generated: 2011-12-22<br />
 For more infomation see <a href="http://notmuchmail.org/nmbug">nmbug</a>
 <h3>Maybe Ready (Core and Emacs)</h3>
 These patches are under consideration for pushing.
@@ -21,6 +21,48 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td></tr>
  <tr><td>
 </td><td><a href="http://mid.gmane.org/f57278c429382294021bd5e6959886a5e44af594.1324410479.git.jani@nikula.org">[PATCH v2 2/2] emacs: Fix notmuch-mua-user-agent defcustom</a>
+</td></tr>
+
+ <tr><td><br /> 2011-12-21
+</td><td><br /> id:"1324470927-15353-1-git-send-email-dme@dme.org"
+</td></tr>
+ <tr><td>David Edmondson <dme@dme.org>
+</td><td><a href="http://mid.gmane.org/1324470927-15353-1-git-send-email-dme@dme.org">[PATCH] emacs: Don't prompt the user to choose from zero matching addresses.</a>
+</td></tr>
+
+ <tr><td><br /> 2011-12-21
+</td><td><br /> id:"1324475059-16543-1-git-send-email-schnouki@schnouki.net"
+</td></tr>
+ <tr><td>Thomas Jost <schnouki@schnouki.net>
+</td><td><a href="http://mid.gmane.org/1324475059-16543-1-git-send-email-schnouki@schnouki.net">[PATCH 1/2] emacs: rename notmuch-decimal-separator to notmuch-hello-thousands-separator</a>
+</td></tr>
+
+ <tr><td> 
+</td><td> id:"1324475059-16543-2-git-send-email-schnouki@schnouki.net"
+</td></tr>
+ <tr><td>
+</td><td><a href="http://mid.gmane.org/1324475059-16543-2-git-send-email-schnouki@schnouki.net">[PATCH 2/2] emacs: Change the default thousands separator to a space</a>
+</td></tr>
+
+ <tr><td><br /> 2011-12-21
+</td><td><br /> id:"1324491506-1134-1-git-send-email-dmitry.kurochkin@gmail.com"
+</td></tr>
+ <tr><td>Dmitry Kurochkin <dmitry.kurochkin@gmail.com>
+</td><td><a href="http://mid.gmane.org/1324491506-1134-1-git-send-email-dmitry.kurochkin@gmail.com">[PATCH 1/2] test: add general Emacs hook counter</a>
+</td></tr>
+
+ <tr><td> 
+</td><td> id:"1324491506-1134-2-git-send-email-dmitry.kurochkin@gmail.com"
+</td></tr>
+ <tr><td>
+</td><td><a href="http://mid.gmane.org/1324491506-1134-2-git-send-email-dmitry.kurochkin@gmail.com">[PATCH 2/2] test: add test for `notmuch-hello-refresh-hook'</a>
+</td></tr>
+
+ <tr><td><br /> 2011-12-22
+</td><td><br /> id:"1324513430-15650-1-git-send-email-dmitry.kurochkin@gmail.com"
+</td></tr>
+ <tr><td>Dmitry Kurochkin <dmitry.kurochkin@gmail.com>
+</td><td><a href="http://mid.gmane.org/1324513430-15650-1-git-send-email-dmitry.kurochkin@gmail.com">[PATCH] emacs: put the last search on top of recent searches in notmuch-hello</a>
 </td></tr>
 
 </table>
@@ -190,20 +232,6 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td><td><a href="http://mid.gmane.org/1315196076-9254-1-git-send-email-self@antono.info">[PATCH] Perform mail polling asynchronously</a>
 </td></tr>
 
- <tr><td><br /> 2011-09-07
-</td><td><br /> id:"de34a2673fb548c2624432fb9b9ce36043d9216f.1315384432.git.jani@nikula.org"
-</td></tr>
- <tr><td>Jani Nikula <jani@nikula.org>
-</td><td><a href="http://mid.gmane.org/de34a2673fb548c2624432fb9b9ce36043d9216f.1315384432.git.jani@nikula.org">[PATCH 1/2] emacs: Fix notmuch-hello-tag-list-make-query defcustom</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"4652bdba350f4ff9c3bd2333d725a5ebabb5950a.1315384432.git.jani@nikula.org"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/4652bdba350f4ff9c3bd2333d725a5ebabb5950a.1315384432.git.jani@nikula.org">[PATCH 2/2] emacs: Fix notmuch-mua-user-agent defcustom</a>
-</td></tr>
-
  <tr><td><br /> 2011-09-14
 </td><td><br /> id:"1315949524-4948-2-git-send-email-tomi.ollila@iki.fi"
 </td></tr>
@@ -251,48 +279,6 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td></tr>
  <tr><td>
 </td><td><a href="http://mid.gmane.org/1316999137-28257-8-git-send-email-4winter@informatik.uni-hamburg.de">[PATCH 8/9] python: use the new exception classes and update the documentation</a>
-</td></tr>
-
- <tr><td><br /> 2011-10-03
-</td><td><br /> id:"1317643438-31272-4-git-send-email-schnouki@schnouki.net"
-</td></tr>
- <tr><td>Thomas Jost <schnouki@schnouki.net>
-</td><td><a href="http://mid.gmane.org/1317643438-31272-4-git-send-email-schnouki@schnouki.net">[PATCH 3/4] emacs: rename notmuch-decimal-separator to notmuch-thousands-separator</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"1317643438-31272-5-git-send-email-schnouki@schnouki.net"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/1317643438-31272-5-git-send-email-schnouki@schnouki.net">[PATCH 4/4] emacs: add notmuch-hello-hook</a>
-</td></tr>
-
- <tr><td><br /> 2011-10-03
-</td><td><br /> id:"1317660447-27520-2-git-send-email-schnouki@schnouki.net"
-</td></tr>
- <tr><td>Thomas Jost <schnouki@schnouki.net>
-</td><td><a href="http://mid.gmane.org/1317660447-27520-2-git-send-email-schnouki@schnouki.net">[PATCH 01/13] test: define a helper function for defining prereqs on executables</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"1317660447-27520-4-git-send-email-schnouki@schnouki.net"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/1317660447-27520-4-git-send-email-schnouki@schnouki.net">[PATCH 03/13] test: add 'Emacs' prereq to dependent 'crypto' tests</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"1317660447-27520-5-git-send-email-schnouki@schnouki.net"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/1317660447-27520-5-git-send-email-schnouki@schnouki.net">[PATCH 04/13] test: add 'Emacs' prereq to dependent 'emacs' tests</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"1317660447-27520-6-git-send-email-schnouki@schnouki.net"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/1317660447-27520-6-git-send-email-schnouki@schnouki.net">[PATCH 05/13] test: add 'Emacs' prereq to dependent 'emacs-large-search-buffer' tests</a>
 </td></tr>
 
  <tr><td><br /> 2011-10-10
@@ -363,13 +349,6 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td></tr>
  <tr><td>Ivy Foster <joyfulgirl@archlinux.us>
 </td><td><a href="http://mid.gmane.org/87k47nlpzb.fsf@nausicaa.localdomain">[Patch 2/3] Respect window margins in notmuch-hello.el</a>
-</td></tr>
-
- <tr><td><br /> 2011-11-09
-</td><td><br /> id:"1320869169-32596-1-git-send-email-schnouki@schnouki.net"
-</td></tr>
- <tr><td>Thomas Jost <schnouki@schnouki.net>
-</td><td><a href="http://mid.gmane.org/1320869169-32596-1-git-send-email-schnouki@schnouki.net">[PATCH v2] emacs: Let the user choose where to compose new mails</a>
 </td></tr>
 
  <tr><td><br /> 2011-11-19
@@ -463,20 +442,6 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td><td><a href="http://mid.gmane.org/1323797532-597-2-git-send-email-schnouki@schnouki.net">[PATCH v3 1/4] emacs: Let the user choose where to compose new mails</a>
 </td></tr>
 
- <tr><td> 
-</td><td> id:"1323797532-597-4-git-send-email-schnouki@schnouki.net"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/1323797532-597-4-git-send-email-schnouki@schnouki.net">[PATCH v3 3/4] emacs: rename notmuch-decimal-separator to notmuch-thousands-separator</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"1323797532-597-5-git-send-email-schnouki@schnouki.net"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/1323797532-597-5-git-send-email-schnouki@schnouki.net">[PATCH v3 4/4] emacs: add notmuch-hello-hook</a>
-</td></tr>
-
  <tr><td><br /> 2011-12-14
 </td><td><br /> id:"1323860305-15802-2-git-send-email-4winter@informatik.uni-hamburg.de"
 </td></tr>
@@ -559,6 +524,20 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td></tr>
  <tr><td>David Edmondson <dme@dme.org>
 </td><td><a href="http://mid.gmane.org/1324370714-28545-1-git-send-email-dme@dme.org">[PATCH] emacs: Don't signal an error when reaching the end of the search results.</a>
+</td></tr>
+
+ <tr><td><br /> 2011-12-21
+</td><td><br /> id:"1324473302-10869-2-git-send-email-4winter@informatik.uni-hamburg.de"
+</td></tr>
+ <tr><td>Justus Winter <4winter@informatik.uni-hamburg.de>
+</td><td><a href="http://mid.gmane.org/1324473302-10869-2-git-send-email-4winter@informatik.uni-hamburg.de">[PATCH 1/2] python: refactor print_messages into format_messages and print_messages</a>
+</td></tr>
+
+ <tr><td> 
+</td><td> id:"1324473302-10869-3-git-send-email-4winter@informatik.uni-hamburg.de"
+</td></tr>
+ <tr><td>
+</td><td><a href="http://mid.gmane.org/1324473302-10869-3-git-send-email-4winter@informatik.uni-hamburg.de">[PATCH 2/2] python: make the result of Message.get_replies() more pythonic</a>
 </td></tr>
 
 </table>
