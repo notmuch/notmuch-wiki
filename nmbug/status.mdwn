@@ -9,62 +9,6 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </blockquote>
 <table>
 
- <tr><td><br /> 2011-12-20
-</td><td><br /> id:"8c69566692e6e7c36e3c3cfcfba2c1122e5c10b1.1324410479.git.jani@nikula.org"
-</td></tr>
- <tr><td>Jani Nikula <jani@nikula.org>
-</td><td><a href="http://mid.gmane.org/8c69566692e6e7c36e3c3cfcfba2c1122e5c10b1.1324410479.git.jani@nikula.org">[PATCH v2 1/2] emacs: Fix notmuch-hello-tag-list-make-query defcustom</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"f57278c429382294021bd5e6959886a5e44af594.1324410479.git.jani@nikula.org"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/f57278c429382294021bd5e6959886a5e44af594.1324410479.git.jani@nikula.org">[PATCH v2 2/2] emacs: Fix notmuch-mua-user-agent defcustom</a>
-</td></tr>
-
- <tr><td><br /> 2011-12-21
-</td><td><br /> id:"1324470927-15353-1-git-send-email-dme@dme.org"
-</td></tr>
- <tr><td>David Edmondson <dme@dme.org>
-</td><td><a href="http://mid.gmane.org/1324470927-15353-1-git-send-email-dme@dme.org">[PATCH] emacs: Don't prompt the user to choose from zero matching addresses.</a>
-</td></tr>
-
- <tr><td><br /> 2011-12-21
-</td><td><br /> id:"1324475059-16543-1-git-send-email-schnouki@schnouki.net"
-</td></tr>
- <tr><td>Thomas Jost <schnouki@schnouki.net>
-</td><td><a href="http://mid.gmane.org/1324475059-16543-1-git-send-email-schnouki@schnouki.net">[PATCH 1/2] emacs: rename notmuch-decimal-separator to notmuch-hello-thousands-separator</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"1324475059-16543-2-git-send-email-schnouki@schnouki.net"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/1324475059-16543-2-git-send-email-schnouki@schnouki.net">[PATCH 2/2] emacs: Change the default thousands separator to a space</a>
-</td></tr>
-
- <tr><td><br /> 2011-12-21
-</td><td><br /> id:"1324491506-1134-1-git-send-email-dmitry.kurochkin@gmail.com"
-</td></tr>
- <tr><td>Dmitry Kurochkin <dmitry.kurochkin@gmail.com>
-</td><td><a href="http://mid.gmane.org/1324491506-1134-1-git-send-email-dmitry.kurochkin@gmail.com">[PATCH 1/2] test: add general Emacs hook counter</a>
-</td></tr>
-
- <tr><td> 
-</td><td> id:"1324491506-1134-2-git-send-email-dmitry.kurochkin@gmail.com"
-</td></tr>
- <tr><td>
-</td><td><a href="http://mid.gmane.org/1324491506-1134-2-git-send-email-dmitry.kurochkin@gmail.com">[PATCH 2/2] test: add test for `notmuch-hello-refresh-hook'</a>
-</td></tr>
-
- <tr><td><br /> 2011-12-22
-</td><td><br /> id:"1324513430-15650-1-git-send-email-dmitry.kurochkin@gmail.com"
-</td></tr>
- <tr><td>Dmitry Kurochkin <dmitry.kurochkin@gmail.com>
-</td><td><a href="http://mid.gmane.org/1324513430-15650-1-git-send-email-dmitry.kurochkin@gmail.com">[PATCH] emacs: put the last search on top of recent searches in notmuch-hello</a>
-</td></tr>
-
 </table>
 <h3>Maybe Ready (Python)</h3>
 These python related patches might be ready to push, or they might just need updated tags.
