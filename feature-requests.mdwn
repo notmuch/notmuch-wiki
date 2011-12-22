@@ -13,7 +13,7 @@
      When used from the thread view, it deletes the currently
      displayed message inside the thread.
 
-+    add 'D' keybinding
++    Add 'D' keybinding
 
      Removes unread and inbox tags, adds deleted tag.
 
@@ -23,7 +23,7 @@
      When used from the thread view, it deletes the currently
      displayed thread (and not just the message)
 
-+    add '???' keybinding
++    Add '???' keybinding
 
      Skips current thread without archiving it
 
@@ -31,9 +31,7 @@
      beginning of the next thread. 'a' gets you to the next thread,
      but archives the current one.
 
-+   select from address (with the configured email addresses as default choices to pick from)
-
-+   allow different "real names" for the optional email addresses
++    Allow different "real names" for the optional email addresses
 
      if only one name is configured, use that for all addresses;
      if other_names are configured, match those with the other_email addresses
@@ -67,10 +65,10 @@
 
 +    Allow anchors in searches
 
-     notmuch search from:domain.org$ only matches if "domain.org" is
+     `notmuch search from:domain.org$` only matches if "domain.org" is
      at the end of the From: header
 
-     notmuch search from:^username only matches if "username" is at
+     `notmuch search from:^username` only matches if "username" is at
      the beginning of the From: header (right after the ':')
 
      This leaves the interesting question if we want a way to bind to
@@ -92,7 +90,7 @@
 
 +    Add feature to move files in the maildir hierarchy
 
-     notmuchsync --move "searchstring" "targetfolder"
+     `notmuchsync --move "searchstring" "targetfolder"`
 
      Where searchstring is any valid notmuch search
 
