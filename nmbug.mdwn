@@ -2,14 +2,14 @@
 
 ## Web View
 
-There is a dump of (some views of) the nmbug [[status|http://nmbug.tethera.net/status]]. 
+There is a dump of (some views of) the nmbug [[status|http://nmbug.tethera.net/status]].
 
 ## Getting started
 
 1. Install and use notmuch version notmuch 0.9+63~gebd1adc or newer.
 
    The nmbug script is available in `contrib/nmbug`.
-      
+
 2. The current tag repo can be obtained by:
 
    `$ git clone --bare http://nmbug.tethera.net/git/nmbug-tags.git $HOME/.nmbug`
@@ -25,9 +25,9 @@ There is a dump of (some views of) the nmbug [[status|http://nmbug.tethera.net/s
     # get the latest version of the tags
     $ nmbug pull
 
-    # do some tagging; see below for conventions 
+    # do some tagging; see below for conventions
     $ notmuch tag +notmuch::patch $id
-    
+
     # write the tag changes from the notmuch database
     $ nmbug commit
 
@@ -38,13 +38,13 @@ There is a dump of (some views of) the nmbug [[status|http://nmbug.tethera.net/s
 
     # Optionally inspect the fetched changes
 
-    $ nmbug status      
+    $ nmbug status
      a   tags/id1/patch
-     d   tags/id2/pushed     
-    
+     d   tags/id2/pushed
+
     # merge the fetched tags into notmuch
     $ nmbug merge
-    
+
     # observe status is clear now,
     $ nmbug status
 
@@ -54,23 +54,23 @@ There is a dump of (some views of) the nmbug [[status|http://nmbug.tethera.net/s
     # double check your changes
     $ nmbug status
     A tags/id/patch
-    
-    # write the tag changes 
+
+    # write the tag changes
     $ nmbug commit
 
 ## Submitting tags
 
 For the moment, we are using a central repo, hosted at:
-    
+
     nmbug@nmbug.tethera.net:nmbug-tags
-        
+
 To get push access, send your public key (ideally in a gpg signed
 email) to David Bremner.  There is a convenience command:
-   
+
     nmbug push
-       
+
 But you will have to change your url with:
-   
+
     git --git-dir=$HOME/.nmbug remote set-url origin git@pivot.cs.unb.ca:pub/nmbug
 
 ## Tagging conventions
@@ -98,17 +98,17 @@ unless they are tagged:
 
 Patches keep `notmuch::needs-review` until they either get enough
 reviews, or one of the following resolutions is reached:
-    
+
     notmuch::obsolete           replaced by some other patch
     notmuch::pushed             is pushed to master
-    notmuch::wontfix            for whatever reason, this patch will not 
+    notmuch::wontfix            for whatever reason, this patch will not
                                 be applied
 
 Sometimes the process stalls, and patches get tagged:
 
-    notmuch::moreinfo           waiting for feedback from patch proposer 
+    notmuch::moreinfo           waiting for feedback from patch proposer
                                 or others
-    
+
 ### Bug tracking tag
 
 So far we are just tagging certain messages as bug reports, meaning
@@ -126,14 +126,14 @@ These patches are more comments and suggestions.
     notmuch::portability        improves portability
     notmuch::review             is a review
     notmuch::test               provides a new test/or improves testing
-    notmuch::$n                 this patch should be considered for 
+    notmuch::$n                 this patch should be considered for
                                 release $n
 
 ## Tracking the patch queue
 
 I (David Bremner) use the following search (in my case as a saved
 search in emacs):
-    
+
     tag:notmuch::patch and not tag:notmuch::pushed and \
         not tag:notmuch::obsolete and not tag:notmuch::wip \
             and not tag:notmuch::moreinfo and not tag:notmuch::contrib
@@ -142,8 +142,7 @@ You might or might not want as many exclusions.  Another interesting
 search is:
 
     tag:notmuch::reviewed and not tag:notmuch::pushed
-    
-    
+
 ## Design notes
 
 ### Disk format
@@ -165,9 +164,5 @@ The `%25` represents hex code for a character that cannot be used directly
 
 ### Assumptions
 
-- Currently the parser of nmbug (like that of notmuch restore) assumes 
+- Currently the parser of nmbug (like that of notmuch restore) assumes
   that there are no spaces in message-ids.
-    
-    
-    
-
