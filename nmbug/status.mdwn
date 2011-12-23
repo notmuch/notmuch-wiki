@@ -1,5 +1,5 @@
 <h2>Notmuch Patches</h2>
-Generated: 2011-12-22<br />
+Generated: 2011-12-23<br />
 For more infomation see <a href="http://notmuchmail.org/nmbug">nmbug</a>
 <h3>Maybe Ready (Core and Emacs)</h3>
 These patches are under consideration for pushing.
@@ -8,6 +8,13 @@ The view is generated from the following query:
 tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and not tag:notmuch::wip and not tag:notmuch::stale and not tag:notmuch::contrib and not tag:notmuch::moreinfo and not tag:notmuch::python and not tag:notmuch::vim and not tag:notmuch::wontfix and not tag:notmuch::needs-review
 </blockquote>
 <table>
+
+ <tr><td><br /> 2011-12-22
+</td><td><br /> id:"1324616352-15337-1-git-send-email-jrollins@finestructure.net"
+</td></tr>
+ <tr><td>Jameson Graef Rollins <jrollins@finestructure.net>
+</td><td><a href="http://mid.gmane.org/1324616352-15337-1-git-send-email-jrollins@finestructure.net">[PATCH v2] emacs: call notmuch-show instead of notmuch-search in buttonised id: links</a>
+</td></tr>
 
 </table>
 <h3>Maybe Ready (Python)</h3>
@@ -482,6 +489,20 @@ tag:notmuch::patch and not tag:notmuch::pushed and not tag:notmuch::obsolete and
 </td></tr>
  <tr><td>
 </td><td><a href="http://mid.gmane.org/1324473302-10869-3-git-send-email-4winter@informatik.uni-hamburg.de">[PATCH 2/2] python: make the result of Message.get_replies() more pythonic</a>
+</td></tr>
+
+ <tr><td><br /> 2011-12-22
+</td><td><br /> id:"1324563860-21986-1-git-send-email-aaronecay@gmail.com"
+</td></tr>
+ <tr><td>Aaron Ecay <aaronecay@gmail.com>
+</td><td><a href="http://mid.gmane.org/1324563860-21986-1-git-send-email-aaronecay@gmail.com">[PATCH] emacs: fix off-by-one bug in notmuch-show-archive</a>
+</td></tr>
+
+ <tr><td><br /> 2011-12-22
+</td><td><br /> id:"1324584948-8009-1-git-send-email-amdragon@mit.edu"
+</td></tr>
+ <tr><td>Austin Clements <amdragon@MIT.EDU>
+</td><td><a href="http://mid.gmane.org/1324584948-8009-1-git-send-email-amdragon@mit.edu">[PATCH] Properly handle short writes in sigint handlers</a>
 </td></tr>
 
 </table>
