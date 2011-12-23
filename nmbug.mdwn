@@ -67,11 +67,11 @@ For the moment, we are using a central repo, hosted at:
 To get push access, send your public key (ideally in a gpg signed
 email) to David Bremner.  There is a convenience command:
 
-    nmbug push
+    $ nmbug push
 
 But you will have to change your url with:
 
-    git --git-dir=$HOME/.nmbug remote set-url origin nmbug@nmbug.tethera.net:nmbug-tags
+    $ git --git-dir=$HOME/.nmbug remote set-url origin nmbug@nmbug.tethera.net:nmbug-tags
 
 ## Tagging conventions
 
