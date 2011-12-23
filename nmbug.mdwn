@@ -71,7 +71,7 @@ email) to David Bremner.  There is a convenience command:
 
 But you will have to change your url with:
 
-    git --git-dir=$HOME/.nmbug remote set-url origin git@pivot.cs.unb.ca:pub/nmbug
+    git --git-dir=$HOME/.nmbug remote set-url origin nmbug@nmbug.tethera.net:nmbug-tags
 
 ## Tagging conventions
 
