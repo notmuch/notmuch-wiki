@@ -57,6 +57,7 @@ contain a reference for users.  This is what we have so far:
   * [[Tips for using notmuch within Emacs|emacstips]]
   * [[Remote Usage|remoteusage]]
   * [[Performance|performance]]
+  * [[Available frontends|frontends]]
 
 Apart from the wiki, help is available via email.  Join the mailing
 list.  Read the archives.  Ask questions.
