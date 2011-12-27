@@ -91,7 +91,7 @@ There is a buildbot [here](http://buildbot.notmuchmail.org/grid) (configuration 
 ## Binary packages
 
 * [Debian](http://packages.debian.org/search?keywords=notmuch), [Ubuntu](http://packages.ubuntu.com/search?keywords=notmuch)
-* [Slackware](http://slackbuilds.org/repository/13.37/office/notmuch)
+* [Slackware](http://slackbuilds.org/repository/13.37/office/notmuch/)
 
 ## Screenshots
 
