@@ -80,6 +80,19 @@
      server-side filtering can be directly used by notmuch to tag all
      incoming mail.
 
++    Make message store code modular
+
+     Notmuch is built on the assumption that the message store is a
+     collection of message files in directories (roughly Maildir
+     format). This performs suboptimally for a wide range of systems,
+     especially with large numbers of messages. Modularising the
+     message store code to move this assumption into the implementation
+     rather than the interface would allow adding support for different
+     message stores like the traditional [mbox
+     formats](http://homepage.ntlworld.com./jonathan.deboynepollard/FGA/mail-mbox-formats.html)
+     as well as more experimental approaches like using git as an object
+     storage (similar to how [[nmbug]] operates).
+
 ## 3rd party apps
 
 ### notmuchsync
