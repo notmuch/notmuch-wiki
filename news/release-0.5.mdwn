@@ -14,9 +14,9 @@ Maildir-flag synchronization
 	----     -----
 	'D'      draft
 	'F'      flagged
-        'P'      passed
-        'R'      replied
-        'S'      unread (added when 'S' flag is not present)
+	'P'      passed
+	'R'      replied
+	'S'      unread (added when 'S' flag is not present)
 
   The synchronization occurs in both directions, (for example, adding
   the 'S' flag to a file will cause the "unread" tag to be added, and
@@ -26,7 +26,7 @@ Maildir-flag synchronization
   This synchronization is enabled by default for users of the
   command-line interface, (though only files in directories named
   "cur" or "new" will be renamed). It can be disabled by setting the
-  new maildir.synchronize_flags option in the configuration file. For
+  new maildir.synchronize\_flags option in the configuration file. For
   example:
 
 	notmuch config set maildir.synchronize_flags false
@@ -52,15 +52,15 @@ Support for querying multiple filenames for a single message
   It is common for the mailstore to contain multiple files with the
   same message ID. Previously, notmuch would always hide these
   duplicate files, (returning a single, arbitrary filename with
-  notmuch_message_get_filename).
+  notmuch\_message\_get\_filename).
 
   With this release, library users can access all filenames for a
   message with the new function:
 
 	notmuch_message_get_filenames
 
-  Together with notmuch_filenames_valid, notmuch_filenames_get, and
-  notmuch_filenames_move_to_next it is now possible to iterate over
+  Together with notmuch\_filenames\_valid, notmuch\_filenames\_get, and
+  notmuch\_filenames\_move\_to\_next it is now possible to iterate over
   all available filenames for a given message.
 
 New command-line features

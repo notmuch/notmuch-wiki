@@ -56,8 +56,8 @@ Add keybinding ('c I') for stashing Message-ID's without an id: prefix
 
 Do not query on notmuch-search exit
 
-   It is harmless to kill the external notmuch process, so the user
-   is no longer interrogated when they interrupt a search.
+  It is harmless to kill the external notmuch process, so the user
+  is no longer interrogated when they interrupt a search.
 
 Performance
 -----------
@@ -86,6 +86,6 @@ mailing list.
 
 nmbug - share tags with a given prefix
 
-   nmbug helps maintain a git repo containing all tags with a given
-   prefix (by default "notmuch::"). Tags can be shared by commiting
-   them to git in one location and restoring in another.
+  nmbug helps maintain a git repo containing all tags with a given
+  prefix (by default "notmuch::"). Tags can be shared by commiting
+  them to git in one location and restoring in another.

@@ -44,10 +44,10 @@ Avoid setting Bcc header in "notmuch reply"
 
 New library features
 --------------------
-Add notmuch_query_get_query_string and notmuch_query_get_sort
+Add notmuch\_query\_get\_query\_string and notmuch\_query\_get\_sort
 
   These are simply functions for querying properties of a
-  notmuch_query_t object.
+  notmuch\_query\_t object.
 
 New emacs features
 ------------------
@@ -131,7 +131,7 @@ Arrange for libnotmuch to be found automatically after make install
   When this support works, the user should be able to run notmuch
   immediately after "make install", without any errors trying to find
   the notmuch library, and without having to manually set environment
-  variables such as LD_LIBRARY_PATH.
+  variables such as LD\_LIBRARY\_PATH.
 
 Check compiler/linker options before using them
 
@@ -187,9 +187,9 @@ Fix for messages with "charset=unknown-8bit"
   GMime warning, (which would then trip up emacs or other interfaces
   parsing the notmuch results).
 
-Fix notmuch_query_search_threads function to return NULL on any exception
+Fix notmuch\_query\_search\_threads function to return NULL on any exception
 
-Fix "notmuch search" to return non-zero if notmuch_query_search_threads fails
+Fix "notmuch search" to return non-zero if notmuch\_query\_search\_threads fails
 
   Previously, this command could confusingly report a Xapian
   exception, yet still return an error code of 0. It now correctly

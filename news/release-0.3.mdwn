@@ -207,7 +207,7 @@ New keybinding (M-Ret) to open all collapsed messages in a thread.
 
 New library feature
 -------------------
-Provide a new NOTMUCH_SORT_UNSORTED value for queries
+Provide a new NOTMUCH\_SORT\_UNSORTED value for queries
 
   This can be somewhat faster when sorting simply isn't desired. For
   example when collecting a set of messages that will all be

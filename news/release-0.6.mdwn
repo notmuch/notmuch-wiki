@@ -15,8 +15,8 @@ Folder-based searching
   For example, one might use things such as:
 
 	folder:spam
-        folder:2011-*
-        folder:work/todo
+	folder:2011-*
+	folder:work/todo
 
   to match any path containing a directory "spam", "work/todo", or
   containing a directory starting with "2011-", respectively.
@@ -161,7 +161,7 @@ Hiding of repeated subjects in collapsed thread view
 
   In notmuch-show mode, if a collapsed message has the same subject as
   its parent, the subject is not shown.
-  
+
 Automatic detection and hiding of original message in top-posted message
 
   When a message contains a line looking something like:
@@ -224,29 +224,29 @@ Bindings improvements
 ---------------------
 Ruby bindings are now much more complete
 
-  Including QUERY.sort, QUERY.to_s, MESSAGE.maildir_flags_to_tags,
-  MESSAGE.tags_to_maildir_flags, and MESSAGE.get_filenames
+  Including QUERY.sort, QUERY.to\_s, MESSAGE.maildir\_flags\_to\_tags,
+  MESSAGE.tags\_to\_maildir\_flags, and MESSAGE.get\_filenames
 
-* Python bindings have been upodated and extended
+* Python bindings have been updated and extended
   (docs online at http://packages.python.org/notmuch/)
 
   New bindings:
-  - Message().get_filenames(),
-  - Message().tags_to_maildir_flags(),Message().maildir_flags_to_tags()
+  - Message().get\_filenames(),
+  - Message().tags\_to\_maildir\_flags(),Message().maildir\_flags\_to\_tags()
   - list(Threads()) and list(Messages) works now
 
-  - Message().__cmp__() and __hash__()
+  - Message().\_\_cmp\_\_() and \_\_hash\_\_()
   These allow, for example:
-        if msg1 == msg2: ...
+	if msg1 == msg2: ...
 
   As well as set arithmetic on Messages():
 
-        s1, s2= set(msgs1), set(msgs2)
+	s1, s2= set(msgs1), set(msgs2)
 	s1.union(s2)
 	s2 -= s1
 
-   Removed:
-     - len(Messages()) as it exausted the iterator.
+  Removed:
+     - len(Messages()) as it exhausted the iterator.
        Use len(list(Messages())) or
        Query.count_messages() to get the length.
 
@@ -288,7 +288,7 @@ Support for testing output with a trailing newline.
   Previously, some tests would fail to notice a difference in the
   presence/absence of a trailing newline in a program output, (which
   has led to bugs in the past). Now, carefully-written tests (using
-  test_expect_equal_file rather than test_expect_equal) will detect
+  test\_expect\_equal\_file rather than test\_expect\_equal) will detect
   any change in the presence/absence of a trailing newline. Many tests
   are updated to take advantage of this.
 
@@ -329,7 +329,7 @@ fix the automatic detection of the From address for "notmuch reply"
 from the Received headers in some cases.
 
 Fix core dump on DragonFlyBSD due to -1 return value from
-sysconf(_SC_GETPW_R_SIZE_MAX).
+sysconf(\_SC\_GETPW\_R\_SIZE\_MAX).
 
 Cleaned up several memory leaks
 

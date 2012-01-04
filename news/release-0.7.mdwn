@@ -27,7 +27,7 @@ Sebastian Spaeth contributed two changes related to unicode and UTF8:
   * message tags are now explicitly unicode
   * query string is encoded as a UTF8 byte string
 
-Build-System improvments
+Build-System improvements
 ------------------------
 
 Generate notmuch.sym after the relevant object files
