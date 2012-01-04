@@ -1,0 +1,91 @@
+[[!meta date="2011-11-23"]]
+
+Notmuch 0.10 (2011-11-23)
+=========================
+
+New build and testing features
+------------------------------
+
+Emacs tests are now done in dtach. This means that dtach  is now
+needed to run the notmuch test suite, at least until the checking for
+prerequisites is improved.
+
+Full test coverage of the stashing feature in Emacs.
+
+New command-line features
+-------------------------
+
+Add "notmuch restore --accumulate" option
+
+  The --accumulate switch causes the union of the existing and new tags to be
+  applied, instead of replacing each message's tags as they are read in from
+  the dump file.
+
+Add search terms to  "notmuch dump"
+
+  The dump command now takes an optional search term much like notmuch
+  search/show/tag. The output file argument of dump is deprecated in
+  favour of using stdout.
+
+Add "notmuch search" --offset and --limit options
+
+  The search command now takes options --offset=[-]N and --limit=N to limit
+  the number of results shown.
+
+Add "notmuch count --output" option
+
+  The count command is now capable of counting threads in addition to
+  messages. This is selected using the new --output=(threads|messages) option.
+
+New emacs UI features
+---------------------
+
+Add tab-completion for notmuch-search and notmuch-search-filter
+
+  These functions now support completion tags for query parts
+  starting with "tag:".
+
+Turn "id:MSG-ID" links into buttons associated with notmuch searches
+
+  Text of the form "id:MSG-ID" in mails is now a clickable button that
+  opens a notmuch search for the given message id.
+
+Add keybinding ('c I') for stashing Message-ID's without an id: prefix
+
+  Reduces manual labour when stashing them for use outside notmuch.
+
+Do not query on notmuch-search exit
+
+   It is harmless to kill the external notmuch process, so the user
+   is no longer interrogated when they interrupt a search.
+
+Performance
+-----------
+
+Emacs now constructs large search buffers more efficiently
+
+Search avoids opening and parsing message files
+
+  We now store more information in the database so search no longer
+  has to open every message file to get basic headers.  This can
+  improve search speed by as much as 10X, but taking advantage of this
+  requires a database rebuild:
+
+	notmuch dump > notmuch.dump
+	# Backup, then remove notmuch database ($MAIL/.notmuch)
+	notmuch new
+	notmuch restore notmuch.dump
+
+New collection of add-on tools
+------------------------------
+
+The source directory "contrib" contains tools built on notmuch.  These
+tools are not part of notmuch, and you should check their individual
+licenses.  Feel free to report problems with them to the notmuch
+mailing list.
+
+nmbug - share tags with a given prefix
+
+   nmbug helps maintain a git repo containing all tags with a given
+   prefix (by default "notmuch::"). Tags can be shared by commiting
+   them to git in one location and restoring in another.

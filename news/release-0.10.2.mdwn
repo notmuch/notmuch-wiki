@@ -1,0 +1,12 @@
+[[!meta date="2011-12-04"]]
+
+Notmuch 0.10.2 (2011-12-04)
+===========================
+
+Bug-fix release.
+----------------
+
+Fix crash in python bindings.
+
+    The python bindings did not call g\_type\_init, which caused crashes
+    for some, but not all users.
