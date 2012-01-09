@@ -305,7 +305,7 @@ address autocompletion.
 
 You can also use the notmuch database as a mail address book itself.
 To do this you need a command line tool that outputs likely address
-candidates based on a search string.  There are currently two
+candidates based on a search string.  There are currently three
 available:
 
   * The python tool `notmuch_address.py` (`git clone
@@ -321,7 +321,11 @@ available:
 
                     cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch
 
-You can perform tab-completion using either of these programs. Just add the following to your .emacs:
+  * Shell/fgrep/perl combination [nottoomuch-addresses.sh](http://www.iki.fi/too/nottoomuch/nottoomuch-addresses/). 
+    This tools maintains it's own address "database" gathered from email
+    files notmuch knows and search from that "database" is done by fgrep(1).
+
+You can perform tab-completion using any of these programs. Just add the following to your .emacs:
 
     (require 'notmuch-address)
     (setq notmuch-address-command "/path/to/address_fetching_program")
