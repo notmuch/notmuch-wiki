@@ -6,7 +6,8 @@ There is a dump of (some views of) the nmbug [[status|http://nmbug.tethera.net/s
 
 ## Getting started
 
-1. Install and use notmuch version notmuch 0.9+63~gebd1adc or newer.
+1. Install and use notmuch version notmuch 0.9+63~gebd1adc or newer and
+   perl module `Pod::Usage` (packaged as `perl-doc` in debian).
 
    The nmbug script is available in `contrib/nmbug`.
 
