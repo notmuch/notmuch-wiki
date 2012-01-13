@@ -97,3 +97,20 @@ various "third party" notmuch utilities.
   [available](http://git.upsilon.cc/cgi-bin/gitweb.cgi?p=zack-homepage.git;a=history;f=blog/posts/2011/01/how_to_use_Notmuch_with_Mutt.mdwn)
   in markdown syntax from the Git repository of my homepage.)</small>
 
+* <span id="reapply_auto">**Automatically retagging the database (e.g., when upgrading versions)**</span>
+
+  Certain versions of notmuch include new automatic tags (for example, between
+  0.3 and 0.10, automatic tagging of signed and encrypted messages was added).
+  However, for users running with databases created in older versions of
+  notmuch, these tags are missing in pre-existing messages and need to be
+  added.  One way to do this is as follows:
+
+                           $ notmuch dump ~/out.nm
+                           $ mv ~/Mail/.notmuch ~/.notmuch.bak
+                           $ notmuch new
+                           $ notmuch tag -inbox -unread '*'
+                           $ notmuch restore --accumulate ~/out.nm
+
+  At this point, one should run a sanity check on the tags, and if everything
+  has merged correctly, the ~/.notmuch.bak directory is expendable, as is
+  ~/out.nm.
