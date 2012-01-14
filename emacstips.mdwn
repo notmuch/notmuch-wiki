@@ -168,6 +168,20 @@ key:
 		        (notmuch-show-remove-tag "deleted")
 		      (notmuch-show-add-tag "deleted"))))
 
+## Restore reply-to-all key binding to 'r'
+
+Starting from notmuch 0.12 the 'r' key is bound to reply-to-sender instead of
+reply-to-all. Here's how to swap the reply to sender/all bindings in show mode:
+
+		(define-key notmuch-show-mode-map "r" 'notmuch-show-reply)
+		(define-key notmuch-show-mode-map "R" 'notmuch-show-reply-sender)
+
+And in search mode:
+
+		(define-key notmuch-search-mode-map "r" 'notmuch-search-reply-to-thread)
+		(define-key notmuch-search-mode-map "R" 'notmuch-search-reply-to-thread-sender)
+
+
 ## How to do FCC/BCC...
 
 The Emacs interface to notmuch will automatically add an `Fcc`
