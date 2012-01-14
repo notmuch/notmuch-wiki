@@ -33,6 +33,11 @@ Enter your commit message in following format:
 The 65-character (limit) seems to be common among many projects so
 that is good guideline to follow here too.
 
+Regarding the commit message body contents, Carl [has stated](http://article.gmane.org/gmane.mail.notmuch.general/504):
+
+> The single line summary is good about saying *what* the commit does,
+> but I always want to see at least one sentence about the *why* as well.
+
 ### Activating default pre-commit hook
 
 Git provides a default pre-commit hook which, when activated, checks
