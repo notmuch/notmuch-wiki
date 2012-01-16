@@ -58,6 +58,11 @@ generally extrememly fast.
   large flux of messages with a low signal-to-noise.  It is email
   id:"87tyfu3k5a.fsf@gmail.com" in the notmuch mailing list archives.
 
+* [afew](https://github.com/teythoon/afew) is an initial tagging
+  solution that should work out of the box for most basic tagging
+  needs (mailinglist handling, killed thread handling, autoarchiving
+  of sent mails) and has some fancy features (e.g. mail classification
+  using bayesian filters).
 
 # Notmuch Delivery Agent -- `notmuch-deliver`
 
