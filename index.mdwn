@@ -82,7 +82,7 @@ every commit made to notmuch and the notmuchmail.org web site.
 Patches are most welcome and should be sent to notmuch&#64;notmuchmail.org.
 Please try to follow the [[patch submission guidelines|patchformatting]]
 when submitting patches to notmuch.
-For experiment in patch tracking, see [[nmbug]].
+For our current best efforts at patch tracking, see [[nmbug]].
 
 Source code of notmuch releases can be downloaded [here](http://notmuchmail.org/releases/).
 
