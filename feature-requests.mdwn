@@ -6,7 +6,7 @@
 +    Add 'd' keybinding
 
      Removes unread and inbox tags, adds deleted tag.
-     
+
      When used from a search results view, it deletes the thread that
      the cursor is on.
 
@@ -37,7 +37,7 @@
      if other_names are configured, match those with the other_email addresses
 
 
-## notmuch 
+## notmuch
 
 +    Allow a custom location for .notmuch
 
@@ -97,11 +97,12 @@
 
 ### notmuchsync
 
-+    NOTE: most of notmuchsync's functionality has been integrated in
-     notmuch 0.5. It probably doesn't make much sense to requests features
-     for it, rather than notmuch itself.
+NOTE: most of notmuchsync's functionality has been integrated in
+      notmuch 0.5. It probably doesn't make much sense to requests
+      features for it, rather than notmuch itself.
 
-+    Add feature to move files in the maildir hierarchy
++    DONE: id:"878w8niy83.fsf@SSpaeth.de"
+     Add feature to move files in the maildir hierarchy
 
      `notmuchsync --move "searchstring" "targetfolder"`
 
