@@ -46,23 +46,47 @@ over ssh.
 future calls can reuse the socket.
 
         #!/usr/bin/env bash
-        
+
         SSH_BIN="ssh"
         USER="example_user"
         SSH_HOST="example.com"
-        SSH_SOCKET="/tmp/notmuch_ssh.socket"
+        SOCKET_DIR="/tmp/notmuch_socks"
+        SSH_SOCKET="${SOCKET_DIR}/ssh.socket"
         NOTMUCH_REMOTE_BIN="notmuch"
-        DTACH="dtach"
-        DTACH_SOCKET="/tmp/notmuch_dtach.socket"
+        DTACH="/usr/bin/dtach"
+        DTACH_SOCKET="${SOCKET_DIR}/dtach.socket"
+        
+        check_for_socket_dir ()
+        {
+            [ -d "${SOCKET_DIR}" ]
+        }
+        
+        check_socket_dir_owner_and_perm ()
+        {
+            [ "$(stat -c %U ${SOCKET_DIR})" = "$(whoami)" ] &&
+            [ "$(stat -c %a ${SOCKET_DIR})" = "700" ]
+        }
+        
+        create_socket_dir ()
+        {
+            
+            mkdir "${SOCKET_DIR}" $(id -u)
+            chmod 700 "${SOCKET_DIR}" 
+        }
+        
+        check_create_socket_dir ()
+        {
+            if ! check_for_socket_dir; then 
+                create_socket_dir || 
+                (echo "Couldn't create socket directory at ${SOCKET_DIR}" >&2 && exit 1)
+            elif ! check_socket_dir_owner_and_perm; then
+                (echo "Incorrect permissions at ${SOCKET_DIR}" >&2 && exit 1)
+            fi
+        }
         
         check_for_socket ()
         {
             [ -S "${SSH_SOCKET}" ]
-        }
-        
-        check_if_socket_alive ()
-        {
-            timeout 1 $SSH_BIN -S ${SSH_SOCKET} $USER@$SSH_HOST true > /dev/null
         }
         
         start_socket ()
@@ -74,7 +98,7 @@ future calls can reuse the socket.
         
         notmuch_run ()
         {
-            check_for_socket || start_socket
+            check_for_socket || (check_create_socket_dir && start_socket)
             CMD=$1
             shift
             printf -v ARGS "%q " "$@"
