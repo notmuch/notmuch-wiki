@@ -69,7 +69,6 @@ future calls can reuse the socket.
         
         create_socket_dir ()
         {
-            
             mkdir "${SOCKET_DIR}" $(id -u)
             chmod 700 "${SOCKET_DIR}" 
         }
