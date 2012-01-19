@@ -11,124 +11,80 @@ computer.
 The following guidelines show how I have accomplished this. It isn't
 perfect, but it works pretty well, and allows me to access notmuch on
 my home computer, using only an emacs client on my netbook or work
-computer, a trivial shell script, a few settings in my .emacs, and
-ssh.
-
-Note that this is all something of a hack, and future versions of
-notmuch will likely make all of these steps much more
-transparent. I'll note particularly which things should become
-unneccessary with future version. At the moment though, this does
-work, and might enable some of you to use notmuch away from your
-primary computer.
+computer, a trivial shell script, a few settings in my .emacs, and a
+couple of common unix utilities (ssh and dtach).
 
 ##What you will need##
 You will need to have the following items in place:
 
 1.  a working notmuch on one computer (let's call that computer
-"server"). The notmuch should be at least version 0.2.
+"server"). 
 2.  a working notmuch emacs interface on another computer (let's call
 that computer "client")
-3.   password-free login (public key authentication) from client to
+3.   `ssh` and `dtach` on your client computer. (TODO: Make dtach
+optional, or allow screen or tmux to be used instead.)
+4.   password-free login (public key authentication) from client to
 server. [Here](http://www.debian-administration.org/articles/152) is a
 good page on how to set it up.
-4.   a reasonably fast connection. (This isn't really *neccessary*, but
+5.   a reasonably fast connection. (This isn't really *neccessary*, but
 if your connection is too slow, this won't be very pleasant to use,
 and certainly won't seem transparent.)
 
-##Write a wrapper shell script##
 
-/!\ Now that notmuch (>=0.5) allows for "raw" downloading of messages, a lot
-of the hacks in the older script, posted in 2010, are no longer necessary.
+##Write a wrapper shell script##
 
 Now we will need to write a simple shell script that does two things:
 
 1.  replaces the call to the notmuch binary with a call to notmuch
 over ssh.
-2.  caches messages when the entire raw message is downloaded. This
-avoids the need to constantly download large attachments over and
-over. (NB: this just checks to see if a message with the same id
-has already been cached. If you delete an attachment on the server,
-that could lead to an out-of-date cache. It would probably make more
-sense in the future to concatenate a hash of the message id and a hash 
-of the message.)
-
-Note that this shell script also pauses briefly after every message
-entries. This is currently necessary so that the emacs process-filter
-doesn't chop off messages. It's an obvious hack, and hopefully won't
-be necessary in the furture.
+2.  sets up a running, detached, ssh connection to the server, so that
+future calls can reuse the socket.
 
     #!/usr/bin/env bash
-    SSH_BIN="/path/to/ssh/on/client"
-    USER="user_name"
-    SSH_HOST="server_name"
-    NOTMUCH_REMOTE_BIN="/path/to/notmuch/on/server"
-    CACHE="${HOME}/.notmuch-cache.d"
-
-    hash_name ()
+    
+    SSH_BIN="ssh"
+    USER="example_user"
+    SSH_HOST="example.com"
+    SSH_SOCKET="/tmp/notmuch_ssh.socket"
+    NOTMUCH_REMOTE_BIN="notmuch"
+    DTACH="dtach"
+    DTACH_SOCKET="/tmp/notmuch_dtach.socket"
+    
+    check_for_socket ()
     {
-        echo -n ${1} | sha1sum | awk '{print $1}'
+        [ -S "${SSH_SOCKET}" ]
     }
     
-    check_for_file_name ()
+    check_if_socket_alive ()
     {
-        [ -f "${CACHE}/${1}" ]
+        timeout 1 $SSH_BIN -S ${SSH_SOCKET} $USER@$SSH_HOST true > /dev/null
+    }
+    
+    start_socket ()
+    {
+        dtach_command="${DTACH} -n ${DTACH_SOCKET} ${SSH_BIN} -M -S ${SSH_SOCKET} ${USER}@${SSH_HOST}"
+        command -v ${DTACH} &>/dev/null && ${dtach_command} || 
+        echo "${DTACH} not installed"
     }
     
     notmuch_run ()
     {
-        [ -d "${CACHE}" ] || mkdir -p "${CACHE}"
+        check_for_socket || start_socket
         CMD=$1
         shift
-        # we need to a little sanitizing of msg ids so the shell
-        # doesn't mangle them
-        printf -v ARGS "%q " "$@"	
-        $SSH_BIN $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN ${CMD} ${ARGS}
+        printf -v ARGS "%q " "$@"
+        $SSH_BIN -S $SSH_SOCKET $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN ${CMD} ${ARGS}
     }
     
-    notmuch_search ()
-    {
-        notmuch_run search $@ |
-        while read line; do
-    	    sleep 0.02   # Workaround a bug (missing lines) in the emacs interface
-                         # NOTE: This workaround is no longer necessary as of 
-                         # git rev eead2382. You can just run 
-                         # `notmuch_run search $@'                      
-            echo "${line}"
-        done
-    }
-    
-    
-    notmuch_show ()
-    {
-        if [ ${1} = "--format=raw" ]; then 
-    	    hashed=`hash_name ${2}`
-            check_for_file_name ${hashed} || 
-    	    notmuch_run show --format=raw ${2} > "${CACHE}/${hashed}"
-            cat "${CACHE}/${hashed}"
-        else 
-            notmuch_run show $@
-        fi
-    }
-    
-    
-    if [ ${1} = "search" ]; then
-        shift
-        notmuch_search $@
-    elif [ ${1} = "show" ]; then
-        shift
-        notmuch_show $@
-    else
-        notmuch_run $@
-    fi
-    
+    notmuch_run $@
+
     	
 Save this to a file, "remote-notmuch.sh", in your path.
 
 Now you can run "remote-notmuch.sh new". You can call the script
 anything you like. I actually have $HOME/bin/notmuch linked to that
-script, so I can transparent
-usage. (Since I run "new" from an emacs keybinding, I've never
-bothered with this renaming.)
+script, so I can have transparent
+usage. 
 
 ##Configure your emacs client##
 
@@ -138,31 +94,8 @@ machine):
 
     (setq notmuch-command "/path/to/your/remote-notmuch.sh")
 
-
-##A tip to speed things up##
-If you have openssh >= 0.4, you can make use of the "ControlMaster"
-feature. This allows you to reuse an existing connection. Therefore
-if you keep a connection open, you won't have to authenticate every
-time.
-
-Add the following to your ~/.ssh/config file:
-
-    Host server_name 
-    ControlMaster auto
-    ControlPath ~/.ssh/master-%r@%h:%p
-    
-You can also se the Host to "*", if you want to use it for all
-connections. I usually have an interactive ssh connection to my home
-computer open, so I don't need to do anything more. But if not, you
-can always run:
-
-    ssh -Nf server_name
-
-which will open up a background connection, which you can then reuse
-for all of your notmuch commands.
-
 ##Problems##
-Some things won't work perfectly, and there might be some unexpected
+Some things probably won't work perfectly, and there might be some unexpected
 mismatches between normal usage and this sort of usage. If you're
 using this approach and run into any problems, please feel free to
 list them here. And, of course, if you improve on any of these
