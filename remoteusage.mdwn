@@ -50,7 +50,7 @@ future calls can reuse the socket.
         SSH_BIN="ssh"
         USER="example_user"
         SSH_HOST="example.com"
-        SOCKET_DIR="/tmp/notmuch_socks"
+        SOCKET_DIR="/tmp/notmuch_$(id -u)"
         SSH_SOCKET="${SOCKET_DIR}/ssh.socket"
         NOTMUCH_REMOTE_BIN="notmuch"
         DTACH="/usr/bin/dtach"
@@ -69,18 +69,8 @@ future calls can reuse the socket.
         
         create_socket_dir ()
         {
-            mkdir "${SOCKET_DIR}" $(id -u)
-            chmod 700 "${SOCKET_DIR}" 
-        }
-        
-        check_create_socket_dir ()
-        {
-            if ! check_for_socket_dir; then 
-                create_socket_dir || 
-                (echo "Couldn't create socket directory at ${SOCKET_DIR}" >&2 && exit 1)
-            elif ! check_socket_dir_owner_and_perm; then
-                (echo "Incorrect permissions at ${SOCKET_DIR}" >&2 && exit 1)
-            fi
+            mkdir "${SOCKET_DIR}" 
+            chmod 700 "${SOCKET_DIR}"
         }
         
         check_for_socket ()
@@ -91,21 +81,31 @@ future calls can reuse the socket.
         start_socket ()
         {
             dtach_command="${DTACH} -n ${DTACH_SOCKET} ${SSH_BIN} -M -S ${SSH_SOCKET} ${USER}@${SSH_HOST}"
-            command -v ${DTACH} &>/dev/null && ${dtach_command} || 
-            echo "${DTACH} not installed"
+            command -v ${DTACH} &>/dev/null && ${dtach_command}
         }
         
         notmuch_run ()
         {
-            check_for_socket || (check_create_socket_dir && start_socket)
+            if check_for_socket_dir; then
+                if check_socket_dir_owner_and_perm; then
+                    if ! check_for_socket; then
+                        start_socket
+                    fi
+                else echo "Wrong permissions of ${SOCKET_DIR}" >&2
+                    exit 1
+                fi
+            elif create_socket_dir; then
+                start_socket
+            else
+                exit 1
+            fi
             CMD=$1
             shift
             printf -v ARGS "%q " "$@"
             $SSH_BIN -S $SSH_SOCKET $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN ${CMD} ${ARGS}
         }
         
-        notmuch_run $@
-    
+        notmuch_run $@ 
     	
 Save this to a file, "remote-notmuch.sh", in your path.
 
