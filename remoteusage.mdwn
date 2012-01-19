@@ -99,10 +99,8 @@ future calls can reuse the socket.
             else
                 exit 1
             fi
-            CMD=$1
-            shift
             printf -v ARGS "%q " "$@"
-            $SSH_BIN -S $SSH_SOCKET $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN ${CMD} ${ARGS}
+            $SSH_BIN -S $SSH_SOCKET $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN ${ARGS}
         }
         
         notmuch_run $@ 
