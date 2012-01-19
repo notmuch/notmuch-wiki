@@ -18,15 +18,16 @@ couple of common unix utilities (ssh and dtach).
 You will need to have the following items in place:
 
 1.  a working notmuch on one computer (let's call that computer
-"server"). 
+"server").
+
 2.  a working notmuch emacs interface on another computer (let's call
 that computer "client")
-3.   `ssh` and `dtach` on your client computer. (TODO: Make dtach
+3.  `ssh` and `dtach` on your client computer. (TODO: Make dtach
 optional, or allow screen or tmux to be used instead.)
-4.   password-free login (public key authentication) from client to
+4.  password-free login (public key authentication) from client to
 server. [Here](http://www.debian-administration.org/articles/152) is a
 good page on how to set it up.
-5.   a reasonably fast connection. (This isn't really *neccessary*, but
+5.  a reasonably fast connection. (This isn't really *neccessary*, but
 if your connection is too slow, this won't be very pleasant to use,
 and certainly won't seem transparent.)
 
@@ -40,44 +41,44 @@ over ssh.
 2.  sets up a running, detached, ssh connection to the server, so that
 future calls can reuse the socket.
 
-    #!/usr/bin/env bash
-    
-    SSH_BIN="ssh"
-    USER="example_user"
-    SSH_HOST="example.com"
-    SSH_SOCKET="/tmp/notmuch_ssh.socket"
-    NOTMUCH_REMOTE_BIN="notmuch"
-    DTACH="dtach"
-    DTACH_SOCKET="/tmp/notmuch_dtach.socket"
-    
-    check_for_socket ()
-    {
-        [ -S "${SSH_SOCKET}" ]
-    }
-    
-    check_if_socket_alive ()
-    {
-        timeout 1 $SSH_BIN -S ${SSH_SOCKET} $USER@$SSH_HOST true > /dev/null
-    }
-    
-    start_socket ()
-    {
-        dtach_command="${DTACH} -n ${DTACH_SOCKET} ${SSH_BIN} -M -S ${SSH_SOCKET} ${USER}@${SSH_HOST}"
-        command -v ${DTACH} &>/dev/null && ${dtach_command} || 
-        echo "${DTACH} not installed"
-    }
-    
-    notmuch_run ()
-    {
-        check_for_socket || start_socket
-        CMD=$1
-        shift
-        printf -v ARGS "%q " "$@"
-        $SSH_BIN -S $SSH_SOCKET $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN ${CMD} ${ARGS}
-    }
-    
-    notmuch_run $@
-
+     #!/usr/bin/env bash
+     
+     SSH_BIN="ssh"
+     USER="example_user"
+     SSH_HOST="example.com"
+     SSH_SOCKET="/tmp/notmuch_ssh.socket"
+     NOTMUCH_REMOTE_BIN="notmuch"
+     DTACH="dtach"
+     DTACH_SOCKET="/tmp/notmuch_dtach.socket"
+     
+     check_for_socket ()
+     {
+         [ -S "${SSH_SOCKET}" ]
+     }
+     
+     check_if_socket_alive ()
+     {
+         timeout 1 $SSH_BIN -S ${SSH_SOCKET} $USER@$SSH_HOST true > /dev/null
+     }
+     
+     start_socket ()
+     {
+         dtach_command="${DTACH} -n ${DTACH_SOCKET} ${SSH_BIN} -M -S ${SSH_SOCKET} ${USER}@${SSH_HOST}"
+         command -v ${DTACH} &>/dev/null && ${dtach_command} || 
+         echo "${DTACH} not installed"
+     }
+     
+     notmuch_run ()
+     {
+         check_for_socket || start_socket
+         CMD=$1
+         shift
+         printf -v ARGS "%q " "$@"
+         $SSH_BIN -S $SSH_SOCKET $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN ${CMD} ${ARGS}
+     }
+     
+     notmuch_run $@
+ 
     	
 Save this to a file, "remote-notmuch.sh", in your path.
 
