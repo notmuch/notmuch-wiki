@@ -79,14 +79,20 @@ you can [subscribe to the `notmuch-commits`
 list](http://notmuchmail.org/mailman/listinfo/notmuch-commits) to watch
 every commit made to notmuch and the notmuchmail.org web site.
 
-Patches are most welcome and should be sent to notmuch&#64;notmuchmail.org.
-Please try to follow the [[patch submission guidelines|patchformatting]]
-when submitting patches to notmuch.
-For our current best efforts at patch tracking, see [[nmbug]].
-
 Source code of notmuch releases can be downloaded [here](http://notmuchmail.org/releases/).
 
 There is a buildbot [here](http://buildbot.notmuchmail.org/grid) (configuration [here](https://github.com/tomprince/buildbot-configs/tree/notmuch)).
+
+## Bug Tracking and Patches
+
+Patches are most welcome and should be sent to notmuch&#64;notmuchmail.org.
+Please try to follow the [[patch submission guidelines|patchformatting]]
+when submitting patches to notmuch.
+
+We are currently tracking patches with notmuch itself, using a utility
+called [[nmbug]].
+
+The status of current patches can also be followed [[online|http://nmbug.tethera.net/status]].
 
 ## Binary packages
 
