@@ -7,3 +7,4 @@
 [[!img Screenshot-notmuch-show.png alt="Thread view"]]
 [[!img Screenshot-notmuch-thread.png alt="Collapsed thread"]]
 [[!img Screenshot-notmuch-search-fruitsalad.png alt="Search results, in technicolor!"]]
+[[!img Screenshot-notmuch-show-html.png alt="Thread view, with HTML and an embedded image"]]
