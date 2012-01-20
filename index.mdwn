@@ -64,8 +64,7 @@ list.  Read the archives.  Ask questions.
 
 ## Source code
 
-Either way, please feel free to jump in. All of the code for Notmuch
-is available as [free
+All of the code for Notmuch is available as [free
 software](http://www.fsf.org/licensing/essays/free-sw.html) released
 under the GNU [GPL version
 3](http://www.fsf.org/licensing/licenses/gpl.html). The latest
