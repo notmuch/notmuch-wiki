@@ -69,7 +69,7 @@ future calls can reuse the socket.
         
         create_socket_dir ()
         {
-            mkdir "${SOCKET_DIR}" 
+            mkdir "${SOCKET_DIR}"
             chmod 700 "${SOCKET_DIR}"
         }
         
@@ -103,7 +103,7 @@ future calls can reuse the socket.
             $SSH_BIN -S $SSH_SOCKET $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN ${ARGS}
         }
         
-        notmuch_run $@ 
+        notmuch_run "$@"
     	
 Save this to a file, "remote-notmuch.sh", in your path.
 
