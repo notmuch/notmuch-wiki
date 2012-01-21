@@ -116,6 +116,8 @@ So far we are just tagging certain messages as bug reports, meaning
 things that "everyone" agrees should be fixed.
 
     notmuch::bug                is a bug report
+    notmuch::fixed              indicates that the bug is fixed in the
+                                master branch
 
 ### Optional tags
 
