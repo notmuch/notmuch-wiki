@@ -88,8 +88,10 @@ Patches are most welcome and should be sent to notmuch&#64;notmuchmail.org.
 Please try to follow the [[patch submission guidelines|patchformatting]]
 when submitting patches to notmuch.
 
-We are currently tracking patches with notmuch itself, using a utility
-called [[nmbug]].
+The tagging and filtering features of notmuch make it quite suitable
+for use as a bug- and patch-tracker. We are currently experimenting
+with using it for this purpose for notmuch development, using a
+utility called [[nmbug]].
 
 The status of current patches can also be followed [[online|http://nmbug.tethera.net/status]].
 
