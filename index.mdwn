@@ -82,7 +82,7 @@ Source code of notmuch releases can be downloaded [here](http://notmuchmail.org/
 
 There is a buildbot [here](http://buildbot.notmuchmail.org/grid) (configuration [here](https://github.com/tomprince/buildbot-configs/tree/notmuch)).
 
-## Bug Tracking and Patches
+## Bug-tracking and patches
 
 Patches are most welcome and should be sent to notmuch&#64;notmuchmail.org.
 Please try to follow the [[patch submission guidelines|patchformatting]]
@@ -123,7 +123,7 @@ If you prefer real-time chat, there is often someone on the
 [#notmuch](irc://chat.freenode.net/#notmuch)@irc.freenode.net IRC
 channel.
 
-## Feature Ideas
+## Feature ideas
 
 We have started a [[feature requests|feature-requests]] page on this
 wiki.  No, things you add there won't automatically get implemented -
