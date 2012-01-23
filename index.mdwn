@@ -129,7 +129,7 @@ We have started a [[feature requests|feature-requests]] page on this
 wiki.  No, things you add there won't automatically get implemented -
 but it's a nice way to collect ideas.
 
-### Website
+## Website
 
 This wiki is maintained using
 [ikiwiki](http://ikiwiki.info). Instructions on how to edit it can be
