@@ -114,3 +114,28 @@ various "third party" notmuch utilities.
   At this point, one should run a sanity check on the tags, and if everything
   has merged correctly, the ~/.notmuch.bak directory is expendable, as is
   ~/out.nm.
+
+* <span id="nbox">**Dealing with mbox and other formats**</span>
+
+  notmuch by itself is unable to handle non-maildir mail archives.  One tool
+  to solve this is called mb2md.  Assuming an mbox in ~/test.mbox and ones
+  mail archives to be in ~/Mail, an invocation would look like
+
+                           $ mb2md -s ~/test.mbox -d ~/Mail/mynewmaildirname
+
+  Note that specifying the paths for -s and -d is necessary.  This will create
+  a new maildir in ~/Mail/mynewmaildirname from the mbox at ~/test.mbox.
+
+  Often the formats are more convoluted, however.  Many lists provide an
+  almost-but-not-quite-mbox format that mailman produces, as can be seen, for
+  example, [here](http://lists.xapian.org/pipermail/xapian-devel/).  These
+  files can be converted with some degree of success to mbox using the script
+  found
+  [here](http://www.hermann-uwe.de/blog/converting-mailman-gzipd-text-archive-files-to-proper-mbox-files),
+  and from mbox to maildir as above.
+
+  However, many of these lists also have a gmane version, which, where it
+  exists, achieves far better results than dealing with the messy mailman
+  output.  Using the instructions from [Gmane's
+  site](http://gmane.org/export.php), we can download an mbox file, which we
+  can then convert to maildir using mb2md or other utility.
