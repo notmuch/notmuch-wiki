@@ -6,7 +6,7 @@ Notmuch 0.5 (2010-11-11)
 New, general features
 ---------------------
 
-#### Maildir-flag synchronization
+### Maildir-flag synchronization
 
   Notmuch now knows how to synchronize flags in maildir filenames with
   tags in the notmuch database. The following flag/tag mappings are
@@ -50,7 +50,7 @@ New, general features
 New library features
 --------------------
 
-#### Support for querying multiple filenames for a single message
+### Support for querying multiple filenames for a single message
 
   It is common for the mailstore to contain multiple files with the
   same message ID. Previously, notmuch would always hide these
@@ -69,7 +69,7 @@ New library features
 New command-line features
 -------------------------
 
-#### New "notmuch show --format=raw" for getting at original email contents
+### New "notmuch show --format=raw" for getting at original email contents
 
   This new feature allows for a fully-functional email client to be
   built on top of the notmuch command-line without needing any direct
@@ -89,7 +89,7 @@ New command-line features
 General bug fixes
 -----------------
 
-#### Fix "notmuch search" to print nothing when nothing matches
+### Fix "notmuch search" to print nothing when nothing matches
 
   The 0.4 release had a bug in which:
 
@@ -103,17 +103,17 @@ General bug fixes
 Emacs interface improvements
 ----------------------------
 
-#### Fix to allow pipe ('|') command to work when using notmuch over ssh
+### Fix to allow pipe ('|') command to work when using notmuch over ssh
 
-#### Fix count of lines in hidden signatures
+### Fix count of lines in hidden signatures
 
-#### Omit repeated subject lines in (collapsed) thread display
+### Omit repeated subject lines in (collapsed) thread display
 
-#### Display current thread subject in a header line
+### Display current thread subject in a header line
 
-#### Provide a "c i" binding to copy a thread ID from the search view
+### Provide a "c i" binding to copy a thread ID from the search view
 
-#### Allow for notmuch-fcc-dirs to have a value of nil
+### Allow for notmuch-fcc-dirs to have a value of nil
 
   Also, the more complex form of notmuch-fcc-dirs now has a slightly
   different format. It no longer has a special first-element, fallback

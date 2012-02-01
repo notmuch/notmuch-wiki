@@ -6,14 +6,14 @@ Notmuch 0.3.1 (2010-04-27)
 General bug fixes
 -----------------
 
-#### Fix an infinite loop in "notmuch reply"
+### Fix an infinite loop in "notmuch reply"
 
   This bug could be triggered by replying to a message where the
   user's primary email address did not appear in the To: header and
   the user had not configured any secondary email addresses. The bug
   was a simple re-use of the same iterator variable in nested loops.
 
-#### Fix a potential SEGV in "notmuch search"
+### Fix a potential SEGV in "notmuch search"
 
   This bug could be triggered by an author name ending in a ','.
   Admittedly - that's almost certainly a spam email, but we never
@@ -30,7 +30,7 @@ directory does not exist.
 Build fix
 ---------
 
-#### Fix build on OpenSolaris (at least) due to missing 'extern "C"' block
+### Fix build on OpenSolaris (at least) due to missing 'extern "C"' block
 
   Without this, the C++ sources could not find strcasestr and the
   final linking of notmuch would fail.

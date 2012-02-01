@@ -6,7 +6,7 @@ Notmuch 0.9 (2011-10-01)
 New, general features
 ---------------------
 
-#### Correct handling of interruptions during "notmuch new"
+### Correct handling of interruptions during "notmuch new"
 
   "notmuch new" now operates as a series of small, self-consistent
   transactions, so it can correctly resume after an interruption or
@@ -17,14 +17,14 @@ New, general features
 Library changes
 ---------------
 
-#### New functions
+### New functions
 
   `notmuch_database_begin_atomic` and `notmuch_database_end_atomic`
   allow multiple database operations to be performed atomically.
 
   `notmuch_database_find_message_by_filename` does exactly what it says.
 
-#### API changes
+### API changes
 
   `notmuch_database_find_message` (and `n_d_f_m_by_filename`) now return
   a status indicator and uses an output parameter for the
