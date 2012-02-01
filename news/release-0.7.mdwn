@@ -28,9 +28,9 @@ Sebastian Spaeth contributed two changes related to unicode and UTF8:
   * query string is encoded as a UTF8 byte string
 
 Build-System improvements
-------------------------
+-------------------------
 
-Generate notmuch.sym after the relevant object files
+* **_Generate notmuch.sym after the relevant object files_**
 
   This fixes a bug in parallel building. Thanks to Thomas Jost for the
   patch.

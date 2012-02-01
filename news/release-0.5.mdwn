@@ -2,21 +2,23 @@
 
 Notmuch 0.5 (2010-11-11)
 ========================
+
 New, general features
 ---------------------
-Maildir-flag synchronization
+
+* **_Maildir-flag synchronization_**
 
   Notmuch now knows how to synchronize flags in maildir filenames with
   tags in the notmuch database. The following flag/tag mappings are
   supported:
 
-	Flag <-> Tag
-	----     -----
-	'D'      draft
-	'F'      flagged
-	'P'      passed
-	'R'      replied
-	'S'      unread (added when 'S' flag is not present)
+	        Flag <-> Tag
+	        ----     -----
+	        'D'      draft
+	        'F'      flagged
+	        'P'      passed
+	        'R'      replied
+	        'S'      unread (added when 'S' flag is not present)
 
   The synchronization occurs in both directions, (for example, adding
   the 'S' flag to a file will cause the "unread" tag to be added, and
@@ -26,10 +28,10 @@ Maildir-flag synchronization
   This synchronization is enabled by default for users of the
   command-line interface, (though only files in directories named
   "cur" or "new" will be renamed). It can be disabled by setting the
-  new maildir.synchronize\_flags option in the configuration file. For
+  new `maildir.synchronize_flags` option in the configuration file. For
   example:
 
-	notmuch config set maildir.synchronize_flags false
+	    notmuch config set maildir.synchronize_flags false
 
   Users upgrading may also want to run "notmuch setup" once (just
   accept the existing configuration) to get a new, nicely-commented
@@ -38,8 +40,8 @@ Maildir-flag synchronization
   For users of the notmuch library, the new synchronization
   functionality is available with the following two new functions:
 
-	notmuch_message_maildir_flags_to_tags
-	notmuch_message_tags_to_maildir_flags
+	    notmuch_message_maildir_flags_to_tags
+	    notmuch_message_tags_to_maildir_flags
 
   It is anticipated that future improvements to this support will
   allow for safe synchronization of the 'T' flag with the "deleted"
@@ -47,25 +49,27 @@ Maildir-flag synchronization
 
 New library features
 --------------------
-Support for querying multiple filenames for a single message
+
+* **_Support for querying multiple filenames for a single message_**
 
   It is common for the mailstore to contain multiple files with the
   same message ID. Previously, notmuch would always hide these
   duplicate files, (returning a single, arbitrary filename with
-  notmuch\_message\_get\_filename).
+  `notmuch_message_get_filename`).
 
   With this release, library users can access all filenames for a
   message with the new function:
 
-	notmuch_message_get_filenames
+	    notmuch_message_get_filenames
 
-  Together with notmuch\_filenames\_valid, notmuch\_filenames\_get, and
-  notmuch\_filenames\_move\_to\_next it is now possible to iterate over
-  all available filenames for a given message.
+  Together with `notmuch_filenames_valid`, `notmuch_filenames_get`,
+  and `notmuch_filenames_move_to_next` it is now possible to iterate
+  over all available filenames for a given message.
 
 New command-line features
 -------------------------
-New "notmuch show --format=raw" for getting at original email contents
+
+* **_New "notmuch show --format=raw" for getting at original email contents_**
 
   This new feature allows for a fully-functional email client to be
   built on top of the notmuch command-line without needing any direct
@@ -76,7 +80,7 @@ New "notmuch show --format=raw" for getting at original email contents
   do this, simply set the notmuch-command variable in emacs to the
   name of a script containing:
 
-	ssh user@host notmuch "$@"
+	    ssh user@host notmuch "$@"
 
   If the ssh client has enabled connection sharing (ControlMaster
   option in OpenSSH), the emacs interface can be quite responsive this
@@ -84,11 +88,12 @@ New "notmuch show --format=raw" for getting at original email contents
 
 General bug fixes
 -----------------
-Fix "notmuch search" to print nothing when nothing matches
+
+* **_Fix "notmuch search" to print nothing when nothing matches_**
 
   The 0.4 release had a bug in which:
 
-	notmuch search <expression-with-no-matches>
+	    notmuch search <expression-with-no-matches>
 
   would produce a single blank line of output, (where previous
   versions would produce no output. This fix also causes a change in
@@ -97,17 +102,18 @@ Fix "notmuch search" to print nothing when nothing matches
 
 Emacs interface improvements
 ----------------------------
-Fix to allow pipe ('|') command to work when using notmuch over ssh
 
-Fix count of lines in hidden signatures.
+* **_Fix to allow pipe ('|') command to work when using notmuch over ssh_**
 
-Omit repeated subject lines in (collapsed) thread display.
+* **_Fix count of lines in hidden signatures_**
 
-Display current thread subject in a header line.
+* **_Omit repeated subject lines in (collapsed) thread display_**
 
-Provide a "c i" binding to copy a thread ID from the search view.
+* **_Display current thread subject in a header line_**
 
-Allow for notmuch-fcc-dirs to have a value of nil.
+* **_Provide a "c i" binding to copy a thread ID from the search view_**
+
+* **_Allow for notmuch-fcc-dirs to have a value of nil_**
 
   Also, the more complex form of notmuch-fcc-dirs now has a slightly
   different format. It no longer has a special first-element, fallback
@@ -119,7 +125,8 @@ Allow for notmuch-fcc-dirs to have a value of nil.
 
 Vim interface improvements
 --------------------------
-Felipe Contreras provided a number of updates for the vim interface.
+
+Felipe Contreras provided a number of updates for the vim interface
 
   These include optimizations, support for newer versions of vim, fixed
   support for sending mail on modern systems, new commands, and
@@ -127,4 +134,5 @@ Felipe Contreras provided a number of updates for the vim interface.
 
 New bindings
 ------------
+
 Added initial ruby bindings in bindings/ruby
