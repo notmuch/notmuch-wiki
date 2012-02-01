@@ -6,25 +6,25 @@ Notmuch 0.3 (2010-04-27)
 New command-line features
 -------------------------
 
-* **_User-configurable tags for new messages_**
+#### User-configurable tags for new messages
 
   A new "new.tags" option is available in the configuration file to
   determine which tags are applied to new messages. Run "notmuch
   setup" to generate new documentation within ~/.notmuch-config on how
   to specify this value.
 
-* **_Threads search results named based on subjects that match search_**
+#### Threads search results named based on subjects that match search
 
   This means that when new mails arrived to a thread you've previously
   read, and the new mails have a new subject, you will see that
   subject in the search results rather than the old subject.
 
-* **_Faster operation of "notmuch tag" (avoid unneeded sorting)_**
+#### Faster operation of "notmuch tag" (avoid unneeded sorting)
 
   Since the user just wants to tag all matching messages, we can make
   things perform a bit faster by avoiding the sort.
 
-* **_Even Better guessing of From: header for "notmuch reply"_**
+#### Even Better guessing of From: header for "notmuch reply"
 
   Notmuch now looks at a number of headers when trying to figure out
   the best From: header to use in a reply. This is helpful if you have
@@ -33,7 +33,7 @@ New command-line features
   replying to won't always include your subscribed address in the To:
   header).
 
-* **_Indication of author names that match a search_**
+#### Indication of author names that match a search
 
   When notmuch displays threads as the result of a search, it now
   lists the authors that match the search before listing the other
@@ -62,7 +62,7 @@ package-building scripts. Improvements are welcome.
 Emacs interface improvements
 ----------------------------
 
-* **_An entirely new initial view for notmuch, (friendly yet powerful)_**
+#### An entirely new initial view for notmuch, (friendly yet powerful)
 
   Some of us call the new view "notmuch hello" but you can get at it
   by simply calling "emacs -f notmuch". The new view provides a search
@@ -79,17 +79,17 @@ Emacs interface improvements
   away.
 
   Note: For users that liked the original mode of "emacs -f notmuch"
-	    immediately displaying a particular search result, we
-	    recommend instead running something like:
+	immediately displaying a particular search result, we
+	recommend instead running something like:
 
-		    emacs --eval '(notmuch search "tag:inbox" t)'
+		emacs --eval '(notmuch search "tag:inbox" t)'
 
-	    The "t" means to sort the messages in an "oldest first" order,
-	    (as notmuch would do previously by default). You can also
-	    leave that off to have your search results in "newest first"
-	    order.
+	The "t" means to sort the messages in an "oldest first" order,
+	(as notmuch would do previously by default). You can also
+	leave that off to have your search results in "newest first"
+	order.
 
-* **_Full-featured "customize" support for configuring notmuch_**
+#### Full-featured "customize" support for configuring notmuch
 
   Notmuch now plugs in well to the emacs "customize" mode to make it
   much simpler to find things about the notmuch interface that can be
@@ -105,7 +105,7 @@ Emacs interface improvements
   selectors, and text-entry boxes for configuring the various
   settings.
 
-* **_Support for doing tab-completion of email addresses_**
+#### Support for doing tab-completion of email addresses
 
   This support currently relies on an external program,
   (notmuch-addresses), that is not yet shipped with notmuch
@@ -118,20 +118,20 @@ Emacs interface improvements
   One such program (implemented in python with the python bindings to
   notmuch) is available via:
 
-	    git clone  http://jkr.acm.jhu.edu/git/notmuch_addresses.git
+	git clone  http://jkr.acm.jhu.edu/git/notmuch_addresses.git
 
   Install that program as notmuch-addresses on your PATH, and then
   hitting TAB on a partial email address or name within the To: or Cc:
   line of an email message will provide matching completions.
 
-* **_Support for file-based (Fcc) delivery of sent messages to mail store_**
+#### Support for file-based (Fcc) delivery of sent messages to mail store
 
   This isn't yet enabled by default. To enable this, one will have to
   set the "Notmuch Fcc Dirs" setting within the notmuch customize
   screen, (see its documentation there for details). We anticipate
   making this automatic in a future release.
 
-* **_New 'G' key binding to trigger mail refresh (G == "Get new mail")_**
+#### New 'G' key binding to trigger mail refresh (G == "Get new mail")
 
   The 'G' key works wherever '=' works. Before refreshing the screen
   it calls an external program that can be used to poll email servers,
@@ -141,13 +141,13 @@ Emacs interface improvements
   typically invoke "notmuch new" and then perhaps several "notmuch
   tag" commands.
 
-* **_Implement emacs message display with the JSON output from notmuch_**
+#### Implement emacs message display with the JSON output from notmuch
 
   This is much more robust than the previous implementation, (where
   some HTML mails and mail quoting the notmuch code with the delimiter
   characters in it would cause the parser to fall over).
 
-* **_Better handling of HTML messages and MIME attachments (inline images!)_**
+#### Better handling of HTML messages and MIME attachments (inline images!)
 
   Allow for any MIME parts that emacs can display to be displayed
   inline. This includes inline viewing of image attachments, (provided
@@ -162,7 +162,7 @@ Emacs interface improvements
   saved individually (the 'w' key is still available to save all
   attachments).
 
-* **_Customizable support for tidying of text/plain message content_**
+#### Customizable support for tidying of text/plain message content
 
   Many new functions are available for tidying up message
   content. These include options such as wrapping long lines,
@@ -172,7 +172,7 @@ Emacs interface improvements
   clicking the available check boxes under the "Notmuch Show Insert
   Text/Plain Hook" within the notmuch customize screen.
 
-* **_New support for searchable citations (even when hidden)_**
+#### New support for searchable citations (even when hidden)
 
   When portions of overly-long citations are hidden, the contents of
   these citations will still be available for emacs' standard
@@ -180,7 +180,7 @@ Emacs interface improvements
   of a hidden citation, the citation will become visible temporarily
   to display the search result.
 
-* **_More flexible handling of header visibility_**
+#### More flexible handling of header visibility
 
   As an answer to complaints from many users, the To, Cc, and Date
   headers of messages are no longer hidden by default. For those users
@@ -193,26 +193,26 @@ Emacs interface improvements
   new "Notmuch Message Headers" variable can be customized to list
   only those headers that should be present in the display of a message.
 
-* **_The Return key now toggles message visibility anywhere_**
+#### The Return key now toggles message visibility anywhere
 
   Previously this worked only on the first summary-line of a message.
 
-* **_Customizable formatting of search results_**
+#### Customizable formatting of search results
 
   The user can easily customize the order, width, and formatting of
   the various fields in a "notmuch search" buffer. See the "Notmuch
   Search Result Format" section of the customize interface.
 
-* **_Generate nicer names for search buffers when using a saved search_**
+#### Generate nicer names for search buffers when using a saved search
 
-* **_Add a notmuch User-Agent header when sending mail from notmuch/emacs_**
+#### Add a notmuch User-Agent header when sending mail from notmuch/emacs
 
-* **_New keybinding (M-Ret) to open all collapsed messages in a thread_**
+#### New keybinding (M-Ret) to open all collapsed messages in a thread
 
 New library feature
 -------------------
 
-* **_Provide a new `NOTMUCH_SORT_UNSORTED` value for queries_**
+#### Provide a new `NOTMUCH_SORT_UNSORTED` value for queries
 
   This can be somewhat faster when sorting simply isn't desired. For
   example when collecting a set of messages that will all be
@@ -223,12 +223,12 @@ New library feature
 Build fixes
 -----------
 
-* **_Fix to compile against GMime 2.6_**
+#### Fix to compile against GMime 2.6
 
   Previously notmuch insisted on being able to find GMime 2.4, (even
   though GMime 2.6 would have worked all along).
 
-* **_Fix configure script to accept (and ignore) various standard options_**
+#### Fix configure script to accept (and ignore) various standard options
 
   For example, those that the Gentoo build scripts expect configure to
   accept are now all accepted.
@@ -236,9 +236,9 @@ Build fixes
 Test suite
 ----------
 
-* **_A large number of new tests for the many new features_**
+#### A large number of new tests for the many new features
 
-* **_Better display of output from failed tests_**
+#### Better display of output from failed tests
 
   Now shows failures with diff rather than forcing the user to gaze at
   complete actual and expected output looking for deviation.

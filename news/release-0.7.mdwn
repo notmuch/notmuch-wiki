@@ -30,7 +30,7 @@ Sebastian Spaeth contributed two changes related to unicode and UTF8:
 Build-System improvements
 -------------------------
 
-* **_Generate notmuch.sym after the relevant object files_**
+#### Generate notmuch.sym after the relevant object files
 
   This fixes a bug in parallel building. Thanks to Thomas Jost for the
   patch.

@@ -6,7 +6,7 @@ Notmuch 0.4 (2010-11-01)
 New command-line features
 -------------------------
 
-* **_`notmuch search --output=(summary|threads|messages|tags|files)`_**
+#### `notmuch search --output=(summary|threads|messages|tags|files)`
 
   This new option allows for particular items to be returned from
   notmuch searches. The "summary" option is the default and behaves
@@ -17,11 +17,11 @@ New command-line features
   expected that this new option will be very useful in shell
   scripts. For example:
 
-	    for file in $(notmuch search --output=files <search-terms>); do
-		    <operations-on> "$file"
-	    done
+	for file in $(notmuch search --output=files <search-terms>); do
+		<operations-on> "$file"
+	done
 
-* **_`notmuch show --format=mbox <search-specification>`_**
+#### `notmuch show --format=mbox <search-specification>`
 
   This new option allows for the messages matching a search
   specification to be presented as an mbox. Specifically the "mboxrd"
@@ -30,14 +30,14 @@ New command-line features
   beginning of all lines beginning with one or more '>' characters
   followed by the 5 characters "From ".
 
-* **_`notmuch config [get|set] <section>.<item> [value ...]`_**
+#### `notmuch config [get|set] <section>.<item> [value ...]`
 
   The new top-level "config" command allows for any value in the
   notmuch configuration file to be queried or set to a new value. Both
   single-valued and multi-valued items are supported, as our any
   custom items stored in the configuration file.
 
-* **_Avoid setting Bcc header in "notmuch reply"_**
+#### Avoid setting Bcc header in "notmuch reply"
 
   We decided that this was a bit heavy-handed as the actual mail
   user-agent should be responsible for setting any Bcc option. Also,
@@ -47,7 +47,7 @@ New command-line features
 New library features
 --------------------
 
-* **_Add `notmuch_query_get_query_string` and `notmuch_query_get_sort`_**
+#### Add `notmuch_query_get_query_string` and `notmuch_query_get_sort`
 
   These are simply functions for querying properties of a
   `notmuch_query_t` object.
@@ -55,7 +55,7 @@ New library features
 New emacs features
 ------------------
 
-* **_Enable Fcc of all sent messages by default (to "sent" directory)_**
+#### Enable Fcc of all sent messages by default (to "sent" directory)
 
   All messages sent from the emacs interface will now be saved to the
   notmuch mail store where they will be incorporated to the database
@@ -64,21 +64,21 @@ New emacs features
   can be customized by means of the "Notmuch Fcc Dirs" option in the
   notmuch customize interface.
 
-* **_Ability to all open messages in a thread to a pipe_**
+#### Ability to all open messages in a thread to a pipe
 
   Historically, the '|' keybinding allows for piping a single message
   to an external command. Now, by prefixing this key with a prefix
   argument, (for example, by pressing "Control-U |"), all open
   messages in the current thread will be sent to the external command.
 
-* **_Optional support for detecting inline patches_**
+#### Optional support for detecting inline patches
 
   This hook is disabled by default but can be enabled with a checkbox
   under "Notmuch Show Insert Text/Plain Hook" in the notmuch customize
   interface. It allows for inline patches to be detected and treated
   as if they were attachments, (with context-sensitive highlighting).
 
-* **_Automatically tag messages as "replied" when sending a reply_**
+#### Automatically tag messages as "replied" when sending a reply
 
   Messages replied to within the emacs interface will now be tagged as
   "replied". This feature can easily be customized to add or remove
@@ -87,7 +87,7 @@ New emacs features
   that tag when replying. See "Notmuch Message Mark Replied" in the
   notmuch customize interface.
 
-* **_Allow search-result color specifications to overlay each other_**
+#### Allow search-result color specifications to overlay each other
 
   For example, one tag can specify the background color of matching
   lines, while another can specify the foreground. With this change,
@@ -95,7 +95,7 @@ New emacs features
   case in previous releases). See "Notmuch Search Line Faces" in the
   notmuch customize interface.
 
-* **_Make hidden author names still available for incremental search_**
+#### Make hidden author names still available for incremental search
 
   When there is insufficient space to display all authors of a thread
   in search results, the names of hidden authors are now still made
@@ -103,7 +103,7 @@ New emacs features
   searches, matching lines will temporarily expand to show the hidden
   names.
 
-* **_New binding of Control-TAB (works like TAB in reverse)_**
+#### New binding of Control-TAB (works like TAB in reverse)
 
   Many notmuch nodes already use TAB to navigate forward through
   various items allowing actions, (message headers, email attachments,
@@ -113,32 +113,32 @@ New emacs features
 New build-system features
 -------------------------
 
-* **_Various portability fixes have been applied_**
+#### Various portability fixes have been applied
 
   These include fixes for build failures on at least Solaris, FreeBSD,
   and Fedora systems. We're hopeful that the notmuch code base is now
   more portable than ever before.
 
-* **_Arrange for libnotmuch to be found automatically after make install_**
+#### Arrange for libnotmuch to be found automatically after make install
 
   The notmuch build system is now careful to help the user avoid
   errors of the form "libnotmuch.so could not be found" immediately
   after installing. This support takes two forms:
 
-	    1. If the library is installed to a system directory,
-	       (configured in /etc/ld.so.conf), then "make install" will
-	       automatically run ldconfig.
+	1. If the library is installed to a system directory,
+	   (configured in /etc/ld.so.conf), then "make install" will
+	   automatically run ldconfig.
 
-	    2. If the library is installed to a non-system directory, the
-	       build system adds a DR_RUNPATH entry to the final binary
-	       pointing to the directory to which the library is installed.
+	2. If the library is installed to a non-system directory, the
+	   build system adds a DR_RUNPATH entry to the final binary
+	   pointing to the directory to which the library is installed.
 
   When this support works, the user should be able to run notmuch
   immediately after "make install", without any errors trying to find
   the notmuch library, and without having to manually set environment
   variables such as `LD_LIBRARY_PATH`.
 
-* **_Check compiler/linker options before using them_**
+#### Check compiler/linker options before using them
 
   The configure script now carefully checks that any desired
   compilation options, (whether for enabling compiler warnings, or for
@@ -148,7 +148,7 @@ New build-system features
 New test-suite features
 -----------------------
 
-* **_New modularization of test suite_**
+#### New modularization of test suite
 
   Thanks to a gracious relicensing of the test-suite infrastructure
   from the git project, notmuch now has a modular test suite. This
@@ -159,7 +159,7 @@ New test-suite features
   it easy to run the test suite within valgrind (pass --valgrind to
   notmuch-test or to any sub-script) which has been very useful.
 
-* **_New testing of emacs interface_**
+#### New testing of emacs interface
 
   The test suite has been augmented to allow automated testing of the
   emacs interfaces. So far, this includes basic searches, display of
@@ -171,33 +171,32 @@ New test-suite features
 General bug fixes
 -----------------
 
-* **_Fix potential corruption of database when "notmuch new " is interrupted_**
+#### Fix potential corruption of database when "notmuch new " is interrupted
 
   Previously, an interruption of "notmuch new" would (rarely) result
   in a corrupt database. The corruption would manifest itself by a
   persistent error of the form:
 
-	    document ID of 1234 has no thread ID
+	document ID of 1234 has no thread ID
 
   The message-adding code has been carefully audited and reworked to
   avoid this sort of corruption regardless of when it is interrupted.
 
-* **_Fix failure with extremely long message ID headers_**
+#### Fix failure with extremely long message ID headers
 
   Previously, a message with an extremely long message ID, (say, more
   than 300 characters), would fail to be added to notmuch, (triggering
   Xapian exceptions). This has now been fixed.
 
-* **_Fix for messages with "charset=unknown-8bit"_**
+#### Fix for messages with "charset=unknown-8bit"
 
   Previously, messages with this charset would cause notmuch to emit a
   GMime warning, (which would then trip up emacs or other interfaces
   parsing the notmuch results).
 
-* **_Fix `notmuch_query_search_threads` function to return NULL on any exception_**
+#### Fix `notmuch_query_search_threads` function to return NULL on any exception
 
-* **_Fix "notmuch search" to return non-zero if `notmuch_query_search_threads`
-  fails_**
+#### Fix "notmuch search" to return non-zero if `notmuch_query_search_threads` fails
 
   Previously, this command could confusingly report a Xapian
   exception, yet still return an error code of 0. It now correctly
@@ -206,7 +205,7 @@ General bug fixes
 Emacs bug fixes
 ---------------
 
-* **_Fix to handle a message with a subject containing, for example "[1234]"_**
+#### Fix to handle a message with a subject containing, for example "[1234]"
 
   Previously, a message subject containing a sequence of digits within
   square brackets would cause the emacs interface to mis-parse the
@@ -214,7 +213,7 @@ Emacs bug fixes
   mis-displayed and prevent the user from manipulating the message in
   the emacs interface.
 
-* **_Fix to correctly handle message IDs containing ".."_**
+#### Fix to correctly handle message IDs containing ".."
 
   The emacs interface now properly quotes message IDs to avoid a
   Xapian bug in which the ".." within a message ID would be
@@ -228,7 +227,7 @@ The python bindings for notmuch have been updated to work with python3.
 Debian-specific fixes
 ---------------------
 
-* **_Fix emacs initialization so "M-x notmuch" works for users by default_**
+#### Fix emacs initialization so "M-x notmuch" works for users by default
 
   Now, a new Debian user can immediately run "emacs -f notmuch" after
   "apt-get install notmuch". Previously, the user would have had to

@@ -6,7 +6,7 @@ Notmuch 0.10.1 (2011-11-25)
 Bug-fix release.
 ----------------
 
-* **_Fix --help argument_**
+#### Fix --help argument
 
   Argument processing changes in 0.10 introduced a bug where "notmuch
   --help" crashed while "notmuch help" worked fine. This is fixed in
