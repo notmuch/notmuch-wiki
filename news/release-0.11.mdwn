@@ -84,8 +84,7 @@ Emacs Interface
   thousands separator (e.g. "123 456" instead of "123,456"). This can be
   changed by customizing "notmuch-hello-thousands-separator".
 
-### Call notmuch-show instead of notmuch-search when clicking on
-### buttonized id: links.
+### Call notmuch-show instead of notmuch-search when clicking on buttonized id: links.
 
 ### New function notmuch-show-advance
 
