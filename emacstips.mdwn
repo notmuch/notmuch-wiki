@@ -139,6 +139,8 @@ for making quick tag key bindings.  For instance, here's an example
 of how to make a key binding to add the "spam" tag and remove the
 "inbox" tag in notmuch-show-mode:
 
+In notmuch versions up to 0.11.x
+
         (define-key notmuch-show-mode-map "S"
           (lambda ()
             "mark message as spam"
@@ -146,8 +148,21 @@ of how to make a key binding to add the "spam" tag and remove the
             (notmuch-show-add-tag "spam")
             (notmuch-show-remove-tag "inbox")))
 
+Starting from notmuch 0.12 (not released yet) the functions 
+`notmuch-show-add-tag` and `notmuch-show-remove-tag` have changed to
+be more versatile and lost noninteractive use. When upgrading to 0.12 
+the above needs to be changed to this:
+
+        (define-key notmuch-show-mode-map "S"
+          (lambda ()
+            "mark message as spam"
+            (interactive)
+            (notmuch-show-tag-message "+spam" "-inbox")))
+
 You can do the same for threads in `notmuch-search-mode` by just
 replacing "show" with "search" in the called functions.
+
+(Starting from notmuch 0.12 use `notmuch-search-tag-thread` instead)
 
 The definition above makes use of a lambda function, but you could
 also define a separate function first:
@@ -159,6 +174,8 @@ also define a separate function first:
           (notmuch-show-remove-tag "inbox")))
         (define-key notmuch-show-mode-map "S" 'notmuch-show-tag-spam)
 
+(See above for analogy how to apply this for notmuch 0.12 and later)
+
 Here's a more complicated example of how to add a toggle "deleted"
 key:
 
@@ -169,6 +186,16 @@ key:
             (if (member "deleted" (notmuch-show-get-tags))
                 (notmuch-show-remove-tag "deleted")
               (notmuch-show-add-tag "deleted"))))
+
+And version for notmuch 0.12 (not released yet)
+
+        (define-key notmuch-show-mode-map "d"
+          (lambda ()
+            "toggle deleted tag for message"
+            (interactive)
+            (notmuch-show-tag-message
+              (if (member "deleted" (notmuch-show-get-tags)
+                   "+deleted" "-deleted")))))
 
 ## Restore reply-to-all key binding to 'r'
 
