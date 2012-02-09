@@ -1,3 +1,5 @@
+<!-- -*- mode: text; indent-tabs-mode: nil -*- -->
+
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 #Tips and Tricks for using notmuch with Emacs
 
@@ -12,11 +14,11 @@ included in the notmuch package.
 To use the Notmuch emacs mode, first add the following line to your
 `.emacs` rc file:
 
-	(require 'notmuch)
+        (require 'notmuch)
 
 or you can load the package via autoload:
 
-	(autoload 'notmuch "notmuch" "notmuch mail" t)
+        (autoload 'notmuch "notmuch" "notmuch mail" t)
 
 Then, either run "emacs -f notmuch", or execute the command `M-x
 notmuch` from within a running emacs.
@@ -82,14 +84,14 @@ script opens new emacs window with empty message and attaches files
 mentioned as script arguments. (Note: The script expects that you have
 `(server-start)` in your `.emacs` file.)
 
-    #!/bin/sh
-    attach_cmds=""
-    while [ "$1" ]; do
-        fullpath=$(readlink --canonicalize $1)
-        attach_cmds="$attach_cmds (mml-attach-file \"$fullpath\")"
-        shift
-    done
-    emacsclient -a '' -c -e "(progn (compose-mail) $attach_cmds)"
+        #!/bin/sh
+        attach_cmds=""
+        while [ "$1" ]; do
+            fullpath=$(readlink --canonicalize $1)
+            attach_cmds="$attach_cmds (mml-attach-file \"$fullpath\")"
+            shift
+        done
+        emacsclient -a '' -c -e "(progn (compose-mail) $attach_cmds)"
 
 
 -----
@@ -103,31 +105,31 @@ is an option to collect those to a separate file (which is only
 loaded when `notmuch` is invoked). To do this, write, for example
 a file called `~/.emacs.d/my-notmuch.el`:
 
-	  ;; my-notmuch.el -- my notmuch mail configuration
-	  ;;
-	  
-	  ;; add here stuff required to be configured *before*
-	  ;; notmuch is loaded;
+        ;; my-notmuch.el -- my notmuch mail configuration
+        ;;
+        
+        ;; add here stuff required to be configured *before*
+        ;; notmuch is loaded;
 
-	  ; uncomment and modify in case some elisp files are not found in load-path
-	  ; (add-to-list 'load-path "~/vc/ext/notmuch/emacs")
+        ; uncomment and modify in case some elisp files are not found in load-path
+        ; (add-to-list 'load-path "~/vc/ext/notmuch/emacs")
 
-	  ;; load notmuch 
-	  (require 'notmuch)
+        ;; load notmuch 
+        (require 'notmuch)
 
-	  ;; add here stuff required to be configured *after*
-	  ;; notmuch is loaded;
-		
-	  ;(setq user-mail-address (notmuch-user-primary-email)
-	  ;      user-full-name (notmuch-user-name))
+        ;; add here stuff required to be configured *after*
+        ;; notmuch is loaded;
 
-	  ; uncomment & modify if you want to use external smtp server to send mail
-	  ; (setq smtpmail-smtp-server "smtp.server.tld"
-	  ;       message-send-mail-function 'message-smtpmail-send-it)
+        ;(setq user-mail-address (notmuch-user-primary-email)
+        ;      user-full-name (notmuch-user-name))
 
-Then, add to `.emacs`:
+        ; uncomment & modify if you want to use external smtp server to send mail
+        ; (setq smtpmail-smtp-server "smtp.server.tld"
+        ;       message-send-mail-function 'message-smtpmail-send-it)
 
-	  (autoload 'notmuch "~/.emacs.d/my-notmuch" "notmuch mail" t)
+Then, adto `.emacs`:
+
+        (autoload 'notmuch "~/.emacs.d/my-notmuch" "notmuch mail" t)
 
 
 ## Add a key binding to add/remove/toggle a tag
@@ -137,12 +139,12 @@ for making quick tag key bindings.  For instance, here's an example
 of how to make a key binding to add the "spam" tag and remove the
 "inbox" tag in notmuch-show-mode:
 
-		(define-key notmuch-show-mode-map "S"
-		  (lambda ()
-		    "mark message as spam"
-		    (interactive)
-		    (notmuch-show-add-tag "spam")
-		    (notmuch-show-remove-tag "inbox")))
+        (define-key notmuch-show-mode-map "S"
+          (lambda ()
+            "mark message as spam"
+            (interactive)
+            (notmuch-show-add-tag "spam")
+            (notmuch-show-remove-tag "inbox")))
 
 You can do the same for threads in `notmuch-search-mode` by just
 replacing "show" with "search" in the called functions.
@@ -150,36 +152,36 @@ replacing "show" with "search" in the called functions.
 The definition above makes use of a lambda function, but you could
 also define a separate function first:
 
-		(defun notmuch-show-tag-spam()
-		  "mark message as spam"
-		  (interactive)
-		  (notmuch-show-add-tag "spam")
-		  (notmuch-show-remove-tag "inbox")))
-		(define-key notmuch-show-mode-map "S" 'notmuch-show-tag-spam)
+        (defun notmuch-show-tag-spam()
+          "mark message as spam"
+          (interactive)
+          (notmuch-show-add-tag "spam")
+          (notmuch-show-remove-tag "inbox")))
+        (define-key notmuch-show-mode-map "S" 'notmuch-show-tag-spam)
 
 Here's a more complicated example of how to add a toggle "deleted"
 key:
 
-		(define-key notmuch-show-mode-map "d"
-		  (lambda ()
-		    "toggle deleted tag for message"
-		    (interactive)
-		    (if (member "deleted" (notmuch-show-get-tags))
-		        (notmuch-show-remove-tag "deleted")
-		      (notmuch-show-add-tag "deleted"))))
+        (define-key notmuch-show-mode-map "d"
+          (lambda ()
+            "toggle deleted tag for message"
+            (interactive)
+            (if (member "deleted" (notmuch-show-get-tags))
+                (notmuch-show-remove-tag "deleted")
+              (notmuch-show-add-tag "deleted"))))
 
 ## Restore reply-to-all key binding to 'r'
 
 Starting from notmuch 0.12 the 'r' key is bound to reply-to-sender instead of
 reply-to-all. Here's how to swap the reply to sender/all bindings in show mode:
 
-		(define-key notmuch-show-mode-map "r" 'notmuch-show-reply)
-		(define-key notmuch-show-mode-map "R" 'notmuch-show-reply-sender)
+        (define-key notmuch-show-mode-map "r" 'notmuch-show-reply)
+        (define-key notmuch-show-mode-map "R" 'notmuch-show-reply-sender)
 
 And in search mode:
 
-		(define-key notmuch-search-mode-map "r" 'notmuch-search-reply-to-thread)
-		(define-key notmuch-search-mode-map "R" 'notmuch-search-reply-to-thread-sender)
+        (define-key notmuch-search-mode-map "r" 'notmuch-search-reply-to-thread)
+        (define-key notmuch-search-mode-map "R" 'notmuch-search-reply-to-thread-sender)
 
 
 ## How to do FCC/BCC...
@@ -194,7 +196,7 @@ mail. Enter a directory (without the maildir `/cur` ending which
 will be appended automatically). To customize both variables at the
 same time, use the fancy command:
 
-		M-x customize-apropos<RET>\(notmuch-fcc-dirs\)\|\(message-directory\)
+        M-x customize-apropos<RET>\(notmuch-fcc-dirs\)\|\(message-directory\)
 
 This mechanism also allows you to select different folders to be
 used for the outgoing mail depending on your selected `From`
@@ -212,9 +214,9 @@ customising the variable `notmuch-saved-searches`.
 
 An example setting might be:
 
-		(setq notmuch-saved-searches '(("inbox" . "tag:inbox")
-				("unread" . "tag:inbox AND tag:unread")
-				("notmuch" . "tag:inbox AND to:notmuchmail.org")))
+        (setq notmuch-saved-searches '(("inbox" . "tag:inbox")
+                        ("unread" . "tag:inbox AND tag:unread")
+                        ("notmuch" . "tag:inbox AND to:notmuchmail.org")))
 
 Of course, you can have any number of saved searches, each configured
 with any supported search terms (see "notmuch help search-terms").
@@ -248,21 +250,21 @@ useful to display the message in an external viewer, such as a web
 browser. Here's a little script that Keith Packard wrote, which he
 calls `view-html`:
 
-		#!/bin/sh
-		dir=`mktemp -d`
-		trap "rm -r $dir" 0
-		cat "$@" > "$dir"/msg
-		if munpack -C "$dir" -t < "$dir"/msg 2>&1 | grep 'Did not find'; then
-		    sed -n '/[Hh][Tt][Mm][Ll]/,$p' "$dir"/msg > $dir/part1.html
-		    rm "$dir"/msg
-		fi
-		for i in "$dir"/part*; do
-		    if grep -q -i -e '<html>' -e 'text/html' "$i"; then
-			iceweasel "$i" &
-			sleep 3
-			exit 0
-		    fi
-		done
+        #!/bin/sh
+        dir=`mktemp -d`
+        trap "rm -r $dir" 0
+        cat "$@" > "$dir"/msg
+        if munpack -C "$dir" -t < "$dir"/msg 2>&1 | grep 'Did not find'; then
+            sed -n '/[Hh][Tt][Mm][Ll]/,$p' "$dir"/msg > $dir/part1.html
+            rm "$dir"/msg
+        fi
+        for i in "$dir"/part*; do
+            if grep -q -i -e '<html>' -e 'text/html' "$i"; then
+                iceweasel "$i" &
+                sleep 3
+                exit 0
+            fi
+        done
 
 Save that script somewhere in your `${PATH}`, make it executable,
 and change the invocation of `iceweasel` to any other HTML viewer if
@@ -333,7 +335,7 @@ available:
     `http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c`
     and build it with:
 
-                    cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch
+            cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch
 
   * Shell/fgrep/perl combination [nottoomuch-addresses.sh](http://www.iki.fi/too/nottoomuch/nottoomuch-addresses/). 
     This tools maintains it's own address "database" gathered from email
@@ -341,9 +343,9 @@ available:
 
 You can perform tab-completion using any of these programs. Just add the following to your .emacs:
 
-    (require 'notmuch-address)
-    (setq notmuch-address-command "/path/to/address_fetching_program")
-    (notmuch-address-message-insinuate)
+        (require 'notmuch-address)
+        (setq notmuch-address-command "/path/to/address_fetching_program")
+        (notmuch-address-message-insinuate)
 
 
 ## How to sign/encrypt messages with gpg
@@ -355,8 +357,8 @@ standard `message-mode` keybindings `C-c C-m s p` and `C-c C-m c
 p`. To sign outgoing mail by default, use the `message-setup-hook`
 in your `.emacs` file:
 
-                    ;; Sign messages by default.
-                    (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
+        ;; Sign messages by default.
+        (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
 
 This inserts the required `<#part sign=pgpmime>` into the beginning
 of the mail text body and will be converted into a pgp signature
