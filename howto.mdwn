@@ -28,7 +28,7 @@ various "third party" notmuch utilities.
 
   See the [[initial_tagging]] page for more info on intial tagging of messages.
 
-* <span id="print_filenames">**Print only filenames of a search (python bindings)**</span>
+* <span id="python">**Use notmuch from python**</span>
 
   Notmuch includes python bindings to the notmuch shared
   library. Extensive API documentation [is
