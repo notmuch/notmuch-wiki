@@ -37,7 +37,8 @@ various "third party" notmuch utilities.
   The bindings are very simple to use.  As an example, given you have
   the python bindings installed (or simply set your PYTHONPATH
   environment variable to point to the .../bindings/python directory),
-  this script will print the filenames of a matching search:
+  this snippet will produce a list of mails matching the given
+  expression:
 
           >>> import notmuch
           >>> db = notmuch.Database()
