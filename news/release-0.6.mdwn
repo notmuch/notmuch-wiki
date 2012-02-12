@@ -241,10 +241,10 @@ Bindings improvements
 
   New bindings:
 
-  * `Message().get_filenames()`, `Message().tags_to_maildir_flags()`, 
+  - `Message().get_filenames()`, `Message().tags_to_maildir_flags()`,
     `Message().maildir_flags_to_tags()`, `list(Threads())` and
     `list(Messages)` works now
-  * `Message().__cmp__()` and `__hash__()`
+  - `Message().__cmp__()` and `__hash__()`
 
   These allow, for example:
 
@@ -258,9 +258,9 @@ Bindings improvements
 
   Removed:
 
-  * `len(Messages())` as it exhausted the iterator
+  - `len(Messages())` as it exhausted the iterator
 
-  Use `len(list(Messages()))` or `Query.count_messages()` 
+  Use `len(list(Messages()))` or `Query.count_messages()`
   to get the length.
 
 ### Added initial Go bindings in bindings/go
