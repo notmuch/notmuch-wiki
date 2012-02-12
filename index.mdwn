@@ -25,7 +25,7 @@
   features can be integrated into any email program.)
 
 * Notmuch is not much of an email program. It doesn't receive messages
-  (no POP or IMAP suport). It doesn't send messages (no mail composer,
+  (no POP or IMAP support). It doesn't send messages (no mail composer,
   no network code at all). And for what it does do (email search) that
   work is provided by an external library,
   [Xapian](http://xapian.org).  So if Notmuch provides no user

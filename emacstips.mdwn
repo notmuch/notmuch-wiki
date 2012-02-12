@@ -398,7 +398,7 @@ part.
 
 ### Troubleshooting message-mode gpg support
 
-- If you have trouble with expired subkeys, you may have encounted
+- If you have trouble with expired subkeys, you may have encountered
   emacs bug #7931.  This is fixed in git commit 301ea744c on
   2011-02-02.  Note that if you have the Debian package easypg
   installed, it will shadow the fixed version of easypg included with

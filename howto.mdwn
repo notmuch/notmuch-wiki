@@ -26,7 +26,7 @@ various "third party" notmuch utilities.
 
   * [fetchmail](http://fetchmail.berlios.de/)
 
-  See the [[initial_tagging]] page for more info on intial tagging of messages.
+  See the [[initial_tagging]] page for more info on initial tagging of messages.
 
 * <span id="python">**Use notmuch from python**</span>
 
