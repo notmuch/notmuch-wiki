@@ -241,21 +241,20 @@ Bindings improvements
 
   New bindings:
 
-  - `Message().get_filenames()`,
-  - `Message().tags_to_maildir_flags()`, `Message().maildir_flags_to_tags()`,
-  - `list(Threads())` and `list(Messages)` works now
-
+  - `Message().get_filenames()`, `Message().tags_to_maildir_flags()`, 
+    `Message().maildir_flags_to_tags()`, `list(Threads())` and
+    `list(Messages)` works now
   - `Message().__cmp__()` and `__hash__()`
 
   These allow, for example:
 
-            if msg1 == msg2: ...
+        if msg1 == msg2: ...
 
   As well as set arithmetic on `Messages()`:
 
-            s1, s2 = set(msgs1), set(msgs2)
-            s1.union(s2)
-            s2 -= s1
+        s1, s2 = set(msgs1), set(msgs2)
+        s1.union(s2)
+        s2 -= s1
 
   Removed:
 
