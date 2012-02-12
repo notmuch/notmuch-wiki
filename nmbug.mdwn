@@ -109,7 +109,8 @@ Sometimes the process stalls, and patches get tagged:
 
     notmuch::moreinfo           waiting for feedback from patch proposer
                                 or others
-
+    notmuch::stale              The patch no longer applies to master (or in 
+                                rare cases, to release)                                                        
 ### Bug tracking tag
 
 So far we are just tagging certain messages as bug reports, meaning
