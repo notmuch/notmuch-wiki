@@ -6,7 +6,7 @@ Notmuch 0.7 (2011-08-01)
 Vim interface improvements
 --------------------------
 
-Jason Woofenden provided a number of bug fixes for the Vim interface
+### Jason Woofenden provided a number of bug fixes for the Vim interface
 
   * fix citation/signature fold lengths
   * fix cig/cit parsing within multipart/*
@@ -14,7 +14,7 @@ Jason Woofenden provided a number of bug fixes for the Vim interface
   * fix from list reformatting in search view
   * fix space key: now archives (did opposite)
 
-Uwe Kleine-König contributed
+### Uwe Kleine-König contributed
 
   * use full path for sendmail/doc fix
   * fix compose temp file name
@@ -22,7 +22,7 @@ Uwe Kleine-König contributed
 Python Bindings changes
 -----------------------
 
-Sebastian Spaeth contributed two changes related to unicode and UTF8:
+### Sebastian Spaeth contributed two changes related to unicode and UTF8:
 
   * message tags are now explicitly unicode
   * query string is encoded as a UTF8 byte string

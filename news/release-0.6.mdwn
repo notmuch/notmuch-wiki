@@ -12,13 +12,13 @@ New, general features
   directories in which mail files are stored (within the mail
   storage). The syntax is as follows:
 
-	folder:<path>
+        folder:<path>
 
   For example, one might use things such as:
 
-	folder:spam
-	folder:2011-*
-	folder:work/todo
+        folder:spam
+        folder:2011-*
+        folder:work/todo
 
   to match any path containing a directory "spam", "work/todo", or
   containing a directory starting with "2011-", respectively.
@@ -33,10 +33,10 @@ New, general features
   this feature for all mail, the entire notmuch index will need to be
   rebuilt as follows:
 
-	notmuch dump > notmuch.dump
-	# Backup, then remove notmuch database ($MAIL/.notmuch)
-	notmuch new
-	notmuch restore notmuch.dump
+        notmuch dump > notmuch.dump
+        # Backup, then remove notmuch database ($MAIL/.notmuch)
+        notmuch new
+        notmuch restore notmuch.dump
 
 ### Support for PGP/MIME
 
@@ -166,11 +166,11 @@ New emacs-interface features
   In notmuch-show mode, if a collapsed message has the same subject as
   its parent, the subject is not shown.
 
-### Automatic detection and hiding of original message in top-posted  message
+### Automatic detection and hiding of original message in top-posted message
 
   When a message contains a line looking something like:
 
-	----- Original Message -----
+        ----- Original Message -----
 
   emacs hides this and all subsequent lines as an "original message",
   (allowing the user to click or press enter on the "original message"
@@ -185,8 +185,8 @@ New emacs-interface features
   tool. To facilitate this, two new hooks are added which can be
   modified in the following settings of the notmuch customize group:
 
-	Notmuch Before Tag Hook
-	Notmuch After Tag Hook
+        Notmuch Before Tag Hook
+        Notmuch After Tag Hook
 
 ### New optional support for hiding some multipart/alternative parts
 
@@ -194,7 +194,7 @@ New emacs-interface features
   multipart/alternative group (such as a text/plain part as well as a
   text/html part). Users can configure the setting:
 
-	Notmuch Show All Multipart/Alternative Parts
+        Notmuch Show All Multipart/Alternative Parts
 
   to "off" in the notmuch customize group to have the interface
   automatically hide some part alternatives (such as text/html
@@ -211,13 +211,15 @@ New emacs-interface features
 
   Replacing all characters with ASCII code less than 32 with a question mark.
 
-Cleaner display of From line in email messages (remove double quotes,
-and drop "name" if it's actually just a repeat of the email address).
+### Cleaner display of From line in email messages
+
+  Remove double quotes, and drop "name" if it's actually just a repeat of
+  the email address.
 
 Vim interface improvements
 --------------------------
 
-Felipe Contreras provided a number of updates for the vim interface:
+### Felipe Contreras provided a number of updates for the vim interface:
 
   * Using sendmail directly rather than mailx,
   * Implementing archive in show view
@@ -238,21 +240,25 @@ Bindings improvements
   (docs online at http://packages.python.org/notmuch/)
 
   New bindings:
+
   - `Message().get_filenames()`,
   - `Message().tags_to_maildir_flags()`, `Message().maildir_flags_to_tags()`
   - `list(Threads())` and `list(Messages)` works now
 
   - `Message().__cmp__() and __hash__()`
-    These allow, for example:
-	if msg1 == msg2: ...
+
+  These allow, for example:
+
+          if msg1 == msg2: ...
 
   As well as set arithmetic on `Messages()`:
 
-	s1, s2= set(msgs1), set(msgs2)
-	s1.union(s2)
-	s2 -= s1
+          s1, s2 = set(msgs1), set(msgs2)
+          s1.union(s2)
+          s2 -= s1
 
   Removed:
+
   - len(Messages()) as it exhausted the iterator.
     Use len(list(Messages())) or
     `Query.count_messages()` to get the length.
@@ -267,10 +273,10 @@ New build-system features
   This can be used with the widely-supported idiom of simply running
   the configure script from some other directory:
 
-	mkdir build
-	cd build
-	../configure
-	make
+        mkdir build
+        cd build
+        ../configure
+        make
 
 ### Fix to save configure options for future, implicit runs of configure
 
@@ -322,11 +328,11 @@ General bug fixes
 
   This fixed a bug where a search for:
 
-	to:user@elsewhere.com
+        to:user@elsewhere.com
 
   would incorrectly match a message sent:
 
-	To: user@example,com, someone@elsewhere.com
+        To: user@example,com, someone@elsewhere.com
 
 ### Fix --output=json when search has no results
 
@@ -335,9 +341,9 @@ General bug fixes
   return a valid json object representing an empty array "[]" as
   expected.
 
-### Fix the automatic detection of the From address for "notmuch reply" from the Received headers in some cases.
+### Fix the automatic detection of the From address for "notmuch reply" from the Received headers in some cases
 
-### Fix core dump on DragonFlyBSD due to -1 return value from `sysconf(_SC_GETPW_R_SIZE_MAX)`.
+### Fix core dump on DragonFlyBSD due to -1 return value from `sysconf(_SC_GETPW_R_SIZE_MAX)`
 
 ### Cleaned up several memory leaks
 

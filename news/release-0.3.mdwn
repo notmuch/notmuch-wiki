@@ -78,16 +78,16 @@ Emacs interface improvements
   search of messages with that tag that's simply a click (or keypress)
   away.
 
-  Note: For users that liked the original mode of "emacs -f notmuch"
-	immediately displaying a particular search result, we
-	recommend instead running something like:
+  NOTE: For users that liked the original mode of "emacs -f notmuch"
+  immediately displaying a particular search result, we recommend
+  instead running something like:
 
-		emacs --eval '(notmuch search "tag:inbox" t)'
+        emacs --eval '(notmuch search "tag:inbox" t)'
 
-	The "t" means to sort the messages in an "oldest first" order,
-	(as notmuch would do previously by default). You can also
-	leave that off to have your search results in "newest first"
-	order.
+  The "t" means to sort the messages in an "oldest first" order,
+  (as notmuch would do previously by default). You can also
+  leave that off to have your search results in "newest first"
+  order.
 
 ### Full-featured "customize" support for configuring notmuch
 
@@ -118,7 +118,7 @@ Emacs interface improvements
   One such program (implemented in python with the python bindings to
   notmuch) is available via:
 
-	git clone  http://jkr.acm.jhu.edu/git/notmuch_addresses.git
+        git clone  http://jkr.acm.jhu.edu/git/notmuch_addresses.git
 
   Install that program as notmuch-addresses on your PATH, and then
   hitting TAB on a partial email address or name within the To: or Cc:

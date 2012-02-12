@@ -17,9 +17,9 @@ New command-line features
   expected that this new option will be very useful in shell
   scripts. For example:
 
-	for file in $(notmuch search --output=files <search-terms>); do
-		<operations-on> "$file"
-	done
+        for file in $(notmuch search --output=files <search-terms>); do
+                <operations-on> "$file"
+        done
 
 ### `notmuch show --format=mbox <search-specification>`
 
@@ -125,13 +125,13 @@ New build-system features
   errors of the form "libnotmuch.so could not be found" immediately
   after installing. This support takes two forms:
 
-	1. If the library is installed to a system directory,
-	   (configured in /etc/ld.so.conf), then "make install" will
-	   automatically run ldconfig.
+  1. If the library is installed to a system directory,
+     (configured in /etc/ld.so.conf), then "make install" will
+     automatically run ldconfig.
 
-	2. If the library is installed to a non-system directory, the
-	   build system adds a DR_RUNPATH entry to the final binary
-	   pointing to the directory to which the library is installed.
+  2. If the library is installed to a non-system directory, the
+     build system adds a `DR_RUNPATH` entry to the final binary
+     pointing to the directory to which the library is installed.
 
   When this support works, the user should be able to run notmuch
   immediately after "make install", without any errors trying to find
@@ -171,13 +171,13 @@ New test-suite features
 General bug fixes
 -----------------
 
-### Fix potential corruption of database when "notmuch new " is interrupted
+### Fix potential corruption of database when "notmuch new" is interrupted
 
   Previously, an interruption of "notmuch new" would (rarely) result
   in a corrupt database. The corruption would manifest itself by a
   persistent error of the form:
 
-	document ID of 1234 has no thread ID
+        document ID of 1234 has no thread ID
 
   The message-adding code has been carefully audited and reworked to
   avoid this sort of corruption regardless of when it is interrupted.

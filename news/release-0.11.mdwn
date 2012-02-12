@@ -84,7 +84,7 @@ Emacs Interface
   thousands separator (e.g. "123 456" instead of "123,456"). This can be
   changed by customizing "notmuch-hello-thousands-separator".
 
-### Call notmuch-show instead of notmuch-search when clicking on buttonized id: links.
+### Call notmuch-show instead of notmuch-search when clicking on buttonized id: links
 
 ### New function notmuch-show-advance
 
@@ -92,7 +92,7 @@ Emacs Interface
   less invasive than notmuch-show-advance-and-archive.  It can easily
   be bound to SPC with:
 
-	(define-key notmuch-show-mode-map " " 'notmuch-show-advance)
+        (define-key notmuch-show-mode-map " " 'notmuch-show-advance)
 
 ### Various performance improvements
 

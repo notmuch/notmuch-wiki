@@ -1,8 +1,10 @@
+[[!meta date="2012-02-03"]]
+
 Notmuch 0.11.1 (2012-02-03)
 ===========================
 
-Bug-fix release.
-----------------
+Bug-fix release
+---------------
 
 ### Fix error handling in python bindings
 

@@ -71,11 +71,11 @@ General bug fixes
 
   Previously, the user might see:
 
-	Subject: Re: =?iso-8859-2?q?Rozlu=E8ka?=
+        Subject: Re: =?iso-8859-2?q?Rozlu=E8ka?=
 
   rather than:
 
-	Subject: Re: Rozlučka
+        Subject: Re: Rozlučka
 
   The former text is properly encoded to be RFC-compliant SMTP, will
   be sent correctly, and will be properly decoded by the
@@ -121,12 +121,12 @@ Build-system features
 
   We include actual support for:
 
-	--includedir --mandir --sysconfdir
+        --includedir --mandir --sysconfdir
 
   And accept and silently ignore several more:
 
-	--build --infodir --libexecdir --localstatedir
-	--disable-maintainer-mode --disable-dependency-tracking
+        --build --infodir --libexecdir --localstatedir
+        --disable-maintainer-mode --disable-dependency-tracking
 
 ### Install emacs client in "make install" rather than requiring a separate "make install-emacs"
 

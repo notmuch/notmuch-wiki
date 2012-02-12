@@ -22,10 +22,9 @@ General bug fixes
 Emacs bug fixes
 ---------------
 
-Fix calculations for line wrapping in the primary "notmuch" view.
+### Fix calculations for line wrapping in the primary "notmuch" view
 
-Fix Fcc support to prompt to create a directory if the specified Fcc
-directory does not exist.
+### Fix Fcc support to prompt to create a directory if the specified Fcc directory does not exist
 
 Build fix
 ---------
