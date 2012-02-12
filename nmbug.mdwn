@@ -124,6 +124,7 @@ things that "everyone" agrees should be fixed.
 
 These patches are more comments and suggestions.
 
+    notmuch::doc                is a documentation patch
     notmuch::emacs              is a patch/bug for the emacs UI
     notmuch::feature            provides a new feature
     notmuch::fix                fixes a bug
