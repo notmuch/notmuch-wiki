@@ -260,8 +260,8 @@ Removed:
 
   - `len(Messages())` as it exhausted the iterator
 
-  Use `len(list(Messages()))` or `Query.count_messages()`
-  to get the length.
+Use `len(list(Messages()))` or `Query.count_messages()`
+to get the length.
 
 ### Added initial Go bindings in bindings/go
 
