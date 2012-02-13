@@ -17,9 +17,9 @@ New command-line features
 
 ### Add `notmuch restore --accumulate` option
 
-  The --accumulate switch causes the union of the existing and new tags to be
-  applied, instead of replacing each message's tags as they are read in from
-  the dump file.
+  The `--accumulate` switch causes the union of the existing and new tags to
+  be applied, instead of replacing each message's tags as they are read in
+  from the dump file.
 
 ### Add search terms to `notmuch dump`
 
@@ -29,8 +29,8 @@ New command-line features
 
 ### Add `notmuch search` `--offset` and `--limit` options
 
-  The search command now takes options --offset=[-]N and --limit=N to limit
-  the number of results shown.
+  The search command now takes options `--offset=[-]N` and `--limit=N` to
+  limit the number of results shown.
 
 ### Add `notmuch count --output` option
 

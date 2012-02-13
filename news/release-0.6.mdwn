@@ -239,29 +239,29 @@ Bindings improvements
 
   (docs online at http://packages.python.org/notmuch/)
 
-New bindings:
+  New bindings:
 
   - `Message().get_filenames()`, `Message().tags_to_maildir_flags()`,
     `Message().maildir_flags_to_tags()`, `list(Threads())` and
     `list(Messages)` works now
   - `Message().__cmp__()` and `__hash__()`
 
-These allow, for example:
+  These allow, for example:
 
         if msg1 == msg2: ...
 
-As well as set arithmetic on `Messages()`:
+  As well as set arithmetic on `Messages()`:
 
         s1, s2 = set(msgs1), set(msgs2)
         s1.union(s2)
         s2 -= s1
 
-Removed:
+  Removed:
 
   - `len(Messages())` as it exhausted the iterator
 
-Use `len(list(Messages()))` or `Query.count_messages()`
-to get the length.
+  Use `len(list(Messages()))` or `Query.count_messages()`
+  to get the length.
 
 ### Added initial Go bindings in bindings/go
 
