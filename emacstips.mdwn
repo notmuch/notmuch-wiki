@@ -195,7 +195,7 @@ And version for notmuch 0.12 (not released yet)
             (interactive)
             (notmuch-show-tag-message
               (if (member "deleted" (notmuch-show-get-tags))
-                  "+deleted" "-deleted"))))
+                  "-deleted" "+deleted"))))
 
 ## Restore reply-to-all key binding to 'r'
 
