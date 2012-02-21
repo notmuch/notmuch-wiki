@@ -138,3 +138,7 @@ various "third party" notmuch utilities.
   output.  Using the instructions from [Gmane's
   site](http://gmane.org/export.php), we can download an mbox file, which we
   can then convert to maildir using mb2md or other utility.
+
+* <span id="special_tags">**Take advantage of tags that are special to notmuch**</span>
+
+  See [[tags special to notmuch|special-tags]].
