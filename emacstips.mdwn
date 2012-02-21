@@ -340,11 +340,15 @@ emacswiki.
 
 ## <span id="address_completion">Address completion when composing</span>
 
-There are currently two solutions to this:
+There are currently three solutions to this:
+
+### bbdb
 
 [bbdb](http://bbdb.sourceforge.net) is a contact database for emacs
 that works quite nicely together with message mode, including
 address autocompletion.
+
+### notmuch database as an address book
 
 You can also use the notmuch database as a mail address book itself.
 To do this you need a command line tool that outputs likely address
@@ -374,6 +378,19 @@ You can perform tab-completion using any of these programs. Just add the followi
         (setq notmuch-address-command "/path/to/address_fetching_program")
         (notmuch-address-message-insinuate)
 
+### Google Contacts
+
+[GooBook](http://code.google.com/p/goobook/) is a command-line tool for
+accessing Google Contacts. Install and set it up according to its documentation.
+
+To use GooBook with notmuch, use this wrapper script and set it up like the
+programs above.
+
+        #!/bin/sh
+        goobook query "$*" | sed 's/\(.*\)\t\(.*\)\t.*/\2 \<\1\>/' | sed '/^$/d'
+
+You can add the sender of a message to Google Contacts by piping the message
+(`notmuch-show-pipe-message`) to `goobook add`.
 
 ## How to sign/encrypt messages with gpg
 
