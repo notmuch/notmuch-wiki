@@ -1,0 +1,92 @@
+# Tags special to notmuch
+
+This page describes the tags that the notmuch lib, cli, and emacs ui recognize
+and treat specially.
+
+## Tags special to lib
+
+None of the tags recognized by the lib are configurable.
+
+### Synchronization between tags and maildir flags
+
+ - draft
+ - flagged
+ - passed
+ - replied
+ - unread
+ - deleted (*)
+
+The above tags are recognized by the lib, and synchronized with the
+corresponding maildir flags through the following lib function calls:
+
+ - `notmuch_message_maildir_flags_to_tags()`
+ - `notmuch_message_tags_to_maildir_flags()`
+
+The cli calls the above functions in "notmuch new" if the
+maildir.synchronize_flags configuration option is enabled.
+
+(*) The "deleted" tag is not synced to maildir T flag at the moment, but it may
+be in the future.
+
+### Automatic tags
+
+ - attachment
+ - signed
+ - encrypted
+
+The above tags are assigned to messages that have an attachment, or are signed
+or encrypted, when adding a message to the database through the lib function
+call:
+
+ - `notmuch_database_add_message()`
+
+The cli calls the above function in "notmuch new".
+
+## Tags special to cli
+
+All of the tags recognized by the cli are configurable.
+
+### Default tags for new messages
+
+ - unread
+ - inbox
+ - new (*)
+
+These are the tags assigned to new message by default. The tags can be changed
+using the new.tags configuration option.
+
+(*) The "new" tag is by no means special or default, but it is documented here
+as the typically used intermediate tag to use between "notmuch tag" and a
+post-new tagging script.
+
+### Default excluded tags
+
+ - deleted
+ - spam
+
+These are the default tags used for excluding messages from search results. The
+tags can be changed using the search.exclude_tags configuration option.
+
+## Tags special to Emacs UI
+
+Most of the tags recognized by the emacs ui are not (easily) configurable.
+
+### Reading mail
+
+ - unread
+ - inbox
+
+The elementary mail reading commands automatically remove the "unread" tag when
+visiting a message, and remove the "inbox" tag when archiving a message.
+
+### Other
+
+ - replied
+ - flagged
+ - deleted (*)
+
+The "replied" tag is added to messages that are replied to, and "flagged"
+messages are highlighted through `notmuch-search-line-faces` by default.
+
+(*) There are patches to tag, untag, and hide "deleted" tagged messages, but
+they have not been merged at the time of writing this.
