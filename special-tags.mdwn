@@ -57,7 +57,7 @@ using the new.tags configuration option.
 
 (*) The "new" tag is by no means special or default, but it is documented here
 as the typically used intermediate tag to use between "notmuch tag" and a
-post-new tagging script.
+post-new tagging script. See [[Initial_Tagging]].
 
 ### Default excluded tags
 
