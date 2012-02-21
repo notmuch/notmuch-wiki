@@ -28,7 +28,10 @@ following:
     notmuch tag +inbox +unread -new -- tag:new
 
 Since the post-processing is only acting on a few messages, it is
-generally extrememly fast.
+generally extremely fast.
+
+You can use the `post-new` hook, which is automatically run after `notmuch new`,
+to do post-processing. See `man notmuch-hooks` for details on hooks.
 
 
 # Other solutions
