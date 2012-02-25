@@ -112,6 +112,12 @@ Sometimes the process stalls, and patches get tagged:
                                 or others
     notmuch::stale              The patch no longer applies to master (or in
                                 rare cases, to release)
+
+Note that these tags typically apply to whole series of patches; it
+doesn't usually make sense to apply patches later in the series before
+earlier ones. So a patch may be tagged `moreinfo` or `stale` only
+because a predecessor patch is.
+
 ### Bug tracking tag
 
 So far we are just tagging certain messages as bug reports, meaning
