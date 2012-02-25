@@ -4,6 +4,8 @@
 Some tips about how to do some useful things with notmuch, and the
 various "third party" notmuch utilities.
 
+[[!toc levels=2]]
+
 ## <span id="receive_mail">**Receive mail**</span>
 
 Notmuch requires either [maildir
