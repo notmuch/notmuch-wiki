@@ -50,7 +50,9 @@ various "third party" notmuch utilities.
 
   notmuch **since version 0.5** syncs maildir flags and respective
   tags in both directions. This part applies only to notmuch prior to
-  version 0.5:
+  version 0.5 (but please consider updating to a more recent version
+  of notmuch; in addition to maildir tag syncing, it contains many
+  useful new features, and several important bug fixes):
 
   Some IMAP users rely on maildir flags that convey the status "seen",
   "replied", "trashed", in order to synchronize the status of their
