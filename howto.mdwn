@@ -4,170 +4,170 @@
 Some tips about how to do some useful things with notmuch, and the
 various "third party" notmuch utilities.
 
-* <span id="receive_mail">**Receive mail**</span>
+## <span id="receive_mail">**Receive mail**</span>
 
-  Notmuch requires either [maildir
-  flag](http://cr.yp.to/proto/maildir.html) or a "mh"-style
-  maildirectory to operate on.  Basically any setup in which each mail
-  is in a file of its own will work.  Here are some generally
-  well-regarded mail retrieval tools:
+Notmuch requires either [maildir
+flag](http://cr.yp.to/proto/maildir.html) or a "mh"-style
+maildirectory to operate on.  Basically any setup in which each mail
+is in a file of its own will work.  Here are some generally
+well-regarded mail retrieval tools:
 
-  * [offlineimap](https://github.com/nicolas33/offlineimap/) -
-    quite useful and widely tested, it also offers a handy hook that
-    will come in useful a bit later in our setup.  Also supports
-    "presynchook" and "postsynchook" command that will get run
-    whenever you sync.  Point _postsynchook_ to a script that gets run
-    on every sync and that will do the automatic updating and tagging
-    of your notmuch database.
+* [offlineimap](https://github.com/nicolas33/offlineimap/) -
+  quite useful and widely tested, it also offers a handy hook that
+  will come in useful a bit later in our setup.  Also supports
+  "presynchook" and "postsynchook" command that will get run
+  whenever you sync.  Point _postsynchook_ to a script that gets run
+  on every sync and that will do the automatic updating and tagging
+  of your notmuch database.
 
-  * [mbsync](http://isync.sourceforge.net/)
+* [mbsync](http://isync.sourceforge.net/)
 
-  * [getmail](http://pyropus.ca/software/getmail/)
+* [getmail](http://pyropus.ca/software/getmail/)
 
-  * [fetchmail](http://fetchmail.berlios.de/)
+* [fetchmail](http://fetchmail.berlios.de/)
 
-  See the [[initial_tagging]] page for more info on initial tagging of messages.
+See the [[initial_tagging]] page for more info on initial tagging of messages.
 
-* <span id="python">**Use notmuch from python**</span>
+## <span id="python">**Use notmuch from python**</span>
 
-  Notmuch includes python bindings to the notmuch shared
-  library. Extensive API documentation [is
-  available](http://notmuch.readthedocs.org/).
+Notmuch includes python bindings to the notmuch shared
+library. Extensive API documentation [is
+available](http://notmuch.readthedocs.org/).
 
-  The bindings are very simple to use.  As an example, given you have
-  the python bindings installed (or simply set your PYTHONPATH
-  environment variable to point to the .../bindings/python directory),
-  this snippet will produce a list of mails matching the given
-  expression:
+The bindings are very simple to use.  As an example, given you have
+the python bindings installed (or simply set your PYTHONPATH
+environment variable to point to the .../bindings/python directory),
+this snippet will produce a list of mails matching the given
+expression:
 
-          >>> import notmuch
-          >>> db = notmuch.Database()
-          >>> query = db.create_query('tag:inbox AND NOT tag:killed')
-          >>> list(query.search_messages()) # doctest:+ELLIPSIS
-          [...]
+        >>> import notmuch
+        >>> db = notmuch.Database()
+        >>> query = db.create_query('tag:inbox AND NOT tag:killed')
+        >>> list(query.search_messages()) # doctest:+ELLIPSIS
+        [...]
 
-* <span id="sync_maildir_flags">**Sync notmuch tags and maildir flags**</span>
+## <span id="sync_maildir_flags">**Sync notmuch tags and maildir flags**</span>
 
-  notmuch **since version 0.5** syncs maildir flags and respective
-  tags in both directions. This part applies only to notmuch prior to
-  version 0.5 (but please consider updating to a more recent version
-  of notmuch; in addition to maildir tag syncing, it contains many
-  useful new features, and several important bug fixes):
+notmuch **since version 0.5** syncs maildir flags and respective
+tags in both directions. This part applies only to notmuch prior to
+version 0.5 (but please consider updating to a more recent version
+of notmuch; in addition to maildir tag syncing, it contains many
+useful new features, and several important bug fixes):
 
-  Some IMAP users rely on maildir flags that convey the status "seen",
-  "replied", "trashed", in order to synchronize the status of their
-  mail across mail clients (a [maildir
-  flag](http://cr.yp.to/proto/maildir.html) is simply a defined part
-  of their filename).  Notmuch will by default happily ignore those
-  flags and will never modify them either, as there is no built-in
-  support for synchronizing your notmuch tags with your imap maildir
-  flags (seen, replied, trashed, etc). However there are currently 2
-  ways in which you can achieve synchronization.
+Some IMAP users rely on maildir flags that convey the status "seen",
+"replied", "trashed", in order to synchronize the status of their
+mail across mail clients (a [maildir
+flag](http://cr.yp.to/proto/maildir.html) is simply a defined part
+of their filename).  Notmuch will by default happily ignore those
+flags and will never modify them either, as there is no built-in
+support for synchronizing your notmuch tags with your imap maildir
+flags (seen, replied, trashed, etc). However there are currently 2
+ways in which you can achieve synchronization.
 
-  [notmuchsync](http://spaetz.github.com/notmuchsync/) is a utility
-  (based on the cnotmuch python bindings) that allows synchronization
-  in either direction, as well as pruning of deleted files.
+[notmuchsync](http://spaetz.github.com/notmuchsync/) is a utility
+(based on the cnotmuch python bindings) that allows synchronization
+in either direction, as well as pruning of deleted files.
 
-  The second solution allows for fast maildir flag to notmuch tag
-  synchronization (and only in that direction) requires patching the
-  notmuch source code. The patch has been posted in this mail
-  *id:1267450136-31749-1-git-send-email-Sebastian@SSpaeth.de* and can
-  be viewed as a [source diff in this git
-  repository](http://github.com/spaetz/notmuch-all-feature/commit/df3b087cefb85e9d16fd17540e348bcb854dd7ee).
+The second solution allows for fast maildir flag to notmuch tag
+synchronization (and only in that direction) requires patching the
+notmuch source code. The patch has been posted in this mail
+*id:1267450136-31749-1-git-send-email-Sebastian@SSpaeth.de* and can
+be viewed as a [source diff in this git
+repository](http://github.com/spaetz/notmuch-all-feature/commit/df3b087cefb85e9d16fd17540e348bcb854dd7ee).
 
-* <span id="print_filenames">**Using notmuch with Mutt**</span>
+## <span id="print_filenames">**Using notmuch with Mutt**</span>
 
-  Notmuch is a great mail indexing tool that can also be used *in conjunction*
-  with existing Mail User Agents (MUA) instead of replacing them. The advantage
-  of such mixed solutions is that users can benefit from notmuch features (such
-  as full-text search and thread reconstruction) without *having to* change
-  MUA.
+Notmuch is a great mail indexing tool that can also be used *in conjunction*
+with existing Mail User Agents (MUA) instead of replacing them. The advantage
+of such mixed solutions is that users can benefit from notmuch features (such
+as full-text search and thread reconstruction) without *having to* change
+MUA.
 
-  A popular geek MUA is [the Mutt e-mail client](http://www.mutt.org);
-  integrating notmuch with Mutt is not seamless, but fairly straightforward.
-  There are two principal possibilities, each with its own ups and downs:
+A popular geek MUA is [the Mutt e-mail client](http://www.mutt.org);
+integrating notmuch with Mutt is not seamless, but fairly straightforward.
+There are two principal possibilities, each with its own ups and downs:
 
-  * Using mutt-notmuch, which will create a "virtual" maildir folder with
-    search results whenever a search is made. The upside is that you can
-    search all your folders simultanously; the downside is that your
-    modifications in the results listing do not carry over, also having
-    to switch folders comes with some more annoyances.
+* Using mutt-notmuch, which will create a "virtual" maildir folder with
+  search results whenever a search is made. The upside is that you can
+  search all your folders simultanously; the downside is that your
+  modifications in the results listing do not carry over, also having
+  to switch folders comes with some more annoyances.
 
-    An
-    [**how to use Notmuch with Mutt**](http://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/)
-    has been written by Stefano Zacchiroli. Check out the
-    [howto](http://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/)
-    for more information.
+  An
+  [**how to use Notmuch with Mutt**](http://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/)
+  has been written by Stefano Zacchiroli. Check out the
+  [howto](http://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/)
+  for more information.
 
-    <small>(Note by the howto author: I've linked the howto from this wiki rather
-    than splicing it in, in order to avoid duplication of information. If you
-    think it would be better to have it here, feel free to copy the text
-    here. The howto is
-    [available](http://git.upsilon.cc/cgi-bin/gitweb.cgi?p=zack-homepage.git;a=history;f=blog/posts/2011/01/how_to_use_Notmuch_with_Mutt.mdwn)
-    in markdown syntax from the Git repository of my homepage.)</small>
+  <small>(Note by the howto author: I've linked the howto from this wiki rather
+  than splicing it in, in order to avoid duplication of information. If you
+  think it would be better to have it here, feel free to copy the text
+  here. The howto is
+  [available](http://git.upsilon.cc/cgi-bin/gitweb.cgi?p=zack-homepage.git;a=history;f=blog/posts/2011/01/how_to_use_Notmuch_with_Mutt.mdwn)
+  in markdown syntax from the Git repository of my homepage.)</small>
 
-  * Using a simple macro that will emulate the "limit" mutt functionality
-    using notmuch.
+* Using a simple macro that will emulate the "limit" mutt functionality
+  using notmuch.
 
-    See the [**alternative notmuch integration**](http://log.or.cz/?p=228)
-    blog post for instructions and details,
-    or simply put these two macros to your muttrc:
+  See the [**alternative notmuch integration**](http://log.or.cz/?p=228)
+  blog post for instructions and details,
+  or simply put these two macros to your muttrc:
 
-                           # 'L' performs a notmuch query, showing only the results
-                           macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
-                           # 'a' shows all messages again (supersedes default <alias> binding)
-                           macro index a "<limit>all\n" "show all messages (undo limit)"
+                         # 'L' performs a notmuch query, showing only the results
+                         macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
+                         # 'a' shows all messages again (supersedes default <alias> binding)
+                         macro index a "<limit>all\n" "show all messages (undo limit)"
 
-    The upside (if you are used to working in the context of a single folder)
-    is that this really does use the limit functionality of mutt
-    and you are still in your original folder.
-    The downside is that this approach has scaling problems
-    and works well only for reasonably specific queries.
+  The upside (if you are used to working in the context of a single folder)
+  is that this really does use the limit functionality of mutt
+  and you are still in your original folder.
+  The downside is that this approach has scaling problems
+  and works well only for reasonably specific queries.
 
 
-* <span id="reapply_auto">**Automatically retagging the database (e.g., when upgrading versions)**</span>
+## <span id="reapply_auto">**Automatically retagging the database (e.g., when upgrading versions)**</span>
 
-  Certain versions of notmuch include new automatic tags (for example, between
-  0.3 and 0.10, automatic tagging of signed and encrypted messages was added).
-  However, for users running with databases created in older versions of
-  notmuch, these tags are missing in pre-existing messages and need to be
-  added.  One way to do this is as follows:
+Certain versions of notmuch include new automatic tags (for example, between
+0.3 and 0.10, automatic tagging of signed and encrypted messages was added).
+However, for users running with databases created in older versions of
+notmuch, these tags are missing in pre-existing messages and need to be
+added.  One way to do this is as follows:
 
-                           $ notmuch dump ~/out.nm
-                           $ mv ~/Mail/.notmuch ~/.notmuch.bak
-                           $ notmuch new
-                           $ notmuch tag -inbox -unread '*'
-                           $ notmuch restore --accumulate ~/out.nm
+                         $ notmuch dump ~/out.nm
+                         $ mv ~/Mail/.notmuch ~/.notmuch.bak
+                         $ notmuch new
+                         $ notmuch tag -inbox -unread '*'
+                         $ notmuch restore --accumulate ~/out.nm
 
-  At this point, one should run a sanity check on the tags, and if everything
-  has merged correctly, the ~/.notmuch.bak directory is expendable, as is
-  ~/out.nm.
+At this point, one should run a sanity check on the tags, and if everything
+has merged correctly, the ~/.notmuch.bak directory is expendable, as is
+~/out.nm.
 
-* <span id="nbox">**Dealing with mbox and other formats**</span>
+## <span id="nbox">**Dealing with mbox and other formats**</span>
 
-  notmuch by itself is unable to handle non-maildir mail archives.  One tool
-  to solve this is called mb2md.  Assuming an mbox in ~/test.mbox and ones
-  mail archives to be in ~/Mail, an invocation would look like
+notmuch by itself is unable to handle non-maildir mail archives.  One tool
+to solve this is called mb2md.  Assuming an mbox in ~/test.mbox and ones
+mail archives to be in ~/Mail, an invocation would look like
 
-                           $ mb2md -s ~/test.mbox -d ~/Mail/mynewmaildirname
+                         $ mb2md -s ~/test.mbox -d ~/Mail/mynewmaildirname
 
-  Note that specifying the paths for -s and -d is necessary.  This will create
-  a new maildir in ~/Mail/mynewmaildirname from the mbox at ~/test.mbox.
+Note that specifying the paths for -s and -d is necessary.  This will create
+a new maildir in ~/Mail/mynewmaildirname from the mbox at ~/test.mbox.
 
-  Often the formats are more convoluted, however.  Many lists provide an
-  almost-but-not-quite-mbox format that mailman produces, as can be seen, for
-  example, [here](http://lists.xapian.org/pipermail/xapian-devel/).  These
-  files can be converted with some degree of success to mbox using the script
-  found
-  [here](http://www.hermann-uwe.de/blog/converting-mailman-gzipd-text-archive-files-to-proper-mbox-files),
-  and from mbox to maildir as above.
+Often the formats are more convoluted, however.  Many lists provide an
+almost-but-not-quite-mbox format that mailman produces, as can be seen, for
+example, [here](http://lists.xapian.org/pipermail/xapian-devel/).  These
+files can be converted with some degree of success to mbox using the script
+found
+[here](http://www.hermann-uwe.de/blog/converting-mailman-gzipd-text-archive-files-to-proper-mbox-files),
+and from mbox to maildir as above.
 
-  However, many of these lists also have a gmane version, which, where it
-  exists, achieves far better results than dealing with the messy mailman
-  output.  Using the instructions from [Gmane's
-  site](http://gmane.org/export.php), we can download an mbox file, which we
-  can then convert to maildir using mb2md or other utility.
+However, many of these lists also have a gmane version, which, where it
+exists, achieves far better results than dealing with the messy mailman
+output.  Using the instructions from [Gmane's
+site](http://gmane.org/export.php), we can download an mbox file, which we
+can then convert to maildir using mb2md or other utility.
 
-* <span id="special_tags">**Take advantage of tags that are special to notmuch**</span>
+## <span id="special_tags">**Take advantage of tags that are special to notmuch**</span>
 
-  See [[tags special to notmuch|special-tags]].
+See [[tags special to notmuch|special-tags]].
