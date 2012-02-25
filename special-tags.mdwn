@@ -22,8 +22,9 @@ corresponding maildir flags through the following lib function calls:
  - `notmuch_message_maildir_flags_to_tags()`
  - `notmuch_message_tags_to_maildir_flags()`
 
-The cli calls the above functions in "notmuch new" if the
-maildir.synchronize_flags configuration option is enabled.
+The cli calls the above functions if the maildir.synchronize_flags configuration
+option is enabled. Maildir flags are synchronized to tags in "notmuch new", and
+tags are synchronized to maildir flags in "notmuch tag" and "notmuch restore".
 
 (*) The "deleted" tag is not synced to maildir T flag at the moment, but it may
 be in the future.
