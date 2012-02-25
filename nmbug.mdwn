@@ -85,7 +85,8 @@ Initially any patch should be tagged:
 
     notmuch::patch
 
-Patches that are for discussion, rather than proposed for master should be tagged:
+Patches that are for discussion, rather than proposed for master
+should also be tagged:
 
     notmuch::wip                is "work in progress", posted for review or comment.
 
@@ -147,6 +148,9 @@ You might or might not want as many exclusions.  Another interesting
 search is:
 
     tag:notmuch::reviewed and not tag:notmuch::pushed
+
+See the [[status|http://nmbug.tethera.net/status]] page for more
+example searches.
 
 ## Design notes
 
