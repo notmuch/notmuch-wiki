@@ -197,6 +197,33 @@ And version for notmuch 0.12 (not released yet)
               (if (member "deleted" (notmuch-show-get-tags))
                   "-deleted" "+deleted"))))
 
+## Adding many tagging keybindings
+
+If you want to have have many tagging keybindings, you can save the typing
+the few lines of  boilerplate for every binding.
+
+    (eval-after-load 'notmuch-show
+      '(define-key notmuch-show-mode-map "`" 'notmuch-show-apply-tag-macro))
+
+    (setq notmuch-show-tag-macro-alist
+      (list
+       '("m" "+notmuch::patch" "+notmuch::moreinfo" "-notmuch::needs-review")
+       '("n" "+notmuch::patch" "+notmuch::needs-review" "-notmuch::pushed")
+       '("o" "+notmuch::patch" "+notmuch::obsolete"
+             "-notmuch::needs-review" "-notmuch::moreinfo")
+       '("p" "-notmuch::pushed" "-notmuch::needs-review"
+         "-notmuch::moreinfo" "+pending")
+       '("P" "-pending" "-notmuch::needs-review" "-notmuch::moreinfo" "+notmuch::pushed")
+       '("r" "-notmuch::patch" "+notmuch::review")
+       '("s" "+notmuch::patch" "-notmuch::obsolete" "-notmuch::needs-review" "-notmuch::moreinfo" "+notmuch::stale")
+       '("t" "+notmuch::patch" "-notmuch::needs-review" "+notmuch::trivial")
+       '("w" "+notmuch::patch" "+notmuch::wip" "-notmuch::needs-review")))
+
+    (defun notmuch-show-apply-tag-macro (key)
+      (interactive "k")
+      (let ((macro (assoc key notmuch-show-tag-macro-alist)))
+        (apply 'notmuch-show-tag-message (cdr macro))))
+
 ## Restore reply-to-all key binding to 'r'
 
 Starting from notmuch 0.12 the 'r' key is bound to reply-to-sender instead of
