@@ -200,7 +200,8 @@ And version for notmuch 0.12 (not released yet)
 ## Adding many tagging keybindings
 
 If you want to have have many tagging keybindings, you can save the typing
-the few lines of  boilerplate for every binding.
+the few lines of  boilerplate for every binding (for versions before 0.12,
+you will need to change notmuch-show-apply-tag-macro).
 
     (eval-after-load 'notmuch-show
       '(define-key notmuch-show-mode-map "`" 'notmuch-show-apply-tag-macro))
