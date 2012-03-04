@@ -1,0 +1,169 @@
+# Searching with notmuch
+
+What good is an advanced indexing mail client if we don't know how to 
+use it to actually find e-mail?
+
+As notmuch is using Xapian
+[this page](http://xapian.org/docs/queryparser.html) is a good start. 
+However, the description is generic (applies to Xapian in general) and 
+its intended audience seems to be developers wanting to use Xapian in 
+their applications. This page attempts to explain it to users of notmuch (who 
+may not be familiar with Xapian). 'notmuch help search-terms' also has a few 
+pointers.
+
+## Stemming
+
+See the [Wikipedia article](http://en.wikipedia.org/wiki/Stemming) for 
+the detailed description. What this means for us is that these searches
+
+    notmuch search detailed
+    notmuch search details
+    notmuch search detail
+    
+will all return identical results, because Xapian first "reduces" the 
+term to the common stem (here 'detail') and then performs the search.
+
+The only way to turn this off is the so called search for proper names: 
+a search for a capitalized word will be performed unstemmed, so that one 
+can search for "John" and not get results for "Johnson".
+
+### Languages other than English
+
+Stemming is currently only supported for English. Words in other 
+languages will be performed unstemmed unless somebody teaches Xapian how 
+to perform stemming for that language.
+
+## Synonyms
+
+(how is the QueryParser configured?)
+
+## Wildcards
+
+It is possible to use a trailing '\*' as a wildcard. A search for 
+'wildc\*' will match 'wildcard', 'wildcat', etc.
+
+## Operators
+
+Xapian implements the typical usual operators and a few more that are 
+useful when searching e-mails.
+
+*Note: The operators need not be capitalized for notmuch, so NOT and not are 
+equivalent. The capitalized form is used below only for readability*
+
+### '+' and '-'
+
+    notmuch search +term1
+
+will return results that contain 'term1'.
+
+    notmuch search -term2
+
+will return results that do not contain 'term2'. '+' and '-' can also be 
+used on bracketed expressions or phrases (see below).
+
+### AND and NOT
+
+notmuch search term1 AND term2
+
+will return results that contain **both** 'term1' and 'term2'.
+
+If no explicit operator is provided all search terms are connected by an 
+implicit AND, so these two searches:
+
+    notmuch search term1 AND term2
+    notmuch search term1 term2
+
+are equivalent.
+
+    notmuch search term1 NOT term2
+
+will return results that contain 'term1' but do not contain 'term2'. For
+a query that looks more like natural language you can also use AND NOT
+
+    notmuch search term1 AND NOT term2
+
+### XOR (exclusive OR)
+
+    notmuch search term1 XOR term2
+
+will return results that contain either 'term1' or 'term2', but **not**
+both.
+
+### OR
+
+    notmuch search term1 OR term2
+
+will return results that contain either 'term1' or 'term2'.
+
+### Brackets
+
+Operators above are listed in the default order of precedence. One can
+override the precedence using bracketed expressions:
+
+    notmuch search term1 AND term2 OR term3
+
+is the same as
+
+    notmuch search (term1 AND term2) OR term3
+
+but not the same as
+
+    notmuch search term1 AND (term2 OR term3)
+
+### NEAR
+
+    notmuch search term1 NEAR term2
+
+will return results where term1 is within 10 words of term2. The threshold 
+can be set like this:
+
+    notmuch search term1 NEAR/2 term2
+
+### ADJ (adjacent)
+
+notmuch search term1 ADJ term2
+
+will return results where term1 is within 10 words of term2, but in the 
+same order. The threshold can be set the same as with NEAR:
+
+    notmuch search term1 ADJ/7 term2
+
+### Phrases
+
+According to the Xapian documentation a phrase surrounded with double 
+quotes (like this: "my phrase") will return results that match 
+everything containing "that exact phrase", but hyphenated words or 
+e-mail addresses are also treated as phrases.
+
+In practice this means that these two searches are **not** equivalent:
+
+    notmuch search "Debian Project"
+    notmuch search Debian ADJ/1 Project
+
+## Prefix searches
+
+You can search your collection by using several prefixes, like this:
+
+    notmuch search from:john
+
+This will return results where 'john' appears in the name or the e-mail 
+address. See 'notmuch help search-terms' for a complete list of 
+prefixes.
+
+## Range searches
+
+Since notmuch is about (large) e-mail collections it is very useful to 
+be able to search for e-mails within a specific date range. This will 
+work:
+
+    notmuch search <initial timestamp>..<final-timestamp>
+
+However, until a better syntax is implemented the only form accepted for 
+timestamps is Unix time (seconds since 1970-01-01 00:00:00 UTC), so the 
+utility 'date' can help:
+
+    notmuch search $(date +%s -d 2009-10-01)..$(date +%s)
+
+Explanation: '+%s' will tell date to output Unix time format and -d will 
+tell date to output the date from 2009-10-01. See date(1) for more 
+details.
