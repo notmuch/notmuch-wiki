@@ -44,17 +44,17 @@ It is possible to use a trailing '\*' as a wildcard. A search for
 
 ## Operators
 
-Xapian implements the typical usual operators and a few more that are 
+Xapian implements the usual operators and a few more that are 
 useful when searching e-mails.
 
-*Note: The operators need not be capitalized for notmuch, so NOT and not are 
+*Note: The operators need not be capitalized for notmuch, so 'NOT' and 'not' are 
 equivalent. The capitalized form is used below only for readability*
 
 ### '+' and '-'
 
     notmuch search +term1
 
-will return results that contain 'term1'.
+will only return results that contain 'term1'.
 
     notmuch search -term2
 
@@ -124,7 +124,7 @@ can be set like this:
 notmuch search term1 ADJ term2
 
 will return results where term1 is within 10 words of term2, but in the 
-same order. The threshold can be set the same as with NEAR:
+same order as in the query. The threshold can be set the same as with NEAR:
 
     notmuch search term1 ADJ/7 term2
 
