@@ -49,7 +49,7 @@ Emacs Interface
   All tagging operations ('+', '-', '`*`') now accept multiple tags with
   '+' or '-' prefix, like '`*`' operation in notmuch-search view before.
 
-  `*` operation (`notmuch-show-tag-all`) is now available in
+  '`*`' operation (`notmuch-show-tag-all`) is now available in
   notmuch-show view.
 
   `notmuch-show-{add,remove}-tag` functions no longer accept tag
