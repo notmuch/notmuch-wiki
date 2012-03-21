@@ -17,7 +17,7 @@ Command-Line Interface
 
   A new configuration option, `new.ignore`, lets users specify a
   ;-separated list of file and directory names that will not be
-  searched for messages by "notmuch new".
+  searched for messages by `notmuch new`.
 
   NOTE: *Every* file/directory that goes by one of those names will
   be ignored, independent of its depth/location in the mail store.
@@ -46,14 +46,14 @@ Emacs Interface
 
 ### More flexible and consistent tagging operations
 
-  All tagging operations ("+", "-", "*") now accept multiple tags with
-  "+" or "-" prefix, like "*" operation in notmuch-search view before.
+  All tagging operations ('+', '-', '*') now accept multiple tags with
+  '+' or '-' prefix, like '*' operation in notmuch-search view before.
 
-  "*" operation (`notmuch-show-tag-all`) is now available in
+  '*' operation (`notmuch-show-tag-all`) is now available in
   notmuch-show view.
 
   `notmuch-show-{add,remove}-tag` functions no longer accept tag
-  argument, `notmuch-show-tag-message' should be used instead.  Custom
+  argument, `notmuch-show-tag-message` should be used instead.  Custom
   bindings using these functions should be updated, e.g.:
 
         (notmuch-show-remove-tag "unread")
@@ -65,7 +65,7 @@ Emacs Interface
 ### Refreshing the show view ('=' by default) no longer opens or closes messages
 
   To get the old behavior of putting messages back in their initial
-  opened/closed state, use a prefix argument, e.g., C-u =.
+  opened/closed state, use a prefix argument, e.g., 'C-u ='.
 
 Attachment buttons can be used to view or save attachments.
 
