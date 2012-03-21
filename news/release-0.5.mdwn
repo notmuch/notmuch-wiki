@@ -8,9 +8,9 @@ New, general features
 
 ### Maildir-flag synchronization
 
-  Notmuch now knows how to synchronize flags in maildir filenames with
-  tags in the notmuch database. The following flag/tag mappings are
-  supported:
+Notmuch now knows how to synchronize flags in maildir filenames with
+tags in the notmuch database. The following flag/tag mappings are
+supported:
 
         Flag <-> Tag
         ----     -----
@@ -20,85 +20,85 @@ New, general features
         'R'      replied
         'S'      unread (added when 'S' flag is not present)
 
-  The synchronization occurs in both directions, (for example, adding
-  the 'S' flag to a file will cause the "unread" tag to be added, and
-  adding the "replied" tag to a message will cause the file to be
-  renamed with an 'R' flag).
+The synchronization occurs in both directions, (for example, adding
+the 'S' flag to a file will cause the "unread" tag to be added, and
+adding the "replied" tag to a message will cause the file to be
+renamed with an 'R' flag).
 
-  This synchronization is enabled by default for users of the
-  command-line interface, (though only files in directories named
-  "cur" or "new" will be renamed). It can be disabled by setting the
-  new `maildir.synchronize_flags` option in the configuration file. For
-  example:
+This synchronization is enabled by default for users of the
+command-line interface, (though only files in directories named
+"cur" or "new" will be renamed). It can be disabled by setting the
+new `maildir.synchronize_flags` option in the configuration file. For
+example:
 
         notmuch config set maildir.synchronize_flags false
 
-  Users upgrading may also want to run "notmuch setup" once (just
-  accept the existing configuration) to get a new, nicely-commented
-  [maildir] section added to the configuration file.
+Users upgrading may also want to run "notmuch setup" once (just
+accept the existing configuration) to get a new, nicely-commented
+[maildir] section added to the configuration file.
 
-  For users of the notmuch library, the new synchronization
-  functionality is available with the following two new functions:
+For users of the notmuch library, the new synchronization
+functionality is available with the following two new functions:
 
         notmuch_message_maildir_flags_to_tags
         notmuch_message_tags_to_maildir_flags
 
-  It is anticipated that future improvements to this support will
-  allow for safe synchronization of the 'T' flag with the "deleted"
-  tag, as well as support for custom flag/tag mappings.
+It is anticipated that future improvements to this support will
+allow for safe synchronization of the 'T' flag with the "deleted"
+tag, as well as support for custom flag/tag mappings.
 
 New library features
 --------------------
 
 ### Support for querying multiple filenames for a single message
 
-  It is common for the mailstore to contain multiple files with the
-  same message ID. Previously, notmuch would always hide these
-  duplicate files, (returning a single, arbitrary filename with
-  `notmuch_message_get_filename`).
+It is common for the mailstore to contain multiple files with the
+same message ID. Previously, notmuch would always hide these
+duplicate files, (returning a single, arbitrary filename with
+`notmuch_message_get_filename`).
 
-  With this release, library users can access all filenames for a
-  message with the new function:
+With this release, library users can access all filenames for a
+message with the new function:
 
         notmuch_message_get_filenames
 
-  Together with `notmuch_filenames_valid`, `notmuch_filenames_get`,
-  and `notmuch_filenames_move_to_next` it is now possible to iterate
-  over all available filenames for a given message.
+Together with `notmuch_filenames_valid`, `notmuch_filenames_get`,
+and `notmuch_filenames_move_to_next` it is now possible to iterate
+over all available filenames for a given message.
 
 New command-line features
 -------------------------
 
 ### New "notmuch show --format=raw" for getting at original email contents
 
-  This new feature allows for a fully-functional email client to be
-  built on top of the notmuch command-line without needing any direct
-  access to the mail store itself.
+This new feature allows for a fully-functional email client to be
+built on top of the notmuch command-line without needing any direct
+access to the mail store itself.
 
-  For example, it's now possible to run "emacs -f notmuch" on a local
-  machine with only ssh access to the mail store/notmuch database. To
-  do this, simply set the notmuch-command variable in emacs to the
-  name of a script containing:
+For example, it's now possible to run "emacs -f notmuch" on a local
+machine with only ssh access to the mail store/notmuch database. To
+do this, simply set the notmuch-command variable in emacs to the
+name of a script containing:
 
         ssh user@host notmuch "$@"
 
-  If the ssh client has enabled connection sharing (ControlMaster
-  option in OpenSSH), the emacs interface can be quite responsive this
-  way.
+If the ssh client has enabled connection sharing (ControlMaster
+option in OpenSSH), the emacs interface can be quite responsive this
+way.
 
 General bug fixes
 -----------------
 
 ### Fix "notmuch search" to print nothing when nothing matches
 
-  The 0.4 release had a bug in which:
+The 0.4 release had a bug in which:
 
         notmuch search <expression-with-no-matches>
 
-  would produce a single blank line of output, (where previous
-  versions would produce no output. This fix also causes a change in
-  the --format=json output, (which would previously produce "[]" and
-  now produces nothing).
+would produce a single blank line of output, (where previous
+versions would produce no output. This fix also causes a change in
+the --format=json output, (which would previously produce "[]" and
+now produces nothing).
 
 Emacs interface improvements
 ----------------------------
@@ -115,22 +115,22 @@ Emacs interface improvements
 
 ### Allow for notmuch-fcc-dirs to have a value of nil
 
-  Also, the more complex form of notmuch-fcc-dirs now has a slightly
-  different format. It no longer has a special first-element, fallback
-  string. Instead it's now a list of cons cells where the car of each
-  cell is a regular expression to be matched against the sender
-  address, and the cdr is the name of a folder to use for an FCC. So
-  the old fallback behavior can be achieved by including a final cell
-  of (".*" . "default-fcc-folder").
+Also, the more complex form of notmuch-fcc-dirs now has a slightly
+different format. It no longer has a special first-element, fallback
+string. Instead it's now a list of cons cells where the car of each
+cell is a regular expression to be matched against the sender
+address, and the cdr is the name of a folder to use for an FCC. So
+the old fallback behavior can be achieved by including a final cell
+of (".*" . "default-fcc-folder").
 
 Vim interface improvements
 --------------------------
 
 ### Felipe Contreras provided a number of updates for the vim interface
 
-  These include optimizations, support for newer versions of vim, fixed
-  support for sending mail on modern systems, new commands, and
-  various cleanups.
+These include optimizations, support for newer versions of vim, fixed
+support for sending mail on modern systems, new commands, and
+various cleanups.
 
 New bindings
 ------------

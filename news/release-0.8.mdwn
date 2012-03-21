@@ -5,21 +5,21 @@ Notmuch 0.8 (2011-09-10)
 
 ### Improved handling of message/rfc822 parts
 
-  Both in the CLI and the emacs interface.  Output of rfc822 parts now
-  includes the primary headers, as well as the body and all subparts.
-  Output of the completely raw rfc822-formatted message, including all
-  headers, is unfortunately not yet supported (but hopefully will be
-  soon).
+Both in the CLI and the emacs interface.  Output of rfc822 parts now
+includes the primary headers, as well as the body and all subparts.
+Output of the completely raw rfc822-formatted message, including all
+headers, is unfortunately not yet supported (but hopefully will be
+soon).
 
 ### Improved Build system portability
 
-  Certain parts of the shell script generating notmuch.sym were
-  specific to the GNU versions of sed and nm. The new version should
-  be more portable to e.g. OpenBSD.
+Certain parts of the shell script generating notmuch.sym were
+specific to the GNU versions of sed and nm. The new version should
+be more portable to e.g. OpenBSD.
 
 ### Documentation update for Ruby bindings
 
-  Added documentation, typo fixes, and improved support for rdoc.
+Added documentation, typo fixes, and improved support for rdoc.
 
 ### Unicode, iterator, PEP8 changes for python bindings
 

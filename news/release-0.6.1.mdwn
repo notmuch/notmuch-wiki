@@ -8,5 +8,5 @@ Bug-fix release
 
 ### Re-export Xapian exception typeinfo symbols
 
-  It turned out our aggressive symbol hiding caused problems for
-  people running gcc 4.4.5.
+It turned out our aggressive symbol hiding caused problems for
+people running gcc 4.4.5.

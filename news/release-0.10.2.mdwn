@@ -8,5 +8,5 @@ Bug-fix release
 
 ### Fix crash in python bindings
 
-  The python bindings did not call `g_type_init`, which caused crashes
-  for some, but not all users.
+The python bindings did not call `g_type_init`, which caused crashes
+for some, but not all users.
