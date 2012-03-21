@@ -46,8 +46,8 @@ Emacs Interface
 
 ### More flexible and consistent tagging operations
 
-  All tagging operations ('+', '-', `*`) now accept multiple tags with
-  '+' or '-' prefix, like `*` operation in notmuch-search view before.
+  All tagging operations ('+', '-', '`*`') now accept multiple tags with
+  '+' or '-' prefix, like '`*`' operation in notmuch-search view before.
 
   `*` operation (`notmuch-show-tag-all`) is now available in
   notmuch-show view.
