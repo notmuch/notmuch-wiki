@@ -99,6 +99,7 @@ The status of current patches can also be followed [[online|http://nmbug.tethera
 
 * [Debian](http://packages.debian.org/search?keywords=notmuch), [Ubuntu](http://packages.ubuntu.com/search?keywords=notmuch)
 * [Slackware](http://slackbuilds.org/repository/13.37/office/notmuch/)
+* [Fedora](https://community.dev.fedoraproject.org/packages/notmuch)
 
 ## Screenshots
 
