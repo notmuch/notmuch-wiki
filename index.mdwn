@@ -57,9 +57,11 @@ docs:
 
   * [[General how-tos|howto]]
   * [[Available frontends|frontends]]
-  * [[Initial_Tagging]]
+  * [[Searching]]
+  * [[Excluding and deleting messages|excluding]]
+  * [[Initial tagging|Initial_Tagging]]
   * [[Tips for using notmuch within Emacs|emacstips]]
-  * [[Remote Usage|remoteusage]]
+  * [[Remote usage|remoteusage]]
   * [[Performance|performance]]
 
 Apart from the wiki, help is available via email.  Join the mailing
