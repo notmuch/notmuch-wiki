@@ -1,5 +1,4 @@
-[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
-#How to...
+# How to...
 
 Some tips about how to do some useful things with notmuch, and the
 various "third party" notmuch utilities.
@@ -8,11 +7,17 @@ various "third party" notmuch utilities.
 
 ## <span id="receive_mail">**Receive mail**</span>
 
-Notmuch requires either [maildir
-flag](http://cr.yp.to/proto/maildir.html) or a "mh"-style
-maildirectory to operate on.  Basically any setup in which each mail
-is in a file of its own will work.  Here are some generally
-well-regarded mail retrieval tools:
+Notmuch does not fetch mail for you.  For that, you need to use an
+external mail syncing utility.  Some recommended utilities are listed
+below.
+
+Notmuch requires that every individual message be in it's own file.
+The well-supported [maildir](http://cr.yp.to/proto/maildir.html) or
+"mh"-style storage formats are compatible with notmuch.  Basically any
+setup in which each mail is in a file of its own will work.  The older
+mbox mail store formats is not supported, but fortunately it is very
+easy to [[convert mbox to maildir|howto/#mbox]] .  The following
+utilities support these formats:
 
 * [offlineimap](https://github.com/nicolas33/offlineimap/) -
   quite useful and widely tested, it also offers a handy hook that
@@ -28,13 +33,32 @@ well-regarded mail retrieval tools:
 
 * [fetchmail](http://fetchmail.berlios.de/)
 
-See the [[initial_tagging]] page for more info on initial tagging of messages.
+See the [[initial_tagging]] page for more info on initial tagging of
+messages.
+
+## <span id="sync_maildir_flags">**Sync notmuch tags and maildir flags**</span>
+
+notmuch has (since version 0.5) the ability to sync IMAP maildir flags
+and respective tags in both directions.  This feature is not enabled
+by default, but it is simple to enable it with the 'notmuch config'
+command:
+
+        $ notmuch config set maildir.synchronize_flags true
+
+
+For more information on maildir flags see the
+[maildir page](http://cr.yp.to/proto/maildir.html).
+
+For safety reasons, and because
+[[notmuch does not support delete operations|deleting]], notmuch does
+not sync the "trashed" flag.  For discussion on this topic please
+refer to the mailing list.
 
 ## <span id="python">**Use notmuch from python**</span>
 
-Notmuch includes python bindings to the notmuch shared
-library. Extensive API documentation [is
-available](http://notmuch.readthedocs.org/).
+Notmuch includes python bindings to the notmuch shared library. Please
+refer to the nice and extensive
+[notmuch python API documentation](http://notmuch.readthedocs.org/).
 
 The bindings are very simple to use.  As an example, given you have
 the python bindings installed (or simply set your PYTHONPATH
@@ -47,35 +71,6 @@ expression:
         >>> query = db.create_query('tag:inbox AND NOT tag:killed')
         >>> list(query.search_messages()) # doctest:+ELLIPSIS
         [...]
-
-## <span id="sync_maildir_flags">**Sync notmuch tags and maildir flags**</span>
-
-notmuch **since version 0.5** syncs maildir flags and respective
-tags in both directions. This part applies only to notmuch prior to
-version 0.5 (but please consider updating to a more recent version
-of notmuch; in addition to maildir tag syncing, it contains many
-useful new features, and several important bug fixes):
-
-Some IMAP users rely on maildir flags that convey the status "seen",
-"replied", "trashed", in order to synchronize the status of their
-mail across mail clients (a [maildir
-flag](http://cr.yp.to/proto/maildir.html) is simply a defined part
-of their filename).  Notmuch will by default happily ignore those
-flags and will never modify them either, as there is no built-in
-support for synchronizing your notmuch tags with your imap maildir
-flags (seen, replied, trashed, etc). However there are currently 2
-ways in which you can achieve synchronization.
-
-[notmuchsync](http://spaetz.github.com/notmuchsync/) is a utility
-(based on the cnotmuch python bindings) that allows synchronization
-in either direction, as well as pruning of deleted files.
-
-The second solution allows for fast maildir flag to notmuch tag
-synchronization (and only in that direction) requires patching the
-notmuch source code. The patch has been posted in this mail
-*id:1267450136-31749-1-git-send-email-Sebastian@SSpaeth.de* and can
-be viewed as a [source diff in this git
-repository](http://github.com/spaetz/notmuch-all-feature/commit/df3b087cefb85e9d16fd17540e348bcb854dd7ee).
 
 ## <span id="print_filenames">**Using notmuch with Mutt**</span>
 
@@ -115,10 +110,10 @@ There are two principal possibilities, each with its own ups and downs:
   blog post for instructions and details,
   or simply put these two macros to your muttrc:
 
-                         # 'L' performs a notmuch query, showing only the results
-                         macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
-                         # 'a' shows all messages again (supersedes default <alias> binding)
-                         macro index a "<limit>all\n" "show all messages (undo limit)"
+        # 'L' performs a notmuch query, showing only the results
+        macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
+        # 'a' shows all messages again (supersedes default <alias> binding)
+        macro index a "<limit>all\n" "show all messages (undo limit)"
 
   The upside (if you are used to working in the context of a single folder)
   is that this really does use the limit functionality of mutt
@@ -135,23 +130,23 @@ However, for users running with databases created in older versions of
 notmuch, these tags are missing in pre-existing messages and need to be
 added.  One way to do this is as follows:
 
-                         $ notmuch dump ~/out.nm
-                         $ mv ~/Mail/.notmuch ~/.notmuch.bak
-                         $ notmuch new
-                         $ notmuch tag -inbox -unread '*'
-                         $ notmuch restore --accumulate ~/out.nm
+        $ notmuch dump ~/out.nm
+        $ mv ~/Mail/.notmuch ~/.notmuch.bak
+        $ notmuch new
+        $ notmuch tag -inbox -unread '*'
+        $ notmuch restore --accumulate ~/out.nm
 
 At this point, one should run a sanity check on the tags, and if everything
 has merged correctly, the ~/.notmuch.bak directory is expendable, as is
 ~/out.nm.
 
-## <span id="nbox">**Dealing with mbox and other formats**</span>
+## <span id="mbox">**Dealing with mbox and other formats**</span>
 
 notmuch by itself is unable to handle non-maildir mail archives.  One tool
 to solve this is called mb2md.  Assuming an mbox in ~/test.mbox and ones
 mail archives to be in ~/Mail, an invocation would look like
 
-                         $ mb2md -s ~/test.mbox -d ~/Mail/mynewmaildirname
+        $ mb2md -s ~/test.mbox -d ~/Mail/mynewmaildirname
 
 Note that specifying the paths for -s and -d is necessary.  This will create
 a new maildir in ~/Mail/mynewmaildirname from the mbox at ~/test.mbox.
