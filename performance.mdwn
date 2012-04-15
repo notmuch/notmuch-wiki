@@ -100,18 +100,3 @@ Remove old and renamed compacted, if compacting went well:
 * [Sebastian Spaeth](http://notmuchmail.org/pipermail/notmuch/2011/004048.html)
 
 * [Pieter Praet](http://notmuchmail.org/pipermail/notmuch/2011/004175.html)
-
-
-## Tagging: use filters!
-
-Instead of just:
-
-    $ notmuch tag +foo
-
-use:
-
-    $ notmuch tag +foo -- not tag:foo
-
-See the ongoing discussion:
-
-* [Optimization for notmuch tag by implicit filters](http://notmuchmail.org/pipermail/notmuch/2011/004197.html)
