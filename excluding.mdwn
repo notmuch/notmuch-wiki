@@ -8,14 +8,14 @@ notmuch does not support, nor ever will, the deleting of messages,
 notmuch has a couple of nice features that allow users to handle
 excluding unwanted messages in a sensible way.
 
-## <span id="exclude>**message exclusion**</span>
+## <span id="exclude">**message exclusion**</span>
 
 Notmuch has the ability to exclude message with certain tags from
 search results.  A common usage is to exclude "deleted" or "spam"
 messages so that they don't clutter your search results.  To enable
 excludes, use the config utility:
 
-	$ notmuch config set search.exclude_tags deleted spam
+        $ notmuch config set search.exclude_tags deleted spam
 
 This will cause messages with the "deleted" or "spam" tags to be
 excluded from search results.
@@ -23,7 +23,7 @@ excluded from search results.
 It is still possible to find messages with excluded tags, though, by
 manually including the excluded tag in your search:
 
-	$ notmuch search from:foo and tag:spam
+	    $ notmuch search from:foo and tag:spam
 
 This will find messages from "foo" with the tag "spam", even though
 "spam" is an excluded tag.
@@ -35,7 +35,7 @@ associated with specific search terms using the "file" output format
 of notmuch search.  To find all message files associated with the tag
 "foo" rung:
 
-	$ notmuch search --output=files tag:foo
+	    $ notmuch search --output=files tag:foo
 
 This will output the paths to all message files with "tag:foo", one
 per line.
@@ -43,35 +43,35 @@ per line.
 This is useful in a number of different ways.  For instance, it could
 be used to train a spam filter:
 
-	$ notmuch search --output=files tag:spam | sa-learn -f -
+	    $ notmuch search --output=files tag:spam | sa-learn -f -
 
 It can also be used to purge mail files from disk:
 
-	$ notmuch search --output=files tag:deleted | xargs -l rm
+	    $ notmuch search --output=files tag:deleted | xargs -l rm
 
 Make sure you run "notmuch new" after the last command so the database
 becomes aware that the files have been removed and can remove the
 corresponding entries from the index.
 
-## <span id="recipe>**putting it all together**</span>
+## <span id="recipe">**putting it all together**</span>
 
 So if you want to add message deletion to your work flow, here's a
 procedure:
 
 * Add exclusion for messages with the "deleted" tag:
 
-	$ notmuch config set search.exclude_tags deleted
+	    $ notmuch config set search.exclude_tags deleted
 
 * Add a key binding to your favorite ui to add a "deleted" tag to
   messages that you want to delete.  In [[emacs|emacstips]] that might
   be:
 
-	(define-key notmuch-show-mode-map "d"
-	  (lambda ()
-	  	(interactive)
-		(notmuch-show-tag "+deleted")))
+        (define-key notmuch-show-mode-map "d"
+          (lambda ()
+            (interactive)
+              (notmuch-show-tag "+deleted")))
 
 * And, finally, if you _really_ want the messages purged from disk,
   you can delete them manually with:
 
-	$ notmuch search --output=files tag:deleted | xargs -l rm
+       $ notmuch search --output=files tag:deleted | xargs -l rm
