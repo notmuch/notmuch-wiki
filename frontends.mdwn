@@ -1,8 +1,9 @@
 # Available frontends
 
 * notmuch-cli, the CLI bindings provided with notmuch.
-* notmuch-emacs, the Emacs frontend which ships with notmuch.
+* [[notmuch-emacs|emacstips]], the Emacs frontend which ships with notmuch.
 * notmuch-vim, the vim frontend which ships with notmuch.
+* notmuch-mutt, mutt interoperability that ships with notmuch.
 * [ner](http://the-ner.org/), a curses frontend written in C.
 * [bower](https://github.com/wangp/bower), a curses frontend written in [Mercury](http://www.cs.mu.oz.au/research/mercury/).
 * [alot](https://github.com/pazz/alot), a curses frontend written in Python with the [Urwid](http://excess.org/urwid/) toolkit.
