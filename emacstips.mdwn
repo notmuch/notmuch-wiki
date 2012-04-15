@@ -1,13 +1,12 @@
-<!-- -*- mode: text; indent-tabs-mode: nil -*- -->
+# Tips and Tricks for using notmuch with Emacs
 
-[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
-#Tips and Tricks for using notmuch with Emacs
+One of the more popular notmuch message reading clients is
+**notmuch.el**, an [emacs](http://www.gnu.org/software/emacs/) major
+mode for interacting with notmuch.  It is included in the notmuch
+package.  This page goes over some usage tips for using notmuch with
+Emacs.
 
 [[!toc levels=2]]
-
-The main Notmuch message reading client is **notmuch.el**, which is an
-[emacs](http://www.gnu.org/software/emacs/) major mode, and is
-included in the notmuch package.
 
 ## Setup
 
