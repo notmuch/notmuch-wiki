@@ -161,7 +161,8 @@ the above needs to be changed to this:
 You can do the same for threads in `notmuch-search-mode` by just
 replacing "show" with "search" in the called functions.
 
-(Starting from notmuch 0.12 use `notmuch-search-tag-thread` instead)
+(Starting from notmuch 0.12 use `notmuch-search-tag-thread` instead,
+starting from 0.13 use `notmuch-search-tag`).
 
 The definition above makes use of a lambda function, but you could
 also define a separate function first:
