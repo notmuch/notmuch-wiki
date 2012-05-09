@@ -6,20 +6,16 @@ There is a dump of (some views of) the nmbug [[status|http://nmbug.tethera.net/s
 
 ## Getting started
 
-1. Install and use notmuch version notmuch 0.9+63~gebd1adc or newer and
+1. Install and use notmuch version **0.10** or newer and
    perl module `Pod::Usage` (packaged as `perl-doc` in debian).
 
    The nmbug script is available in `contrib/nmbug`.
 
-2. The current tag repo can be obtained by:
+2. Make sure your `git version` is **1.7.4** or newer. 
+
+3. Enter the following command to obtain the current tag repository:
 
    `$ git clone --bare http://nmbug.tethera.net/git/nmbug-tags.git $HOME/.nmbug`
-
-   Check that your git is recent enough by entering:
-
-   `$ git --git-dir=$HOME/.nmbug fetch`
-
-   If you get failures then you need to update your git (as well).
 
 ## Using nmbug, simple example
 
