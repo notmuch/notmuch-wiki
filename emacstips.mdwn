@@ -104,29 +104,26 @@ is an option to collect those to a separate file (which is only
 loaded when `notmuch` is invoked). To do this, write, for example
 a file called `~/.emacs.d/my-notmuch.el`:
 
-        ;; my-notmuch.el -- my notmuch mail configuration
-        ;;
+        ;;; my-notmuch.el -- my notmuch mail configuration
+        ;;;
         
-        ;; add here stuff required to be configured *before*
-        ;; notmuch is loaded;
+        ;;; add here stuff required to be configured *before*
+        ;;; notmuch is loaded;
 
-        ; uncomment and modify in case some elisp files are not found in load-path
-        ; (add-to-list 'load-path "~/vc/ext/notmuch/emacs")
+        ;; uncomment and modify in case some elisp files are not found in load-path
+        ;; (add-to-list 'load-path "~/vc/ext/notmuch/emacs")
 
-        ;; load notmuch 
+        ;;; load notmuch 
         (require 'notmuch)
 
-        ;; add here stuff required to be configured *after*
-        ;; notmuch is loaded;
+        ;;; add here stuff required to be configured *after*
+        ;;; notmuch is loaded;
 
-        ;(setq user-mail-address (notmuch-user-primary-email)
-        ;      user-full-name (notmuch-user-name))
+        ;; uncomment & modify if you want to use external smtp server to send mail
+        ;; (setq smtpmail-smtp-server "smtp.server.tld"
+        ;;       message-send-mail-function 'message-smtpmail-send-it)
 
-        ; uncomment & modify if you want to use external smtp server to send mail
-        ; (setq smtpmail-smtp-server "smtp.server.tld"
-        ;       message-send-mail-function 'message-smtpmail-send-it)
-
-Then, adto `.emacs`:
+Then, add to `.emacs`:
 
         (autoload 'notmuch "~/.emacs.d/my-notmuch" "notmuch mail" t)
 
@@ -147,10 +144,10 @@ In notmuch versions up to 0.11.x
             (notmuch-show-add-tag "spam")
             (notmuch-show-remove-tag "inbox")))
 
-Starting from notmuch 0.12 (not released yet) the functions 
-`notmuch-show-add-tag` and `notmuch-show-remove-tag` have changed to
-be more versatile and lost noninteractive use. When upgrading to 0.12 
-the above needs to be changed to this:
+Starting from notmuch 0.12 the functions `notmuch-show-add-tag` and 
+`notmuch-show-remove-tag` have changed to be more versatile and lost
+noninteractive use. When upgrading to 0.12 the above needs to be 
+changed to this:
 
         (define-key notmuch-show-mode-map "S"
           (lambda ()
@@ -161,13 +158,27 @@ the above needs to be changed to this:
 You can do the same for threads in `notmuch-search-mode` by just
 replacing "show" with "search" in the called functions.
 
-(Starting from notmuch 0.12 use `notmuch-search-tag-thread` instead,
-starting from 0.13 use `notmuch-search-tag`).
+Starting from notmuch 0.12 use `notmuch-search-tag-thread` instead:
+
+        (define-key notmuch-search-mode-map "S"
+          (lambda ()
+            "mark messages in thread as spam"
+            (interactive)
+            (notmuch-show-tag-thread "+spam" "-inbox")))
+
+Starting from notmuch 0.13 use `notmuch-search-tag` -- it has a little
+different usage syntax:
+
+        (define-key notmuch-search-mode-map "S"
+          (lambda ()
+            "mark messages in thread as spam"
+            (interactive)
+            (notmuch-search-tag '("+spam" "-inbox"))))
 
 The definition above makes use of a lambda function, but you could
 also define a separate function first:
 
-        (defun notmuch-show-tag-spam()
+        (defun notmuch-show-tag-spam ()
           "mark message as spam"
           (interactive)
           (notmuch-show-add-tag "spam")
@@ -187,7 +198,7 @@ key:
                 (notmuch-show-remove-tag "deleted")
               (notmuch-show-add-tag "deleted"))))
 
-And version for notmuch 0.12 (not released yet)
+And version for notmuch 0.12
 
         (define-key notmuch-show-mode-map "d"
           (lambda ()
