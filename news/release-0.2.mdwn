@@ -33,12 +33,12 @@ configured address.
 Previously, it was hard to construct a search term that was
 guaranteed to match all messages.
 
-### Provide a new special-case search term of "*" to match all messages
+### Provide a new special-case search term of "`*`" to match all messages
 
 This can be used in any command accepting a search term, such as
-"notmuch search '*'". Note that you'll want to take care that the
+"notmuch search '`*`'". Note that you'll want to take care that the
 shell doesn't expand * against the current files. And note that the
-support for "*" is a special case. It's only meaningful as a single
+support for "`*`" is a special case. It's only meaningful as a single
 search term and loses its special meaning when combined with any
 other search terms.
 
@@ -98,7 +98,7 @@ notmuch-show-citation-lines-suffix).
 Selective bulk tagging is now possible by selecting a region of
 threads and then using either the '+' or '-' keybindings. Bulk
 tagging is still available for all threads matching the current
-search with the '*' binding.
+search with the '`*`' binding.
 
 ### More meaningful buffer names for thread-view buffers
 
