@@ -139,7 +139,7 @@ test-apply your patch files on origin/master:
             git reset --hard origin/master
             git pull
             git am 00*
-        
+
             git reset --hard `cat head_commit`
             git stash apply
             rm head_commit
