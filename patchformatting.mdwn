@@ -25,15 +25,17 @@ working tree will follow.
 
 Enter your commit message in following format:
 
-      first commit line; one line description, up to 65 chars
+      first commit line; short one line description
       
       After one empty line, a detailed description of your changes
       the description most usually spans over multiple lines.
 
-The 65-character (limit) seems to be common among many projects so
-that is good guideline to follow here too.
+Wrap the lines to about __72__ characters or so. On an 80 column terminal,
+if we subtract 4 columns for the indent on the left and 4 more for
+symmetry on the right, we’re left with __72__ columns.
 
-Regarding the commit message body contents, Carl [has stated](http://article.gmane.org/gmane.mail.notmuch.general/504):
+Regarding the commit message body contents,
+Carl [has stated](http://article.gmane.org/gmane.mail.notmuch.general/504):
 
 > The single line summary is good about saying *what* the commit does,
 > but I always want to see at least one sentence about the *why* as well.
