@@ -114,6 +114,38 @@ you can check with `git log` a 40-char commit-sha1 of the last commit
 every commit *after* that commit-sha1 will be used to generate 
 patch files...
 
+### Test-applying your patches
+
+Sometimes you may face a situation with your patches that you are unsure
+whether those patches apply to the origin. Such a cases might be:
+
+* You've taken your patches from a branch that has some other commits on top of origin.
+
+* You have edited the commit message, comments below commit message or the patch content itself in the patch files generated.
+
+To verify that your patches will apply on top of pristine origin you can 
+test-apply your patch files on origin/master:
+
+* Simple case -- no other changes on top of origin/master
+
+	git reset --hard origin/master
+        git pull
+	git am 00*
+
+* A case where working tree is dirty
+
+	git log -1 --format=%H > head_commit
+	git stash save
+	git reset --hard origin/master
+        git pull
+	git am 00*
+	
+	git reset --hard `cat head_commit`
+	git stash apply
+	rm head_commit
+	git stash drop
+	
+
 ## Sending patches
 
 ### Using git send-email
