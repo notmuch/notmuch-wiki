@@ -25,10 +25,10 @@ working tree will follow.
 
 Enter your commit message in following format:
 
-      first commit line; short one line description
+        first commit line; short one line description
       
-      After one empty line, a detailed description of your changes
-      the description most usually spans over multiple lines.
+        After one empty line, a detailed description of your changes
+        the description most usually spans over multiple lines.
 
 Wrap the lines to about __72__ characters or so. On an 80 column terminal,
 if we subtract 4 columns for the indent on the left and 4 more for
@@ -83,33 +83,33 @@ that your patch achieves what it is meant it to.
 If you've made just one commit (containing just one bugfix or new feature)
 you can run
 
-      git format-patch HEAD^
+        git format-patch HEAD^
 
 This outputs something like
 
-      0001-one-line-description.patch
+        0001-one-line-description.patch
 
 This is the file name of your patch with content:
 
-      From <-40-character-sha1-hexadecimal-string-> Day Mon DD HH:MM:SS YYYY
-      From: user.name <user.email>
-      Date: Day, DD Mon YYYY HH:MM:SS TZOFF
-      Subject: [PATCH] first commit line; one line description, up to 65 chars
+        From <-40-character-sha1-hexadecimal-string-> Day Mon DD HH:MM:SS YYYY
+        From: user.name <user.email>
+        Date: Day, DD Mon YYYY HH:MM:SS TZOFF
+        Subject: [PATCH] first commit line; one line description, up to 65 chars
 
-      after one empty line, a detailed description of your patch
-      the description most usually spans over multiple lines.
-      ---
-       <diffstat lines>
-       nn files changed, nn insertions(+) nn deletions(-)
+        after one empty line, a detailed description of your patch
+        the description most usually spans over multiple lines.
+        ---
+         <diffstat lines>
+         nn files changed, nn insertions(+) nn deletions(-)
 
-      diff --git a/<1st filename> b/<1st filename>
-      ...
+        diff --git a/<1st filename> b/<1st filename>
+        ...
 
 If you have committed more patches, and want to prepare all of those
 you can check with `git log` a 40-char commit-sha1 of the last commit
 *since* you want to generate patch files. When you enter 
 
-      git format-patch <commit-sha1(-prefix)>
+        git format-patch <commit-sha1(-prefix)>
 
 every commit *after* that commit-sha1 will be used to generate 
 patch files...
@@ -128,23 +128,22 @@ test-apply your patch files on origin/master:
 
 * Simple case -- no other changes on top of origin/master
 
-	git reset --hard origin/master
-        git pull
-	git am 00*
+            git reset --hard origin/master
+            git pull
+            git am 00*
 
 * A case where working tree is dirty
 
-	git log -1 --format=%H > head_commit
-	git stash save
-	git reset --hard origin/master
-        git pull
-	git am 00*
-	
-	git reset --hard `cat head_commit`
-	git stash apply
-	rm head_commit
-	git stash drop
-	
+            git log -1 --format=%H > head_commit
+            git stash save
+            git reset --hard origin/master
+            git pull
+            git am 00*
+        
+            git reset --hard `cat head_commit`
+            git stash apply
+            rm head_commit
+            git stash drop
 
 ## Sending patches
 
@@ -154,7 +153,7 @@ test-apply your patch files on origin/master:
 
 If you try to execute `git send-email` and you get
 
-      git: 'send-email' is not a git command. See 'git --help'.
+        git: 'send-email' is not a git command. See 'git --help'.
 
 Then you're using git installation where send-email command is distributed
 in separate package. In Debian/Ububtu/RedHat/Fedora the package is named
@@ -168,7 +167,7 @@ work properly). Check through `git-send-email` manual page and play with it.
 
 In case of one-file you might want to use
 
-      git send-email --annotate 0001-* 
+        git send-email --annotate 0001-* 
 
 (other options omitted) to add a 'discussion' part into your
 email. The `git am` tool which is eventually used to submit the patch
