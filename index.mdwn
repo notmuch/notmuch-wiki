@@ -71,11 +71,12 @@ list.  Read the archives.  Ask questions.
 
 * [[Emacs UI screenshots|screenshots]]
 
-## Binary packages
+## Packages
 
 * [Debian](http://packages.debian.org/search?keywords=notmuch), [Ubuntu](http://packages.ubuntu.com/search?keywords=notmuch)
 * [Slackware](http://slackbuilds.org/repository/13.37/office/notmuch/)
 * [Fedora](https://community.dev.fedoraproject.org/packages/notmuch)
+* [Gentoo](http://packages.gentoo.org/package/net-mail/notmuch)
 
 ## Source code
 
