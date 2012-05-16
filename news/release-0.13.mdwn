@@ -1,6 +1,6 @@
-[[!meta date="2012-xx-xx"]]
+[[!meta date="2012-05-15"]]
 
-Notmuch 0.13 (2012-xx-xx)
+Notmuch 0.13 (2012-05-15)
 =========================
 
 Command-Line Interface
