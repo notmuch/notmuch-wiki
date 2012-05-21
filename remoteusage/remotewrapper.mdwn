@@ -16,8 +16,8 @@
     
     SSH_REMOTE_HOST=notmuch
 
-    # Note: for security reasons the control socket is placed in $HOME/.ssh
-    SSH_CONTROL_PATH="-o ControlPath=$HOME/.ssh/notmuch-remote.%r@%h:%p"
+    # Note: for security reasons the control socket is placed in ~/.ssh
+    SSH_CONTROL_PATH='-o ControlPath=~/.ssh/notmuch-remote.%r@%h:%p'
     
     # Start a background master connection if one isn't running yet
     ssh ${SSH_CONTROL_PATH} -O check ${SSH_REMOTE_HOST} 2>/dev/null ||
