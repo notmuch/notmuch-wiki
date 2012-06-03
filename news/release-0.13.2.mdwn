@@ -1,0 +1,10 @@
+[[!meta date="2012-06-02"]]
+
+Notmuch 0.13.2 (2012-06-02)
+===========================
+
+Bug-fix release
+---------------
+
+Update contrib/notmuch-deliver for API changes in 0.13. This fixes a
+compilation error for this contrib package.
