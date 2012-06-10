@@ -459,3 +459,37 @@ part.
   2011-02-02.  Note that if you have the Debian package easypg
   installed, it will shadow the fixed version of easypg included with
   emacs.
+
+## Multiple identities using gnus-alias
+
+gnus-alias allows you to define multiple identities when using
+message-mode. You can specify the from address, organization, extra
+headers (including Bcc), extra body text, and signature for each
+identity. Identities are chosen based on a set of rules. When you are
+in message mode, you can switch identities using gnus-alias.
+
+Here is an example configuration.
+
+        ;; Define two identities, "home" and "work"
+        (setq gnus-alias-identity-alist
+              '(("home"
+        	 nil ;; Does not refer to any other identity
+        	 "John Doe <jdoe@example.net>"
+        	 nil ;; No organization header
+        	 nil ;; No extra headers
+        	 nil ;; No extra body text
+        	 "~/.signature")
+        	("work"
+        	 nil
+        	 "John Doe <john.doe@example.com>"
+        	 "Example Corp."
+        	 (("Bcc"	.	"john.doe@example.com"))
+        	 nil
+        	 "~/.signature.work")))
+        ;; Use "home" identity by default
+        (setq gnus-alias-default-identity "home")
+        ;; Define rules to match work identity
+        (setq gnus-alias-identity-rules
+              '(("work" ("any" "john.doe@\\(example\\.com\\|help\\.example.com\\)" both) "work"))
+        ;; Determine identity when message-mode loads
+        (add-hook 'message-setup-hook 'gnus-alias-determine-identity)
