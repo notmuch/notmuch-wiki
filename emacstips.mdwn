@@ -409,9 +409,10 @@ available:
 
   * Shell/fgrep/perl combination [nottoomuch-addresses.sh](http://www.iki.fi/too/nottoomuch/nottoomuch-addresses/). 
     This tools maintains it's own address "database" gathered from email
-    files notmuch knows and search from that "database" is done by fgrep(1).
+    files notmuch knows and search from that "database" is done by `fgrep(1)`.
 
-You can perform tab-completion using any of these programs. Just add the following to your .emacs:
+You can perform tab-completion using any of these programs.
+Just add the following to your .emacs:
 
         (require 'notmuch-address)
         (setq notmuch-address-command "/path/to/address_fetching_program")
@@ -433,12 +434,11 @@ You can add the sender of a message to Google Contacts by piping the message
 
 ## How to sign/encrypt messages with gpg
 
-Messages can by signed using gpg by invoking `M-x
-mml-secure-sign-pgpmime` (or `M-x
-mml-secure-encrypt-pgpmime`). These functions are available via the
-standard `message-mode` keybindings `C-c C-m s p` and `C-c C-m c
-p`. To sign outgoing mail by default, use the `message-setup-hook`
-in your `.emacs` file:
+Messages can by signed using gpg by invoking 
+`M-x mml-secure-sign-pgpmime` (or `M-x mml-secure-encrypt-pgpmime`).
+These functions are available via the standard `message-mode` keybindings 
+`C-c C-m s p` and `C-c C-m c p`. To sign outgoing mail by default, use the
+`message-setup-hook` in your `.emacs` file:
 
         ;; Sign messages by default.
         (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
@@ -469,7 +469,7 @@ body text, and signature for each identity. Identities are chosen
 based on a set of rules. When you are in message mode, you can switch
 identities using gnus-alias.
 
-### "Installation"
+### Installation
 
 - put `gnus-alias.el` on your load Emacs-Lisp load path (add new directory
   to load path by writing `(add-to-list 'load-path "/some/load/path")` into
@@ -513,7 +513,7 @@ Here is an example configuration.
 When `gnus-alias` has been loaded (using autoload, require, *M-x load-library*
 or *M-x load-file* (load-file takes file path -- therefore it can be used
 without any `.emacs` changes)) the following commands can be used to get(/set)
-more information (some of these have "extensive docvumentation"):
+more information (some of these have "extensive documentation"):
 
         M-x describe-variable RET gnus-alias-identity-alist
         M-x describe-variable RET gnus-alias-identity-rules
