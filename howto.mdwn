@@ -38,16 +38,16 @@ messages.
 
 ## <span id="sync_maildir_flags">**Sync notmuch tags and maildir flags**</span>
 
-notmuch has (since version 0.5) the ability to sync IMAP maildir flags
-and respective tags in both directions.  This feature is not enabled
-by default, but it is simple to enable it with the 'notmuch config'
-command:
+notmuch has the ability to synchronize maildir flags and respective tags in both
+directions. For more information on maildir flags see the [maildir
+page](http://cr.yp.to/proto/maildir.html), and for the respective tags see your
+notmuch configuration file. This feature is enabled by default, but if you don't
+need it, it is simple to disable it with the 'notmuch config' command:
 
-        $ notmuch config set maildir.synchronize_flags true
+        $ notmuch config set maildir.synchronize_flags false
 
-
-For more information on maildir flags see the
-[maildir page](http://cr.yp.to/proto/maildir.html).
+The maildir flags may, in turn, be synchronized with IMAP flags by another tool,
+such as offlineimap.
 
 For safety reasons, and because
 [[notmuch does not support delete operations|deleting]], notmuch does
