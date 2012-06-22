@@ -22,8 +22,8 @@
 <pre>
        This page describes how to get started using notmuch from  the  command
        line,  and  gives  a brief overview of the commands available. For more
-       information on e.g.  <b>notmuch</b> <b>show</b> consult  the  <b>notmuch-ä-show</b>(1)  man
-       page, also accessible via <b>notmuch</b> <b>help</b> <b>show</b>
+       information on e.g.  <b>notmuch</b> <b>show</b> consult the <b>notmuch-show</b>(1) man page,
+       also accessible via <b>notmuch</b> <b>help</b> <b>show</b>
 </pre>
 
 <pre>
