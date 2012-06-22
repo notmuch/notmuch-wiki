@@ -1,0 +1,62 @@
+<h1>NOTMUCH-HOOKS(5)</h1>
+
+<h2>NAME</h2>
+
+<pre>
+       notmuch-hooks - hooks for notmuch
+</pre>
+
+<h2>SYNOPSIS</h2>
+
+<pre>
+        $DATABASEDIR/.notmuch/hooks/*
+</pre>
+
+<h2>DESCRIPTION</h2>
+
+<pre>
+       Hooks  are  scripts (or arbitrary executables or symlinks to such) that
+       notmuch invokes before and after certain actions. These scripts  reside
+       in  the .notmuch/hooks directory within the database directory and must
+       have executable permissions.
+</pre>
+
+<pre>
+       The currently available hooks are described below.
+</pre>
+
+<pre>
+           <b>pre-new</b>
+               This hook is invoked by the  <b>new</b>  command  before  scanning  or
+               importing  new  messages  into the database. If this hook exits
+               with a non-zero status, notmuch will abort  further  processing
+               of the <b>new</b> command.
+</pre>
+
+<pre>
+               Typically this hook is used for fetching or delivering new mail
+               to be imported into the database.
+</pre>
+
+<pre>
+           <b>post-new</b>
+               This hook is invoked by the <b>new</b> command after new messages have
+               been  imported  into  the  database  and initial tags have been
+               applied. The hook will not be run if there have been any errors
+               during the scan or import.
+</pre>
+
+<pre>
+               Typically  this  hook is used to perform additional query-based
+               tagging on the imported messages.
+</pre>
+
+<h2>SEE ALSO</h2>
+
+<pre>
+       <b>notmuch</b>(1), <b>notmuch-config</b>(1), <b>notmuch-count</b>(1), <b>notmuch-dump</b>(1),  <b>not-</b>
+       <b>much-new</b>(1),  <b>notmuch-reply</b>(1),  <b>notmuch-restore</b>(1), <b>notmuch-search</b>(1),
+       <b>notmuch-search-terms</b>(7), <b>notmuch-show</b>(1), <b>notmuch-tag</b>(1)
+</pre>
+
+<h1>Notmuch 0.13.2</h1>

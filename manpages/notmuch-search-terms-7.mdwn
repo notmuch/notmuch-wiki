@@ -1,0 +1,179 @@
+<h1>NOTMUCH-SEARCH-TERMS(7)</h1>
+
+<h2>NAME</h2>
+
+<pre>
+       notmuch-search-terms - Syntax for notmuch queries
+</pre>
+
+<h2>SYNOPSIS</h2>
+
+<pre>
+       <b>notmuch</b> <b>count</b> [<u>options...</u>]  <<u>search-term</u>>...
+</pre>
+
+<pre>
+       <b>notmuch</b> <b>dump</b> [ <<u>filename</u>> ] [--] [ <<u>search-term</u>>...]
+</pre>
+
+<pre>
+       <b>notmuch</b> <b>search</b> [<u>options</u>...] <<u>search-term</u>>...
+</pre>
+
+<pre>
+       <b>notmuch</b> <b>show</b> [<u>options</u>...] <<u>search-term</u>>...
+</pre>
+
+<pre>
+       <b>notmuch</b> <b>tag</b> +<<u>tag></u>|-<<u>tag</u>> [...] [--] <<u>search-term</u>>...
+</pre>
+
+<h2>DESCRIPTION</h2>
+
+<pre>
+       Several notmuch commands accept a common syntax for search terms.
+</pre>
+
+<pre>
+       The  search  terms  can  consist of free-form text (and quoted phrases)
+       which  will  match  all  messages  that  contain  all  of   the   given
+       terms/phrases in the body, the subject, or any of the sender or recipi-
+       ent headers.
+</pre>
+
+<pre>
+       As a special case, a search  string  consisting  of  exactly  a  single
+       asterisk ("*") will match all messages.
+</pre>
+
+<pre>
+       In  addition  to free text, the following prefixes can be used to force
+       terms to match against specific portions of an email, (where <brackets>
+       indicate user-supplied values):
+</pre>
+
+<pre>
+            from:<name-or-address>
+</pre>
+
+<pre>
+            to:<name-or-address>
+</pre>
+
+<pre>
+            subject:<word-or-quoted-phrase>
+</pre>
+
+<pre>
+            attachment:<word>
+</pre>
+
+<pre>
+            tag:<tag> (or is:<tag>)
+</pre>
+
+<pre>
+            id:<message-id>
+</pre>
+
+<pre>
+            thread:<thread-id>
+</pre>
+
+<pre>
+            folder:<directory-path>
+</pre>
+
+<pre>
+       The  <b>from:</b> prefix is used to match the name or address of the sender of
+       an email message.
+</pre>
+
+<pre>
+       The <b>to:</b> prefix is used to match the names or addresses of any recipient
+       of an email message, (whether To, Cc, or Bcc).
+</pre>
+
+<pre>
+       Any  term  prefixed with <b>subject:</b> will match only text from the subject
+       of an email. Searching for a phrase in  the  subject  is  supported  by
+       including quotation marks around the phrase, immediately following <b>sub-</b>
+       <b>ject:</b>.
+</pre>
+
+<pre>
+       The <b>attachment:</b> prefix can be used to search for specific filenames (or
+       extensions) of attachments to email messages.
+</pre>
+
+<pre>
+       For  <b>tag:</b>  and <b>is:</b> valid tag values include <b>inbox</b> and <b>unread</b> by default
+       for new messages added by <b>notmuch</b> <b>new</b> as well as any other  tag  values
+       added manually with <b>notmuch</b> <b>tag</b>.
+</pre>
+
+<pre>
+       For  <b>id:</b>, message ID values are the literal contents of the Message-ID:
+       header of email messages, but without the '<', '>' delimiters.
+</pre>
+
+<pre>
+       The <b>thread:</b> prefix can be used with the thread ID values that are  gen-
+       erated  internally  by  notmuch  (and do not appear in email messages).
+       These thread ID values can be seen in the first column of  output  from
+       <b>notmuch</b> <b>search</b>
+</pre>
+
+<pre>
+       The  <b>folder:</b>  prefix can be used to search for email message files that
+       are contained within particular directories within the mail store. Only
+       the  directory  components  below  the top-level mail database path are
+       available to be searched.
+</pre>
+
+<pre>
+       In addition to individual terms, multiple terms can  be  combined  with
+       Boolean  operators  ( <b>and</b>, <b>or</b>, <b>not</b> , etc.). Each term in the query will
+       be implicitly connected by a logical AND if  no  explicit  operator  is
+       provided,  (except  that  terms with a common prefix will be implicitly
+       combined with OR until we get Xapian defect #402 fixed).
+</pre>
+
+<pre>
+       Parentheses can also be used to control the combination of the  Boolean
+       operators,  but  will  have  to be protected from interpretation by the
+       shell, (such as by putting quotation  marks  around  any  parenthesized
+       expression).
+</pre>
+
+<pre>
+       Finally, results can be restricted to only messages within a particular
+       time range, (based on the Date: header) with a syntax of:
+</pre>
+
+<pre>
+            <initial-timestamp>..<final-timestamp>
+</pre>
+
+<pre>
+       Each timestamp is a number representing the  number  of  seconds  since
+       1970-01-01  00:00:00  UTC.  This  is  not  the most convenient means of
+       expressing date ranges, but until notmuch is fixed  to  accept  a  more
+       convenient  form, one can use the date program to construct timestamps.
+       For example, with the bash shell the following syntax would  specify  a
+       date range to return messages from 2009-10-01 until the current time:
+</pre>
+
+<pre>
+            $(date +%s -d 2009-10-01)..$(date +%s)
+</pre>
+
+<h2>SEE ALSO</h2>
+
+<pre>
+       <b>notmuch</b>(1),  <b>notmuch-config</b>(1), <b>notmuch-count</b>(1), <b>notmuch-dump</b>(1), <b>not-</b>
+       <b>much-hooks</b>(5),  <b>notmuch-new</b>(1),  <b>notmuch-reply</b>(1),  <b>notmuch-restore</b>(1),
+       <b>notmuch-search</b>(1), <b>notmuch-show</b>(1), <b>notmuch-tag</b>(1)
+</pre>
+
+<h1>Notmuch 0.13.2</h1>

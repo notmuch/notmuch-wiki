@@ -1,0 +1,159 @@
+<h1>NOTMUCH(1)</h1>
+
+<h2>NAME</h2>
+
+<pre>
+       notmuch - thread-based email index, search, and tagging
+</pre>
+
+<h2>SYNOPSIS</h2>
+
+<pre>
+       <b>notmuch</b> <u>command</u> [<u>args</u> ...]
+</pre>
+
+<h2>DESCRIPTION</h2>
+
+<pre>
+       Notmuch  is a command-line based program for indexing, searching, read-
+       ing, and tagging large collections of email messages.
+</pre>
+
+<pre>
+       This page describes how to get started using notmuch from  the  command
+       line,  and  gives  a brief overview of the commands available. For more
+       information on e.g.  <b>notmuch</b> <b>show</b> consult  the  <b>notmuch-ä-show</b>(1)  man
+       page, also accessible via <b>notmuch</b> <b>help</b> <b>show</b>
+</pre>
+
+<pre>
+       The  quickest  way  to get started with Notmuch is to simply invoke the
+       <b>notmuch</b> command with no arguments, which will interactively  guide  you
+       through the process of indexing your mail.
+</pre>
+
+<h2>NOTE</h2>
+
+<pre>
+       While the command-line program <b>notmuch</b> provides powerful functionality,
+       it does not provide the most convenient interface for that  functional-
+       ity.  More  sophisticated interfaces are expected to be built on top of
+       either the command-line interface, or more likely, on top of  the  not-
+       much  library  interface.  See  http://notmuchmail.org  for  more about
+       alternate interfaces to notmuch. The emacs-based interface  to  notmuch
+       (available under <b>emacs/</b> in the Notmuch source distribution) is probably
+       the most widely used at this time.
+</pre>
+
+<h2>COMMANDS</h2>
+
+<h3>SETUP</h3>
+
+<pre>
+       The <b>notmuch</b> <b>setup</b> command is used to configure Notmuch for  first  use,
+       (or to reconfigure it later).
+</pre>
+
+<pre>
+       The  setup  command  will prompt for your full name, your primary email
+       address, any alternate email addresses you use, and the directory  con-
+       taining your email archives. Your answers will be written to a configu-
+       ration file in ${NOTMUCH_CONFIG} (if set) or ${HOME}/.notmuch-config  .
+       This configuration file will be created with descriptive comments, mak-
+       ing it easy to edit by hand later to change the configuration.  Or  you
+       can run <b>notmuch</b> <b>setup</b> again to change the configuration.
+</pre>
+
+<pre>
+       The  mail  directory you specify can contain any number of sub-directo-
+       ries and should primarily contain only files with individual email mes-
+       sages  (eg.  maildir  or  mh archives are perfect). If there are other,
+       non-email files (such as indexes maintained by  other  email  programs)
+       then notmuch will do its best to detect those and ignore them.
+</pre>
+
+<pre>
+       Mail  storage that uses mbox format, (where one mbox file contains many
+       messages), will not work with notmuch. If that's how your mail is  cur-
+       rently stored, it is recommended you first convert it to maildir format
+       with a utility such as mb2md before running <b>notmuch</b> <b>setup</b> <b>.</b>
+</pre>
+
+<pre>
+       Invoking <b>notmuch</b> with no command argument will run <b>setup</b> if  the  setup
+       command has not previously been completed.
+</pre>
+
+<h3>OTHER COMMANDS</h3>
+
+<pre>
+       Several  of the notmuch commands accept search terms with a common syn-
+       tax. See notmuch-search-terms(7) for more details on the supported syn-
+       tax.
+</pre>
+
+<pre>
+       The  <b>search</b>,  <b>show</b> and <b>count</b> commands are used to query the email data-
+       base.
+</pre>
+
+<pre>
+       The <b>reply</b> command is useful for  preparing  a  template  for  an  email
+       reply.
+</pre>
+
+<pre>
+       The <b>tag</b> command is the only command available for manipulating database
+       contents.
+</pre>
+
+<pre>
+       The <b>dump</b> and <b>restore</b> commands can be used to create a textual  dump  of
+       email tags for backup purposes, and to restore from that dump.
+</pre>
+
+<pre>
+       The  <b>config</b>  command can be used to get or set settings int the notmuch
+       configuration file.
+</pre>
+
+<h2>ENVIRONMENT</h2>
+
+<pre>
+       The following environment variables can be used to control the behavior
+       of notmuch.
+</pre>
+
+<pre>
+       <b>NOTMUCH</b>_<b>CONFIG</b>
+              Specifies  the  location of the notmuch configuration file. Not-
+              much will use ${HOME}/.notmuch-config if this  variable  is  not
+              set.
+</pre>
+
+<h2>SEE ALSO</h2>
+
+<pre>
+       <b>notmuch-config</b>(1), <b>notmuch-count</b>(1), <b>notmuch-dump</b>(1), <b>notmuch-hooks</b>(5),
+       <b>notmuch-new</b>(1),    <b>notmuch-reply</b>(1),    <b>notmuch-restore</b>(1),    <b>notmuch-</b>
+       <b>search</b>(1), <b>notmuch-search-terms</b>(7), <b>notmuch-show</b>(1), <b>notmuch-tag</b>(1)
+</pre>
+
+<pre>
+       The notmuch website: <b>http://notmuchmail.org</b>
+</pre>
+
+<h2>CONTACT</h2>
+
+<pre>
+       Feel  free to send questions, comments, or kudos to the notmuch mailing
+       list <notmuch@notmuchmail.org> . Subscription is  not  required  before
+       posting, but is available from the notmuchmail.org website.
+</pre>
+
+<pre>
+       Real-time  interaction  with the Notmuch community is available via IRC
+       (server: irc.freenode.net, channel: #notmuch).
+</pre>
+
+<h1>Notmuch 0.13.2</h1>

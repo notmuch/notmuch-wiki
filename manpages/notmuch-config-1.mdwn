@@ -1,0 +1,167 @@
+<h1>NOTMUCH-CONFIG(1)</h1>
+
+<h2>NAME</h2>
+
+<pre>
+       notmuch-config - Access notmuch configuration file.
+</pre>
+
+<h2>SYNOPSIS</h2>
+
+<pre>
+       <b>notmuch</b> <b>config</b> <b>get</b> <<u>section</u>>.<<u>item</u>>
+</pre>
+
+<pre>
+       <b>notmuch</b> <b>config</b> <b>set</b> <<u>section</u>>.<<u>item</u>> [<u>value</u> ...]
+</pre>
+
+<pre>
+       <b>notmuch</b> <b>config</b> <b>list</b>
+</pre>
+
+<h2>DESCRIPTION</h2>
+
+<pre>
+       The  <b>config</b>  command  can be used to get or set settings in the notmuch
+       configuration file.
+</pre>
+
+<pre>
+           <b>get</b> The value of the specified configuration  item  is  printed  to
+               stdout.  If  the  item has multiple values (it is a list), each
+               value is separated by a newline character.
+</pre>
+
+<pre>
+           <b>set</b> The specified configuration item is set to the given value.  To
+               specify a multiple-value item (a list), provide each value as a
+               separate command-line argument.
+</pre>
+
+<pre>
+               If no values are provided,  the  specified  configuration  item
+               will be removed from the configuration file.
+</pre>
+
+<pre>
+           <b>list</b>
+               Every  configuration item is printed to stdout, each on a sepa-
+               rate line of the form:
+</pre>
+
+<pre>
+               <u>section</u>.<u>item</u>=<u>value</u>
+</pre>
+
+<pre>
+               No additional whitespace surrounds the dot or equals sign char-
+               acters. In a multiple-value item (a list), the values are sepa-
+               rated by semicolon characters.
+</pre>
+
+<pre>
+       The available configuration items are described below.
+</pre>
+
+<pre>
+           <b>database.path</b>
+               The top-level directory where your mail currently exists and to
+               where  mail  will  be  delivered in the future. Files should be
+               individual email messages.  Notmuch  will  store  its  database
+               within  a sub-directory of the path configured here named <b>.not-</b>
+               <b>much</b>.
+</pre>
+
+<pre>
+           <b>user.name</b>
+               Your full name.
+</pre>
+
+<pre>
+           <b>user.primary</b>_<b>email</b>
+               Your primary email address.
+</pre>
+
+<pre>
+           <b>user.other</b>_<b>email</b>
+               A list of other email addresses at which you receive email.
+</pre>
+
+<pre>
+           <b>new.tags</b>
+               A list of tags that will be added to all messages  incorporated
+               by <b>notmuch</b> <b>new</b>.
+</pre>
+
+<pre>
+           <b>new.ignore</b>
+               A list of file and directory names, without path, that will not
+               be searched for messages by <b>notmuch</b> <b>new</b>.   All  the  files  and
+               directories  matching  any  of the names specified here will be
+               ignored, regardless of the location in the mail store directory
+               hierarchy.
+</pre>
+
+<pre>
+           <b>search.exclude</b>_<b>tags</b>
+               A  list  of  tags  that will be excluded from search results by
+               default. Using an excluded tag in a query  will  override  that
+               exclusion.
+</pre>
+
+<pre>
+           <b>maildir.synchronize</b>_<b>flags</b>
+               If  true,  then  the  following maildir flags (in message file-
+               names) will be  synchronized  with  the  corresponding  notmuch
+               tags:
+</pre>
+
+<pre>
+                 Flag    Tag
+                 ----    -------
+                 D       draft
+                 F       flagged
+                 P       passed
+                 R       replied
+                 S       unread (added when 'S' flag is not present)
+</pre>
+
+<pre>
+               The  <b>notmuch</b>  <b>new</b> command will notice flag changes in filenames
+               and update tags, while the <b>notmuch</b> <b>tag</b> and <b>notmuch</b> <b>restore</b> com-
+               mands will notice tag changes and update flags in filenames.
+</pre>
+
+<pre>
+               If  there  have  been  any changes in the maildir (new messages
+               added, old ones removed  or  renamed,  maildir  flags  changed,
+               etc.), it is advisable to run <b>notmuch</b> <b>new</b> before <b>notmuch</b> <b>tag</b> or
+               <b>notmuch</b> <b>restore</b> commands to ensure the tag changes are properly
+               synchronized  to  the maildir flags, as the commands expect the
+               database and maildir to be in sync.
+</pre>
+
+<h2>ENVIRONMENT</h2>
+
+<pre>
+       The following environment variables can be used to control the behavior
+       of notmuch.
+</pre>
+
+<pre>
+       <b>NOTMUCH</b>_<b>CONFIG</b>
+              Specifies  the  location of the notmuch configuration file. Not-
+              much will use ${HOME}/.notmuch-config if this  variable  is  not
+              set.
+</pre>
+
+<h2>SEE ALSO</h2>
+
+<pre>
+       <b>notmuch</b>(1),  <b>notmuch-count</b>(1),  <b>notmuch-dump</b>(1), <b>notmuch-hooks</b>(5), <b>not-</b>
+       <b>much-new</b>(1), <b>notmuch-reply</b>(1),  <b>notmuch-restore</b>(1),  <b>notmuch-search</b>(1),
+       <b>notmuch-search-terms</b>(7), <b>notmuch-show</b>(1), <b>notmuch-tag</b>(1)
+</pre>
+
+<h1>Notmuch 0.13.2</h1>

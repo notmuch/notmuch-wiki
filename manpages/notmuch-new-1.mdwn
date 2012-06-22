@@ -1,0 +1,73 @@
+<h1>NOTMUCH-NEW(1)</h1>
+
+<h2>NAME</h2>
+
+<pre>
+       notmuch-new - Incorporate new mail into the notmuch database.
+</pre>
+
+<h2>SYNOPSIS</h2>
+
+<pre>
+       <b>notmuch</b> <b>new</b> [<b>--no-hooks</b>]
+</pre>
+
+<h2>DESCRIPTION</h2>
+
+<pre>
+       Find and import any new messages to the database.
+</pre>
+
+<pre>
+       The  <b>new</b>  command scans all sub-directories of the database, performing
+       full-text indexing on new messages that are  found.  Each  new  message
+       will automatically be tagged with both the <b>inbox</b> and <b>unread</b> tags.
+</pre>
+
+<pre>
+       You  should  run  <b>notmuch</b> <b>new</b> once after first running <b>notmuch</b> <b>setup</b> to
+       create the initial database. The first run may take a long time if  you
+       have a significant amount of mail (several hundred thousand messages or
+       more). Subsequently, you should run <b>notmuch</b> <b>new</b> whenever  new  mail  is
+       delivered  and you wish to incorporate it into the database. These sub-
+       sequent runs will be much quicker than the initial run.
+</pre>
+
+<pre>
+       Invoking <b>notmuch</b> with no command argument will run <b>new</b> if <b>notmuch</b> <b>setup</b>
+       has  previously been completed, but <b>notmuch</b> <b>new</b> has not previously been
+       run.
+</pre>
+
+<pre>
+       <b>notmuch</b> <b>new</b> updates tags according  to  maildir  flag  changes  if  the
+       <b>maildir.synchronize</b>_<b>flags</b> configuration option is enabled. See <b>notmuch-</b>
+       <b>config</b>(1) for details.
+</pre>
+
+<pre>
+       The <b>new</b> command supports hooks. See  <b>notmuch-hooks(5)</b> for more  details
+       on hooks.
+</pre>
+
+<pre>
+       Supported options for <b>new</b> include
+</pre>
+
+<pre>
+           <b>--no-hooks</b>
+</pre>
+
+<pre>
+               Prevents hooks from being run.
+</pre>
+
+<h2>SEE ALSO</h2>
+
+<pre>
+       <b>notmuch</b>(1),  <b>notmuch-config</b>(1), <b>notmuch-count</b>(1), <b>notmuch-dump</b>(1), <b>not-</b>
+       <b>much-hooks</b>(5), <b>notmuch-reply</b>(1), <b>notmuch-restore</b>(1), <b>notmuch-search</b>(1),
+       <b>notmuch-search-terms</b>(7), <b>notmuch-show</b>(1), <b>notmuch-tag</b>(1)
+</pre>
+
+<h1>Notmuch 0.13.2</h1>

@@ -1,0 +1,163 @@
+<h1>NOTMUCH-SEARCH(1)</h1>
+
+<h2>NAME</h2>
+
+<pre>
+       notmuch-search - Search for messages matching the given search terms.
+</pre>
+
+<h2>SYNOPSIS</h2>
+
+<pre>
+       <b>notmuch</b> <b>search</b> [<u>options</u>...] <<u>search-term</u>>...
+</pre>
+
+<h2>DESCRIPTION</h2>
+
+<pre>
+       Search  for  messages  matching  the given search terms, and display as
+       results the threads containing the matched messages.
+</pre>
+
+<pre>
+       The output consists of one line per thread, giving  a  thread  ID,  the
+       date  of  the  newest (or oldest, depending on the sort option) matched
+       message in the thread, the number of matched messages  and  total  mes-
+       sages  in  the thread, the names of all participants in the thread, and
+       the subject of the newest (or oldest) message.
+</pre>
+
+<pre>
+       See <b>notmuch-search-terms</b>(7) for details of  the  supported  syntax  for
+       <search-terms>.
+</pre>
+
+<pre>
+       Supported options for <b>search</b> include
+</pre>
+
+<pre>
+           <b>--format=</b>(<b>json</b>|<b>text</b>)
+</pre>
+
+<pre>
+               Presents the results in either JSON or plain-text (default).
+</pre>
+
+<pre>
+           <b>--output=(summary|threads|messages|files|tags)</b>
+</pre>
+
+<pre>
+               <b>summary</b>
+</pre>
+
+<pre>
+                   Output  a  summary of each thread with any message matching
+                   the search terms. The summary includes the thread ID, date,
+                   the  number  of  messages  in  the  thread (both the number
+                   matched and the total number), the authors  of  the  thread
+                   and the subject.
+</pre>
+
+<pre>
+               <b>threads</b>
+</pre>
+
+<pre>
+                   Output  the  thread  IDs  of  all  threads with any message
+                   matching the search terms,  either  one  per  line  (--for-
+                   mat=text) or as a JSON array (--format=json).
+</pre>
+
+<pre>
+               <b>messages</b>
+</pre>
+
+<pre>
+                   Output  the message IDs of all messages matching the search
+                   terms, either one per line (--format=text)  or  as  a  JSON
+                   array (--format=json).
+</pre>
+
+<pre>
+               <b>files</b>
+</pre>
+
+<pre>
+                   Output  the  filenames  of all messages matching the search
+                   terms, either one per line (--format=text)  or  as  a  JSON
+                   array (--format=json).
+</pre>
+
+<pre>
+               <b>tags</b>
+</pre>
+
+<pre>
+                   Output  all  tags  that  appear on any message matching the
+                   search terms, either one per line (--format=text) or  as  a
+                   JSON array (--format=json).
+</pre>
+
+<pre>
+           <b>--sort=</b>(<b>newest-first</b>|<b>oldest-first</b>)
+</pre>
+
+<pre>
+               This option can be used to present results in either chronolog-
+               ical order (<b>oldest-first</b>) or reverse chronological order  (<b>new-</b>
+               <b>est-first</b>).
+</pre>
+
+<pre>
+               Note:  The  thread  order  will  be  distinct between these two
+               options (beyond being simply reversed). When  sorting  by  <b>old-</b>
+               <b>est-first</b>  the  threads will be sorted by the oldest message in
+               each thread, but when sorting by <b>newest-first</b> the threads  will
+               be sorted by the newest message in each thread.
+</pre>
+
+<pre>
+               By  default, results will be displayed in reverse chronological
+               order, (that is, the newest results will be displayed first).
+</pre>
+
+<pre>
+           <b>--offset=[-]N</b>
+</pre>
+
+<pre>
+               Skip displaying the first N  results.  With  the  leading  '-',
+               start at the Nth result from the end.
+</pre>
+
+<pre>
+           <b>--limit=N</b>
+</pre>
+
+<pre>
+               Limit the number of displayed results to N.
+</pre>
+
+<pre>
+           <b>--exclude=(true|false|flag)</b>
+</pre>
+
+<pre>
+               Specify  whether  to  omit messages matching search.tag_exclude
+               from the search results (the default) or not. The extra  option
+               <b>flag</b>  only has an effect when <b>--output=summary</b> In this case all
+               matching threads are returned but the "match count" is the num-
+               ber of matching non-excluded messages in the thread.
+</pre>
+
+<h2>SEE ALSO</h2>
+
+<pre>
+       <b>notmuch</b>(1),  <b>notmuch-config</b>(1), <b>notmuch-count</b>(1), <b>notmuch-dump</b>(1), <b>not-</b>
+       <b>much-hooks</b>(5),  <b>notmuch-new</b>(1),  <b>notmuch-reply</b>(1),  <b>notmuch-restore</b>(1),
+       <b>notmuch-search-terms</b>(7), <b>notmuch-show</b>(1), <b>notmuch-tag</b>(1)
+</pre>
+
+<h1>Notmuch 0.13.2</h1>

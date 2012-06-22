@@ -1,0 +1,52 @@
+<h1>NOTMUCH-DUMP(1)</h1>
+
+<h2>NAME</h2>
+
+<pre>
+       notmuch-dump - Creates a plain-text dump of the tags of each message.
+</pre>
+
+<h2>SYNOPSIS</h2>
+
+<pre>
+       <b>notmuch</b> <b>dump</b> [ <<u>filename</u>> ] [--] [ <<u>search-term</u>>...]
+</pre>
+
+<h2>DESCRIPTION</h2>
+
+<pre>
+       Dump tags for messages matching the given search terms.
+</pre>
+
+<pre>
+       Output is to the given filename, if any, or to stdout.  Note that using
+       the filename argument is deprecated.
+</pre>
+
+<pre>
+       These tags are the only data in the  notmuch  database  that  can't  be
+       recreated  from the messages themselves.  The output of notmuch dump is
+       therefore the only critical thing to backup (and much more friendly  to
+       incremental backup than the native database files.)
+</pre>
+
+<pre>
+       With  no  search  terms, a dump of all messages in the database will be
+       generated.  A "--" argument instructs notmuch that the remaining  argu-
+       ments are search terms.
+</pre>
+
+<pre>
+       See  <b>notmuch-search-terms</b>(7)  for  details  of the supported syntax for
+       <search-terms>.
+</pre>
+
+<h2>SEE ALSO</h2>
+
+<pre>
+       <b>notmuch</b>(1), <b>notmuch-config</b>(1), <b>notmuch-count</b>(1), <b>notmuch-hooks</b>(5), <b>not-</b>
+       <b>much-new</b>(1),  <b>notmuch-reply</b>(1),  <b>notmuch-restore</b>(1), <b>notmuch-search</b>(1),
+       <b>notmuch-search-terms</b>(7), <b>notmuch-show</b>(1), <b>notmuch-tag</b>(1)
+</pre>
+
+<h1>Notmuch 0.13.2</h1>

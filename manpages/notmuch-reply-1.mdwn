@@ -1,0 +1,128 @@
+<h1>NOTMUCH-REPLY(1)</h1>
+
+<h2>NAME</h2>
+
+<pre>
+       notmuch-reply - Constructs a reply template for a set of messages.
+</pre>
+
+<h2>SYNOPSIS</h2>
+
+<pre>
+       <b>notmuch</b> <b>reply</b> [<u>options</u>...] <<u>search-term</u>>...
+</pre>
+
+<h2>DESCRIPTION</h2>
+
+<pre>
+       Constructs a reply template for a set of messages.
+</pre>
+
+<pre>
+       To  make  replying to email easier, <b>notmuch</b> <b>reply</b> takes an existing set
+       of messages and constructs a  suitable  mail  template.  The  Reply-to:
+       header  (if  any,  otherwise From:) is used for the To: address. Unless
+       <b>--reply-to=sender</b> is specified, values from the To: and Cc: headers are
+       copied, but not including any of the current user's email addresses (as
+       configured in primary_mail or other_email in the .notmuch-config  file)
+       in the recipient list.
+</pre>
+
+<pre>
+       It  also  builds a suitable new subject, including Re: at the front (if
+       not already present), and adding the message IDs of the messages  being
+       replied  to  to  the References list and setting the In-Reply-To: field
+       correctly.
+</pre>
+
+<pre>
+       Finally, the original contents of the emails are  quoted  by  prefixing
+       each line with '> ' and included in the body.
+</pre>
+
+<pre>
+       The resulting message template is output to stdout.
+</pre>
+
+<pre>
+       Supported options for <b>reply</b> include
+</pre>
+
+<pre>
+              <b>--format=</b>(<b>default</b>|<b>json</b>|<b>headers-only</b>)
+</pre>
+
+<pre>
+                  <b>default</b>
+                      Includes subject and quoted message body.
+</pre>
+
+<pre>
+                  <b>json</b>
+                      Produces JSON output containing headers for a reply mes-
+                      sage and the contents of the original message. This out-
+                      put  can  be  used by a client to create a reply message
+                      intelligently.
+</pre>
+
+<pre>
+                  <b>headers-only</b>
+                      Only produces In-Reply-To, References, To, Cc,  and  Bcc
+                      headers.
+</pre>
+
+<pre>
+              <b>--reply-to=</b>(<b>all</b>|<b>sender</b>)
+</pre>
+
+<pre>
+                  <b>all</b> (default)
+                      Replies to all addresses.
+</pre>
+
+<pre>
+                  <b>sender</b>
+                      Replies  only  to  the sender. If replying to user's own
+                      message (Reply-to: or From: header is one of the  user's
+                      configured  email  addresses),  try  To:,  Cc:, and Bcc:
+                      headers in this order, and copy values  from  the  first
+                      that  contains  something  other  than  only  the user's
+                      addresses.
+</pre>
+
+<pre>
+              <b>--decrypt</b>
+</pre>
+
+<pre>
+                  Decrypt any MIME encrypted parts found in the selected  con-
+                  tent   (ie.  "multipart/encrypted"  parts).  Status  of  the
+                  decryption will be reported (currently only  supported  with
+                  --format=json)  and  the  multipart/encrypted  part  will be
+                  replaced by the decrypted content.
+</pre>
+
+<pre>
+       See <b>notmuch-search-terms</b>(7) for details of  the  supported  syntax  for
+       <search-terms>.
+</pre>
+
+<pre>
+       Note:  It  is  most  common  to  use <b>notmuch</b> <b>reply</b> with a search string
+       matching a single message, (such as id:<message-id>),  but  it  can  be
+       useful to reply to several messages at once. For example, when a series
+       of patches are sent in a single thread, replying to the  entire  thread
+       allows  for  the  reply to comment on issues found in multiple patches.
+       The default format supports replying to multiple messages at once,  but
+       the JSON format does not.
+</pre>
+
+<h2>SEE ALSO</h2>
+
+<pre>
+       <b>notmuch</b>(1),  <b>notmuch-config</b>(1), <b>notmuch-count</b>(1), <b>notmuch-dump</b>(1), <b>not-</b>
+       <b>much-hooks</b>(5), <b>notmuch-new</b>(1),  <b>notmuch-restore</b>(1),  <b>notmuch-search</b>(1),
+       <b>notmuch-search-terms</b>(7), <b>notmuch-show</b>(1), <b>notmuch-tag</b>(1)
+</pre>
+
+<h1>Notmuch 0.13.2</h1>
