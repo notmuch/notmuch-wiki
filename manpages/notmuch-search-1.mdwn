@@ -106,8 +106,8 @@
 
 <pre>
                This option can be used to present results in either chronolog-
-               ical order (<b>oldest-first</b>) or reverse chronological order  (<b>new-</b>
-               <b>est-first</b>).
+               ical  order  (<b>oldest-first</b>)  or  reverse  chronological   order
+               (<b>newest-first</b>).
 </pre>
 
 <pre>
@@ -160,4 +160,4 @@
        <b>notmuch-search-terms</b>(7), <b>notmuch-show</b>(1), <b>notmuch-tag</b>(1)
 </pre>
 
-<h1>Notmuch 0.13.2</h1>
+<h2>Notmuch 0.13.2</h2>

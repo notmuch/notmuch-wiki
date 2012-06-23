@@ -95,8 +95,8 @@
 </pre>
 
 <pre>
-                  Decrypt any MIME encrypted parts found in the selected  con-
-                  tent   (ie.  "multipart/encrypted"  parts).  Status  of  the
+                  Decrypt any MIME  encrypted  parts  found  in  the  selected
+                  content  (ie.  "multipart/encrypted"  parts).  Status of the
                   decryption will be reported (currently only  supported  with
                   --format=json)  and  the  multipart/encrypted  part  will be
                   replaced by the decrypted content.
@@ -125,4 +125,4 @@
        <b>notmuch-search-terms</b>(7), <b>notmuch-show</b>(1), <b>notmuch-tag</b>(1)
 </pre>
 
-<h1>Notmuch 0.13.2</h1>
+<h2>Notmuch 0.13.2</h2>

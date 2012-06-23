@@ -23,8 +23,8 @@
 </pre>
 
 <pre>
-       With no search terms, a count of all messages (or threads) in the data-
-       base will be displayed.
+       With  no  search  terms,  a  count  of all messages (or threads) in the
+       database will be displayed.
 </pre>
 
 <pre>
@@ -74,4 +74,4 @@
        <b>notmuch-search-terms</b>(7), <b>notmuch-show</b>(1), <b>notmuch-tag</b>(1)
 </pre>
 
-<h1>Notmuch 0.13.2</h1>
+<h2>Notmuch 0.13.2</h2>

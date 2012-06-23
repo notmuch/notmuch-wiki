@@ -93,8 +93,8 @@
 </pre>
 
 <pre>
-       The  <b>search</b>,  <b>show</b> and <b>count</b> commands are used to query the email data-
-       base.
+       The  <b>search</b>,  <b>show</b>  and  <b>count</b>  commands  are  used  to query the email
+       database.
 </pre>
 
 <pre>
@@ -156,4 +156,4 @@
        (server: irc.freenode.net, channel: #notmuch).
 </pre>
 
-<h1>Notmuch 0.13.2</h1>
+<h2>Notmuch 0.13.2</h2>
