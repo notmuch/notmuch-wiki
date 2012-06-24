@@ -1,58 +1,46 @@
 <h1>NOTMUCH-RESTORE(1)</h1>
 
 <h2>NAME</h2>
-
 <pre>
        notmuch-restore  -  Restores  the tags from the given file (see notmuch
        dump).
 </pre>
 
 <h2>SYNOPSIS</h2>
-
 <pre>
-       <b>notmuch</b> <b>restore</b> [<b>--accumulate</b>] [ <<u>filename</u>> ]
+       <b>notmuch</b> <b>restore</b> [<b>--accumulate</b>] [ &lt;<u>filename</u>&gt; ]
 </pre>
 
 <h2>DESCRIPTION</h2>
-
 <pre>
        Restores the tags from the given file (see <b>notmuch</b> <b>dump</b>).
-</pre>
 
-<pre>
        The input is read from the given filename, if any, or from stdin.
-</pre>
 
-<pre>
        Note: The dump file format is specifically chosen to be compatible with
-       the format of files produced by sup-dump.  So if you've previously been
+       the format of files produced by sup-dump.  So if you&apos;ve previously been
        using sup for mail, then the <b>notmuch</b> <b>restore</b> command provides you a way
        to import all of your tags (or labels as sup calls them).
-</pre>
 
-<pre>
        The  --accumulate  switch causes the union of the existing and new tags
-       to be applied, instead of replacing each message's  tags  as  they  are
+       to be applied, instead of replacing each message&apos;s  tags  as  they  are
        read in from the dump file.
-</pre>
 
-<pre>
-       See  <b>notmuch-search-terms</b>(7)  for  details  of the supported syntax for
-       <search-terms>.
-</pre>
+       See  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7)  for  details  of the supported syntax for
+       &lt;search-terms&gt;.
 
-<pre>
        <b>notmuch</b> <b>restore</b> updates the maildir flags according to tag  changes  if
-       the <b>maildir.synchronize</b>_<b>flags</b> configuration option is enabled. See <b>not-</b>
-       <b>much-config</b>(1) for details.
+       the <b>maildir.synchronize</b>_<b>flags</b> configuration option is enabled. See <a href='../notmuch-config-1/'>not-</a>
+       <a href='../notmuch-config-1/'>much-config</a>(1)
+ for details.
 </pre>
 
 <h2>SEE ALSO</h2>
-
 <pre>
-       <b>notmuch</b>(1), <b>notmuch-config</b>(1), <b>notmuch-count</b>(1), <b>notmuch-dump</b>(1),  <b>not-</b>
-       <b>much-hooks</b>(5),   <b>notmuch-new</b>(1),  <b>notmuch-reply</b>(1),  <b>notmuch-search</b>(1),
-       <b>notmuch-search-terms</b>(7), <b>notmuch-show</b>(1), <b>notmuch-tag</b>(1)
+       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not-</a>
+       <a href='../notmuch-hooks-5/'>much-hooks</a>(5)
+,   <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-search-1/'>notmuch-search</a>(1),
+       <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
 <h2>Notmuch 0.13.2</h2>

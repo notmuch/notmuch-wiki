@@ -1,53 +1,43 @@
 <h1>NOTMUCH-TAG(1)</h1>
 
 <h2>NAME</h2>
-
 <pre>
        notmuch-tag  -  Add/remove  tags  for  all messages matching the search
        terms.
 </pre>
 
 <h2>SYNOPSIS</h2>
-
 <pre>
-       <b>notmuch</b> <b>tag</b> +<<u>tag></u>|-<<u>tag</u>> [...] [--] <<u>search-term</u>>...
+       <b>notmuch</b> <b>tag</b> +&lt;<u>tag&</u>gt;|-&lt;<u>tag</u>&gt; [...] [--] &lt;<u>search-term</u>&gt;...
 </pre>
 
 <h2>DESCRIPTION</h2>
-
 <pre>
        Add/remove tags for all messages matching the search terms.
-</pre>
 
-<pre>
-       See <b>notmuch-search-terms</b>(7) for details of  the  supported  syntax  for
-       <search-terms>.
-</pre>
+       See <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7) for details of  the  supported  syntax  for
+       &lt;search-terms&gt;.
 
-<pre>
-       Tags prefixed by '+' are added while those prefixed by '-' are removed.
+       Tags prefixed by &apos;+&apos; are added while those prefixed by &apos;-&apos; are removed.
        For each message, tag removal is performed before tag addition.
-</pre>
 
-<pre>
-       The beginning of <search-terms> is recognized  by  the  first  argument
-       that  begins  with  neither  '+' nor '-'. Support for an initial search
-       term beginning with '+' or '-' is provided  by  allowing  the  user  to
-       specify a "--" argument to separate the tags from the search terms.
-</pre>
+       The beginning of &lt;search-terms&gt; is recognized  by  the  first  argument
+       that  begins  with  neither  &apos;+&apos; nor &apos;-&apos;. Support for an initial search
+       term beginning with &apos;+&apos; or &apos;-&apos; is provided  by  allowing  the  user  to
+       specify a &quot;--&quot; argument to separate the tags from the search terms.
 
-<pre>
        <b>notmuch</b>  <b>tag</b>  updates the maildir flags according to tag changes if the
-       <b>maildir.synchronize</b>_<b>flags</b> configuration option is enabled. See <b>notmuch-</b>
-       <b>config</b>(1) for details.
+       <b>maildir.synchronize</b>_<b>flags</b> configuration option is enabled. See <a href='../notmuch-config-1/'>notmuch-</a>
+       <a href='../notmuch-config-1/'>config</a>(1)
+ for details.
 </pre>
 
 <h2>SEE ALSO</h2>
-
 <pre>
-       <b>notmuch</b>(1),  <b>notmuch-config</b>(1), <b>notmuch-count</b>(1), <b>notmuch-dump</b>(1), <b>not-</b>
-       <b>much-hooks</b>(5),  <b>notmuch-new</b>(1),  <b>notmuch-reply</b>(1),  <b>notmuch-restore</b>(1),
-       <b>notmuch-search</b>(1), <b>notmuch-search-terms</b>(7), <b>notmuch-show</b>(1),
+       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not-</a>
+       <a href='../notmuch-hooks-5/'>much-hooks</a>(5)
+,  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
+       <a href='../notmuch-search-1/'>notmuch-search</a>(1), <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7), <a href='../notmuch-show-1/'>notmuch-show</a>(1),
 </pre>
 
 <h2>Notmuch 0.13.2</h2>
