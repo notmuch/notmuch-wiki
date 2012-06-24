@@ -9,7 +9,7 @@ Manual page Index
 * <a href='notmuch-reply-1/'>notmuch-reply</a>(1) - Constructs a reply template for a set of messages.
 * <a href='notmuch-restore-1/'>notmuch-restore</a>(1) - Restores the tags from the given file (see notmuch dump).
 * <a href='notmuch-search-1/'>notmuch-search</a>(1) - Search for messages matching the given search terms.
-* <a href='notmuch-setup-1/'>notmuch</a>(1) - thread-based email index, search, and tagging
+* <a href='notmuch-setup-1/'>notmuch-setup</a>(1) - thread-based email index, search, and tagging
 * <a href='notmuch-show-1/'>notmuch-show</a>(1) - Show messages matching the given search terms.
 * <a href='notmuch-tag-1/'>notmuch-tag</a>(1) - Add/remove tags for all messages matching the search terms.
 * <a href='notmuch-hooks-5/'>notmuch-hooks</a>(5) - hooks for notmuch
