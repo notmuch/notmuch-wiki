@@ -1,4 +1,4 @@
-Manual page Index
+Manual page index
 =================
 
 * <a href='notmuch-1/'>notmuch</a>(1) - thread-based email index, search, and tagging
