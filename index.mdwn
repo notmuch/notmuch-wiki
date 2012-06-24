@@ -55,6 +55,7 @@ including specifying the location of your mail store and now to start
 the initial indexing.  After that, come back and checkout how our
 docs:
 
+  * [[Notmuch manual pages|manpages]]
   * [[General how-tos|howto]]
   * [[Available frontends|frontends]]
   * [[Searching]]
