@@ -8,7 +8,7 @@
 
 <h2>SYNOPSIS</h2>
 <pre>
-       <b>notmuch</b> <b>tag</b> +&lt;<u>tag&</u>gt;|-&lt;<u>tag</u>&gt; [...] [--] &lt;<u>search-term</u>&gt;...
+       <b>notmuch</b> <b>tag</b> +&lt;<u>tag</u>&gt;|-&lt;<u>tag</u>&gt; [...] [--] &lt;<u>search-term</u>&gt;...
 </pre>
 
 <h2>DESCRIPTION</h2>
