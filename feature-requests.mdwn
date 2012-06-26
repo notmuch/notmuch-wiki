@@ -93,6 +93,16 @@
      as well as more experimental approaches like using git as an object
      storage (similar to how [[nmbug]] operates).
 
++    Put content of all non-multipart content-types in results of `notmuch show --format=json ...`
+
+     In the JSON-format output of the `show` command, only text/plain
+     parts' content is included.  Including the content of parts having any
+     non-multipart content-type would assist with those who wished to access
+     their mail through notmuch's `show` command (because of having written
+     their MUA in a language with no library bindings or access to them
+     [e.g. Perl, Lua or shell]) and also had a mailcap or similar MIME-type
+     mapping system with which to actually view HTML files, images and the like.
+
 ## 3rd party apps
 
 ### notmuchsync
