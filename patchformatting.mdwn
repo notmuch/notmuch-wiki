@@ -94,7 +94,7 @@ This is the file name of your patch with content:
         From <-40-character-sha1-hexadecimal-string-> Day Mon DD HH:MM:SS YYYY
         From: user.name <user.email>
         Date: Day, DD Mon YYYY HH:MM:SS TZOFF
-        Subject: [PATCH] first commit line; one line description, up to 65 chars
+        Subject: [PATCH] first commit line; one line description, up to 72 chars
 
         after one empty line, a detailed description of your patch
         the description most usually spans over multiple lines.
