@@ -51,9 +51,8 @@ looking for.
 
 To get started with notmuch, just run "notmuch" at the command line.
 The configuration wizard will walk you through initial setup,
-including specifying the location of your mail store and now to start
-the initial indexing.  After that, come back and checkout how our
-docs:
+including specifying the location of your mail store and how to start
+the initial indexing.  After that, come back and checkout our docs:
 
   * [[Notmuch manual pages|manpages]]
   * [[General how-tos|howto]]
@@ -65,8 +64,8 @@ docs:
   * [[Remote usage|remoteusage]]
   * [[Performance|performance]]
 
-Apart from the wiki, help is available via email.  Join the mailing
-list.  Read the archives.  Ask questions.
+Apart from the wiki, help is available via email and on IRC (see
+below).  Join the mailing list.  Read the archives.  Ask questions.
 
 ## Screenshots
 
@@ -96,15 +95,17 @@ you can [subscribe to the `notmuch-commits`
 list](http://notmuchmail.org/mailman/listinfo/notmuch-commits) to watch
 every commit made to notmuch and the notmuchmail.org web site.
 
-Source code of notmuch releases can be downloaded [here](http://notmuchmail.org/releases/).
+Source tar balls of notmuch releases can be downloaded
+[here](http://notmuchmail.org/releases/).
 
-There is a buildbot [here](http://buildbot.notmuchmail.org/grid) (configuration [here](https://github.com/tomprince/buildbot-configs/tree/notmuch)).
+We have a [buildbot](http://buildbot.notmuchmail.org/grid)
+([configuration](https://github.com/tomprince/buildbot-configs/tree/notmuch)).
 
 ## Bug-tracking and patches
 
 Patches are most welcome and should be sent to notmuch&#64;notmuchmail.org.
 Please try to follow the [[patch submission guidelines|patchformatting]]
-when submitting patches to notmuch.
+when submitting patches.
 
 The tagging and filtering features of notmuch make it quite suitable
 for use as a bug- and patch-tracker. We are currently experimenting
@@ -142,6 +143,5 @@ but it's a nice way to collect ideas.
 
 ## Website
 
-This wiki is maintained using
-[ikiwiki](http://ikiwiki.info). Instructions on how to edit it can be
-found [[here|wikiwriteaccess]].
+This wiki is maintained using [ikiwiki](http://ikiwiki.info). Here are
+[[instructions on how to edit the wiki|wikiwriteaccess]].
