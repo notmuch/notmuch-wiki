@@ -89,17 +89,19 @@ versions can be checked out via git with this command:
 
         git clone git://notmuchmail.org/git/notmuch
 
-You can browse the [Notmuch code
-history](http://git.notmuchmail.org/git/notmuch) online. And finally,
-you can [subscribe to the `notmuch-commits`
-list](http://notmuchmail.org/mailman/listinfo/notmuch-commits) to watch
-every commit made to notmuch and the notmuchmail.org web site.
+You can browse the
+[Notmuch code history online](http://git.notmuchmail.org/git/notmuch). And
+finally, you can
+[subscribe to the `notmuch-commits` list](http://notmuchmail.org/mailman/listinfo/notmuch-commits)
+to watch every commit made to notmuch and the notmuchmail.org web
+site.
 
-Source tar balls of notmuch releases can be downloaded
-[here](http://notmuchmail.org/releases/).
+Here are
+[source tar balls of notmuch releases](http://notmuchmail.org/releases/).
 
-We have a [buildbot](http://buildbot.notmuchmail.org/grid)
-([configuration](https://github.com/tomprince/buildbot-configs/tree/notmuch)).
+We have a [buildbot](http://buildbot.notmuchmail.org/grid) (here's
+it's
+[configuration](https://github.com/tomprince/buildbot-configs/tree/notmuch)).
 
 ## Bug-tracking and patches
 
@@ -110,22 +112,21 @@ when submitting patches.
 The tagging and filtering features of notmuch make it quite suitable
 for use as a bug- and patch-tracker. We are currently experimenting
 with using it for this purpose for notmuch development, using a
-utility called [[nmbug]].
-
-The status of current patches can also be followed [[online|http://nmbug.tethera.net/status]].
+utility called [[nmbug]].  The status of current patches can also be
+followed [online](http://nmbug.tethera.net/status).
 
 ## Contact: Email & IRC
 
 Comments? Please feel free to email the notmuch mailing list:
 notmuch&#64;notmuchmail.org (subscription is not required, but you can
-subscribe to the [notmuch
-list](http://notmuchmail.org/mailman/listinfo/notmuch) if you would
-like to). You can also browse the [online
-archives](http://notmuchmail.org/pipermail/notmuch/) of the mailing
-list, read them as a [web forum
-(nabble)](http://notmuch.198994.n3.nabble.com/), or download an
-[mbox file](http://notmuchmail.org/archives/notmuch.mbox) of the entire
-mailing-list.
+also subscribe to the
+[notmuch mailing list](http://notmuchmail.org/mailman/listinfo/notmuch)). You
+can also browse the
+[online list archives](http://notmuchmail.org/pipermail/notmuch/),
+read them as a
+[web forum (nabble)](http://notmuch.198994.n3.nabble.com/), or
+download an [mbox file](http://notmuchmail.org/archives/notmuch.mbox)
+of the entire mailing-list.
 
 The `mb2md` utility can be used to convert the archives to maildir
 format which is convenient for reading the archives within notmuch
