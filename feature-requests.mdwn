@@ -36,7 +36,8 @@
      if only one name is configured, use that for all addresses;
      if other_names are configured, match those with the other_email addresses
 
-
++    Put the the emacs mode in a separate repository and include it as a submmodule in main (better for emacs package managers among other things).
+ 
 ## notmuch
 
 +    Allow a custom location for .notmuch
