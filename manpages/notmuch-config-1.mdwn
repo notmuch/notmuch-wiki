@@ -2,7 +2,7 @@
 
 <h2>NAME</h2>
 <pre>
-       notmuch-config - Access notmuch configuration file.
+       notmuch-config - access notmuch configuration file
 </pre>
 
 <h2>SYNOPSIS</h2>

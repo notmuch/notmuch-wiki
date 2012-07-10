@@ -2,7 +2,7 @@
 
 <h2>NAME</h2>
 <pre>
-       notmuch-new - Incorporate new mail into the notmuch database.
+       notmuch-new - incorporate new mail into the notmuch database
 </pre>
 
 <h2>SYNOPSIS</h2>

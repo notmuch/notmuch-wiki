@@ -2,7 +2,7 @@
 
 <h2>NAME</h2>
 <pre>
-       notmuch-show - Show messages matching the given search terms.
+       notmuch-show - show messages matching the given search terms
 </pre>
 
 <h2>SYNOPSIS</h2>

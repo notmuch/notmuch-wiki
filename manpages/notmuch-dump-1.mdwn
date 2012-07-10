@@ -2,7 +2,7 @@
 
 <h2>NAME</h2>
 <pre>
-       notmuch-dump - Creates a plain-text dump of the tags of each message.
+       notmuch-dump - creates a plain-text dump of the tags of each message
 </pre>
 
 <h2>SYNOPSIS</h2>

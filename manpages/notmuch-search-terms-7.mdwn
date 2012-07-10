@@ -2,7 +2,7 @@
 
 <h2>NAME</h2>
 <pre>
-       notmuch-search-terms - Syntax for notmuch queries
+       notmuch-search-terms - syntax for notmuch queries
 </pre>
 
 <h2>SYNOPSIS</h2>

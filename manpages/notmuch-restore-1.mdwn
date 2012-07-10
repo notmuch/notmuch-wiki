@@ -2,8 +2,8 @@
 
 <h2>NAME</h2>
 <pre>
-       notmuch-restore  -  Restores  the tags from the given file (see notmuch
-       dump).
+       notmuch-restore  -  restores  the tags from the given file (see notmuch
+       dump)
 </pre>
 
 <h2>SYNOPSIS</h2>

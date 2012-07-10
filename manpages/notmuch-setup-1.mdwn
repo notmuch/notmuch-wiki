@@ -73,8 +73,8 @@
        tax. See notmuch-search-terms(7) for more details on the supported syn-
        tax.
 
-       The  <b>search</b>,  <b>show</b> and <b>count</b> commands are used to query the email data-
-       base.
+       The  <b>search</b>,  <b>show</b>  and  <b>count</b>  commands  are  used  to query the email
+       database.
 
        The <b>reply</b> command is useful for  preparing  a  template  for  an  email
        reply.

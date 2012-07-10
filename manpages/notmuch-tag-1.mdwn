@@ -2,8 +2,8 @@
 
 <h2>NAME</h2>
 <pre>
-       notmuch-tag  -  Add/remove  tags  for  all messages matching the search
-       terms.
+       notmuch-tag  -  add/remove  tags  for  all messages matching the search
+       terms
 </pre>
 
 <h2>SYNOPSIS</h2>
