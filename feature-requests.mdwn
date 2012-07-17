@@ -40,6 +40,12 @@
  
 ## notmuch
 
++    Add hooks for retagging:
+   + pre-tag: Called before tagging messages
+   + post-tag: Called after messages got tagged
+
+     This might be useful if you want to sync for example your Maildirs with the notmuch tags.
+
 +    Allow a custom location for .notmuch
 
      The notmuch index is currently saved in .notmuch under the user's
