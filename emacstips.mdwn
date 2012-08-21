@@ -122,8 +122,8 @@ a file called `~/.emacs.d/my-notmuch.el`:
         ;; uncomment & modify if you want to use external smtp server to send mail
         ;; (setq smtpmail-smtp-server "smtp.server.tld"
         ;;       message-send-mail-function 'message-smtpmail-send-it)
-	;; uncomment to debug smtp sending problems
-	;; (setq smtpmail-debug-info t)
+        ;; uncomment to debug smtp sending problems
+        ;; (setq smtpmail-debug-info t)
 
 Then, add to `.emacs`:
 
