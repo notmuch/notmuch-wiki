@@ -1,0 +1,68 @@
+[[!meta date="2012-08-20"]]
+
+Notmuch 0.14 (2012-08-20)
+=========================
+
+General bug fixes
+-----------------
+
+### Maildir tag synchronization
+
+Maildir flag-to-tag synchronization now applies only to messages in
+maildir-like directory structures.  Previously, it applied to any
+message that had a maildir "info" part, which meant it could
+incorrectly synchronize tags for non-maildir messages, while at the
+same time failing to synchronize tags for newly received maildir
+messages (typically causing new messages to not receive the "unread"
+tag).
+
+Command-Line Interface
+----------------------
+
+The deprecated positional output file argument to `notmuch dump` has
+been replaced with an `--output` option. The input file positional
+argument to `notmuch restore` has been replaced with an `--input`
+option for consistency with dump.  These changes simplify the syntax
+of dump/restore options and make them more consistent with other
+notmuch commands.
+
+Emacs Interface
+---------------
+
+### Search results now get re-colored when tags are updated
+
+### The formatting of tags in search results can now be customized
+
+Previously, attempting to change the format of tags in
+`notmuch-search-result-format` would usually break tagging from
+search-mode.  We no longer make assumptions about the format.
+
+### Experimental support for multi-line search result formats
+
+It is now possible to embed newlines in
+`notmuch-search-result-format` to make individual search results
+span multiple lines.
+
+### Next/previous in search and show now move by boundaries
+
+All "next" and "previous" commands in the search and show modes now
+move to the next/previous result or message boundary.  This doesn't
+change the behavior of "next", but "previous" commands will first
+move to the beginning of the current result or message if point is
+inside the result or message.
+
+### Search now uses the JSON format internally
+
+This should address problems with unusual characters in authors and
+subject lines that could confuse the old text-based search parser.
+
+### The date shown in search results is no longer padded before applying user-specified formatting
+
+Previously, the date in the search results was padded to fixed width
+before being formatted with `notmuch-search-result-format`.  It is
+no longer padded.  The default format has been updated, but if
+you've customized this variable, you may have to change your date
+format from `"%s "` to `"%12s "`.
+
+The thread-id for the `target-thread` argument for `notmuch-search` should
+now be supplied without the "thread:" prefix.
