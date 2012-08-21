@@ -8,7 +8,7 @@
 
 <h2>SYNOPSIS</h2>
 <pre>
-       <b>notmuch</b> <b>restore</b> [<b>--accumulate</b>] [ &lt;<u>filename</u>&gt; ]
+       <b>notmuch</b> <b>restore</b> [<b>--accumulate</b>] [ --input=&lt;<u>filename</u>&gt; ]
 </pre>
 
 <h2>DESCRIPTION</h2>
@@ -41,4 +41,4 @@
        <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
-<h2>Notmuch 0.13.2</h2>
+<h2>Notmuch 0.14</h2>

@@ -114,4 +114,4 @@
        <a href='../notmuch-search-1/'>notmuch-search</a>(1), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
-<h2>Notmuch 0.13.2</h2>
+<h2>Notmuch 0.14</h2>

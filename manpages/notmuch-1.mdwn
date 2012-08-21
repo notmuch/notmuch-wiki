@@ -119,4 +119,4 @@
        (server: irc.freenode.net, channel: #notmuch).
 </pre>
 
-<h2>Notmuch 0.13.2</h2>
+<h2>Notmuch 0.14</h2>
