@@ -92,6 +92,17 @@ mentioned as script arguments. (Note: The script expects that you have
         done
         emacsclient -a '' -c -e "(progn (compose-mail) $attach_cmds)"
 
+## Issues with Emacs 24
+
+If notmuch-show-mode behaves badly for you in emacs 24.x try adding one of
+
+	(setq gnus-inhibit-images nil)
+
+or
+
+	(require 'gnus-art)
+
+to your .emacs file.
 
 -----
 
