@@ -539,3 +539,15 @@ more information (some of these have "extensive documentation"):
 The last two do the same thing.
 
 See also the **Usage:** section in `gnus-alias.el`.
+
+## Resending (or bouncing) messages
+
+Add the following to your `.emacs` to be able to resend the current message in
+show mode.
+
+        (define-key notmuch-show-mode-map "b"
+          (lambda (&optional address)
+            "Bounce the current message."
+            (interactive "sBounce To: ")
+            (notmuch-show-view-raw-message)
+            (message-resend address)))
