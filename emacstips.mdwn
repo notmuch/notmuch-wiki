@@ -579,3 +579,30 @@ buffer.
               (setq notmuch-hello-refresh-count new-count))))
 
         (add-hook 'notmuch-hello-refresh-hook 'notmuch-hello-refresh-status-message)
+
+## Replacing tabs with spaces in subject and header
+
+Mailman mailing list software rewrites and rewraps long message subjects in
+a way that causes TABs to appear in the middle of the subject and header
+lines. Add this to your .emacs to replace tabs with spaces in subject
+lines:
+
+	(defun notmuch-show-subject-tabs-to-spaces ()
+	  "Replace tabs with spaces in subject line."
+	  (goto-char (point-min))
+	  (when (re-search-forward "^Subject:" nil t)
+	    (while (re-search-forward "\t" (line-end-position) t)
+	      (replace-match " " nil nil))))
+
+	(add-hook 'notmuch-show-markup-headers-hook 'notmuch-show-subject-tabs-to-spaces)
+
+And in header lines (this will only work with the yet to be released
+notmuch version 0.15):
+
+	(defun notmuch-show-header-tabs-to-spaces ()
+	  "Replace tabs with spaces in header line."
+	  (setq header-line-format
+	  (notmuch-show-strip-re
+	   (replace-regexp-in-string "\t" " " (notmuch-show-get-subject)))))
+
+	(add-hook 'notmuch-show-hook 'notmuch-show-header-tabs-to-spaces)
