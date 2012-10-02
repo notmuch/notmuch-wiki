@@ -29,8 +29,11 @@ notmuch` from within a running emacs.
 ## Navigating & reading mails
 
 When first starting notmuch in emacs, you will be presented with the
-notmuch "hello" page.  From here you can do searches, see lists of
-recent searches, saved searches, message tags, help information, etc.
+notmuch "hello" page.  If it exits with an error after writing
+"Welcome to notmutch. You have" you need to do the basic notmuch setup
+first (see above).  
+From here you can do searches, see lists of recent
+searches, saved searches, message tags, help information, etc.
 
 Executing a search will open a new buffer in `notmuch-search-mode`
 displaying the search results.  Each line in the search results
