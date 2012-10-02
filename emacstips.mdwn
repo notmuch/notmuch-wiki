@@ -3,12 +3,16 @@
 One of the more popular notmuch message reading clients is
 **notmuch.el**, an [emacs](http://www.gnu.org/software/emacs/) major
 mode for interacting with notmuch.  It is included in the notmuch
-package.  This page goes over some usage tips for using notmuch with
-Emacs.
+package (notmuch-emacs in Debian).  This page goes over some usage
+tips for using notmuch with Emacs.
 
 [[!toc levels=2]]
 
 ## Setup
+
+Have a look at the [Howto](http://notmuchmail.org/howto/) for
+prerequisites.  Be sure you have done the general setup using the
+notmuch cli command!
 
 To use the Notmuch emacs mode, first add the following line to your
 `.emacs` rc file:
