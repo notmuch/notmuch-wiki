@@ -74,6 +74,8 @@ below).  Join the mailing list.  Read the archives.  Ask questions.
 ## Packages
 
 * [Debian](http://packages.debian.org/search?keywords=notmuch)
+  Please use at least the packages from squeeze-backports, squeeze
+  packages are very outdated!
 * [Fedora](https://community.dev.fedoraproject.org/packages/notmuch)
 * [Gentoo](http://packages.gentoo.org/package/net-mail/notmuch)
 * [Slackware](http://slackbuilds.org/repository/13.37/office/notmuch/)
