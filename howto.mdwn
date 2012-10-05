@@ -25,7 +25,7 @@ mbox mail store formats is not supported, but fortunately it is very
 easy to [[convert mbox to maildir|howto/#mbox]] .  The following
 utilities support these formats:
 
-* [offlineimap](https://github.com/nicolas33/offlineimap/) -
+* [offlineimap](http://offlineimap.org/) -
   quite useful and widely tested, it also offers a handy hook that
   will come in useful a bit later in our setup.  Also supports
   "presynchook" and "postsynchook" command that will get run
