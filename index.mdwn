@@ -102,7 +102,7 @@ Here are
 [source tar balls of notmuch releases](http://notmuchmail.org/releases/).
 
 We have a [buildbot](http://buildbot.notmuchmail.org/grid) (here's
-it's
+its
 [configuration](https://github.com/tomprince/buildbot-configs/tree/notmuch)).
 
 ## Bug-tracking and patches
