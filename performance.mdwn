@@ -27,7 +27,7 @@ XXX: add examples for different distributions
 Backup your notmuch tags:
 
     $ cd
-    $ notmuch dump notmuch-dump-b4chert
+    $ notmuch dump --output=notmuch-dump-b4chert
 
 Move away your old database:
 
@@ -48,7 +48,7 @@ After the initial import it is definitely not necessary to define
 
 Restore your tags:
 
-    $ notmuch restore notmuch-dump-b4chert
+    $ notmuch restore --input=notmuch-dump-b4chert
 
 Check whether you are on chert now:
 
@@ -80,7 +80,7 @@ This needs xapian 1.2
 Backup your database:
 
     $ cd
-    $ notmuch dump notmuch-dump-b4compact
+    $ notmuch dump --output=notmuch-dump-b4compact
 
 Compact it:
 
