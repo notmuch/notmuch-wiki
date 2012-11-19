@@ -1,0 +1,30 @@
+## Notmuch Email Corpus
+
+A corpus of about 108k messages is available for performance testing of 
+notmuch (or other uses).
+
+The contents are as follows
+
+Mail/notmuch-archive
+
+archive of the notmuch mailing list
+- last updated 2012-11-17
+- converted from mbox with mb2md 3.20.
+
+Mail/enron
+
+selected data from the EDRM v2 enron data set
+- CC Attribution: "ZL Technologies, Inc. (http://www.zlti.com)"
+- Downloaded via bittorrent
+  http://www.searchdaimon.com/community/dataset/
+- massaged with scripts/unpack-enron.sh
+
+Because of the size of the archive, it is not currently available from
+http://notmuchmail.org, but can be downloaded from:
+
+- http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.1.tar.gz
+
+A signature from key "815B 6398 2A79 F8E7 C727  86C4 762B 57BB 7842 06AD"
+can be found in 
+
+- http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.1.tar.gz.asc
