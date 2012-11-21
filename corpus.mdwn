@@ -19,13 +19,14 @@ The contents are as follows
 
       http://www.searchdaimon.com/community/dataset/
 	  
-   - massaged with scripts/unpack-enron.sh
+   - massaged with scripts/unpack-enron.sh (in the corpus tarball)
 
-Because of the size of the archive, it is not currently available from
-http://notmuchmail.org, but can be downloaded from:
+The corpus is gpg signed by David Bremner with  key fingerprint:
 
-- [UNB](http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.1.tar.gz)
+     815B 6398 2A79 F8E7 C727  86C4 762B 57BB 7842 06AD
 
-A signature from key "815B 6398 2A79 F8E7 C727  86C4 762B 57BB 7842 06AD"
-can be found [here](http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.1.tar.gz.asc)
+You can download the corpus from
+
+- [notmuchmail.org](http:///notmuchmail.org/releases/notmuch-email-corpus-0.2.tar.xz) [signature](http:///notmuchmail.org/releases/notmuch-email-corpus-0.2.tar.xz.asc)
+- [UNB](http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.2.tar.xz) [signature](http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.2.tar.xz.asc)
 
