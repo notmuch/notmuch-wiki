@@ -275,12 +275,19 @@ And in search mode:
 The Emacs interface to notmuch will automatically add an `Fcc`
 header to your outgoing mail so that any messages you send will also
 be saved in your mail store. You can control where this copy of the
-message is saved by setting the variables `message-directory` (which
-defines a base directory) and `notmuch-fcc-dirs` which defines the
-subdirectory relative to `message-directory` in which to save the
-mail. Enter a directory (without the maildir `/cur` ending which
-will be appended automatically). To customize both variables at the
-same time, use the fancy command:
+message is saved by setting the variable `notmuch-fcc-dirs` which defines the
+subdirectory relative to the `database.path` setting from your
+notmuch configuration in which to save the mail. Enter a directory
+(without the maildir `/cur` ending which will be appended
+automatically). Additional information can be found as usual using:
+
+       M-x describe-variable notmuch-fcc-dirs
+
+An additional variable that can affect FCC settings in some cases is
+`message-directory`. Emacs message-mode uses this variable for
+postponed messages.
+
+To customize both variables at the same time, use the fancy command:
 
         M-x customize-apropos<RET>\(notmuch-fcc-dirs\)\|\(message-directory\)
 
