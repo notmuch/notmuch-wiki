@@ -1,7 +1,7 @@
 # Tags special to notmuch
 
 This page describes the tags that the notmuch lib, cli, and emacs ui recognize
-and treat specially.
+and treat specially, and whether these tags can be configured.
 
 ## Tags special to lib
 
@@ -70,15 +70,17 @@ tags can be changed using the search.exclude_tags configuration option.
 
 ## Tags special to Emacs UI
 
-Most of the tags recognized by the emacs ui are not (easily) configurable.
+All of the tags recognized by the emacs ui are configurable.
 
 ### Reading mail
 
  - unread
  - inbox
 
-The elementary mail reading commands automatically remove the "unread" tag when
-visiting a message, and remove the "inbox" tag when archiving a message.
+The elementary mail reading commands automatically remove the tag(s) specified
+by `notmuch-show-mark-read-tags` ("unread" by default) when visiting a message,
+and remove the tag(s) specified by `notmuch-archive-tags` ("inbox" by default)
+when archiving a message.
 
 ### Other
 
@@ -86,8 +88,9 @@ visiting a message, and remove the "inbox" tag when archiving a message.
  - flagged
  - deleted (*)
 
-The "replied" tag is added to messages that are replied to, and "flagged"
-messages are highlighted through `notmuch-search-line-faces` by default.
+The tag(s) specified by `notmuch-message-replied-tags` ("replied" by default)
+are added to messages that are replied to, and "flagged" messages are
+highlighted through `notmuch-search-line-faces` by default.
 
 (*) There are patches to tag, untag, and hide "deleted" tagged messages, but
 they have not been merged at the time of writing this.
