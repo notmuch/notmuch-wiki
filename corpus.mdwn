@@ -29,4 +29,6 @@ You can download the corpus from
 
 - [notmuchmail.org](http:///notmuchmail.org/releases/notmuch-email-corpus-0.2.tar.xz) [signature](http:///notmuchmail.org/releases/notmuch-email-corpus-0.2.tar.xz.asc)
 - [UNB](http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.2.tar.xz) [signature](http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.2.tar.xz.asc)
+- [Corpus 0.3](http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.3.tar.xz) [signature](http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.3.tar.xz.asc)
+
 
