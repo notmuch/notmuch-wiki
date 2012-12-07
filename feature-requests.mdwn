@@ -1,6 +1,11 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 #List of features people have requested and ideas that people want to keep thinking about
 
+## TODO list
+
+See the [devel/TODO file](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/devel/TODO) in the
+[notmuch git repository](http://git.notmuchmail.org/git/notmuch).
+
 ## Emacs client
 
 +    Add 'd' keybinding
