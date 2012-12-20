@@ -661,3 +661,13 @@ following code in my emacs config:
                       (when overlay
                         (overlay-put overlay 'face '((:inherit bold) (:foreground "green")))))))))))
         (add-hook 'notmuch-hello-refresh-hook 'color-inbox-if-unread)
+		
+## Linking to notmuch messages and threads from the Circe IRC client
+
+[Circe](https://github.com/jorgenschaefer/circe/wiki) is an IRC client for emacs.
+To have clickable buttons for notmuch messages and threads, add the following to 
+`lui-buttons-list` (using, e.g. M-x customize-variable)
+
+    ("\\(?:id\\|mid\\|thread\\):[0-9A-Za-z][0-9A-Za-z.@-]*" 0 notmuch-show 0)
+	
+If you have notmuch-pick installed, it works fine for this as well.
