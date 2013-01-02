@@ -160,8 +160,8 @@ example searches.
 
 The tags are stored in a bare-repo, which means they are not obviously
 visible. There is an `nmbug archive` command analogous to `git
-archive` Tags are represented as empty files in the tree; if you extra
-them, the tree looks something like:
+archive` Tags are represented as empty files in the tree; if you
+extract them, the tree looks something like:
 
     tags/878waiwi0f.wl%25james@hackervisions.org/
     tags/878waiwi0f.wl%25james@hackervisions.org/emacs
