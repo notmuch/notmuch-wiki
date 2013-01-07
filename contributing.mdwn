@@ -1,8 +1,6 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Contributing to Notmuch
 
-__This page is a work in progress__
-
 This is your friendly guide to contributing to Notmuch. In a nutshell, the
 Notmuch project maintains fairly high standards for code, review, tests, and
 documentation. It may seem a bit intimidating at first, and you may find it
