@@ -41,7 +41,7 @@ If you're planning big changes, it may be advisable to __not__ polish the patch
 series according to all the details described below at first. Instead, it may
 save everyone's time to introduce the idea using draft or work-in-progress
 patches, and get the design right from the beginning. Add a cover letter
-exlaining what you want to achieve. You may prefix the subjects of such patches
+explaining what you want to achieve. You may prefix the subjects of such patches
 with "RFC" or "DRAFT" if you like.
 
 ## Pay attention to the Notmuch coding style
@@ -55,7 +55,8 @@ extra review round.
 ## Split your commits in logical chunks
 
 Each commit should contain one logical change only. The code should build and
-work after each commit. Changes to lib, cli, emacs, tests, man pages, or news
+the tests should pass after each commit. Changes to lib, cli, emacs, tests,
+man pages, or news
 are usually best kept separate. Also separate cleanups from functional
 changes. See the Notmuch source history (`git log`) for examples.
 
@@ -89,7 +90,9 @@ should add new tests for any new functionality, and it helps in getting your
 changes accepted.
 
 If you're fixing a bug, it is recommended to add a "known broken" test
-highlighting the issue first, and fixing the the bug after that. This makes it
+highlighting the issue in a first patch, and then fix the bug (and remove
+the known broken mark on the test) in the next patch in the series. This
+makes it
 easy to confirm your changes actually fix the issue. Some people use this
 approach also for adding new features.
 
@@ -107,7 +110,7 @@ Emacs documentation.
 
 ## Update NEWS
 
-If you make user visible changes, you should update the
+If you make user visible changes, you should add an entry to the
 [`NEWS`](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/NEWS) file.
 
 ## Subscribe to the Notmuch mailing list
@@ -124,13 +127,13 @@ you have your changes ready in your local repository, you need to send them to
 the Notmuch mailing list. The simplest way is to use `git send-email` to send
 the patches directly from your repository:
 
-	git send-email --to notmuch@notmuchmail.org origin
+	git send-email --to notmuch@notmuchmail.org origin/master
 
 An alternative is to do this in two steps; first generating patch files (using
 `git format-patch`), and then sending the patch files to the mailing list (using
 `git send-email` or a mail client):
 
-	git format-patch origin
+	git format-patch origin/master
 	git send-email --to notmuch@notmuchmail.org *.patch
 
 Either way, using `git send-email` to actually send the patches is
@@ -166,14 +169,15 @@ examples.
 
 ## Send another round addressing review comments
 
-If your patches need to be changed based on review (for large patch series they
+If your patches need to be changed based on review (they
 usually do), you need to make the changes and re-submit. `git rebase -i` is your
 friend in updating your series. Also note that the upstream master may have
 changed; be sure to rebase your updated changes on top of the current master.
 
 Once you have the updated series ready, send it to the mailing list again. It
 will be helpful for others to use the `--subject-prefix="PATCH vN"` option of
-`git format-patch` to add a version number of the patch series to the subject
+`git format-patch` or `git send-email` to add a version number of the patch
+series to the subject
 (replacing vN with v2, v3, etc.) Use a cover letter (or, in the case of a single
 patch, the notes after a "---" at the end of the commit message) to summarize
 the main changes since the previous version of the patch series. Also include
