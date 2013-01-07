@@ -207,4 +207,5 @@ highlighting the issue.
 
 Patch review happens on the Notmuch mailing list, but there is plenty of
 discussion going on in the freenode #notmuch IRC channel. See
-http://freenode.net/irc_servers.shtml for more information.
+[freenode.net/irc_servers.shtml](http://freenode.net/irc_servers.shtml)
+for more information.
