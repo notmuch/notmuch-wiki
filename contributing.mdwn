@@ -1,0 +1,207 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# Contributing to Notmuch
+
+__This page is a work in progress__
+
+This is your friendly guide to contributing to Notmuch. In a nutshell, the
+Notmuch project maintains fairly high standards for code, review, tests, and
+documentation. It may seem a bit intimidating at first, and you may find it
+difficult to get your first contributions accepted, but once you get the hang of
+it, it'll be fun. This page should help you get there. DON'T PANIC.
+
+The headlines below act as a checklist. Not all of them apply in all situations;
+use common sense.
+
+[[!toc levels=2]]
+
+## Obtain the Notmuch source code
+
+The Notmuch source code is maintained in [git](http://git-scm.com/). Get the
+source code using:
+
+	git clone git://notmuchmail.org/git/notmuch
+
+This guide assumes a working knowledge of git. There are plenty of resources
+available on git, such as [Pro Git](http://git-scm.com/book) and the git man
+pages. Please refer to them as necessary.
+
+## Make your changes
+
+The changes you submit should almost always be based on the current Notmuch git
+master. There are plenty of ways to work in git, and this is not your git guide,
+but a typical workflow might start with:
+
+	git fetch origin
+	git checkout -b my-local-branch origin/master
+	# make changes
+	git add ...
+	git commit
+
+If you're planning big changes, it may be advisable to __not__ polish the patch
+series according to all the details described below at first. Instead, it may
+save everyone's time to introduce the idea using draft or work-in-progress
+patches, and get the design right from the beginning. Add a cover letter
+exlaining what you want to achieve. You may prefix the subjects of such patches
+with "RFC" or "DRAFT" if you like.
+
+## Pay attention to the Notmuch coding style
+
+The Notmuch code base follows a fairly uniform coding style. See the existing
+code around your changes, and read
+[`devel/STYLE`](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/devel/STYLE)
+in the Notmuch source. It's not difficult to get it right, and may save you an
+extra review round.
+
+## Split your commits in logical chunks
+
+Each commit should contain one logical change only. The code should build and
+work after each commit. Changes to lib, cli, emacs, tests, man pages, or news
+are usually best kept separate. Also separate cleanups from functional
+changes. See the Notmuch source history (`git log`) for examples.
+
+For in-depth discussion on the subject, see 
+[Software Release Practice HOWTO](http://tldp.org/HOWTO/Software-Release-Practice-HOWTO/) by Eric S. Raymond.
+
+## Write meaningful commit messages
+
+[Quoting Carl](http://article.gmane.org/gmane.mail.notmuch.general/504), "The
+single line summary is good about saying what the commit does, but I always want
+to see at least one sentence about the why as well."
+
+See also [Pro Git](http://git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project#Commit-Guidelines) on commit guidelines, including commit messages.
+
+It is customary to prefix the subject line with "lib:", "cli:", "emacs:",
+etc. depending on which part of Notmuch the commit is changing. See `git log`
+for examples.
+
+Wrap the lines to about 72 characters.
+
+If you want to share notes that shall not become part of the commit message when
+applied to the upstream Notmuch repository, add the notes at the end, after a
+line containing "---".
+
+## Update the test suite
+
+Notmuch has a test suite with fairly good coverage. At the very least, `make
+test` must pass after your changes. Therefore you must amend the tests if you
+make functional changes that have existing test coverage. Preferrably, you
+should add new tests for any new functionality, and it helps in getting your
+changes accepted.
+
+If you're fixing a bug, it is recommended to add a "known broken" test
+highlighting the issue first, and fixing the the bug after that. This makes it
+easy to confirm your changes actually fix the issue. Some people use this
+approach also for adding new features.
+
+See
+[`test/README`](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/test/README)
+in the Notmuch source for further information.
+
+## Update the documentation
+
+If you modify or add new features to the Notmuch command-line tools, you should
+update the manual pages under the `man` directory of the Notmuch source.
+
+If you modify or add new features to the Notmuch Emacs UI, you should update the
+Emacs documentation.
+
+## Update NEWS
+
+If you make user visible changes, you should update the
+[`NEWS`](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/NEWS) file.
+
+## Subscribe to the Notmuch mailing list
+
+While strictly not required, it is advisable to subscribe to the
+[Notmuch mailing list](http://notmuchmail.org/mailman/listinfo/notmuch) before
+submitting patches.
+
+## Send your patches to the mailing list
+
+Changes to Notmuch are contributed as
+[emailed patches](http://git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project#Public-Large-Project). Once
+you have your changes ready in your local repository, you need to send them to
+the Notmuch mailing list. The simplest way is to use `git send-email` to send
+the patches directly from your repository:
+
+	git send-email --to notmuch@notmuchmail.org origin
+
+An alternative is to do this in two steps; first generating patch files (using
+`git format-patch`), and then sending the patch files to the mailing list (using
+`git send-email` or a mail client):
+
+	git format-patch origin
+	git send-email --to notmuch@notmuchmail.org *.patch
+
+Either way, using `git send-email` to actually send the patches is
+recommended. It may be distributed separately from git, typically in a package
+named `git-email`.
+
+## Write a cover letter
+
+If you are submitting a non-trivial set of patches, or if there's any extra
+information you want to share that is not really part of the commit messages, it
+is advisable to write a cover letter to give an overview of your work. See the
+[Notmuch mailing list archives](http://notmuchmail.org/pipermail/notmuch/) for
+examples. Use the `--cover-letter` option of `git format-patch`, or `--compose`
+option of `git send-email`.
+
+## Tag your patches in nmbug
+
+When you're developing an email tool, all the problems start looking like
+email. This applies to patch and bug tracking as well. The Notmuch project uses
+[nmbug](http://notmuchmail.org/nmbug/) for tracking. The Notmuch developers will
+tag your patches too, making them show up in the
+[nmbug status page](http://nmbug.tethera.net/status/), but requesting access and
+tagging your patches yourself will be helpful in the long run.
+
+## Address review comments, participate in discussion
+
+Each change to Notmuch must be peer reviewed before it is accepted, usually by
+one or two developers, depending on the impact of the changes. You are expected
+to follow up on the review comments you receive, either by discussing the
+comments and the code, or modifying your patches. Again, see the
+[Notmuch mailing list archives](http://notmuchmail.org/pipermail/notmuch/) for
+examples.
+
+## Send another round addressing review comments
+
+If your patches need to be changed based on review (for large patch series they
+usually do), you need to make the changes and re-submit. `git rebase -i` is your
+friend in updating your series. Also note that the upstream master may have
+changed; be sure to rebase your updated changes on top of the current master.
+
+Once you have the updated series ready, send it to the mailing list again. It
+will be helpful for others to use the `--subject-prefix="PATCH vN"` option of
+`git format-patch` to add a version number of the patch series to the subject
+(replacing vN with v2, v3, etc.) Use a cover letter (or, in the case of a single
+patch, the notes after a "---" at the end of the commit message) to summarize
+the main changes since the previous version of the patch series. Also include
+the message-id reference of the previous version.
+
+Using the `--in-reply-to` option of `git format-patch` or `git send-email` to
+send the patch series as a reply to the earlier version is generally
+discouraged, particularly for large series, but there are no hard rules. Usually
+the message-id reference to the previous version is sufficient and preferred.
+
+Tag the old patches obsolete in [nmbug](http://notmuchmail.org/nmbug/) if you
+have access.
+
+## Review other people's work
+
+You scratch my back and I'll scratch yours. It will be easier to get people to
+review your patches if you review theirs.
+
+## Report bugs
+
+Send bug reports to the Notmuch mailing list. Preferrably prefix the subject
+line with "BUG:" or similar. Tag the message as a bug in
+[nmbug](http://notmuchmail.org/nmbug/).
+
+Even better, send a patch adding a "known broken" test to the test suite
+highlighting the issue.
+
+## Join the Notmuch IRC channel
+
+Patch review happens on the Notmuch mailing list, but there is plenty of
+discussion going on in the #notmuch IRC channel.
