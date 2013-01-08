@@ -11,3 +11,7 @@
 ## Notmuch 0.11 -- Emacs UI
 
 [[!img Screenshot-notmuch-show-html.png alt="Thread view, with HTML and an embedded image"]]
+
+## Notmuch 0.14 -- Emacs UI
+
+[[!img Screenshot-notmuch-thread-zkj.png alt="Thread view, with folded citation lines"]]
