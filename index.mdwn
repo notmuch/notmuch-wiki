@@ -56,7 +56,6 @@ the initial indexing.  After that, come back and checkout our docs:
 
   * [[Notmuch manual pages|manpages]]
   * [[General how-tos|howto]]
-  * [[Available frontends|frontends]]
   * [[Searching]]
   * [[Excluding and deleting messages|excluding]]
   * [[Initial tagging|Initial_Tagging]]
@@ -66,6 +65,16 @@ the initial indexing.  After that, come back and checkout our docs:
 
 Apart from the wiki, help is available via email and on IRC (see
 below).  Join the mailing list.  Read the archives.  Ask questions.
+
+## Email clients and front ends
+
+Notmuch ships with a powerful set of [[command-line tools|manpages]], an
+[[email client for Emacs|emacstips]], another
+[client for vim](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README),
+and a [[Mutt integration script|notmuch-mutt]].
+
+There are also other many other [[email clients and frontends|frontends]] based
+on Notmuch.
 
 ## Screenshots
 
