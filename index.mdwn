@@ -73,8 +73,8 @@ Notmuch ships with a powerful set of [[command-line tools|manpages]], an
 [client for vim](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README),
 and a [[Mutt integration script|notmuch-mutt]].
 
-There are also other many other [[email clients and frontends|frontends]] based
-on Notmuch.
+There are also many other [[email clients and frontends|frontends]] based on
+Notmuch.
 
 ## Screenshots
 
