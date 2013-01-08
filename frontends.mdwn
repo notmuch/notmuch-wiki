@@ -1,6 +1,6 @@
 # Available frontends
 
-* notmuch-cli, the CLI bindings provided with notmuch.
+* [[notmuch-cli|manpages]], the CLI bindings provided with notmuch.
 * [[notmuch-emacs|emacstips]], the Emacs frontend which ships with notmuch.
 * notmuch-vim, the vim frontend which ships with notmuch.
 * [[notmuch-mutt]], mutt interoperability that ships with notmuch.
