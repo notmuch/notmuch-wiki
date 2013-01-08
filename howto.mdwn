@@ -80,53 +80,7 @@ expression:
 
 ## <span id="print_filenames">**Using notmuch with Mutt**</span>
 
-Notmuch is a great mail indexing tool that can also be used *in conjunction*
-with existing Mail User Agents (MUA) instead of replacing them. The advantage
-of such mixed solutions is that users can benefit from notmuch features (such
-as full-text search and thread reconstruction) without *having to* change
-MUA.
-
-A popular geek MUA is [the Mutt e-mail client](http://www.mutt.org);
-integrating notmuch with Mutt is not seamless, but fairly straightforward.
-There are two principal possibilities, each with its own ups and downs:
-
-* Using mutt-notmuch, which will create a "virtual" maildir folder with
-  search results whenever a search is made. The upside is that you can
-  search all your folders simultanously; the downside is that your
-  modifications in the results listing do not carry over, also having
-  to switch folders comes with some more annoyances.
-
-  An
-  [**how to use Notmuch with Mutt**](http://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/)
-  has been written by Stefano Zacchiroli. Check out the
-  [howto](http://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/)
-  for more information.
-
-  <small>(Note by the howto author: I've linked the howto from this wiki rather
-  than splicing it in, in order to avoid duplication of information. If you
-  think it would be better to have it here, feel free to copy the text
-  here. The howto is
-  [available](http://git.upsilon.cc/cgi-bin/gitweb.cgi?p=zack-homepage.git;a=history;f=blog/posts/2011/01/how_to_use_Notmuch_with_Mutt.mdwn)
-  in markdown syntax from the Git repository of my homepage.)</small>
-
-* Using a simple macro that will emulate the "limit" mutt functionality
-  using notmuch.
-
-  See the [**alternative notmuch integration**](http://log.or.cz/?p=228)
-  blog post for instructions and details,
-  or simply put these two macros to your muttrc:
-
-        # 'L' performs a notmuch query, showing only the results
-        macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
-        # 'a' shows all messages again (supersedes default <alias> binding)
-        macro index a "<limit>all\n" "show all messages (undo limit)"
-
-  The upside (if you are used to working in the context of a single folder)
-  is that this really does use the limit functionality of mutt
-  and you are still in your original folder.
-  The downside is that this approach has scaling problems
-  and works well only for reasonably specific queries.
-
+See [[notmuch-mutt]].
 
 ## <span id="reapply_auto">**Automatically retagging the database (e.g., when upgrading versions)**</span>
 
