@@ -87,7 +87,7 @@ at the end, after a line containing "---".
 
 Notmuch has a test suite with fairly good coverage. At the very least, `make
 test` must pass after your changes. Therefore you must amend the tests if you
-make functional changes that have existing test coverage. Preferrably, you
+make functional changes that have existing test coverage. Preferably, you
 should add new tests for any new functionality, and it helps in getting your
 changes accepted.
 
@@ -207,7 +207,7 @@ people to review your patches if you review theirs.
 
 ## Report bugs
 
-Send bug reports to the Notmuch mailing list. Preferrably prefix the
+Send bug reports to the Notmuch mailing list. Preferably prefix the
 subject line with "BUG:" or similar. Tag the message as a bug in
 [nmbug](http://notmuchmail.org/nmbug/).
 
