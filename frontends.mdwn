@@ -1,11 +1,16 @@
-# Available frontends
+# Available email clients and front ends
 
-* [[notmuch-cli|manpages]], the CLI bindings provided with notmuch.
-* [[notmuch-emacs|emacstips]], the Emacs frontend which ships with notmuch.
-* notmuch-vim, the vim frontend which ships with notmuch.
-* [[notmuch-mutt]], mutt interoperability that ships with notmuch.
+## Shipping with Notmuch
+
+* [[notmuch-cli|manpages]], the CLI bindings provided with Notmuch.
+* [[notmuch-emacs|emacstips]], the Emacs email client.
+* [notmuch-vim]((http://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README)), the vim frontend.
+* [[notmuch-mutt]], mutt interoperability script.
+
+## Other email clients and front ends based on Notmuch
+
 * [ner](http://the-ner.org/), a curses frontend written in C.
 * [bower](https://github.com/wangp/bower), a curses frontend written in [Mercury](http://www.cs.mu.oz.au/research/mercury/).
 * [alot](https://github.com/pazz/alot), a curses frontend written in Python with the [Urwid](http://excess.org/urwid/) toolkit.
-* [mutt-kz](https://github.com/karelzak/mutt-kz), a fork of [mutt](http://www.mutt.org/) with notmuch as a backend (actually linked against lib notmuch).
-* [notmuchfs](https://github.com/tsto/notmuchfs), a virtual maildir file system for notmuch queries.
+* [mutt-kz](https://github.com/karelzak/mutt-kz), a fork of [mutt](http://www.mutt.org/) with Notmuch as a backend (actually linked against lib notmuch).
+* [notmuchfs](https://github.com/tsto/notmuchfs), a virtual maildir file system for Notmuch queries.
