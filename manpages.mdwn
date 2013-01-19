@@ -14,5 +14,3 @@ Manual page index
 * <a href='notmuch-tag-1/'>notmuch-tag</a>(1) - add/remove tags for all messages matching the search terms
 * <a href='notmuch-hooks-5/'>notmuch-hooks</a>(5) - hooks for notmuch
 * <a href='notmuch-search-terms-7/'>notmuch-search-terms</a>(7) - syntax for notmuch queries
-
-<h2>Notmuch 0.14</h2>

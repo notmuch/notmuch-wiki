@@ -8,7 +8,8 @@
 
 <h2>SYNOPSIS</h2>
 <pre>
-       <b>notmuch</b> <b>restore</b> [<b>--accumulate</b>] [ --input=&lt;<u>filename</u>&gt; ]
+       <b>notmuch</b>  <b>restore</b>   [<b>--accumulate</b>]   [<b>--format=(auto|batch-tag|sup)</b>]   [
+       --input=&lt;<u>filename</u>&gt; ]
 </pre>
 
 <h2>DESCRIPTION</h2>
@@ -17,28 +18,50 @@
 
        The input is read from the given filename, if any, or from stdin.
 
-       Note: The dump file format is specifically chosen to be compatible with
-       the format of files produced by sup-dump.  So if you&apos;ve previously been
-       using sup for mail, then the <b>notmuch</b> <b>restore</b> command provides you a way
-       to import all of your tags (or labels as sup calls them).
+       Supported options for <b>restore</b> include
 
-       The  --accumulate  switch causes the union of the existing and new tags
-       to be applied, instead of replacing each message&apos;s  tags  as  they  are
-       read in from the dump file.
+           <b>--accumulate</b>
 
-       See  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7)  for  details  of the supported syntax for
-       &lt;search-terms&gt;.
+               The  union  of the existing and new tags is applied, instead of
+               replacing each message&apos;s tags as they are read in from the dump
+               file.
 
-       <b>notmuch</b> <b>restore</b> updates the maildir flags according to tag  changes  if
-       the <b>maildir.synchronize</b>_<b>flags</b> configuration option is enabled. See <a href='../notmuch-config-1/'>not-</a>
-       <a href='../notmuch-config-1/'>much-config</a>(1) for details.
+           <b>--format=(sup|batch-tag|auto)</b>
+
+               Notmuch restore supports two plain text dump formats, with each
+               line specifying a message-id and a set of tags.  For details of
+               the actual formats, see <a href='../notmuch-dump-1/'>notmuch-dump</a>(1).
+
+               <b>sup</b>  The <b>sup</b> dump file format is specifically chosen to be com-
+                   patible with the format of files produced by sup-dump.   So
+                   if you&apos;ve previously been using sup for mail, then the <b>not-</b>
+                   <b>much</b> <b>restore</b> command provides you a way to  import  all  of
+                   your tags (or labels as sup calls them).
+
+               <b>batch-tag</b>
+
+                   The  <b>batch-tag</b>  dump  format  is  intended  to  more robust
+                   against malformed message-ids and tags  containing  whites-
+                   pace  or  non-<b>ascii</b>(7) characters.  See <a href='../notmuch-dump-1/'>notmuch-dump</a>(1) for
+                   details on this format.
+
+                   <b>notmuch</b> <b>restore</b> updates the maildir flags according to  tag
+                   changes   if  the  <b>maildir.synchronize</b>_<b>flags</b>  configuration
+                   option is enabled. See <a href='../notmuch-config-1/'>notmuch-config</a>(1) for details.
+
+               <b>auto</b>
+
+                   This option (the default) tries to guess  the  format  from
+                   the  input.  For correctly formed input in either supported
+                   format, this heuristic, based the fact that batch-tag  for-
+                   mat contains no parentheses, should be accurate.
 </pre>
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not-</a>
-       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),   <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-search-1/'>notmuch-search</a>(1),
+       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not-</a>
+       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),   <a href='../notmuch-search-1/'>notmuch-search</a>(1),
        <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
-<h2>Notmuch 0.14</h2>
+<h2>Notmuch 0.15</h2>
