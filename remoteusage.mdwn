@@ -111,7 +111,7 @@ Save this to a file, "remote-notmuch.sh", in your path.
 Now you can run "remote-notmuch.sh new". You can call the script
 anything you like. I actually have $HOME/bin/notmuch linked to that
 script, so I can have transparent
-usage. 
+usage.
 
 ##Configure your emacs client##
 

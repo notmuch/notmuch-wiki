@@ -20,7 +20,7 @@ sort=title template=titlepage]]
 
 Using a template works like this:
 
-	\[[!template id=note text="""Here is the text to insert into my note."""]]
+        \[[!template id=note text="""Here is the text to insert into my note."""]]
 
 This fills out the [[note]] template, filling in the `text` field with
 the specified value, and inserts the result into the page.

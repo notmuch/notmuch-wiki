@@ -103,11 +103,11 @@ mentioned as script arguments. (Note: The script expects that you have
 
 If notmuch-show-mode behaves badly for you in emacs 24.x try adding one of
 
-	(setq gnus-inhibit-images nil)
+        (setq gnus-inhibit-images nil)
 
 or
 
-	(require 'gnus-art)
+        (require 'gnus-art)
 
 to your .emacs file.
 
@@ -624,25 +624,25 @@ a way that causes TABs to appear in the middle of the subject and header
 lines. Add this to your `.emacs` to replace tabs with spaces in subject
 lines:
 
-	(defun notmuch-show-subject-tabs-to-spaces ()
-	  "Replace tabs with spaces in subject line."
-	  (goto-char (point-min))
-	  (when (re-search-forward "^Subject:" nil t)
-	    (while (re-search-forward "\t" (line-end-position) t)
-	      (replace-match " " nil nil))))
+        (defun notmuch-show-subject-tabs-to-spaces ()
+          "Replace tabs with spaces in subject line."
+          (goto-char (point-min))
+          (when (re-search-forward "^Subject:" nil t)
+            (while (re-search-forward "\t" (line-end-position) t)
+              (replace-match " " nil nil))))
 
-	(add-hook 'notmuch-show-markup-headers-hook 'notmuch-show-subject-tabs-to-spaces)
+        (add-hook 'notmuch-show-markup-headers-hook 'notmuch-show-subject-tabs-to-spaces)
 
 And in header lines (this will only work with the yet to be released
 notmuch version 0.15):
 
-	(defun notmuch-show-header-tabs-to-spaces ()
-	  "Replace tabs with spaces in header line."
-	  (setq header-line-format
-	        (notmuch-show-strip-re
-	         (replace-regexp-in-string "\t" " " (notmuch-show-get-subject)))))
+        (defun notmuch-show-header-tabs-to-spaces ()
+          "Replace tabs with spaces in header line."
+          (setq header-line-format
+                (notmuch-show-strip-re
+                 (replace-regexp-in-string "\t" " " (notmuch-show-get-subject)))))
 
-	(add-hook 'notmuch-show-hook 'notmuch-show-header-tabs-to-spaces)
+        (add-hook 'notmuch-show-hook 'notmuch-show-header-tabs-to-spaces)
 
 ## Hiding unread messages in notmuch-show
 

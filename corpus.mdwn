@@ -1,6 +1,6 @@
 ## Notmuch Email Corpus
 
-A corpus of about 108k messages is available for performance testing of 
+A corpus of about 108k messages is available for performance testing of
 notmuch (or other uses).
 
 The contents are as follows
@@ -14,11 +14,11 @@ The contents are as follows
 - `Mail/enron`: selected data from the EDRM v2 enron data set
 
    - CC Attribution: "ZL Technologies, Inc. (http://www.zlti.com)"
-   
+
    - Downloaded via bittorrent
 
       http://www.searchdaimon.com/community/dataset/
-	  
+
    - massaged with scripts/unpack-enron.sh (in the corpus tarball)
 
 The corpus is gpg signed by David Bremner with  key fingerprint:
@@ -29,5 +29,3 @@ You can download the corpus from
 
 - [notmuchmail.org](http:///notmuchmail.org/releases/notmuch-email-corpus-0.3.tar.xz) [signature](http:///notmuchmail.org/releases/notmuch-email-corpus-0.3.tar.xz.asc)
 - [UNB](http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.3.tar.xz) [signature](http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.3.tar.xz.asc)
-
-
