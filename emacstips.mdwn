@@ -147,12 +147,13 @@ Then, add to `.emacs`:
 
         (autoload 'notmuch "~/.emacs.d/my-notmuch" "notmuch mail" t)
 
-## 0.15: Initial cursor position in notmuch hello window
+## Initial cursor position in notmuch 0.15 hello window
 
-In notmuch 0.15 emacs client the handling of cursor position in notmuch hello
-window has been simplified to a version which suits best most cases.
+In notmuch version 0.15 emacs client the handling of cursor position in
+notmuch hello window has been simplified to a version which suits best
+most cases.
 
-Initially the cursor is positioned in the beginning of buffer.
+Initially the cursor is positioned at the beginning of buffer.
 
 Some users liked the "ancient" version where cursor was moved to the
 first `Saved searches` button.
