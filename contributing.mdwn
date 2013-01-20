@@ -18,7 +18,7 @@ situations; use common sense.
 The Notmuch source code is maintained in [git](http://git-scm.com/). Get the
 source code using:
 
-	git clone git://notmuchmail.org/git/notmuch
+        git clone git://notmuchmail.org/git/notmuch
 
 This guide assumes a working knowledge of git. There are plenty of resources
 available on git, such as [Pro Git](http://git-scm.com/book) and the git man
@@ -30,11 +30,11 @@ The changes you submit should almost always be based on the current
 Notmuch git master. There are plenty of ways to work in git, and this
 is not your git guide, but a typical workflow might start with:
 
-	git fetch origin
-	git checkout -b my-local-branch origin/master
-	# make changes
-	git add ...
-	git commit
+        git fetch origin
+        git checkout -b my-local-branch origin/master
+        # make changes
+        git add ...
+        git commit
 
 If you're planning big changes, it may be advisable to __not__ polish
 the patch series according to all the details described below at
@@ -130,14 +130,14 @@ Once you have your changes ready in your local repository, you need to
 send them to the Notmuch mailing list. The simplest way is to use `git
 send-email` to send the patches directly from your repository:
 
-	git send-email --to notmuch@notmuchmail.org origin/master
+        git send-email --to notmuch@notmuchmail.org origin/master
 
 An alternative is to do this in two steps; first generating patch
 files (using `git format-patch`), and then sending the patch files to
 the mailing list (using `git send-email` or a mail client):
 
-	git format-patch origin/master
-	git send-email --to notmuch@notmuchmail.org *.patch
+        git format-patch origin/master
+        git send-email --to notmuch@notmuchmail.org *.patch
 
 Either way, using `git send-email` to actually send the patches is
 recommended. It may be distributed separately from git, typically in a
