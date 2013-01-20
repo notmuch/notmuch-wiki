@@ -31,7 +31,7 @@ notmuch` from within a running emacs.
 When first starting notmuch in emacs, you will be presented with the
 notmuch "hello" page.  If it exits with an error after writing
 "Welcome to notmutch. You have" you need to do the basic notmuch setup
-first (see above).  
+first (see above).
 From here you can do searches, see lists of recent
 searches, saved searches, message tags, help information, etc.
 
@@ -124,14 +124,14 @@ a file called `~/.emacs.d/my-notmuch.el`:
 
         ;;; my-notmuch.el -- my notmuch mail configuration
         ;;;
-        
+
         ;;; add here stuff required to be configured *before*
         ;;; notmuch is loaded;
 
         ;; uncomment and modify in case some elisp files are not found in load-path
         ;; (add-to-list 'load-path "~/vc/ext/notmuch/emacs")
 
-        ;;; load notmuch 
+        ;;; load notmuch
         (require 'notmuch)
 
         ;;; add here stuff required to be configured *after*
@@ -164,9 +164,9 @@ In notmuch versions up to 0.11.x
             (notmuch-show-add-tag "spam")
             (notmuch-show-remove-tag "inbox")))
 
-Starting from notmuch 0.12 the functions `notmuch-show-add-tag` and 
+Starting from notmuch 0.12 the functions `notmuch-show-add-tag` and
 `notmuch-show-remove-tag` have changed to be more versatile and lost
-noninteractive use. When upgrading to 0.12 the above needs to be 
+noninteractive use. When upgrading to 0.12 the above needs to be
 changed to this:
 
         (define-key notmuch-show-mode-map "S"
@@ -434,7 +434,7 @@ available:
 
             cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch
 
-  * Shell/fgrep/perl combination [nottoomuch-addresses.sh](http://www.iki.fi/too/nottoomuch/nottoomuch-addresses/). 
+  * Shell/fgrep/perl combination [nottoomuch-addresses.sh](http://www.iki.fi/too/nottoomuch/nottoomuch-addresses/).
     This tools maintains it's own address "database" gathered from email
     files notmuch knows and search from that "database" is done by `fgrep(1)`.
 
@@ -461,9 +461,9 @@ You can add the sender of a message to Google Contacts by piping the message
 
 ## How to sign/encrypt messages with gpg
 
-Messages can by signed using gpg by invoking 
+Messages can by signed using gpg by invoking
 `M-x mml-secure-sign-pgpmime` (or `M-x mml-secure-encrypt-pgpmime`).
-These functions are available via the standard `message-mode` keybindings 
+These functions are available via the standard `message-mode` keybindings
 `C-c C-m s p` and `C-c C-m c p`. To sign outgoing mail by default, use the
 `message-setup-hook` in your `.emacs` file:
 
@@ -509,7 +509,7 @@ identities using gnus-alias.
 
 Looking into `gnus-alias.el` gives a bit more information...
 
-### Example Configuration 
+### Example Configuration
 
 Here is an example configuration.
 
@@ -547,7 +547,7 @@ more information (some of these have "extensive documentation"):
         M-x describe-variable RET gnus-alias-default-identity
 
         M-x customize-group RET gnus-alias RET
-          or 
+          or
         M-x gnus-alias-customize RET
 
 The last two do the same thing.
@@ -661,13 +661,13 @@ following code in my emacs config:
                       (when overlay
                         (overlay-put overlay 'face '((:inherit bold) (:foreground "green")))))))))))
         (add-hook 'notmuch-hello-refresh-hook 'color-inbox-if-unread)
-		
+
 ## Linking to notmuch messages and threads from the Circe IRC client
 
 [Circe](https://github.com/jorgenschaefer/circe/wiki) is an IRC client for emacs.
-To have clickable buttons for notmuch messages and threads, add the following to 
+To have clickable buttons for notmuch messages and threads, add the following to
 `lui-buttons-list` (using, e.g. M-x customize-variable)
 
     ("\\(?:id\\|mid\\|thread\\):[0-9A-Za-z][0-9A-Za-z.@-]*" 0 notmuch-show 0)
-	
+
 If you have notmuch-pick installed, it works fine for this as well.
