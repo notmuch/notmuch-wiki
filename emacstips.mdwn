@@ -147,6 +147,28 @@ Then, add to `.emacs`:
 
         (autoload 'notmuch "~/.emacs.d/my-notmuch" "notmuch mail" t)
 
+## 0.15: Initial cursor position in notmuch hello window
+
+In notmuch 0.15 emacs client the handling of cursor position in notmuch hello
+window has been simplified to a version which suits best most cases.
+
+Initially the cursor is positioned in the beginning of buffer.
+
+Some users liked the "ancient" version where cursor was moved to the
+first `Saved searches` button.
+
+Add the following code to your notmuch emacs configuration file in
+case you want this behaviour:
+
+        (add-hook 'notmuch-hello-refresh-hook
+                  (lambda ()
+                    (if (and (eq (point) (point-min))
+                             (search-forward "Saved searches:" nil t))
+                        (progn
+                          (forward-line)
+                          (widget-forward 1))
+                      (if (eq (widget-type (widget-at)) 'editable-field)
+                          (beginning-of-line)))))
 
 ## Add a key binding to add/remove/toggle a tag
 
