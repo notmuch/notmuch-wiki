@@ -1,0 +1,10 @@
+[[!meta date="2013-01-24"]]
+
+Notmuch 0.15.1 (2013-01-24)
+=========================
+
+Internal test framework changes
+-------------------------------
+
+Set a default value for TERM when running tests. This fixes certain
+build failures in non-interactive environments.
