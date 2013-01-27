@@ -95,7 +95,7 @@ Notmuch is packaged for the following distributions:
 * [Slackware](http://slackbuilds.org/repository/13.37/office/notmuch/)
 * [Ubuntu](http://packages.ubuntu.com/search?keywords=notmuch)
 
-## Development
+## Development and Contributing
 
 All of the code for Notmuch is available as [free
 software](http://www.fsf.org/licensing/essays/free-sw.html) released
@@ -116,17 +116,18 @@ We have a [buildbot](http://buildbot.notmuchmail.org/grid) (here's
 its
 [configuration](https://github.com/tomprince/buildbot-configs/tree/notmuch)).
 
-## Bug-tracking and patches
+Contributions, such as patches, to Notmuch are most welcome. Please refer to the
+[[guide to contributing|contributing]].
 
-Patches are most welcome and should be sent to notmuch&#64;notmuchmail.org.
-Please try to follow the [[patch submission guidelines|patchformatting]]
-when submitting patches.
+## Bug and patch tracking
 
 The tagging and filtering features of notmuch make it quite suitable
 for use as a bug- and patch-tracker. We are currently experimenting
 with using it for this purpose for notmuch development, using a
-utility called [[nmbug]].  The status of current patches can also be
+utility called [[nmbug]]. The status of bugs and current patches can also be
 followed [online](http://nmbug.tethera.net/status).
+
+Bug reports should be sent to the Notmuch mailing list notmuch@notmuchmail.org.
 
 ## Contact: Email & IRC
 
