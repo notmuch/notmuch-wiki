@@ -80,17 +80,22 @@ Notmuch.
 
 * [[Emacs UI screenshots|screenshots]]
 
-## Packages
+## Obtaining Notmuch
 
-* [Debian](http://packages.debian.org/search?keywords=notmuch)
-- Please use at least the packages from squeeze-backports, squeeze
-  packages are very outdated!
+[Notmuch source releases](http://notmuchmail.org/releases/) are available as
+source tar balls.
+
+Notmuch is packaged for the following distributions:
+
+* [Debian](http://packages.debian.org/search?keywords=notmuch) (Please use at
+  least the packages from squeeze-backports, squeeze packages are very
+  outdated!)
 * [Fedora](https://community.dev.fedoraproject.org/packages/notmuch)
 * [Gentoo](http://packages.gentoo.org/package/net-mail/notmuch)
 * [Slackware](http://slackbuilds.org/repository/13.37/office/notmuch/)
 * [Ubuntu](http://packages.ubuntu.com/search?keywords=notmuch)
 
-## Source code
+## Development
 
 All of the code for Notmuch is available as [free
 software](http://www.fsf.org/licensing/essays/free-sw.html) released
@@ -106,9 +111,6 @@ finally, you can
 [subscribe to the `notmuch-commits` list](http://notmuchmail.org/mailman/listinfo/notmuch-commits)
 to watch every commit made to notmuch and the notmuchmail.org web
 site.
-
-Here are
-[source tar balls of notmuch releases](http://notmuchmail.org/releases/).
 
 We have a [buildbot](http://buildbot.notmuchmail.org/grid) (here's
 its
