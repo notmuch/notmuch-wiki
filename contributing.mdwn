@@ -214,6 +214,12 @@ subject line with "BUG:" or similar. Tag the message as a bug in
 Even better, send a patch adding a "known broken" test to the test suite
 highlighting the issue.
 
+## Update the Notmuch website
+
+Update the Notmuch website, especially if you've landed a commit that
+changes or obsoletes information on the site. It's a wiki; see the
+[[instructions on how to edit the wiki|wikiwriteaccess]].
+
 ## Join the Notmuch IRC channel
 
 Patch review happens on the Notmuch mailing list, but there is plenty of
