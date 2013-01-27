@@ -8,7 +8,8 @@ As notmuch is using Xapian
 However, the description is generic (applies to Xapian in general) and 
 its intended audience seems to be developers wanting to use Xapian in 
 their applications. This page attempts to explain it to users of notmuch (who 
-may not be familiar with Xapian). 'notmuch help search-terms' also has a few 
+may not be familiar with Xapian).
+[['notmuch help search-terms'|manpages/notmuch-search-terms-7]] also has a few
 pointers.
 
 ## Stemming
