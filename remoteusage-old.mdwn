@@ -1,0 +1,129 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+#Using notmuch remotely#
+
+##Why?##
+It is hard to keep nomuch tags in sync across multiple instances of
+notmuch, on multiple computers. Though you can do this with "notmuch
+dump" and "notmuch restore", it is often preferable to be able to use
+notmuch on a remote computer as if it were present on a local
+computer.
+
+The following guidelines show how I have accomplished this. It isn't
+perfect, but it works pretty well, and allows me to access notmuch on
+my home computer, using only an emacs client on my netbook or work
+computer, a trivial shell script, a few settings in my .emacs, and a
+couple of common unix utilities (ssh and dtach).
+
+##What you will need##
+You will need to have the following items in place:
+
+1.  a working notmuch on one computer (let's call that computer
+"server").
+
+2.  a working notmuch emacs interface on another computer (let's call
+that computer "client")
+
+3.  `ssh` and `dtach` on your client computer. (TODO: Make dtach
+optional, or allow screen or tmux to be used instead.
+[[Here|remotewrapper]] is a version that does not require dtach.)
+
+4.  password-free login (public key authentication) from client to
+server. [Here](http://www.debian-administration.org/articles/152) is a
+good page on how to set it up.
+
+5.  a reasonably fast connection. (This isn't really *neccessary*, but
+if your connection is too slow, this won't be very pleasant to use,
+and certainly won't seem transparent.)
+
+
+##Write a wrapper shell script##
+
+Now we will need to write a simple shell script that does two things:
+
+1.  replaces the call to the notmuch binary with a call to notmuch
+over ssh.
+
+2.  sets up a running, detached, ssh connection to the server, so that
+future calls can reuse the socket.
+
+        #!/usr/bin/env bash
+
+        SSH_BIN="ssh"
+        USER="example_user"
+        SSH_HOST="example.com"
+        SOCKET_DIR="/tmp/notmuch_$(id -u)"
+        SSH_SOCKET="${SOCKET_DIR}/ssh.socket"
+        NOTMUCH_REMOTE_BIN="notmuch"
+        DTACH="/usr/bin/dtach"
+        DTACH_SOCKET="${SOCKET_DIR}/dtach.socket"
+        
+        check_for_socket_dir ()
+        {
+            [ -d "${SOCKET_DIR}" ]
+        }
+        
+        check_socket_dir_owner_and_perm ()
+        {
+            [ "$(stat -c %U ${SOCKET_DIR})" = "$(whoami)" ] &&
+            [ "$(stat -c %a ${SOCKET_DIR})" = "700" ]
+        }
+        
+        create_socket_dir ()
+        {
+            mkdir "${SOCKET_DIR}"
+            chmod 700 "${SOCKET_DIR}"
+        }
+        
+        check_for_socket ()
+        {
+            [ -S "${SSH_SOCKET}" ]
+        }
+        
+        start_socket ()
+        {
+            dtach_command="${DTACH} -n ${DTACH_SOCKET} ${SSH_BIN} -M -S ${SSH_SOCKET} ${USER}@${SSH_HOST}"
+            command -v ${DTACH} &>/dev/null && ${dtach_command}
+        }
+        
+        notmuch_run ()
+        {
+            if check_for_socket_dir; then
+                if check_socket_dir_owner_and_perm; then
+                    if ! check_for_socket; then
+                        start_socket
+                    fi
+                else echo "Wrong permissions of ${SOCKET_DIR}" >&2
+                    exit 1
+                fi
+            elif create_socket_dir; then
+                start_socket
+            else
+                exit 1
+            fi
+            printf -v ARGS "%q " "$@"
+            $SSH_BIN -S $SSH_SOCKET $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN ${ARGS}
+        }
+        
+        notmuch_run "$@"
+    	
+Save this to a file, "remote-notmuch.sh", in your path.
+
+Now you can run "remote-notmuch.sh new". You can call the script
+anything you like. I actually have $HOME/bin/notmuch linked to that
+script, so I can have transparent
+usage.
+
+##Configure your emacs client##
+
+The only thing you need to do is tell your emacs client to use the
+script. Add the following to your .emacs (this is on your client
+machine):
+
+    (setq notmuch-command "/path/to/your/remote-notmuch.sh")
+
+##Problems##
+Some things probably won't work perfectly, and there might be some unexpected
+mismatches between normal usage and this sort of usage. If you're
+using this approach and run into any problems, please feel free to
+list them here. And, of course, if you improve on any of these
+approaches, please do edit this page and let people know!
