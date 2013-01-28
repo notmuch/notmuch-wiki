@@ -40,12 +40,12 @@ Add this to your `~/.ssh/config`:
         HostName example.com
         User remoteuser
         ControlMaster auto
-        ControlPath /home/user/.ssh/%h_%p_%r
+        ControlPath ~/.ssh/master-%h@%p:%r
         ControlPersist 15m
-        IdentityFile /home/user/.ssh/example.com.id_rsa
+        IdentityFile ~/.ssh/example.com.id_rsa
 
 Replace `example.com` with your server. Replace `remoteuser` with the
-username on the server. Replace `/home/user` with your home directory.
+username on the server.
 
 The `Control*` options keep the connection open in the background to not
 require authentication every time. The `ControlPersist` option defines
@@ -65,6 +65,8 @@ Save this to a file, for example `remote-notmuch.sh`, in your `PATH`:
     #!/bin/bash
     printf -v ARGS "%q " "$@"
     exec ssh notmuch notmuch ${ARGS}
+
+and give it execute permissons: `chmod +x remote-notmuch.sh`
 
 Now you can run `remote-notmuch.sh new`, or other notmuch commands. You
 can call the script anything you like. (You could also call it `notmuch`
