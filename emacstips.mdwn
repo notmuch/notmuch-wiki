@@ -695,7 +695,7 @@ To have clickable buttons for notmuch messages and threads, add the following to
 
 If you have notmuch-pick installed, it works fine for this as well.
 
-## Linking to notmuch messages 
+## Linking to notmuch messages from org-mode
 
 Support for linking to notmuch messages is distributed with org-mode,
 but as a contrib file, so you might have to work a bit to load it.
