@@ -694,3 +694,20 @@ To have clickable buttons for notmuch messages and threads, add the following to
     ("\\(?:id\\|mid\\|thread\\):[0-9A-Za-z][0-9A-Za-z.@-]*" 0 notmuch-show 0)
 
 If you have notmuch-pick installed, it works fine for this as well.
+
+## Linking to notmuch messages 
+
+Support for linking to notmuch messages is distributed with org-mode,
+but as a contrib file, so you might have to work a bit to load it.
+
+In Debian and derivitives, 
+
+	(add-to-list 'load-path "/usr/share/org-mode/lisp")
+	
+Then
+
+	(require 'org-notmuch)
+	
+In general it is nice to have a key for org-links (not just for notmuch). For example
+
+    (define-key global-map "\C-cl" 'org-store-link)
