@@ -700,14 +700,14 @@ If you have notmuch-pick installed, it works fine for this as well.
 Support for linking to notmuch messages is distributed with org-mode,
 but as a contrib file, so you might have to work a bit to load it.
 
-In Debian and derivitives, 
+In Debian and derivatives,
 
 	(add-to-list 'load-path "/usr/share/org-mode/lisp")
-	
+
 Then
 
 	(require 'org-notmuch)
-	
+
 In general it is nice to have a key for org-links (not just for notmuch). For example
 
     (define-key global-map "\C-cl" 'org-store-link)
