@@ -1,6 +1,12 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 #List of features people have requested and ideas that people want to keep thinking about
 
+**WARNING** This page is going away. It seems like nobody who works on
+  notmuch reads it regularly, and there is no convenient way to
+  discuss ideas with the people who propose them.  Please use
+  [notmuch mailing list](http://notmuchmail.org/mailman/listinfo/notmuch)
+  instead.
+
 ## TODO list
 
 See the [devel/TODO file](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/devel/TODO) in the
@@ -41,8 +47,10 @@ See the [devel/TODO file](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/deve
      if only one name is configured, use that for all addresses;
      if other_names are configured, match those with the other_email addresses
 
-+    Put the the emacs mode in a separate repository and include it as a submmodule in main (better for emacs package managers among other things).
- 
++    Put the the emacs mode in a separate repository and include it as a
+     submodule in main (better for emacs package managers among other
+     things).
+	 
 ## notmuch
 
 +    Add hooks for retagging:

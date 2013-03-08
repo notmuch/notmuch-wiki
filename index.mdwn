@@ -152,9 +152,10 @@ channel.
 
 ## Feature ideas
 
-We have started a [[feature requests|feature-requests]] page on this
-wiki.  No, things you add there won't automatically get implemented -
-but it's a nice way to collect ideas.
+If you have a feature idea/request, please send it to the
+[mailing list](http://notmuchmail.org/mailman/listinfo/notmuch). You
+don't have to be subscribed to send, although there might be a delay
+for non-subscribers.
 
 ## Website
 
