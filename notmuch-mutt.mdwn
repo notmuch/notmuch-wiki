@@ -7,7 +7,8 @@ full-text search and thread reconstruction) without *having to* change MUA.
 
 A popular geek MUA is [the Mutt e-mail client](http://www.mutt.org); integrating
 notmuch with Mutt is not seamless, but fairly straightforward. There are two
-principal possibilities, each with its own ups and downs:
+principal possibilities, either using a patched mutt that handles internally
+notmuch, or use a sets of scripts/handler within mutt to achieve something close.
 
 # Using Notmuch with mutt-kz
 
@@ -29,12 +30,12 @@ principal possibilities, each with its own ups and downs:
             "Starred"   "notmuch://?query=tag:*"\
             "Sent"      "notmuch://?query=tag:sent"        # sets up queries for virtual folders
         # notmuch bindings
-        macro index \\ "<vfolder-from-query>"              # looks up a hand mane query
-        macro index A "<modify-labels>+archive -unread -inbox\n"        # tag as Archived
-        macro index I "<modify-labels>-inbox -unread\n"                 # removed from inbox
-        macro index S "<modify-labels-then-hide>-inbox -unread +junk\n" # tag as Junk mail
-        macro index + "<modify-labels>+*\n<sync-mailbox>"               # tag as starred
-        macro index - "<modify-labels>-*\n<sync-mailbox>"               # tag as unstarred
+        macro index \\\\ "<vfolder-from-query>"              # looks up a hand made query
+        macro index A "<modify-labels>+archive -unread -inbox\\n"        # tag as Archived
+        macro index I "<modify-labels>-inbox -unread\\n"                 # removed from inbox
+        macro index S "<modify-labels-then-hide>-inbox -unread +junk\\n" # tag as Junk mail
+        macro index + "<modify-labels>+*\\n<sync-mailbox>"               # tag as starred
+        macro index - "<modify-labels>-*\\n<sync-mailbox>"               # tag as unstarred
         # sidebar
         set sidebar_width   = 20
         set sidebar_visible = yes               # set to "no" to disable sidebar view at startup
