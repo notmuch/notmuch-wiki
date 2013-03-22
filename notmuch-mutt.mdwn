@@ -216,3 +216,7 @@ able to open a completion menu when you do <C-x><C-u> at every address header.
   your original folder.  The downside is that this approach has scaling problems
   and works well only for reasonably specific queries.
 
+## Using [notmuchfs](https://github.com/tsto/notmuchfs)
+
+  Notmuchfs provides virtual maildirs at the file system level, and mutt can be
+  placed on top. See [README.mutt](https://github.com/tsto/notmuchfs/blob/master/README.MUTT.md)
