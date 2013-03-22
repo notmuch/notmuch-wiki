@@ -1,5 +1,4 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
-# Using Notmuch with Mutt
 
 Notmuch is a great mail indexing tool that can also be used *in conjunction*
 with existing Mail User Agents (MUA) instead of replacing them. The advantage of
@@ -9,6 +8,174 @@ full-text search and thread reconstruction) without *having to* change MUA.
 A popular geek MUA is [the Mutt e-mail client](http://www.mutt.org); integrating
 notmuch with Mutt is not seamless, but fairly straightforward. There are two
 principal possibilities, each with its own ups and downs:
+
+# Using Notmuch with mutt-kz
+
+## Install:
+
+        git clone https://github.com/karelzak/mutt-kz.git
+        cd mutt-kz
+        ./configure && make && make install
+
+## Configuration:
+
+        # notmuch
+        set nm_default_uri="notmuch:///PATH/TO/MY/Maildir" # path to the maildir
+        set virtual_spoolfile=yes                          # enable virtual folders
+        set sendmail="/PATH/TO/bin/nm_sendmail"            # enables parsing of outgoing mail
+        virtual-mailboxes \
+            "INBOX"     "notmuch://?query=tag:INBOX and NOT tag:archive"\
+            "Unread"    "notmuch://?query=tag:unread"\
+            "Starred"   "notmuch://?query=tag:*"\
+            "Sent"      "notmuch://?query=tag:sent"        # sets up queries for virtual folders
+        # notmuch bindings
+        macro index \\ "<vfolder-from-query>"              # looks up a hand mane query
+        macro index A "<modify-labels>+archive -unread -inbox\n"        # tag as Archived
+        macro index I "<modify-labels>-inbox -unread\n"                 # removed from inbox
+        macro index S "<modify-labels-then-hide>-inbox -unread +junk\n" # tag as Junk mail
+        macro index + "<modify-labels>+*\n<sync-mailbox>"               # tag as starred
+        macro index - "<modify-labels>-*\n<sync-mailbox>"               # tag as unstarred
+        # sidebar
+        set sidebar_width   = 20
+        set sidebar_visible = yes               # set to "no" to disable sidebar view at startup
+        color sidebar_new yellow default
+        # sidebar bindings
+        bind index <left> sidebar-prev          # got to previous folder in sidebar
+        bind index <right> sidebar-next         # got to next folder in sidebar
+        bind index <space> sidebar-open         # open selected folder from sidebar
+        # sidebar toggle
+        macro index ,@) "<enter-command> set sidebar_visible=no; macro index ~ ,@( 'Toggle sidebar'<Enter>"
+        macro index ,@( "<enter-command> set sidebar_visible=yes; macro index ~ ,@) 'Toggle sidebar'<Enter>"
+        macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar
+
+* Using:
+
+when you open `mutt` you get the INBOX opened. There you can crawl through your
+mails, and tag them as appropriate, either manually using the " ` " command, or using
+the bindings defined in configuration (such as A/I/S/+/-).
+
+* Mail tagging on sending
+
+You may have noticed in `mutt-kz`'s configuration that I set the `sendmail` variable
+of mutt to a `nm_sendmail` script. This is for tagging outgoing mail each time I send
+a mail. Here is the content of the script (which may be used directly in mutt's 
+variable, I did not try). 
+
+Source of nm_sendmail:
+
+        #!/bin/bash
+        tee >(notmuch-deliver -t sent -f Sent) | sendmail $*
+
+## Mail filtering/tagging
+
+For mail tagging on arrival, I prefer to use a simple procmail delivery along with 
+notmuch-delivery (which can be compiled in the `contrib/` directory of notmuch's sources).
+
+Of course, you could use formail or maildrop, instead of procmail, but it is flexible
+enough for my needs, and here is an example of configuration that can be useful:
+
+        PATH=/bin:/usr/bin:/usr/local/bin
+
+        # ensure each mail is unique
+        :0 Wh: msgid.lock
+        | formail -D 8192 msgid.cache
+
+        # update addressbook with current mail
+        :0 Wh
+        | /usr/local/bin/notmuch_abook update
+
+        NOINBOX="-r inbox"
+        TAGS=""
+
+        # manage dynamic tagging, using the ' + ' token in mail addresses
+        # e.g.: user+TAG@fqdn.tld will generate the tag TAG
+        :0:notmuch.lock
+        * ^TO\/user\+[a-z0-9]+@fqdn\.tld
+        * MATCH ?? ^user\+\/[a-z0-9]+
+        {
+        TAGS="-t ${MATCH}"
+        }
+
+        # match all mails from mailing-lists, don't let them go to inbox, but tag them with ml
+        :0:notmuch.lock
+        * ^List-[Ii][dD]:.*
+        {
+        TAGS="${TAGS} -t ml -r inbox"
+        }
+
+        # tag all mails coming from mutt-kz mailing list
+        :0:notmuch.lock
+        * .*mutt-kz\.lists\.fedoraproject\.org.*
+        | notmuch-deliver $TAGS -t mutt -t notmuch
+
+        # tag all mails coming from notmuch mailing list
+        :0:notmuch.lock
+        * .*notmuch\.notmuchmail\.org.*
+        | notmuch-deliver $TAGS -t notmuch
+
+        # Mark all spams as junk mail
+        :0:notmuch.lock
+        * ^X-Spam-Status: Yes
+        | notmuch-deliver -t junk
+
+        :0:notmuch.lock
+        * ^Subject: .*SPAM.*
+        | notmuch-deliver -t junk
+
+        ### All unmatched mails
+        :0:notmuch.lock
+        * .*
+        | notmuch-deliver -v $TAGS 
+
+## Addressbook management and vim
+
+There are some emacs tips over [here](http://notmuchmail.org/emacstips/#index15h2) that
+explains how to configure emacs with an addressbook, but the few solutions were not fast enough
+for me. And I never could test the vala-based code. So I updated the notmuch_addresses code to
+use a cache to be able to make better matches and still be lightning fast.
+
+And finally, I needed to have a way to autocomplete my recipients' addresses 
+automagically from within `vim`. So that's why I created the `notmuch_abook` code.
+You can either install it as a plugin in vim, using vundle:
+
+        Vundle 'guyzmo/notmuch-abook'
+
+Or if you're not using vim (which is objectively the best editor ever), you may
+want to use it as standalone:
+
+        % pip install notmuch_abook
+
+To configure the address book, append to `~/.notmuch-config` the following:
+
+        % cat > ~/.notmuch-config << EOF
+        
+        [addressbook]
+        path=/home/YOURUSERNAME/.notmuch-abook.db
+        backend=sqlite3
+
+        EOF
+
+where YOURUSERNAME is your home directory. Then, you can sync the addressbook cache
+by running. It will create the database file specified in configuration, and go through
+all notmuch's indexed mails to get all addresses headers and cache them. It takes around
+20 seconds on my 10000 mails index:
+
+        % notmuch_abook create
+
+And you can query for addresses using the lookup command, which will match the beginning
+of each word in the name and address, as follows:
+
+        % notmuch_abook lookup Foo
+        Foobar Bar <bar@bar.com>
+        Bar Foobar <bar@bar.com>
+        Bar Bar <foobar@bar.com>
+        Bar Bar <bar@foobar.com>
+        Bar Bar <bar@bar.foo>
+
+If you're using vim, when you edit a mail having a filetype set to mail, you will be
+able to open a completion menu when you do <C-x><C-u> at every address header.
+
+# Using Notmuch with bare Mutt, the old fashioned way
 
 * Using
   [notmuch-mutt](http://git.notmuchmail.org/git/notmuch/tree/HEAD:/contrib/notmuch-mutt),
