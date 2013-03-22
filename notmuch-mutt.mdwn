@@ -10,6 +10,8 @@ notmuch with Mutt is not seamless, but fairly straightforward. There are two
 principal possibilities, either using a patched mutt that handles internally
 notmuch, or use a sets of scripts/handler within mutt to achieve something close.
 
+[[!toc levels=2]]
+
 # Using Notmuch with mutt-kz
 
 ## Install:
@@ -49,13 +51,13 @@ notmuch, or use a sets of scripts/handler within mutt to achieve something close
         macro index ,@( "<enter-command> set sidebar_visible=yes; macro index ~ ,@) 'Toggle sidebar'<Enter>"
         macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar
 
-* Using:
+## Using:
 
 when you open `mutt` you get the INBOX opened. There you can crawl through your
 mails, and tag them as appropriate, either manually using the " ` " command, or using
 the bindings defined in configuration (such as A/I/S/+/-).
 
-* Mail tagging on sending
+## Mail tagging on sending
 
 You may have noticed in `mutt-kz`'s configuration that I set the `sendmail` variable
 of mutt to a `nm_sendmail` script. This is for tagging outgoing mail each time I send
@@ -178,7 +180,7 @@ able to open a completion menu when you do <C-x><C-u> at every address header.
 
 # Using Notmuch with bare Mutt, the old fashioned way
 
-* Using
+## Using
   [notmuch-mutt](http://git.notmuchmail.org/git/notmuch/tree/HEAD:/contrib/notmuch-mutt),
   which will create a "virtual" maildir folder with search results whenever a
   search is made. The upside is that you can search all your folders
@@ -197,7 +199,7 @@ able to open a completion menu when you do <C-x><C-u> at every address header.
   [available](http://git.upsilon.cc/cgi-bin/gitweb.cgi?p=zack-homepage.git;a=history;f=blog/posts/2011/01/how_to_use_Notmuch_with_Mutt.mdwn)
   in markdown syntax from the Git repository of my homepage.)</small>
 
-* Using a simple macro that will emulate the "limit" mutt functionality
+## Using a simple macro that will emulate the "limit" mutt functionality
   using notmuch.
 
   See the [alternative notmuch integration](http://log.or.cz/?p=228)
