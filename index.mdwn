@@ -74,7 +74,7 @@ Notmuch ships with a powerful set of [[command-line tools|manpages]], an
 and a [[Mutt integration script|notmuch-mutt]].
 
 There are also many other [[email clients and frontends|frontends]] based on
-Notmuch.
+Notmuch. And a few tips about integrating it with [[Mutt|mutttips]] and [[Vim|vimtips]].
 
 ## Screenshots
 

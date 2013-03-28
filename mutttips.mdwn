@@ -1,0 +1,151 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+
+Notmuch is a great mail indexing tool that can also be used *in conjunction*
+with existing Mail User Agents (MUA) instead of replacing them. The advantage of
+such mixed solutions is that users can benefit from notmuch features (such as
+full-text search and thread reconstruction) without *having to* change MUA.
+
+A popular geek MUA is [the Mutt e-mail client](http://www.mutt.org); integrating
+notmuch with Mutt is not seamless, but fairly straightforward. There are two
+principal possibilities, either using a patched mutt that handles internally
+notmuch, or use a sets of scripts/handler within mutt to achieve something close.
+
+[[!toc levels=2]]
+
+# Using Notmuch with the good old mutt
+
+There's a page about the [[notmuch-mutt]] scripts that are distributed along
+with notmuch, in its contrib directory.
+
+# Using Notmuch with mutt-kz
+
+Here is a tip about how to set up [mutt-kz](https://github.com/karelzak/mutt-kz), a fork
+of the mutt MUA with support of notmuch integrated.
+
+## Install:
+
+You'll need to first have notmuch installed and the notmuch library available to 
+configure. Otherwise, it is a good old autoconf setup, so here it goes:
+
+        git clone https://github.com/karelzak/mutt-kz.git
+        cd mutt-kz
+        ./configure && make && make install
+
+## Configuration:
+
+Here is my `.muttrc` I use with `mutt-kz`, explainations as comments:
+
+        # notmuch
+        set nm_default_uri="notmuch:///PATH/TO/MY/Maildir" # path to the maildir
+        set virtual_spoolfile=yes                          # enable virtual folders
+        set sendmail="/PATH/TO/bin/nm_sendmail"            # enables parsing of outgoing mail
+        virtual-mailboxes \
+            "INBOX"     "notmuch://?query=tag:INBOX and NOT tag:archive"\
+            "Unread"    "notmuch://?query=tag:unread"\
+            "Starred"   "notmuch://?query=tag:*"\
+            "Sent"      "notmuch://?query=tag:sent"        # sets up queries for virtual folders
+        # notmuch bindings
+        macro index \\\\ "<vfolder-from-query>"              # looks up a hand made query
+        macro index A "<modify-labels>+archive -unread -inbox\\n"        # tag as Archived
+        macro index I "<modify-labels>-inbox -unread\\n"                 # removed from inbox
+        macro index S "<modify-labels-then-hide>-inbox -unread +junk\\n" # tag as Junk mail
+        macro index + "<modify-labels>+*\\n<sync-mailbox>"               # tag as starred
+        macro index - "<modify-labels>-*\\n<sync-mailbox>"               # tag as unstarred
+        # sidebar
+        set sidebar_width   = 20
+        set sidebar_visible = yes               # set to "no" to disable sidebar view at startup
+        color sidebar_new yellow default
+        # sidebar bindings
+        bind index <left> sidebar-prev          # got to previous folder in sidebar
+        bind index <right> sidebar-next         # got to next folder in sidebar
+        bind index <space> sidebar-open         # open selected folder from sidebar
+        # sidebar toggle
+        macro index ,@) "<enter-command> set sidebar_visible=no; macro index ~ ,@( 'Toggle sidebar'<Enter>"
+        macro index ,@( "<enter-command> set sidebar_visible=yes; macro index ~ ,@) 'Toggle sidebar'<Enter>"
+        macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar
+
+There is no major difference with the standard mutt. Just a new concept (and URL) the
+virtual folder, that is addressed as `notmuch://`, a few new settings and commands.
+
+## Using:
+
+when you open `mutt` you get the INBOX opened. There you can crawl through your
+mails, and tag them as appropriate, either manually using the " ` " command, or using
+the bindings defined in configuration (such as A/I/S/+/-).
+
+## Mail tagging on sending
+
+You may have noticed in `mutt-kz`'s configuration that I set the `sendmail` variable
+of mutt to a `nm_sendmail` script. This is for tagging outgoing mail each time I send
+a mail. Here is the content of the script (which may be used directly in mutt's 
+variable, I did not try). 
+
+Source of `nm_sendmail`:
+
+        #!/bin/bash
+        tee >(notmuch-deliver -t sent -f Sent) | sendmail $*
+
+## Mail filtering/tagging
+
+For mail tagging on arrival, I prefer to use a simple procmail delivery along with 
+notmuch-delivery (which can be compiled in the `contrib/` directory of notmuch's sources).
+
+Of course, you could use formail or maildrop, instead of procmail, but it is flexible
+enough for my needs, and here is an example of configuration that can be useful:
+
+        PATH=/bin:/usr/bin:/usr/local/bin
+
+        # ensure each mail is unique
+        :0 Wh: msgid.lock
+        | formail -D 8192 msgid.cache
+
+        # update addressbook with current mail
+        :0 Wh
+        | /usr/local/bin/notmuch_abook update
+
+        NOINBOX="-r inbox"
+        TAGS=""
+
+        # manage dynamic tagging, using the ' + ' token in mail addresses
+        # e.g.: user+TAG@fqdn.tld will generate the tag TAG
+        :0:notmuch.lock
+        * ^TO\/user\+[a-z0-9]+@fqdn\.tld
+        * MATCH ?? ^user\+\/[a-z0-9]+
+        {
+        TAGS="-t ${MATCH}"
+        }
+
+        # match all mails from mailing-lists, don't let them go to inbox, but tag them with ml
+        :0:notmuch.lock
+        * ^List-[Ii][dD]:.*
+        {
+        TAGS="${TAGS} -t ml -r inbox"
+        }
+
+        # tag all mails coming from mutt-kz mailing list
+        :0:notmuch.lock
+        * .*mutt-kz\.lists\.fedoraproject\.org.*
+        | notmuch-deliver $TAGS -t mutt -t notmuch
+
+        # tag all mails coming from notmuch mailing list
+        :0:notmuch.lock
+        * .*notmuch\.notmuchmail\.org.*
+        | notmuch-deliver $TAGS -t notmuch
+
+        # Mark all spams as junk mail
+        :0:notmuch.lock
+        * ^X-Spam-Status: Yes
+        | notmuch-deliver -t junk
+
+        :0:notmuch.lock
+        * ^Subject: .*SPAM.*
+        | notmuch-deliver -t junk
+
+        ### All unmatched mails
+        :0:notmuch.lock
+        * .*
+        | notmuch-deliver -v $TAGS 
+
+there's a line that updates the addressbook with addresses of current mail, and you'll
+be able to read more about it on the [[vimtips]] page.
+
