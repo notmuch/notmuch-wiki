@@ -14,11 +14,6 @@ from the script will fail.
 ## The script
 
 Write the following code to a file, for example `remote-notmuch.sh`.
-There is just one line to that normally needs configuration:
-
-        readonly SSH_CONTROL_SOCK='~'/.ssh/master-user@host:22
-
-the options howto are presented after the script.
 
         #!/bin/bash
 
@@ -76,7 +71,7 @@ terminal and then test the script with `./remote-notmuch.sh help`
 
 Note that the '~' is inside single quotes for a reason. In this
 case shell never expand it to `$HOME` -- ssh does it by not reading
-`$HOME` but checking the real user home directory from `/etc/passewd`.
+`$HOME` but checking the real user home directory from `/etc/passwd`.
 For security purposes this is just how it should be.
 
 ## Tune
