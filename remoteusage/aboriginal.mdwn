@@ -1,0 +1,108 @@
+## Remoteusage without password-free login requirement
+
+This is alternative to [[remoteusage|remoteusage]] where password-free
+login is not a requirement. See [[remoteusage|remoteusage]] page for
+other requirements and general information.
+
+This solution uses one pre-made ssh connection where the client is put
+into "master" mode (-M) for connection sharing. The wrapper script then
+uses the control socket created by this pre-made ssh connection for
+its own connection.
+
+Write the following code to a file, for example `remote-notmuch.sh`.
+There is just one line to that normally needs configuration:
+
+        readonly SSH_CONTROL_SOCK='~'/.ssh/master-user@host:22
+
+the options howto are presented after the script.
+
+## The script
+
+        #!/bin/bash
+
+        # http://notmuchmail.org/remoteusage/aboriginal/
+
+        set -eu
+
+        readonly SSH_CONTROL_SOCK='~'/.ssh/master-user@host:22
+
+        readonly notmuch=notmuch
+
+        printf -v ARGS '%q ' "$@" # bash feature
+
+        readonly SSH_CONTROL_ARGS='-oControlMaster=no -S '$SSH_CONTROL_SOCK
+
+        if ssh $SSH_CONTROL_ARGS 0.1 $notmuch $ARGS 2>>/dev/null
+        then exit 0
+        else ev=$?
+        fi
+
+        # continuing here in case ssh exited with nonzero value.
+
+        case $* in
+         'config get user.primary_email') echo 'nobody@nowhere.invalid'; exit 0 ;;
+         'config get user.name') echo 'nobody'; exit 0 ;;
+         'count'*) echo 1; exit 0 ;;
+         'search-tags'*) echo 'errors'; exit 0 ;;
+         'search'*'--output=tags'*) echo 'errors'; exit 0 ;;
+        esac
+
+        if ssh $SSH_CONTROL_ARGS -O check 0.1
+        then
+         echo ' Control socket is alive but something failed during data transmission.'
+         exit $ev
+        fi
+
+        echo " See`sed '1d;2d;s/.//;q' "$0"` for help."
+
+## Test
+
+Easiest way to test this script is to run the pre-made ssh connection
+using the following command line:
+
+        ssh -M -S '~'/.ssh/master-user@host:22 [user@]remotehost
+
+(replace `[user@]remotehost` with your login info). Doing this the
+above script can be run unmodified. After the above command has been
+run on one terminal, enter `chmod +x remote-notmuch.sh` in another
+terminal and then test the script with `./remote-notmuch.sh help`
+
+Note that the '~' is inside single quotes for a reason. In this
+case shell never expand it to `$HOME` -- ssh does it by not reading
+`$HOME` but checking the real user home directory from `/etc/passewd`.
+For security purposes this is just how it should be.
+
+## Tunkkaa
+
+The path `'~'/.ssh/master-user@host:22` might look too generic to be
+used as is as the control socket after initial testing (but it can
+be used). It is presented as a template for what could be configured
+to `$HOME/.ssh/config`. For example:
+
+        Host *
+            ControlPath ~/.ssh/master-%h@%p:%r
+
+is a good entry to be written in `$HOME/.ssh/config`;
+[[remoteusage|remoteusage]] uses the same. Now, let's say you'd
+make your pre-made ssh connection with command
+
+        ssh -M alice@example.org
+
+After configuring
+`readonly SSH_CONTROL_SOCK='~'/.ssh/master-alice@example.org:22`
+to the `./remote-notmuch.sh` wrapper script testing with
+`./remote-notmuch.sh help` should work fine.
+
+## Configure Emacs on the client computer ##
+
+See the section *Configure Emacs on the client computer* in
+[[remoteusage|remoteusage]] how to do this. The instructions are the same.
+
+## Fun
+
+Original [BSD Licence](http://en.wikipedia.org/wiki/BSD_licenses)
+is 4-clause license.
+When 3 rd. clause was removed, the new license was not original anymore.
+Similarly, the requirement for this version are the same as in
+[[remoteusage|remoteusage]] page except the 3 rd. requirement
+(password-free login) is not effective here.
