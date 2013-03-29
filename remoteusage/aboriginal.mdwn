@@ -7,7 +7,11 @@ other requirements and general information.
 This solution uses one pre-made ssh connection where the client is put
 into "master" mode (-M) for connection sharing. The wrapper script then
 uses the control socket created by this pre-made ssh connection for
-its own connection.
+its own connection. As long as master ssh connection is live, slave
+can use it. Disconnecting master all future attempts to connect
+from the script will fail.
+
+## The script
 
 Write the following code to a file, for example `remote-notmuch.sh`.
 There is just one line to that normally needs configuration:
@@ -15,8 +19,6 @@ There is just one line to that normally needs configuration:
         readonly SSH_CONTROL_SOCK='~'/.ssh/master-user@host:22
 
 the options howto are presented after the script.
-
-## The script
 
         #!/bin/bash
 
@@ -55,6 +57,11 @@ the options howto are presented after the script.
 
         echo " See`sed '1d;2d;s/.//;q' "$0"` for help."
 
+Note the `0.1` in ssh command line. It is used to avoid any opportunistic
+behaviour ssh might do; for example if control socket is not alive ssh
+would attempt to do it's own ssh connection to remote ssh server. As
+address `0.1` is invalid this attempt will fail early.
+
 ## Test
 
 Easiest way to test this script is to run the pre-made ssh connection
@@ -72,7 +79,7 @@ case shell never expand it to `$HOME` -- ssh does it by not reading
 `$HOME` but checking the real user home directory from `/etc/passewd`.
 For security purposes this is just how it should be.
 
-## Tunkkaa
+## Tune
 
 The path `'~'/.ssh/master-user@host:22` might look too generic to be
 used as is as the control socket after initial testing (but it can
