@@ -12,4 +12,4 @@ Internal test framework changes
 -------------------------------
 
 Adjust Emacs test watchdog mechanism to cope with `process-attributes`
-being unimplemented.
+being unimplimented.

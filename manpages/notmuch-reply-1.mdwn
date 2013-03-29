@@ -79,12 +79,8 @@
                   Decrypt  any MIME encrypted parts found in the selected con-
                   tent  (ie.  &quot;multipart/encrypted&quot;  parts).  Status  of   the
                   decryption  will  be reported (currently only supported with
-                  --format=json and --format=sexp) and on  successful  decryp-
-                  tion  the  multipart/encrypted  part will be replaced by the
-                  decrypted content.
-
-                  Decryption expects a functioning <b>gpg-agent</b>(1) to provide any
-                  needed credentials. Without one, the decryption will fail.
+                  --format=json and --format=sexp) and the multipart/encrypted
+                  part will be replaced by the decrypted content.
 
        See  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7)  for  details  of the supported syntax for
        &lt;search-terms&gt;.

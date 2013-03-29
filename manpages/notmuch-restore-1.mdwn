@@ -32,9 +32,7 @@
                line specifying a message-id and a set of tags.  For details of
                the actual formats, see <a href='../notmuch-dump-1/'>notmuch-dump</a>(1).
 
-               <b>sup</b>
-
-                   The  <b>sup</b> dump file format is specifically chosen to be com-
+               <b>sup</b>  The <b>sup</b> dump file format is specifically chosen to be com-
                    patible with the format of files produced by sup-dump.   So
                    if you&apos;ve previously been using sup for mail, then the <b>not-</b>
                    <b>much</b> <b>restore</b> command provides you a way to  import  all  of
@@ -43,8 +41,8 @@
                <b>batch-tag</b>
 
                    The  <b>batch-tag</b>  dump  format  is  intended  to  more robust
-                   against malformed message-ids and  tags  containing  white-
-                   space  or non-<b>ascii</b>(7) characters.  See <a href='../notmuch-dump-1/'>notmuch-dump</a>(1) for
+                   against malformed message-ids and tags  containing  whites-
+                   pace  or  non-<b>ascii</b>(7) characters.  See <a href='../notmuch-dump-1/'>notmuch-dump</a>(1) for
                    details on this format.
 
                    <b>notmuch</b> <b>restore</b> updates the maildir flags according to  tag

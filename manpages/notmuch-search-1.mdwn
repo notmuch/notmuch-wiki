@@ -82,8 +82,8 @@
            <b>--sort=</b>(<b>newest-first</b>|<b>oldest-first</b>)
 
                This option can be used to present results in either chronolog-
-               ical  order (<b>oldest-first</b>) or reverse chronological order (<b>new-</b>
-               <b>est-first</b>).
+               ical   order  (<b>oldest-first</b>)  or  reverse  chronological  order
+               (<b>newest-first</b>).
 
                Note: The thread order  will  be  distinct  between  these  two
                options  (beyond  being  simply reversed). When sorting by <b>old-</b>

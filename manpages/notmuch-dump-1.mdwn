@@ -27,9 +27,7 @@
            Notmuch restore supports two plain text dump formats, both with one
            message-id per line, followed by a list of tags.
 
-           <b>sup</b>
-
-               The <b>sup</b> dump file format is specifically chosen to be  compati-
+           <b>sup</b>  The <b>sup</b> dump file format is specifically chosen to be compati-
                ble  with  the  format  of  files  produced by sup-dump.  So if
                you&apos;ve previously been using sup for  mail,  then  the  <b>notmuch</b>
                <b>restore</b>  command  provides you a way to import all of your tags
@@ -54,12 +52,12 @@
                Tags are hex-encoded by replacing every byte not  matching  the
                regex <b>[A-Za-z0-9@=.,</b>_<b>+-]</b> with <b>%nn</b> where nn is the two digit hex
                encoding.  The message ID is a valid Xapian query, quoted using
-               Xapian  boolean  term  quoting rules: if the ID contains white-
-               space or a close paren or starts with a double quote,  it  must
-               be  enclosed  in  double quotes and double quotes inside the ID
-               must be doubled.  The astute reader will notice this is a  spe-
-               cial  case  of  the batch input format for <a href='../notmuch-tag-1/'>notmuch-tag</a>(1); note
-               that the single message-id  query  is  mandatory  for  <a href='../notmuch-restore-1/'>notmuch-</a>
+               Xapian  boolean  term quoting rules: if the ID contains whites-
+               pace or a close paren or starts with a double quote, it must be
+               enclosed  in double quotes and double quotes inside the ID must
+               be doubled.  The astute reader will notice this  is  a  special
+               case  of  the  batch input format for <a href='../notmuch-tag-1/'>notmuch-tag</a>(1); note that
+               the  single  message-id  query  is   mandatory   for   <a href='../notmuch-restore-1/'>notmuch-</a>
                <a href='../notmuch-restore-1/'>restore</a>(1).
 
            With  no  search terms, a dump of all messages in the database will
