@@ -116,6 +116,14 @@ update the Emacs documentation.
 If you make user visible changes, you should add an entry to the
 [`NEWS`](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/NEWS) file.
 
+## Update command-line completion
+
+If you modify or add new features to the Notmuch command-line tools, it
+would be a nice bonus if you also updated the Notmuch command-line
+completion scripts under the `completion` directory of the Notmuch
+source. Not required, but nice to have, and definitely can be done
+afterwards.
+
 ## Subscribe to the Notmuch mailing list
 
 While strictly not required, it is advisable to subscribe to the
