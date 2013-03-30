@@ -99,12 +99,3 @@ to the `./remote-notmuch.sh` wrapper script testing with
 
 See the section *Configure Emacs on the client computer* in
 [[remoteusage|remoteusage]] how to do this. The instructions are the same.
-
-## Fun
-
-Original [BSD Licence](http://en.wikipedia.org/wiki/BSD_licenses)
-is 4-clause license.
-When 3 rd. clause was removed, the new license was not original anymore.
-Similarly, the requirement for this version are the same as in
-[[remoteusage|remoteusage]] page except the 3 rd. requirement
-(password-free login) is not effective here.
