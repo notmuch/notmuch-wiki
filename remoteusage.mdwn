@@ -100,4 +100,5 @@ to list them here. And, of course, if you improve on any of these
 approaches, please do edit this page and let people know!
 
 If you have issues, you may want to try the [[old remote usage
-instructions|remoteusage-old]].
+instructions|remoteusage-old]] or
+[[yet another alternative|remoteusage/aboriginal]].
