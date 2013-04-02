@@ -1,6 +1,8 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 #Using notmuch remotely#
 
+(the "old" page, see also [[new|remoteusage]] page)
+
 ##Why?##
 It is hard to keep nomuch tags in sync across multiple instances of
 notmuch, on multiple computers. Though you can do this with "notmuch
@@ -56,35 +58,35 @@ future calls can reuse the socket.
         NOTMUCH_REMOTE_BIN="notmuch"
         DTACH="/usr/bin/dtach"
         DTACH_SOCKET="${SOCKET_DIR}/dtach.socket"
-        
+
         check_for_socket_dir ()
         {
             [ -d "${SOCKET_DIR}" ]
         }
-        
+
         check_socket_dir_owner_and_perm ()
         {
             [ "$(stat -c %U ${SOCKET_DIR})" = "$(whoami)" ] &&
             [ "$(stat -c %a ${SOCKET_DIR})" = "700" ]
         }
-        
+
         create_socket_dir ()
         {
             mkdir "${SOCKET_DIR}"
             chmod 700 "${SOCKET_DIR}"
         }
-        
+
         check_for_socket ()
         {
             [ -S "${SSH_SOCKET}" ]
         }
-        
+
         start_socket ()
         {
             dtach_command="${DTACH} -n ${DTACH_SOCKET} ${SSH_BIN} -M -S ${SSH_SOCKET} ${USER}@${SSH_HOST}"
             command -v ${DTACH} &>/dev/null && ${dtach_command}
         }
-        
+
         notmuch_run ()
         {
             if check_for_socket_dir; then
@@ -103,9 +105,9 @@ future calls can reuse the socket.
             printf -v ARGS "%q " "$@"
             $SSH_BIN -S $SSH_SOCKET $USER@$SSH_HOST $NOTMUCH_REMOTE_BIN ${ARGS}
         }
-        
+
         notmuch_run "$@"
-    	
+
 Save this to a file, "remote-notmuch.sh", in your path.
 
 Now you can run "remote-notmuch.sh new". You can call the script
