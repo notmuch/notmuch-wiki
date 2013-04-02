@@ -20,6 +20,7 @@ Write the following code to a file, for example `remote-notmuch.sh`.
         # http://notmuchmail.org/remoteusage/aboriginal/
 
         set -eu
+        #exec 2>>remote-errors; echo -- >&2; set -x # outcomment for debugging
 
         readonly SSH_CONTROL_SOCK='~'/.ssh/master-user@host:22
 
@@ -29,7 +30,7 @@ Write the following code to a file, for example `remote-notmuch.sh`.
 
         readonly SSH_CONTROL_ARGS='-oControlMaster=no -S '$SSH_CONTROL_SOCK
 
-        if ssh $SSH_CONTROL_ARGS 0.1 $notmuch $ARGS 2>>/dev/null
+        if ssh -q $SSH_CONTROL_ARGS 0.1 $notmuch $ARGS
         then exit 0
         else ev=$?
         fi
@@ -39,6 +40,7 @@ Write the following code to a file, for example `remote-notmuch.sh`.
         case $* in
          'config get user.primary_email') echo 'nobody@nowhere.invalid'; exit 0 ;;
          'config get user.name') echo 'nobody'; exit 0 ;;
+         'count'*'--batch'*) while read line; do echo 1; done; exit 0 ;;
          'count'*) echo 1; exit 0 ;;
          'search-tags'*) echo 'errors'; exit 0 ;;
          'search'*'--output=tags'*) echo 'errors'; exit 0 ;;
