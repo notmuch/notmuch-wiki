@@ -73,12 +73,15 @@ using the following command line:
 (replace `[user@]remotehost` with your login info). Doing this the
 above wrapper script can be run unmodified. After the above command has
 been run on **one terminal**, enter `chmod +x remote-notmuch.sh` in
-**another terminal** and then test the script with `./remote-notmuch.sh help`
+**another terminal** and then test the script with
 
-Note that the '~' is inside single quotes for a reason. In this
-case shell never expand it to `$HOME` -- ssh does it by not reading
-`$HOME` but checking the real user home directory from `/etc/passwd`.
-For security purposes this is just how it should be.
+        ./remote-notmuch.sh help
+
+Note that the '~' in the ssh command line above is inside single quotes
+for a reason. In this case shell never expand it to `$HOME` -- ssh does
+it by not reading `$HOME` but checking the real user home directory
+from `/etc/passwd`.  For security purposes this is just how it should
+be.
 
 ## Tune
 
@@ -133,3 +136,21 @@ machine, checking/inotifying when new mail arrives. When mail arrives it
 could send message back to local host, where a graphical client (to be written)
 pops up on display providing info about received mail (and exiting this
 graphical client connection to remote host is terminated).
+
+## Troubleshooting
+
+If you experience strange output when using from emacs first attempt to just
+run
+
+        ./remote-notmuch.sh help
+
+from command line and observe output. If it looks as it should be next uncomment
+the line
+
+        #exec 2>>remote-errors; echo -- >&2; set -x # ... change (no stderr).
+
+in `./remote-notmuch.sh` and attemt to use it from emacs again -- and then
+examine the contents of `remote-errors` in the working directory emacs was
+started. Emacs behaviour may alter slightly as all stderr goes to remote-errors
+now to take that into account when examining results (and if it fixes everything
+then start forwarding stderr to /dev/null...).
