@@ -20,7 +20,7 @@ explains how to configure emacs with an addressbook, but the few solutions were 
 for me. And I never could test the vala-based code. So I updated the notmuch_addresses code to
 use a cache to be able to make better matches and still be lightning fast.
 
-And finally, [I needed](http://i.got.nothing.to/blog/2013/03/20/how-i-learned-to-stop-worrying-and-love-the-mail/) to have a way to autocomplete my recipients' addresses 
+And finally, [I needed](http://i.got.nothing.to/blog/2013/03/20/how-i-learned-to-stop-worrying-and-love-the-mail/) to have a way to autocomplete my recipients' addresses
 automagically from within `vim`. So that's why I created the [notmuch_abook](https://github.com/guyzmo/notmuch-abook) code.
 You can either install it as a plugin in vim, using vundle:
 
@@ -33,8 +33,8 @@ want to use it as standalone:
 
 To configure the address book, append to `~/.notmuch-config` the following:
 
-        % cat > ~/.notmuch-config << EOF
-        
+        % cat >> ~/.notmuch-config << EOF
+
         [addressbook]
         path=/home/YOURUSERNAME/.notmuch-abook.db
         backend=sqlite3
@@ -60,4 +60,3 @@ of each word in the name and address, as follows:
 
 If you're using vim, when you edit a mail having a filetype set to mail, you will be
 able to open a completion menu when you do <C-x><C-u> at every address header.
-
