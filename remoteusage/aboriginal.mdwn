@@ -23,8 +23,8 @@ Write the following code to a file, for example `remote-notmuch.sh`.
 	# http://notmuchmail.org/remoteusage/aboriginal/
 
 	set -eu
-	# To trace execution, outcomment next line. Note that emacs input may ...
-	#exec 2>>remote-errors; echo -- >&2; set -x # ... change (no stderr).
+	# To trace execution, uncomment next line.
+	#BASH_XTRACEFD=6; exec 6>>remote-errors; echo -- >&6; set -x
 
 	readonly SSH_CONTROL_SOCK='~'/.ssh/master-user@host:22
 
