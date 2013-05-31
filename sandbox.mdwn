@@ -18,7 +18,7 @@ Here's another one with *emphasised* text.
 >
 > Back to the first level.
 
-Numbered list 
+Numbered list
 
 1. First item.
 1. Another.
@@ -28,5 +28,8 @@ Bulleted list
 
 * *item*
 * item
+
+Text with `backticks` should appear monospace. How about `splitting
+it to` two lines?
 
 [[ikiwiki/WikiLink]]
