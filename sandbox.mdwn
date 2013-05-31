@@ -29,7 +29,7 @@ Bulleted list
 * *item*
 * item
 
-Text with `backticks` should appear monospace. How about `splitting
-it to` two lines?
+Text in `backticks` should appear monospace. How about `splitting
+it into` two lines?
 
 [[ikiwiki/WikiLink]]
