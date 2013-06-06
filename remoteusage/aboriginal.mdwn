@@ -147,7 +147,7 @@ run
 from command line and observe output. If it looks as it should be next uncomment
 the line
 
-	#BASH_XTRACEFD=6; exec 6>>remote-errors; echo -- >&6; set -x
+        #BASH_XTRACEFD=6; exec 6>>remote-errors; echo -- >&6; set -x
 
 in `./remote-notmuch.sh` and attempt to use it from emacs again -- and then
 examine the contents of `remote-errors` in the working directory emacs was
