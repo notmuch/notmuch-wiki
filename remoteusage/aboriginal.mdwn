@@ -57,6 +57,7 @@ Write the following code to a file, for example `remote-notmuch.sh`.
 	fi
 
 	echo " See`sed '1d;2d;s/.//;q' "$0"` for help."
+	#EOF
 
 Note the `0.1` in ssh command line. It is used to avoid any opportunistic
 behaviour ssh might do; for example if control socket is not alive ssh
