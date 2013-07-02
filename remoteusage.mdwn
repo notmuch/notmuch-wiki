@@ -32,7 +32,7 @@ good page on how to set it up (*).
 your connection is too slow, this won't be very pleasant to use, and
 certainly won't seem transparent.)
 
-(*) If you don't want / cannot use password-free login,
+(<del>3</del>) If you don't want / cannot use password-free login,
 [[This|remoteusage/124]] page provides yet another alternative.
 
 ## Configure `ssh` on the client computer ##
