@@ -457,7 +457,7 @@ available:
 
             cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch
 
-  * Shell/fgrep/perl combination [nottoomuch-addresses.sh](http://www.iki.fi/too/nottoomuch/nottoomuch-addresses/).
+  * Shell/fgrep/perl combination [nottoomuch-addresses.sh](https://github.com/domo141/nottoomuch/blob/master/nottoomuch-addresses.rst).
     This tools maintains it's own address "database" gathered from email
     files notmuch knows and search from that "database" is done by `fgrep(1)`.
 
