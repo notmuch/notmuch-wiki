@@ -82,8 +82,8 @@
            <b>--sort=</b>(<b>newest-first</b>|<b>oldest-first</b>)
 
                This option can be used to present results in either chronolog-
-               ical   order  (<b>oldest-first</b>)  or  reverse  chronological  order
-               (<b>newest-first</b>).
+               ical  order (<b>oldest-first</b>) or reverse chronological order (<b>new-</b>
+               <b>est-first</b>).
 
                Note: The thread order  will  be  distinct  between  these  two
                options  (beyond  being  simply reversed). When sorting by <b>old-</b>
@@ -103,13 +103,28 @@
 
                Limit the number of displayed results to N.
 
-           <b>--exclude=(true|false|flag)</b>
+           <b>--exclude=(true|false|all|flag)</b>
 
-               Specify whether to omit  messages  matching  search.tag_exclude
-               from  the search results (the default) or not. The extra option
-               <b>flag</b> only has an effect when <b>--output=summary</b> In this case  all
-               matching threads are returned but the &quot;match count&quot; is the num-
-               ber of matching non-excluded messages in the thread.
+               A message is called &quot;excluded&quot; if it matches at least  one  tag
+               in  search.tag_exclude  that  does not appear explicitly in the
+               search terms.  This option specifies whether to  omit  excluded
+               messages in the search process.
+
+               The default value, <b>true</b>, prevents excluded messages from match-
+               ing the search terms.
+
+               <b>all</b> additionally prevents excluded messages from  appearing  in
+               displayed  results,  in  effect behaving as though the excluded
+               messages do not exist.
+
+               <b>false</b> allows excluded messages to match search terms and appear
+               in displayed results. Excluded messages are still marked in the
+               relevant outputs.
+
+               <b>flag</b> only has an effect when <b>--output=summary</b>.  The  output  is
+               almost  identical to <b>false</b>, but the &quot;match count&quot; is the number
+               of matching non-excluded messages in the  thread,  rather  than
+               the number of matching messages.
 </pre>
 
 <h2>EXIT STATUS</h2>
@@ -123,9 +138,10 @@
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not-</a>
-       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
-       <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
+       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not-</a>
+       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
+       <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-</a>
+       <a href='../notmuch-tag-1/'>tag</a>(1)
 </pre>
 
-<h2>Notmuch 0.15.2</h2>
+<h2>Notmuch 0.16</h2>

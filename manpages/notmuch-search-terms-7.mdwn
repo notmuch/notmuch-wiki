@@ -96,59 +96,59 @@
 
             &lt;initial-timestamp&gt;..&lt;final-timestamp&gt;
 
-       Each timestamp is a number representing the  number  of  seconds  since
+       Each  timestamp  is  a  number representing the number of seconds since
        1970-01-01 00:00:00 UTC.
 
-       In  addition  to  individual terms, multiple terms can be combined with
-       Boolean operators ( <b>and</b>, <b>or</b>, <b>not</b> , etc.). Each term in the  query  will
-       be  implicitly  connected  by  a logical AND if no explicit operator is
-       provided, (except that terms with a common prefix  will  be  implicitly
+       In addition to individual terms, multiple terms can  be  combined  with
+       Boolean  operators  ( <b>and</b>, <b>or</b>, <b>not</b> , etc.). Each term in the query will
+       be implicitly connected by a logical AND if  no  explicit  operator  is
+       provided,  (except  that  terms with a common prefix will be implicitly
        combined with OR until we get Xapian defect #402 fixed).
 
-       Parentheses  can also be used to control the combination of the Boolean
-       operators, but will have to be protected  from  interpretation  by  the
-       shell,  (such  as  by  putting quotation marks around any parenthesized
+       Parentheses can also be used to control the combination of the  Boolean
+       operators,  but  will  have  to be protected from interpretation by the
+       shell, (such as by putting quotation  marks  around  any  parenthesized
        expression).
 </pre>
 
 <h2>DATE AND TIME SEARCH</h2>
 <pre>
-       notmuch understands a variety of standard and natural ways of  express-
+       notmuch  understands a variety of standard and natural ways of express-
        ing dates and times, both in absolute terms (&quot;2012-10-24&quot;) and in rela-
-       tive terms (&quot;yesterday&quot;). Any number of relative terms can be  combined
-       (&quot;1  hour  25  minutes&quot;) and an absolute date/time can be combined with
-       relative terms to further adjust it. A  non-exhaustive  description  of
+       tive  terms (&quot;yesterday&quot;). Any number of relative terms can be combined
+       (&quot;1 hour 25 minutes&quot;) and an absolute date/time can  be  combined  with
+       relative  terms  to  further adjust it. A non-exhaustive description of
        the syntax supported for absolute and relative terms is given below.
 
            <b>The</b> <b>range</b> <b>expression</b>
 
                date:&lt;since&gt;..&lt;until&gt;
 
-               The  above  expression  restricts  the results to only messages
+               The above expression restricts the  results  to  only  messages
                from &lt;since&gt; to &lt;until&gt;, based on the Date: header.
 
                &lt;since&gt; and &lt;until&gt; can describe imprecise times, such as &quot;yes-
-               terday&quot;.   In  this case, &lt;since&gt; is taken as the earliest time
-               it could describe (the beginning of yesterday) and  &lt;until&gt;  is
-               taken  as the latest time it could describe (the end of yester-
+               terday&quot;.  In this case, &lt;since&gt; is taken as the  earliest  time
+               it  could  describe (the beginning of yesterday) and &lt;until&gt; is
+               taken as the latest time it could describe (the end of  yester-
                day). Similarly, date:january..february matches from the begin-
                ning of January to the end of February.
 
-               Currently,  we  do not support spaces in range expressions. You
+               Currently, we do not support spaces in range  expressions.  You
                can replace the spaces with &apos;_&apos;, or (in most cases) &apos;-&apos;, or (in
-               some  cases)  leave the spaces out altogether. Examples in this
+               some cases) leave the spaces out altogether. Examples  in  this
                man page use spaces for clarity.
 
                Open-ended ranges are supported (since Xapian 1.2.1), i.e. it&apos;s
-               possible  to  specify  date:..&lt;until&gt;  or date:&lt;since&gt;.. to not
-               limit the start or end  time,  respectively.  Pre-1.2.1  Xapian
-               does  not report an error on open ended ranges, but it does not
+               possible to specify date:..&lt;until&gt;  or  date:&lt;since&gt;..  to  not
+               limit  the  start  or  end time, respectively. Pre-1.2.1 Xapian
+               does not report an error on open ended ranges, but it does  not
                work as expected either.
 
-               Entering date:expr without &quot;..&quot;  (for  example  date:yesterday)
-               won&apos;t  work,  as  it&apos;s not interpreted as a range expression at
-               all. You can achieve the expected  result  by  duplicating  the
-               expr  both  sides of &quot;..&quot;  (for example date:yesterday..yester-
+               Entering  date:expr  without  &quot;..&quot; (for example date:yesterday)
+               won&apos;t work, as it&apos;s not interpreted as a  range  expression  at
+               all.  You  can  achieve  the expected result by duplicating the
+               expr both sides of &quot;..&quot;  (for  example  date:yesterday..yester-
                day).
 
            <b>Relative</b> <b>date</b> <b>and</b> <b>time</b>
@@ -157,15 +157,15 @@
 
                All refer to past, can be repeated and will be accumulated.
 
-               Units  can  be  abbreviated  to  any length, with the otherwise
+               Units can be abbreviated to  any  length,  with  the  otherwise
                ambiguous single m being m for minutes and M for months.
 
-               Number can also be written out one, two, ..., ten, dozen,  hun-
-               dred.  Additionally,  the  unit  may  be  preceded by &quot;last&quot; or
+               Number  can also be written out one, two, ..., ten, dozen, hun-
+               dred. Additionally, the unit  may  be  preceded  by  &quot;last&quot;  or
                &quot;this&quot; (e.g., &quot;last week&quot; or &quot;this month&quot;).
 
-               When combined with absolute date and time,  the  relative  date
-               and  time  specification  will  be  relative from the specified
+               When  combined  with  absolute date and time, the relative date
+               and time specification will  be  relative  from  the  specified
                absolute date and time.
 
                Examples: 5M2d, two weeks
@@ -220,9 +220,9 @@
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not-</a>
-       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
-       <a href='../notmuch-search-1/'>notmuch-search</a>(1), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
+       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not-</a>
+       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
+       <a href='../notmuch-restore-1/'>notmuch-restore</a>(1), <a href='../notmuch-search-1/'>notmuch-search</a>(1), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
-<h2>Notmuch 0.15.2</h2>
+<h2>Notmuch 0.16</h2>

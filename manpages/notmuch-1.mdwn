@@ -7,7 +7,7 @@
 
 <h2>SYNOPSIS</h2>
 <pre>
-       <b>notmuch</b> <u>command</u> [<u>args</u> ...]
+       <b>notmuch</b> [<u>option</u> ...] <u>command</u> [<u>arg</u> ...]
 </pre>
 
 <h2>DESCRIPTION</h2>
@@ -37,55 +37,73 @@
        the most widely used at this time.
 </pre>
 
+<h2>OPTIONS</h2>
+<pre>
+       Supported global options for <b>notmuch</b> include
+
+           <b>--help</b>
+
+               Print a synopsis of available commands and exit.
+
+           <b>--version</b>
+
+               Print the installed version of notmuch, and exit.
+
+           <b>--config=FILE</b>
+
+               Specify the configuration file to use. This overrides any  con-
+               figuration file specified by ${NOTMUCH_CONFIG}.
+</pre>
+
 <h2>COMMANDS</h2>
 
 <h3> &nbsp; SETUP</h3>
 <pre>
-       The <b>notmuch</b> <b>setup</b> command is used to configure Notmuch for  first  use,
+       The  <b>notmuch</b>  <b>setup</b> command is used to configure Notmuch for first use,
        (or to reconfigure it later).
 
-       The  setup  command  will prompt for your full name, your primary email
-       address, any alternate email addresses you use, and the directory  con-
+       The setup command will prompt for your full name,  your  primary  email
+       address,  any alternate email addresses you use, and the directory con-
        taining your email archives. Your answers will be written to a configu-
-       ration file in ${NOTMUCH_CONFIG} (if set) or ${HOME}/.notmuch-config  .
+       ration  file in ${NOTMUCH_CONFIG} (if set) or ${HOME}/.notmuch-config .
        This configuration file will be created with descriptive comments, mak-
-       ing it easy to edit by hand later to change the configuration.  Or  you
+       ing  it  easy to edit by hand later to change the configuration. Or you
        can run <b>notmuch</b> <b>setup</b> again to change the configuration.
 
-       The  mail  directory you specify can contain any number of sub-directo-
+       The mail directory you specify can contain any number  of  sub-directo-
        ries and should primarily contain only files with individual email mes-
-       sages  (eg.  maildir  or  mh archives are perfect). If there are other,
-       non-email files (such as indexes maintained by  other  email  programs)
+       sages (eg. maildir or mh archives are perfect).  If  there  are  other,
+       non-email  files  (such  as indexes maintained by other email programs)
        then notmuch will do its best to detect those and ignore them.
 
-       Mail  storage that uses mbox format, (where one mbox file contains many
-       messages), will not work with notmuch. If that&apos;s how your mail is  cur-
+       Mail storage that uses mbox format, (where one mbox file contains  many
+       messages),  will not work with notmuch. If that&apos;s how your mail is cur-
        rently stored, it is recommended you first convert it to maildir format
        with a utility such as mb2md before running <b>notmuch</b> <b>setup</b> <b>.</b>
 
-       Invoking <b>notmuch</b> with no command argument will run <b>setup</b> if  the  setup
+       Invoking  <b>notmuch</b>  with no command argument will run <b>setup</b> if the setup
        command has not previously been completed.
 </pre>
 
 <h3> &nbsp; OTHER COMMANDS</h3>
 <pre>
-       Several  of the notmuch commands accept search terms with a common syn-
+       Several of the notmuch commands accept search terms with a common  syn-
        tax. See notmuch-search-terms(7) for more details on the supported syn-
        tax.
 
-       The  <b>search</b>,  <b>show</b>  and  <b>count</b>  commands  are  used  to query the email
-       database.
+       The <b>search</b>, <b>show</b> and <b>count</b> commands are used to query the  email  data-
+       base.
 
-       The <b>reply</b> command is useful for  preparing  a  template  for  an  email
+       The  <b>reply</b>  command  is  useful  for  preparing a template for an email
        reply.
 
        The <b>tag</b> command is the only command available for manipulating database
        contents.
 
-       The <b>dump</b> and <b>restore</b> commands can be used to create a textual  dump  of
+       The  <b>dump</b>  and <b>restore</b> commands can be used to create a textual dump of
        email tags for backup purposes, and to restore from that dump.
 
-       The  <b>config</b>  command can be used to get or set settings int the notmuch
+       The <b>config</b> command can be used to get or set settings int  the  notmuch
        configuration file.
 </pre>
 
@@ -95,16 +113,25 @@
        of notmuch.
 
        <b>NOTMUCH</b>_<b>CONFIG</b>
-              Specifies  the  location of the notmuch configuration file. Not-
-              much will use ${HOME}/.notmuch-config if this  variable  is  not
+              Specifies the location of the notmuch configuration  file.  Not-
+              much  will  use  ${HOME}/.notmuch-config if this variable is not
               set.
+
+       <b>NOTMUCH</b>_<b>TALLOC</b>_<b>REPORT</b>
+              Location to  write  a  talloc  memory  usage  report.  See  <b>tal-</b>
+              <b>loc</b>_<b>enable</b>_<b>leak</b>_<b>report</b>_<b>full</b> in <b>talloc</b>(3) for more information.
+
+       <b>NOTMUCH</b>_<b>DEBUG</b>_<b>QUERY</b>
+              If  set to a non-empty value, the notmuch library will print (to
+              stderr) Xapian queries it constructs.
 </pre>
 
 <h2>SEE ALSO</h2>
 <pre>
        <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5),
-       <a href='../notmuch-new-1/'>notmuch-new</a>(1),    <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),    <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),    <a href='../notmuch-search-1/'>notmuch-</a>
-       <a href='../notmuch-search-1/'>search</a>(1), <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
+       <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),     <a href='../notmuch-new-1/'>notmuch-new</a>(1),    <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),    <a href='../notmuch-restore-1/'>notmuch-</a>
+       <a href='../notmuch-restore-1/'>restore</a>(1),   <a href='../notmuch-search-1/'>notmuch-search</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),    <a href='../notmuch-show-1/'>notmuch-</a>
+       <a href='../notmuch-show-1/'>show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 
        The notmuch website: <b>http://notmuchmail.org</b>
 </pre>
@@ -119,4 +146,4 @@
        (server: irc.freenode.net, channel: #notmuch).
 </pre>
 
-<h2>Notmuch 0.15.2</h2>
+<h2>Notmuch 0.16</h2>
