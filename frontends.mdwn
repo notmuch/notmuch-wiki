@@ -9,8 +9,10 @@
 
 ## Other email clients and front ends based on Notmuch
 
-* [ner](http://the-ner.org/), a curses frontend written in C.
-* [bower](https://github.com/wangp/bower), a curses frontend written in [Mercury](http://www.cs.mu.oz.au/research/mercury/).
 * [alot](https://github.com/pazz/alot), a curses frontend written in Python with the [Urwid](http://excess.org/urwid/) toolkit.
+* [bower](https://github.com/wangp/bower), a curses frontend written in [Mercury](http://www.cs.mu.oz.au/research/mercury/).
 * [mutt-kz](https://github.com/karelzak/mutt-kz), a fork of [mutt](http://www.mutt.org/) with Notmuch as a backend (actually linked against lib notmuch).
+* [ner](http://the-ner.org/), a curses frontend written in C.
+* [notmuch-web](https://bitbucket.org/wuzzeb/notmuch-web) A web front end written in [Haskell](http://hackage.haskell.org/package/notmuch-web).
 * [notmuchfs](https://github.com/tsto/notmuchfs), a virtual maildir file system for Notmuch queries.
+
