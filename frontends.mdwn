@@ -9,7 +9,6 @@
 
 ## Other email clients and front ends based on Notmuch
 
-* [notmuch-vim-ruby](https://github.com/felipec/notmuch-vim-ruby) another vim client in ruby
 * [ner](http://the-ner.org/), a curses frontend written in C.
 * [bower](https://github.com/wangp/bower), a curses frontend written in [Mercury](http://www.cs.mu.oz.au/research/mercury/).
 * [alot](https://github.com/pazz/alot), a curses frontend written in Python with the [Urwid](http://excess.org/urwid/) toolkit.
