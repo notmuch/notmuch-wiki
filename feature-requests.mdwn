@@ -1,9 +1,8 @@
-[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 *********************
 
 **WARNING**: This page went away. It seems like nobody who works on
-  notmuch read it regularly, and there is no convenient way to
-  discuss ideas with the people who propose them.  Please use
+  notmuch read it regularly, and there was no convenient way to
+  discuss ideas with the people who propose them.  Please use the
   [notmuch mailing list](http://notmuchmail.org/mailman/listinfo/notmuch)
   instead.
 
