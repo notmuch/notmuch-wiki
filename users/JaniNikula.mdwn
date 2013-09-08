@@ -1,0 +1,3 @@
+
+I agree that all of my contributions to the notmuch wiki can be [[dual
+licensed|wiki-license]] under CC-BY-SA-3.0 and GPL v3+.
