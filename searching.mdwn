@@ -169,8 +169,8 @@ work:
 
         notmuch search date:<since>..<until>
 
-For <since> and <until>, notmuch understands a variety of standard and
-natural ways of expressing dates and times, both in absolute terms
+For `<since>` and `<until>`, notmuch understands a variety of standard
+and natural ways of expressing dates and times, both in absolute terms
 ("2012-10-24") and in relative terms ("yesterday"). Please refer to the
 [[notmuch-search-terms manual page|manpages/notmuch-search-terms-7]] for
 details.
