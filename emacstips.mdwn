@@ -482,6 +482,32 @@ programs above.
 You can add the sender of a message to Google Contacts by piping the message
 (`notmuch-show-pipe-message`) to `goobook add`.
 
+### Akonadi
+
+        git clone https://github.com/mmehnert/akonadimailsearch
+
+Install the development packages for kdepim on your system.
+Enter the cloned repository and create a build directory:
+
+        mkdir build
+        cd build
+        cmake ..; make;
+
+You will find the akonadimailsearch binary in the build/src directory.
+Create a ~/bin/akonadimailsearch.sh file with the following content and make it executable:
+(Adjust the path for the akonadimailsearch binary.)
+
+        #!/bin/sh
+        akonadimailsearch $@ 2>/dev/null
+
+As described above, you can now add the following settings to your ~/.emacs file:
+
+        (require 'notmuch-address)
+        (setq notmuch-address-command "~/bin/akonadimailsearch.sh")
+        (notmuch-address-message-insinuate)
+
+
+
 ## How to sign/encrypt messages with gpg
 
 Messages can by signed using gpg by invoking
