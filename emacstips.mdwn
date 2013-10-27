@@ -498,7 +498,7 @@ Create a ~/bin/akonadimailsearch.sh file with the following content and make it 
 (Adjust the path for the akonadimailsearch binary.)
 
         #!/bin/sh
-        akonadimailsearch $@ 2>/dev/null
+        akonadimailsearch "$@" 2>/dev/null
 
 As described above, you can now add the following settings to your ~/.emacs file:
 
