@@ -118,4 +118,4 @@
        <a href='../notmuch-tag-1/'>tag</a>(1)
 </pre>
 
-<h2>Notmuch 0.16</h2>
+<h2>Notmuch 0.17</h2>

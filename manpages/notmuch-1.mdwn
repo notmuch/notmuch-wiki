@@ -91,8 +91,8 @@
        tax. See notmuch-search-terms(7) for more details on the supported syn-
        tax.
 
-       The <b>search</b>, <b>show</b> and <b>count</b> commands are used to query the  email  data-
-       base.
+       The <b>search</b>, <b>show</b> and  <b>count</b>  commands  are  used  to  query  the  email
+       database.
 
        The  <b>reply</b>  command  is  useful  for  preparing a template for an email
        reply.
@@ -146,4 +146,4 @@
        (server: irc.freenode.net, channel: #notmuch).
 </pre>
 
-<h2>Notmuch 0.16</h2>
+<h2>Notmuch 0.17</h2>
