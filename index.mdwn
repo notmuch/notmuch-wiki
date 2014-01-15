@@ -56,6 +56,7 @@ the initial indexing.  After that, come back and checkout our docs:
 
   * [[Notmuch manual pages|manpages]]
   * [[General how-tos|howto]]
+  * [[Frequently Asked Questions|faq]]
   * [[Searching]]
   * [[Excluding and deleting messages|excluding]]
   * [[Initial tagging|Initial_Tagging]]
