@@ -190,14 +190,13 @@ have changed; be sure to rebase your updated changes on top of the
 current master.
 
 Once you have the updated series ready, send it to the mailing list
-again. It will be helpful for others to use the
-`--subject-prefix="PATCH vN"` option of `git format-patch` or
-`git send-email` to add a version number of the patch series to the
-subject (replacing vN with v2, v3, etc.) Use a cover letter (or, in
-the case of a single patch, the notes after a "---" at the end of the
-commit message) to summarize the main changes since the previous
-version of the patch series. Also include the message-id reference of
-the previous version.
+again. It will be helpful for others to use the `-vN` option of `git
+format-patch` or `git send-email` to add a version number of the patch
+series to the subject (replacing vN with v2, v3, etc.) Use a cover
+letter (or, in the case of a single patch, the notes after a "---" at
+the end of the commit message) to summarize the main changes since the
+previous version of the patch series. Also include the message-id
+reference of the previous version.
 
 Using the `--in-reply-to` option of `git format-patch` or
 `git send-email` to send the patch series as a reply to the earlier
