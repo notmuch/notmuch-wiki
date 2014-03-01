@@ -50,13 +50,16 @@ Write the following code to a file, for example `remote-notmuch.sh`.
 	 'search'*'--output=tags'*) echo 'errors'; exit 0 ;;
 	esac
 
+	# for unhandled command line print only to stderr...
+	exec >&2
+
 	if ssh $SSH_CONTROL_ARGS -O check 0.1
 	then
-	 echo ' Control socket is alive but something failed during data transmission.'
+	 echo ' Control socket is alive but something failed during data transmission'
 	 exit $ev
 	fi
 
-	echo " See`sed '1d;2d;s/.//;q' "$0"` for help."
+	echo " See`sed '1d;2d;s/.//;q' "$0"` for help"
 	#EOF
 
 Note the `0.1` in ssh command line. It is used to avoid any opportunistic
@@ -104,6 +107,14 @@ After configuring
 `readonly SSH_CONTROL_SOCK='~'/.ssh/master-alice@example.org:22`
 to the `./remote-notmuch.sh` wrapper script testing with
 `./remote-notmuch.sh help` should work fine.
+
+An alternative strategy is to symlink the configured socket to
+the one in ``./nottoomuch-remote.bash`` like:
+
+        ln -sfT master-alice@example.org:22 ~/.ssh/master-notmuch@remote:22
+
+This also provides easy way to switch to another master connection without
+need to edit this script.
 
 ## Configure Emacs on the client computer ##
 
