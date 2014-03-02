@@ -4,7 +4,7 @@ What good is an advanced indexing mail client if we don't know how to
 use it to actually find e-mail?
 
 Please see the [[notmuch-search-terms manual
-page|man/notmuch-search-terms-7]] first for an overview of the
+page|manpages/notmuch-search-terms-7]] first for an overview of the
 search syntax, including the prefixes (such as "to:") and date range
 searches.
 
@@ -172,5 +172,5 @@ work:
 For `<since>` and `<until>`, notmuch understands a variety of standard
 and natural ways of expressing dates and times, both in absolute terms
 ("2012-10-24") and in relative terms ("yesterday"). Please refer to the
-[[notmuch-search-terms manual page|man/notmuch-search-terms-7]] for
+[[notmuch-search-terms manual page|manpages/notmuch-search-terms-7]] for
 details.

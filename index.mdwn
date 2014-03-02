@@ -54,7 +54,7 @@ The configuration wizard will walk you through initial setup,
 including specifying the location of your mail store and how to start
 the initial indexing.  After that, come back and checkout our docs:
 
-  * [[Notmuch manual pages|man]]
+  * [[Notmuch manual pages|manpages]]
   * [[General how-tos|howto]]
   * [[Frequently Asked Questions|faq]]
   * [[Searching]]
