@@ -21,7 +21,7 @@ Write the following code to a file, for example `remote-notmuch.sh`.
 	#!/bin/bash
 
 	set -eu
-	# To trace execution, uncomment next line.
+	# To trace execution, uncomment next line:
 	#BASH_XTRACEFD=6; exec 6>>remote-errors; echo -- >&6; set -x
 
 	: ${REMOTE_NOTMUCH_SSHCTRL_SOCK:=master-notmuch@remote:22}
@@ -40,7 +40,7 @@ Write the following code to a file, for example `remote-notmuch.sh`.
 	else ev=$?
 	fi
 
-	# continuing here in case ssh exited with nonzero value.
+	# continuing here in case ssh exited with nonzero value
 
 	case $* in
 	 'config get user.primary_email') echo 'nobody@nowhere.invalid'; exit 0 ;;
@@ -51,7 +51,7 @@ Write the following code to a file, for example `remote-notmuch.sh`.
 	 'search'*'--output=tags'*) echo 'errors'; exit 0 ;;
 	esac
 
-	# for unhandled command line print only to stderr...
+	# fallback exit handler; print only to stderr...
 	exec >&2
 
 	if ssh $SSH_CONTROL_ARGS -O check 0.1
