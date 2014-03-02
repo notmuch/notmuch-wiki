@@ -26,7 +26,7 @@ server), `bash`, and `ssh` on another computer (let's call that computer
 
 3. password-free login (public key authentication) from client to
 server. [Here](http://www.debian-administration.org/articles/152) is a
-good page on how to set it up (*).
+good page on how to set it up (<del>3</del>).
 
 4. a reasonably fast connection. (This isn't really *necessary*, but if
 your connection is too slow, this won't be very pleasant to use, and
