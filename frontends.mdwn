@@ -2,7 +2,7 @@
 
 ## Shipping with Notmuch
 
-* [[notmuch-cli|manpages]], the CLI bindings provided with Notmuch.
+* [[notmuch-cli|man]], the CLI bindings provided with Notmuch.
 * [[notmuch-emacs|emacstips]], the Emacs email client.
 * [notmuch-vim](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README), the vim frontend.
 * [[notmuch-mutt]], mutt interoperability script.
@@ -15,4 +15,3 @@
 * [ner](http://the-ner.org/), a curses frontend written in C.
 * [notmuch-web](https://bitbucket.org/wuzzeb/notmuch-web) A web front end written in [Haskell](http://hackage.haskell.org/package/notmuch-web).
 * [notmuchfs](https://github.com/tsto/notmuchfs), a virtual maildir file system for Notmuch queries.
-
