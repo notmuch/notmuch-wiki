@@ -60,9 +60,7 @@ Write the following code to a file, for example `remote-notmuch.sh`.
 	 exit $ev
 	fi
 
-	case $0 in */*) dn0=${0%/*} ;; *) dn0=. ;; esac
-	echo "See  $dn0/nottoomuch-remote.rst  for more information"
-
+	echo " See`sed '1d;2d;s/.//;q' "$0"` for help"
 	exit $ev
 	#eof
 
@@ -118,7 +116,7 @@ There are 3 options how to handle this with `./nottoomuch-remote.bash`:
 
 3) `REMOTE_NOTMUCH_SSHCTRL_SOCK` can be used via environment; like:
 
-        REMOTE_NOTMUCH_SSHCTRL_SOCK=master-robin@example.org:22 ./nottoomuch-remote.bash help
+      REMOTE_NOTMUCH_SSHCTRL_SOCK=master-robin@example.org:22 ./nottoomuch-remote.bash help
 
 ## Configure Emacs on the client computer ##
 
