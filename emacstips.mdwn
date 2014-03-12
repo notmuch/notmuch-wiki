@@ -441,7 +441,7 @@ address autocompletion.
 
 You can also use the notmuch database as a mail address book itself.
 To do this you need a command line tool that outputs likely address
-candidates based on a search string.  There are currently three
+candidates based on a search string.  There are currently four
 available:
 
   * The python tool `notmuch_address.py` (`git clone
