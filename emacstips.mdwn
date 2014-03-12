@@ -461,6 +461,10 @@ available:
     This tools maintains it's own address "database" gathered from email
     files notmuch knows and search from that "database" is done by `fgrep(1)`.
 
+  * python/sqlite combination [notmuch-abook](https://github.com/guyzmo/notmuch-abook/)
+    This tools also maintains an address database in sqlite after harvesting
+    from notmuch.  It also includes a vim plugin.
+
 You can perform tab-completion using any of these programs.
 Just add the following to your .emacs:
 
