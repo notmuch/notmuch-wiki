@@ -9,7 +9,7 @@ There is a dump of (some views of) the nmbug [[status|http://nmbug.tethera.net/s
 1. Install and use notmuch version **0.10** or newer and
    perl module `Pod::Usage` (packaged as `perl-doc` in debian).
 
-   The nmbug script is available in `contrib/nmbug`.
+   The nmbug script is available in `devel/nmbug`.
 
 2. Make sure your `git version` is **1.7.4** or newer. 
 
