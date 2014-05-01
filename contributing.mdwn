@@ -105,7 +105,7 @@ in the Notmuch source for further information.
 ## Update the documentation
 
 If you modify or add new features to the Notmuch command-line tools,
-you should update the manual pages under the `man` directory of the
+you should update the manual pages under the `doc` directory of the
 Notmuch source.
 
 If you modify or add new features to the Notmuch Emacs UI, you should
