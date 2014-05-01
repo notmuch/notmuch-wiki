@@ -96,6 +96,8 @@ Notmuch is packaged for at least the following distributions:
 * [Slackware](http://slackbuilds.org/repository/13.37/office/notmuch/)
 * [Ubuntu](http://packages.ubuntu.com/search?keywords=notmuch)
 
+Notmuch can be installed on Mac OS X using [MacPorts](https://www.macports.org/ports.php?by=name&substr=notmuch).
+
 ## Development and Contributing
 
 All of the code for Notmuch is available as [free
