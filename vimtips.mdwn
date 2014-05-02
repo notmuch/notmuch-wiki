@@ -1,14 +1,9 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# Tips and Tricks for using Notmuch with vim
 
-Notmuch is a great mail indexing tool that can also be used *in conjunction*
-with existing Mail User Agents (MUA) instead of replacing them. The advantage of
-such mixed solutions is that users can benefit from notmuch features (such as
-full-text search and thread reconstruction) without *having to* change MUA.
-
-A popular geek MUA is [the Mutt e-mail client](http://www.mutt.org); integrating
-notmuch with Mutt is not seamless, but fairly straightforward. There are two
-principal possibilities, either using a patched mutt that handles internally
-notmuch, or use a sets of scripts/handler within mutt to achieve something close.
+Tips for using Notmuch with vim; these may be applicable when using vim with
+[[notmuch-mutt]], [mutt-kz](https://github.com/karelzak/mutt-kz), or
+[notmuch-vim](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README).
 
 [[!toc levels=2]]
 
