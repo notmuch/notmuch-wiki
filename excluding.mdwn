@@ -1,3 +1,4 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Message exclusion and deletion
 
 An important principle of notmuch is that it does not modify your mail

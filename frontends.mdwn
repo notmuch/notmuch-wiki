@@ -1,3 +1,4 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Available email clients and front ends
 
 ## Shipping with Notmuch

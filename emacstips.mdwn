@@ -1,3 +1,4 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Tips and Tricks for using notmuch with Emacs
 
 One of the more popular notmuch message reading clients is

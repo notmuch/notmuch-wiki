@@ -1,3 +1,4 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Tags special to notmuch
 
 This page describes the tags that the notmuch lib, cli, and emacs ui recognize

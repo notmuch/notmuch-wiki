@@ -1,3 +1,4 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Experimental Tag Sharing / Pseudo-Bug-Tracking for/with notmuch
 
 ## Web View

@@ -1,3 +1,4 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Frequently Asked Questions
 
 [[!toc levels=2]]

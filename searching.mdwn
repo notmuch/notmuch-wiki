@@ -1,3 +1,4 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Searching with notmuch
 
 What good is an advanced indexing mail client if we don't know how to 

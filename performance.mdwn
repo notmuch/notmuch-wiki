@@ -1,3 +1,4 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Optimize notmuch's performance
 
 [[!toc levels=2]]

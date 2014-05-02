@@ -1,3 +1,5 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# License
 
 *Warning* This page is just a prototype, the actual licenses are subject to change until this warning is removed.
 

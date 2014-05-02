@@ -1,3 +1,4 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Wiki Write Access
 
 This website is a wiki maintained using

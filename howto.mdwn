@@ -1,3 +1,4 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # How to...
 
 Some tips about how to do some useful things with notmuch, and the

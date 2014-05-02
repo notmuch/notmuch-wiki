@@ -1,4 +1,5 @@
-## Notmuch Email Corpus
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# Notmuch Email Corpus
 
 A corpus of about 108k messages is available for performance testing of
 notmuch (or other uses).

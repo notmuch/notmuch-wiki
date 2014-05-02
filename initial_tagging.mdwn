@@ -1,3 +1,4 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Approaches to initial tagging of messages
 
 This page collects scripts and strategies for organizing mail using
