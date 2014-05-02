@@ -1,0 +1,52 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# References
+
+[[!toc levels=2]]
+
+## RFC
+
+Some of the most important RFCs related to Notmuch development are:
+
+* [822](https://tools.ietf.org/html/rfc822) - Standard for the Format of Arpa
+  Internet Text Messages
+
+* [1521](https://tools.ietf.org/html/rfc1521) - MIME (Multipurpose Internet Mail
+  Extensions) Part One: Mechanisms for Specifying and Describing the Format of
+  Internet Message Bodies
+
+* [1847](https://tools.ietf.org/html/rfc1847) - Security Multiparts for MIME:
+  Multipart/Signed and Multipart/Encrypted
+
+* [2047](https://tools.ietf.org/html/rfc2047) - Multipurpose Internet Mail
+  Extensions (MIME) Part Three: Message Header Extensions for Non-ASCII Text
+
+* [2392](https://tools.ietf.org/html/rfc2392) - Content-ID and Message-ID
+  Uniform Resource Locators
+
+* [2822](https://tools.ietf.org/html/rfc2822) - Internet Message Format
+
+* [3156](https://tools.ietf.org/html/rfc3156) - MIME Security with OpenPGP
+
+See the [GMime home page](http://spruce.sourceforge.net/gmime/) for a more
+comprehensive list of relevant RFCs.
+
+## Maildir
+
+[Maildir](http://cr.yp.to/proto/maildir.html)
+
+## Dependencies
+
+[Xapian](http://xapian.org/) [documentation](http://xapian.org/docs/) and [API
+reference](http://xapian.org/docs/apidoc/html/index.html)
+
+[GMime](http://spruce.sourceforge.net/gmime/)
+[tutorial](http://spruce.sourceforge.net/gmime/tutorial/) and [API
+reference](https://developer.gnome.org/gmime/stable/)
+
+[Glib](http://www.gtk.org/) [API
+reference](https://developer.gnome.org/glib/stable/)
+
+[Talloc tutorial](http://talloc.samba.org/talloc/doc/html/libtalloc__tutorial.html) and
+[API reference](http://talloc.samba.org/talloc/doc/html/index.html)
+
+[Zlib](http://zlib.net/) [API reference](http://zlib.net/manual.html)
