@@ -329,14 +329,37 @@ saved searches displayed can be modified directly from the notmuch
 interface (using the `[save]` button next to a previous search) or by
 customising the variable `notmuch-saved-searches`.
 
-An example setting might be:
+An example setting for notmuch versions up to 0.17.x might be:
 
         (setq notmuch-saved-searches '(("inbox" . "tag:inbox")
                         ("unread" . "tag:inbox AND tag:unread")
                         ("notmuch" . "tag:inbox AND to:notmuchmail.org")))
 
+Starting from notmuch 0.18 the variable changed. It is backwards
+compatible so the above will still work but the new style will be used
+if you use customize and there are some new features available. The above would become
+
+        (setq notmuch-saved-searches '((:name "inbox" :query "tag:inbox")
+                        (:name "unread" :query "tag:inbox AND tag:unread")
+                        (:name "notmuch" :query "tag:inbox AND to:notmuchmail.org")))
+
+The additional features are the possibility to set the search order
+for the search, and the possibility to specify a different query for
+displaying the count for the saved-search. For example
+
+        (setq notmuch-saved-searches '((:name "inbox"
+                                        :query "tag:inbox"
+                                        :count-query "tag:inbox and tag:unread"
+                                        :sort-order 'oldest-first)))
+
+specifies a single saved search for inbox, but the number displayed by
+the search will be the number of unread messages in the inbox, and the
+sort order for this search will be oldest-first.
+
 Of course, you can have any number of saved searches, each configured
-with any supported search terms (see "notmuch help search-terms").
+with any supported search terms (see "notmuch help search-terms"), and
+in the new style variable they can each have different count-queries
+and sort orders.
 
 Some users find it useful to add `and not tag:delete` to those
 searches, as they use the `delete` tag to mark messages as
