@@ -174,62 +174,39 @@ case you want this behaviour:
 
 ## Add a key binding to add/remove/toggle a tag
 
-The `notmuch-{search,show}-{add,remove}-tag` functions are very useful
-for making quick tag key bindings.  For instance, here's an example
-of how to make a key binding to add the "spam" tag and remove the
-"inbox" tag in notmuch-show-mode:
+The `notmuch-{search,show,tree}-tag` functions are very useful for
+making quick tag key bindings.  The arguments to these functions have
+changed as notmuch has evolved but the following should work on all
+versions of notmuch 0.13 and later.  These functions take a list of
+tag changes as argument. For example, an argument of (list "+spam"
+"-inbox) adds the tag spam and deletes the tag inbox. Note the
+argument must be a list even if there is only a single tag change
+e.g., use (list "+deleted") to add the deleted tag.
 
-In notmuch versions up to 0.11.x
-
-        (define-key notmuch-show-mode-map "S"
-          (lambda ()
-            "mark message as spam"
-            (interactive)
-            (notmuch-show-add-tag "spam")
-            (notmuch-show-remove-tag "inbox")))
-
-Starting from notmuch 0.12 the functions `notmuch-show-add-tag` and
-`notmuch-show-remove-tag` have changed to be more versatile and lost
-noninteractive use. When upgrading to 0.12 the above needs to be
-changed to this:
+For instance, here's an example of how to make a key binding to add
+the "spam" tag and remove the "inbox" tag in notmuch-show-mode:
 
         (define-key notmuch-show-mode-map "S"
           (lambda ()
             "mark message as spam"
             (interactive)
-            (notmuch-show-tag-message "+spam" "-inbox")))
+            (notmuch-show-tag (list "+spam" "-inbox"))))
 
 You can do the same for threads in `notmuch-search-mode` by just
-replacing "show" with "search" in the called functions.
+replacing "show" with "search" in the keymap and called functions, or
+for messages in `notmuch-tree-mode` by replacing "show" by "tree". If
+you want to tag a whole thread in `notmuch-tree-mode` use
+`notmuch-tree-tag-thread` instead of `notmuch-tree-tag`.
 
-Starting from notmuch 0.12 use `notmuch-search-tag-thread` instead:
-
-        (define-key notmuch-search-mode-map "S"
-          (lambda ()
-            "mark messages in thread as spam"
-            (interactive)
-            (notmuch-show-tag-thread "+spam" "-inbox")))
-
-Starting from notmuch 0.13 use `notmuch-search-tag` -- it has a little
-different usage syntax:
-
-        (define-key notmuch-search-mode-map "S"
-          (lambda ()
-            "mark messages in thread as spam"
-            (interactive)
-            (notmuch-search-tag '("+spam" "-inbox"))))
-
-The definition above makes use of a lambda function, but you could
+The definitions above make use of a lambda function, but you could
 also define a separate function first:
 
         (defun notmuch-show-tag-spam ()
           "mark message as spam"
           (interactive)
-          (notmuch-show-add-tag "spam")
-          (notmuch-show-remove-tag "inbox")))
-        (define-key notmuch-show-mode-map "S" 'notmuch-show-tag-spam)
+          (notmuch-show-add-tag (list "+spam" "-inbox")))
 
-(See above for analogy how to apply this for notmuch 0.12 and later)
+        (define-key notmuch-show-mode-map "S" 'notmuch-show-tag-spam)
 
 Here's a more complicated example of how to add a toggle "deleted"
 key:
@@ -239,18 +216,8 @@ key:
             "toggle deleted tag for message"
             (interactive)
             (if (member "deleted" (notmuch-show-get-tags))
-                (notmuch-show-remove-tag "deleted")
-              (notmuch-show-add-tag "deleted"))))
-
-And version for notmuch 0.12
-
-        (define-key notmuch-show-mode-map "d"
-          (lambda ()
-            "toggle deleted tag for message"
-            (interactive)
-            (notmuch-show-tag-message
-              (if (member "deleted" (notmuch-show-get-tags))
-                  "-deleted" "+deleted"))))
+                (notmuch-show-tag (list "-deleted"))
+              (notmuch-show-tag (list "+deleted")))))
 
 ## Adding many tagging keybindings
 
