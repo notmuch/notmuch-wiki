@@ -177,7 +177,7 @@ case you want this behaviour:
 The `notmuch-{search,show,tree}-tag` functions are very useful for
 making quick tag key bindings.  The arguments to these functions have
 changed as notmuch has evolved but the following should work on all
-versions of notmuch 0.13 and later.  These functions take a list of
+versions of notmuch from 0.13 on.  These functions take a list of
 tag changes as argument. For example, an argument of (list "+spam"
 "-inbox) adds the tag spam and deletes the tag inbox. Note the
 argument must be a list even if there is only a single tag change
