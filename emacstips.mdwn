@@ -198,6 +198,19 @@ for messages in `notmuch-tree-mode` by replacing "show" by "tree". If
 you want to tag a whole thread in `notmuch-tree-mode` use
 `notmuch-tree-tag-thread` instead of `notmuch-tree-tag`.
 
+You may also want the function in search mode apply to the all threads
+in the selected region (if there is one). For notmuch prior to 0.17
+this behaviour will occur automatically with the functions given
+above. To get this behaviour on 0.17+ do the following:
+
+        (define-key notmuch-search-mode-map "S"
+          (lambda (&optional beg end)
+            "mark thread as spam"
+            (interactive (notmuch-search-interactive-region))
+            (notmuch-search-tag (list "+spam" "-inbox") beg end)))
+
+The analogous functionality in notmuch-tree is currently missing.
+
 The definitions above make use of a lambda function, but you could
 also define a separate function first:
 
