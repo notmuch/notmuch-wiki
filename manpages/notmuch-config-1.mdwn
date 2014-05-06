@@ -92,10 +92,20 @@
                   names)  will  be synchronized with the corresponding notmuch
                   tags:
 
-                  center; |l|l|.  _ T{ Flag T}   T{ Tag  T}  _  T{  D  T}   T{
-                  draft  T} _ T{ F T}   T{ flagged T} _ T{ P T}   T{ passed T}
-                  _ T{ R T}   T{ replied T} _ T{ S T}   T{ unread (added  when
-                  &apos;S&apos; flag is not present) T} _
+                              +-----+----------------------------+
+                              |Flag | Tag
+                              +-----+----------------------------+
+                              |D    | draft
+                              +-----+----------------------------+
+                              |F    | flagged
+                              +-----+----------------------------+
+                              |P    | passed
+                              +-----+----------------------------+
+                              |R    | replied
+                              +-----+----------------------------+
+                              |S    | unread  (added  when   &apos;S&apos; |
+                              |     | flag is not present)       |
+                              +-----+----------------------------+
 
                   The  <b>notmuch</b>  <b>new</b>  command will notice flag changes in file-
                   names and update tags, while the  <b>notmuch</b>  <b>tag</b>  and  <b>notmuch</b>
@@ -126,8 +136,8 @@
 <pre>
        <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5),  <a href='../notmuch-insert-1/'>not-</a>
        <a href='../notmuch-insert-1/'>much-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1), <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
-       <a href='../notmuch-search-1/'>notmuch-search</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),   <a href='../notmuch-tag-1/'>not-</a>
-       <a href='../notmuch-tag-1/'>much-tag</a>(1)
+       <a href='../notmuch-search-1/'>notmuch-search</a>(1),      <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),       <a href='../notmuch-show-1/'>notmuch-show</a>(1),
+       <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
 <h2>AUTHOR</h2>
