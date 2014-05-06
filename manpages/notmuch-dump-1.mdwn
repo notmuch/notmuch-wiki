@@ -7,8 +7,8 @@
 
 <h2>SYNOPSIS</h2>
 <pre>
-       <b>notmuch</b>  <b>dump</b>  [<b>--format=(sup|batch-tag)</b>]  [--] [ --output=&lt;<u>filename</u>&gt; ]
-       [--] [ &lt;<u>search-term</u>&gt;...]
+       <b>notmuch</b>  <b>dump</b>  [--format=(batch-tag|sup)]  [--]  [--output=&lt;<u>file</u>&gt;] [--]
+       [&lt;<u>search-term</u>&gt; ...]
 </pre>
 
 <h2>DESCRIPTION</h2>
@@ -18,62 +18,80 @@
        Output is to the given filename, if any, or to stdout.
 
        These tags are the only data in the  notmuch  database  that  can&apos;t  be
-       recreated  from the messages themselves.  The output of notmuch dump is
+       recreated  from  the messages themselves. The output of notmuch dump is
        therefore the only critical thing to backup (and much more friendly  to
        incremental backup than the native database files.)
 
+       <b>--gzip</b>
+
+              Compress the output in a format compatible with <b>gzip</b>(1).
+
        <b>--format=(sup|batch-tag)</b>
 
-           Notmuch restore supports two plain text dump formats, both with one
-           message-id per line, followed by a list of tags.
+              Notmuch  restore supports two plain text dump formats, both with
+              one message-id per line, followed by a list of tags.
 
-           <b>sup</b>  The <b>sup</b> dump file format is specifically chosen to be compati-
-               ble  with  the  format  of  files  produced by sup-dump.  So if
-               you&apos;ve previously been using sup for  mail,  then  the  <b>notmuch</b>
-               <b>restore</b>  command  provides you a way to import all of your tags
-               (or labels as sup calls them).  Each  line  has  the  following
-               form
+              <b>batch-tag</b>
 
-               &lt;<u>message-id</u>&gt; <b>(</b> &lt;<u>tag</u>&gt; ...  <b>)</b>
+                     The default <b>batch-tag</b> dump format  is  intended  to  more
+                     robust  against malformed message-ids and tags containing
+                     whitespace or non-<b>ascii</b>(7) characters. Each line has  the
+                     form
 
-               with zero or more tags are separated by spaces. Note that (mal-
-               formed) message-ids may contain arbitrary non-null  characters.
-               Note  also that tags with spaces will not be correctly restored
-               with this format.
+                         +&lt;<u>encoded-tag</u>&gt;  +&lt;<u>encoded-tag</u>&gt; ... -- id:&lt;<u>quoted-mes-</u>
+                         <u>sage-id</u>&gt;
 
-           <b>batch-tag</b>
+                     Tags are hex-encoded by replacing every byte not matching
+                     the regex <b>[A-Za-z0-9@=.,</b>_<b>+-]</b> with <b>%nn</b> where nn is the two
+                     digit hex encoding. The message  ID  is  a  valid  Xapian
+                     query, quoted using Xapian boolean term quoting rules: if
+                     the ID contains whitespace or a  close  paren  or  starts
+                     with a double quote, it must be enclosed in double quotes
+                     and double quotes inside the  ID  must  be  doubled.  The
+                     astute  reader  will notice this is a special case of the
+                     batch input format for <a href='../notmuch-tag-1/'>notmuch-tag</a>(1); note that the sin-
+                     gle message-id query is mandatory for <a href='../notmuch-restore-1/'>notmuch-restore</a>(1).
 
-               The <b>batch-tag</b> dump format is intended to  more  robust  against
-               malformed  message-ids  and  tags containing whitespace or non-
-               <b>ascii</b>(7) characters.  Each line has the form
+              <b>sup</b>
 
-               +&lt;<u>encoded-tag</u>&gt; +&lt;<u>encoded-tag</u>&gt; ... --  id:&lt;<u>quoted-message-id</u>&gt;
+                     The <b>sup</b> dump file format is  specifically  chosen  to  be
+                     compatible with the format of files produced by sup-dump.
+                     So if you&apos;ve previously been using sup for mail, then the
+                     <b>notmuch</b>  <b>restore</b> command provides you a way to import all
+                     of your tags (or labels as sup calls them). Each line has
+                     the following form
 
-               Tags are hex-encoded by replacing every byte not  matching  the
-               regex <b>[A-Za-z0-9@=.,</b>_<b>+-]</b> with <b>%nn</b> where nn is the two digit hex
-               encoding.  The message ID is a valid Xapian query, quoted using
-               Xapian  boolean  term quoting rules: if the ID contains whites-
-               pace or a close paren or starts with a double quote, it must be
-               enclosed  in double quotes and double quotes inside the ID must
-               be doubled.  The astute reader will notice this  is  a  special
-               case  of  the  batch input format for <a href='../notmuch-tag-1/'>notmuch-tag</a>(1); note that
-               the  single  message-id  query  is   mandatory   for   <a href='../notmuch-restore-1/'>notmuch-</a>
-               <a href='../notmuch-restore-1/'>restore</a>(1).
+                         &lt;<u>message-id</u>&gt; <b>(</b> &lt;<u>tag</u>&gt; ... <b>)</b>
 
-           With  no  search terms, a dump of all messages in the database will
-           be generated.  A &quot;--&quot; argument instructs notmuch that the remaining
-           arguments are search terms.
+                     with zero or more tags are separated by spaces. Note that
+                     (malformed) message-ids may  contain  arbitrary  non-null
+                     characters.  Note  also that tags with spaces will not be
+                     correctly restored with this format.
 
-           See <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7) for details of the supported syntax for
-           &lt;search-terms&gt;.
+              With no search terms, a dump of all  messages  in  the  database
+              will  be  generated.  A &quot;--&quot; argument instructs notmuch that the
+              remaining arguments are search terms.
+
+              See <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7) for details of the supported  syntax
+              for &lt;search-terms&gt;.
 </pre>
 
 <h2>SEE ALSO</h2>
 <pre>
        <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5), <a href='../notmuch-insert-1/'>not-</a>
-       <a href='../notmuch-insert-1/'>much-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1), <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
-       <a href='../notmuch-search-1/'>notmuch-search</a>(1), <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),  <a href='../notmuch-show-1/'>notmuch-show</a>(1),  <a href='../notmuch-tag-1/'>notmuch-</a>
-       <a href='../notmuch-tag-1/'>tag</a>(1)
+       <a href='../notmuch-insert-1/'>much-insert</a>(1), <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
+       <a href='../notmuch-search-1/'>notmuch-search</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),   <a href='../notmuch-tag-1/'>not-</a>
+       <a href='../notmuch-tag-1/'>much-tag</a>(1)
 </pre>
 
-<h2>Notmuch 0.17</h2>
+<h2>AUTHOR</h2>
+<pre>
+       Carl Worth and many others
+</pre>
+
+<h2>COPYRIGHT</h2>
+<pre>
+       2014, Carl Worth and many others
+</pre>
+
+<h2>0.18</h2>

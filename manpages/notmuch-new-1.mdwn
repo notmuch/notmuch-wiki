@@ -7,7 +7,7 @@
 
 <h2>SYNOPSIS</h2>
 <pre>
-       <b>notmuch</b> <b>new</b> [<b>--no-hooks</b>]
+       <b>notmuch</b> <b>new</b> [options]
 </pre>
 
 <h2>DESCRIPTION</h2>
@@ -22,33 +22,47 @@
        create the initial database. The first run may take a long time if  you
        have a significant amount of mail (several hundred thousand messages or
        more). Subsequently, you should run <b>notmuch</b> <b>new</b> whenever  new  mail  is
-       delivered  and you wish to incorporate it into the database. These sub-
+       delivered and you wish to incorporate it into the database.  These sub-
        sequent runs will be much quicker than the initial run.
 
-       Invoking <b>notmuch</b> with no command argument will run <b>new</b> if <b>notmuch</b> <b>setup</b>
+       Invoking notmuch with no command argument will run <b>new</b> if <b>notmuch</b> <b>setup</b>
        has  previously been completed, but <b>notmuch</b> <b>new</b> has not previously been
        run.
 
        <b>notmuch</b> <b>new</b> updates tags according  to  maildir  flag  changes  if  the
-       <b>maildir.synchronize</b>_<b>flags</b> configuration option is enabled. See <a href='../notmuch-config-1/'>notmuch-</a>
-       <a href='../notmuch-config-1/'>config</a>(1) for details.
+       <b>maildir.synchronize</b>_<b>flags</b>  configuration  option  is  enabled. See <a href='../notmuch-config-1/'>not-</a>
+       <a href='../notmuch-config-1/'>much-config</a>(1) for details.
 
-       The <b>new</b> command supports hooks. See  <b>notmuch-hooks(5)</b> for more  details
+       The <b>new</b> command supports hooks. See <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5) for  more  details
        on hooks.
 
        Supported options for <b>new</b> include
 
            <b>--no-hooks</b>
 
-               Prevents hooks from being run.
+                  Prevents hooks from being run.
+
+           <b>--quiet</b>
+
+                  Do not print progress or results.
 </pre>
 
 <h2>SEE ALSO</h2>
 <pre>
        <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not-</a>
        <a href='../notmuch-hooks-5/'>much-hooks</a>(5), <a href='../notmuch-insert-1/'>notmuch-insert</a>(1), <a href='../notmuch-reply-1/'>notmuch-reply</a>(1), <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
-       <a href='../notmuch-search-1/'>notmuch-search</a>(1),  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),  <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-</a>
-       <a href='../notmuch-tag-1/'>tag</a>(1)
+       <a href='../notmuch-search-1/'>notmuch-search</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),   <a href='../notmuch-tag-1/'>not-</a>
+       <a href='../notmuch-tag-1/'>much-tag</a>(1)
 </pre>
 
-<h2>Notmuch 0.17</h2>
+<h2>AUTHOR</h2>
+<pre>
+       Carl Worth and many others
+</pre>
+
+<h2>COPYRIGHT</h2>
+<pre>
+       2014, Carl Worth and many others
+</pre>
+
+<h2>0.18</h2>

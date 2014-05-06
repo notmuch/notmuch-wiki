@@ -7,14 +7,14 @@
 
 <h2>SYNOPSIS</h2>
 <pre>
-       <b>notmuch</b> <b>insert</b> [<u>options</u>] [ +&lt;<u>tag</u>&gt;|-&lt;<u>tag</u>&gt; ... ]
+       <b>notmuch</b> <b>insert</b> [option ...] [+&lt;<u>tag</u>&gt;|-&lt;<u>tag</u>&gt; ...]
 </pre>
 
 <h2>DESCRIPTION</h2>
 <pre>
        <b>notmuch</b> <b>insert</b> reads a message from standard input and delivers it into
        the maildir directory given by configuration option <b>database.path</b>, then
-       incorporates  the message into the notmuch database.  It is an alterna-
+       incorporates  the  message into the notmuch database. It is an alterna-
        tive to using a separate tool to deliver the message then running  <b>not-</b>
        <b>much</b> <b>new</b> afterwards.
 
@@ -29,24 +29,24 @@
        Option arguments must appear before any tag operation arguments.   Sup-
        ported options for <b>insert</b> include
 
-           <b>--folder=</b>&lt<b>&</b>lt;<u>folder</u>&gt<b>&</b>gt;
+           <b>--folder=</b>&lt<b>&</b>lt;<b>folder</b>&gt<b>&</b>gt;
 
-               Deliver  the  message  to the specified folder, relative to the
-               top-level directory given by the value of  <b>database.path</b>.   The
-               default is to deliver to the top-level directory.
+                  Deliver the message to the specified folder, relative to the
+                  top-level directory given by the value of <b>database.path</b>. The
+                  default is to deliver to the top-level directory.
 
            <b>--create-folder</b>
 
-               Try  to  create  the folder named by the <b>--folder</b> option, if it
-               does not exist.  Otherwise the folder must  already  exist  for
-               mail delivery to succeed.
+                  Try to create the folder named by the --folder option, if it
+                  does not exist. Otherwise the folder must already exist  for
+                  mail delivery to succeed.
 </pre>
 
 <h2>EXIT STATUS</h2>
 <pre>
        This  command  returns  exit  status  0 if the message was successfully
        added to the mail directory, even if the message could not  be  indexed
-       and  added to the notmuch database.  In the latter case, a warning will
+       and  added  to the notmuch database. In the latter case, a warning will
        be printed to standard error but the message file will be left on disk.
 
        If the message could not be written to disk then a non-zero exit status
@@ -60,4 +60,14 @@
        <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
-<h2>Notmuch 0.17</h2>
+<h2>AUTHOR</h2>
+<pre>
+       Carl Worth and many others
+</pre>
+
+<h2>COPYRIGHT</h2>
+<pre>
+       2014, Carl Worth and many others
+</pre>
+
+<h2>0.18</h2>
