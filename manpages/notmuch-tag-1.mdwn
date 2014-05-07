@@ -51,7 +51,7 @@
                   This option is not compatible with specifying tagging on the
                   command line.
 
-           <b>--input=</b>&lt<b>&</b>lt;<b>filename</b>&gt<b>&</b>gt;
+           <b>--input=&lt;filename&gt;</b>
 
                   Read input from given file, instead of from  stdin.  Implies
                   --batch.

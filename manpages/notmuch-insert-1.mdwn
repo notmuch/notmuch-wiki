@@ -29,7 +29,7 @@
        Option arguments must appear before any tag operation arguments.   Sup-
        ported options for <b>insert</b> include
 
-           <b>--folder=</b>&lt<b>&</b>lt;<b>folder</b>&gt<b>&</b>gt;
+           <b>--folder=&lt;folder&gt;</b>
 
                   Deliver the message to the specified folder, relative to the
                   top-level directory given by the value of <b>database.path</b>. The

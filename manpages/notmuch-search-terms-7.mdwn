@@ -86,14 +86,14 @@
        ative to the top-level maildir (and  without  the  leading  slash).  By
        default,  <b>path:</b>  matches  messages in the specified directory only. The
        &quot;/**&quot; suffix can be used to match messages in the  specified  directory
-       and  all  its  subdirectories recursively.  <b>path:</b>&quot<b>&</b>quot;&quot<b>&</b>quot; matches messages in
+       and  all  its  subdirectories recursively.  <b>path:&quot;&quot;</b> matches messages in
        the root of the mail store and, likewise, <b>path:**</b> matches all messages.
 
        The <b>folder:</b> prefix searches for email messages by maildir or MH folder.
        For MH-style folders, this is equivalent to <b>path:</b>.  For  maildir,  this
        includes messages in the &quot;new&quot; and &quot;cur&quot; subdirectories. The exact syn-
        tax for  maildir  folders  depends  on  your  mail  configuration.  For
-       maildir++,  <b>folder:</b>&quot<b>&</b>quot;&quot<b>&</b>quot;  matches  the  inbox folder (which is the root in
+       maildir++,  <b>folder:&quot;&quot;</b>  matches  the  inbox folder (which is the root in
        maildir++), other folder names always start with &quot;.&quot;, and nested  fold-
        ers  are separated by &quot;.&quot;s, such as <b>folder:.classes.topology</b>. For &quot;file
        system&quot; maildir, the inbox is typically <b>folder:INBOX</b> and nested folders

@@ -25,7 +25,7 @@
 
        Supported options for <b>compact</b> include
 
-           <b>--backup=</b>&lt<b>&</b>lt;<b>directory</b>&gt<b>&</b>gt;
+           <b>--backup=&lt;directory&gt;</b>
 
                   Save  the  current  database  to  the given directory before
                   replacing it with the compacted database. The backup  direc-
