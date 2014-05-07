@@ -171,7 +171,7 @@
 
 <h3> &nbsp; Relative date and time</h3>
 <pre>
-       [N|number]
+       [N|number]         (years|months|weeks|days|hours|hrs|minutes|mins|sec-
        onds|secs) [...]
 
        All refer to past, can be repeated and will be accumulated.
