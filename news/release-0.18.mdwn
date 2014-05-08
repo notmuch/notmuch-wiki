@@ -31,7 +31,7 @@ lead to less surprising results than the old behaviour. Users are
 advised to see the `notmuch-search-terms` manual page for details,
 and review how the change affects their existing `folder:` searches.
 
-There is a new `path:` search prefix.
+### There is a new `path:` search prefix
 
 The new `path:` search prefix complements the `folder:` prefix. The
 `path:` prefix searches for email messages that are in particular
