@@ -18,14 +18,25 @@ notmuch cli command!
 To use the Notmuch emacs mode, first add the following line to your
 `.emacs` rc file:
 
-        (require 'notmuch)
-
-or you can load the package via autoload:
-
         (autoload 'notmuch "notmuch" "notmuch mail" t)
+
+or if you always want to load notmuch when you start emacs:
+
+        (require 'notmuch)
 
 Then, either run "emacs -f notmuch", or execute the command `M-x
 notmuch` from within a running emacs.
+
+### Notmuch Emacs configuration file:
+
+(Since Notmuch 0.18)
+
+After notmuch is loaded `notmuch-init-file` (typically
+ `~/.emacs.d/notmuch-config.el`) is checked out. If such file exists
+it is loaded. Most emacs lisp based configuration not suitable via
+customization can be put there instead of `~/.emacs`. As this is so new
+feature rest of this emacstips file is not yet adjusted to refer this
+file instead of .emacs.
 
 ## Navigating & reading mails
 
@@ -115,38 +126,6 @@ to your .emacs file.
 -----
 
 # Advanced tips and tweaks
-
-## Use separate emacs lisp file for notmuch configuration
-
-Instead of adding notmuch configuration code to `.emacs`, there
-is an option to collect those to a separate file (which is only
-loaded when `notmuch` is invoked). To do this, write, for example
-a file called `~/.emacs.d/my-notmuch.el`:
-
-        ;;; my-notmuch.el -- my notmuch mail configuration
-        ;;;
-
-        ;;; add here stuff required to be configured *before*
-        ;;; notmuch is loaded;
-
-        ;; uncomment and modify in case some elisp files are not found in load-path
-        ;; (add-to-list 'load-path "~/vc/ext/notmuch/emacs")
-
-        ;;; load notmuch
-        (require 'notmuch)
-
-        ;;; add here stuff required to be configured *after*
-        ;;; notmuch is loaded;
-
-        ;; uncomment & modify if you want to use external smtp server to send mail
-        ;; (setq smtpmail-smtp-server "smtp.server.tld"
-        ;;       message-send-mail-function 'message-smtpmail-send-it)
-        ;; uncomment to debug smtp sending problems
-        ;; (setq smtpmail-debug-info t)
-
-Then, add to `.emacs`:
-
-        (autoload 'notmuch "~/.emacs.d/my-notmuch" "notmuch mail" t)
 
 ## Initial cursor position in notmuch 0.15 hello window
 
