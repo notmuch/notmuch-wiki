@@ -27,16 +27,14 @@ or if you always want to load notmuch when you start emacs:
 Then, either run "emacs -f notmuch", or execute the command `M-x
 notmuch` from within a running emacs.
 
-### Notmuch Emacs configuration file:
+### <span id="notmuch_init_file"> Notmuch Emacs configuration file: </span>
 
 (Since Notmuch 0.18)
 
 After notmuch is loaded `notmuch-init-file` (typically
  `~/.emacs.d/notmuch-config.el`) is checked out. If such file exists
 it is loaded. Most emacs lisp based configuration not suitable via
-customization can be put there instead of `~/.emacs`. As this is so new
-feature rest of this emacstips file is not yet adjusted to refer this
-file instead of .emacs.
+customization can be put there instead of `~/.emacs`.
 
 ## Navigating & reading mails
 
@@ -78,9 +76,9 @@ that it will hide the sent mail in your emacs frame stack, but it will
 not close it. If you type several mails in an emacs session they will
 accumulate and make switching between buffers more annoying. You can
 avoid that behavior by adding `(setq message-kill-buffer-on-exit t)`
-in your `.emacs` file (or doing `M-x
-customize-variable<RET>message-kill-buffer-on-exit<RET>`) which will
-really close the mail window after sending it.
+in your `.emacs` file
+(or doing `M-x customize-variable<RET>message-kill-buffer-on-exit<RET>`)
+which will really close the mail window after sending it.
 
 ## Attaching files
 
@@ -104,7 +102,7 @@ mentioned as script arguments. (Note: The script expects that you have
 
         #!/bin/sh
         attach_cmds=""
-        while [ "$1" ]; do
+        while [ $# -gt 0 ]; do
             fullpath=$(readlink --canonicalize "$1")
             attach_cmds="$attach_cmds (mml-attach-file \"$fullpath\")"
             shift
@@ -449,7 +447,7 @@ available:
     from notmuch.  It also includes a vim plugin.
 
 You can perform tab-completion using any of these programs.
-Just add the following to your .emacs:
+Just add the following to your [[notmuch init file|#notmuch_init_file]]:
 
         (require 'notmuch-address)
         (setq notmuch-address-command "/path/to/address_fetching_program")
@@ -487,12 +485,12 @@ Create a ~/bin/akonadimailsearch.sh file with the following content and make it 
         #!/bin/sh
         akonadimailsearch "$@" 2>/dev/null
 
-As described above, you can now add the following settings to your ~/.emacs file:
+As described above, you can now add the following settings to your
+[[notmuch init file|#notmuch_init_file]]:
 
         (require 'notmuch-address)
         (setq notmuch-address-command "~/bin/akonadimailsearch.sh")
         (notmuch-address-message-insinuate)
-
 
 
 ## How to sign/encrypt messages with gpg
@@ -592,8 +590,8 @@ See also the **Usage:** section in `gnus-alias.el`.
 
 ## Resending (or bouncing) messages
 
-Add the following to your `.emacs` to be able to resend the current message in
-show mode.
+Add the following to your [[notmuch init file|#notmuch_init_file]] to be able
+to resend the current message in show mode.
 
         (define-key notmuch-show-mode-map "b"
           (lambda (&optional address)
@@ -604,9 +602,9 @@ show mode.
 
 ## `notmuch-hello` refresh status message
 
-Add the following to your `.emacs` to get a status message about the change in
-the number of messages in the mail store when refreshing the `notmuch-hello`
-buffer.
+Add the following to your [[notmuch init file|#notmuch_init_file]] to get a
+status message about the change in the number of messages in the mail store
+when refreshing the `notmuch-hello` buffer.
 
         (defvar notmuch-hello-refresh-count 0)
 
@@ -634,8 +632,8 @@ buffer.
 
 Mailman mailing list software rewrites and rewraps long message subjects in
 a way that causes TABs to appear in the middle of the subject and header
-lines. Add this to your `.emacs` to replace tabs with spaces in subject
-lines:
+lines. Add this to your [[notmuch init file|#notmuch_init_file]] to replace
+tabs with spaces in subject lines:
 
         (defun notmuch-show-subject-tabs-to-spaces ()
           "Replace tabs with spaces in subject line."
