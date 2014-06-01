@@ -158,7 +158,7 @@ making quick tag key bindings.  The arguments to these functions have
 changed as notmuch has evolved but the following should work on all
 versions of notmuch from 0.13 on.  These functions take a list of
 tag changes as argument. For example, an argument of (list "+spam"
-"-inbox) adds the tag spam and deletes the tag inbox. Note the
+"-inbox") adds the tag spam and deletes the tag inbox. Note the
 argument must be a list even if there is only a single tag change
 e.g., use (list "+deleted") to add the deleted tag.
 
