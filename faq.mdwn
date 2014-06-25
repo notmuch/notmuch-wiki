@@ -15,3 +15,7 @@ with the same message (i.e. the files have identical Message-ID). A
 ## Shouldn't notmuch support inline PGP?
 
 [Why it might not be a good idea](https://dkg.fifthhorseman.net/notes/inline-pgp-harmful/)
+
+## How do I delete messages
+
+See [[excluding]].
