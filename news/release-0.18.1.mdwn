@@ -14,7 +14,7 @@ Build System
 
 ### Put notmuch lib directory first in RPATH
 
-### Fix handling of html_static_path in sphinx
+### Fix handling of `html_static_path` in sphinx
 
 Both the python bindings and the main docs had spurious settings of
 this variable.
