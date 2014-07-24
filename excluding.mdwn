@@ -76,3 +76,12 @@ procedure:
   you can delete them manually with:
 
        $ notmuch search --output=files tag:deleted | xargs -l rm
+
+## <span id="exclude">**killing threads**</span>
+
+In a [[hook|manpages/notmuch-hooks-5]]
+
+    notmuch tag +muted $(notmuch search --output=threads tag:muted)"
+
+New messages in the thread get the muted tag. Make muted an excluded tag.
+To kill a thread, tag it with muted, run notmuch new.
