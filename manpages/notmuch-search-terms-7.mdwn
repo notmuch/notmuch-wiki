@@ -25,7 +25,7 @@
 
        The search terms can consist of free-form  text  (and  quoted  phrases)
        which   will   match  all  messages  that  contain  all  of  the  given
-       terms/phrases in the body, the subject, or any of the sender or recipi-
+       terms/phrases in the body, the subject, or any of the sender or recipi‐
        ent headers.
 
        As  a  special  case,  a  search  string consisting of exactly a single
@@ -76,13 +76,13 @@
        For <b>id:</b>, message ID values are the literal contents of the  Message-ID:
        header of email messages, but without the &apos;&lt;&apos;, &apos;&gt;&apos; delimiters.
 
-       The  <b>thread:</b> prefix can be used with the thread ID values that are gen-
+       The  <b>thread:</b> prefix can be used with the thread ID values that are gen‐
        erated internally by notmuch (and do not  appear  in  email  messages).
        These  thread  ID values can be seen in the first column of output from
        <b>notmuch</b> <b>search</b>
 
        The <b>path:</b> prefix searches for email messages  that  are  in  particular
-       directories within the mail store. The directory must be specified rel-
+       directories within the mail store. The directory must be specified rel‐
        ative to the top-level maildir (and  without  the  leading  slash).  By
        default,  <b>path:</b>  matches  messages in the specified directory only. The
        &quot;/**&quot; suffix can be used to match messages in the  specified  directory
@@ -90,19 +90,19 @@
        the root of the mail store and, likewise, <b>path:**</b> matches all messages.
 
        The <b>folder:</b> prefix searches for email messages by maildir or MH folder.
-       For MH-style folders, this is equivalent to <b>path:</b>.  For  maildir,  this
-       includes messages in the &quot;new&quot; and &quot;cur&quot; subdirectories. The exact syn-
-       tax for  maildir  folders  depends  on  your  mail  configuration.  For
-       maildir++,  <b>folder:&quot;&quot;</b>  matches  the  inbox folder (which is the root in
-       maildir++), other folder names always start with &quot;.&quot;, and nested  fold-
-       ers  are separated by &quot;.&quot;s, such as <b>folder:.classes.topology</b>. For &quot;file
+       For  MH-style  folders,  this is equivalent to <b>path:</b>. For maildir, this
+       includes messages in the &quot;new&quot; and &quot;cur&quot; subdirectories. The exact syn‐
+       tax  for  maildir  folders  depends  on  your  mail  configuration. For
+       maildir++, <b>folder:&quot;&quot;</b> matches the inbox folder (which  is  the  root  in
+       maildir++),  other folder names always start with &quot;.&quot;, and nested fold‐
+       ers are separated by &quot;.&quot;s, such as <b>folder:.classes.topology</b>. For  &quot;file
        system&quot; maildir, the inbox is typically <b>folder:INBOX</b> and nested folders
        are separated by slashes, such as <b>folder:classes/topology</b>.
 
-       Both  <b>path:</b> and <b>folder:</b> will find a message if <u>any</u> copy of that message
+       Both <b>path:</b> and <b>folder:</b> will find a message if <u>any</u> copy of that  message
        is in the specific directory/folder.
 
-       The <b>date:</b> prefix can be used to restrict the results to  only  messages
+       The  <b>date:</b>  prefix can be used to restrict the results to only messages
        within a particular time range (based on the Date: header) with a range
        syntax of:
 
@@ -132,8 +132,8 @@
 
 <h2>DATE AND TIME SEARCH</h2>
 <pre>
-       notmuch understands a variety of standard and natural ways of  express-
-       ing dates and times, both in absolute terms (&quot;2012-10-24&quot;) and in rela-
+       notmuch understands a variety of standard and natural ways of  express‐
+       ing dates and times, both in absolute terms (&quot;2012-10-24&quot;) and in rela‐
        tive terms (&quot;yesterday&quot;). Any number of relative terms can be  combined
        (&quot;1  hour  25  minutes&quot;) and an absolute date/time can be combined with
        relative terms to further adjust it. A  non-exhaustive  description  of
@@ -150,7 +150,7 @@
        &lt;since&gt; and &lt;until&gt; can describe imprecise times, such as  &quot;yesterday&quot;.
        In  this  case, &lt;since&gt; is taken as the earliest time it could describe
        (the beginning of yesterday) and &lt;until&gt; is taken as the latest time it
-       could  describe (the end of yesterday). Similarly, date:january..febru-
+       could  describe (the end of yesterday). Similarly, date:january..febru‐
        ary matches from the beginning of January to the end of February.
 
        Currently, we do not support  spaces  in  range  expressions.  You  can
@@ -158,7 +158,7 @@
        leave the spaces out altogether. Examples in this man page  use  spaces
        for clarity.
 
-       Open-ended  ranges are supported (since Xapian 1.2.1), i.e. it&apos;s possi-
+       Open-ended  ranges are supported (since Xapian 1.2.1), i.e. it&apos;s possi‐
        ble to specify date:..&lt;until&gt; or date:&lt;since&gt;.. to not limit the  start
        or end time, respectively. Pre-1.2.1 Xapian does not report an error on
        open ended ranges, but it does not work as expected either.
@@ -171,7 +171,7 @@
 
 <h3> &nbsp; Relative date and time</h3>
 <pre>
-       [N|number]         (years|months|weeks|days|hours|hrs|minutes|mins|sec-
+       [N|number]         (years|months|weeks|days|hours|hrs|minutes|mins|sec‐
        onds|secs) [...]
 
        All refer to past, can be repeated and will be accumulated.
@@ -245,7 +245,7 @@
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not-</a>
+       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not‐</a>
        <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
        <a href='../notmuch-restore-1/'>notmuch-restore</a>(1), <a href='../notmuch-search-1/'>notmuch-search</a>(1), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
@@ -260,4 +260,4 @@
        2014, Carl Worth and many others
 </pre>
 
-<h2>0.18</h2>
+<h2>0.18.1</h2>

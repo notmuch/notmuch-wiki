@@ -19,105 +19,91 @@
        The  <b>config</b>  command  can be used to get or set settings in the notmuch
        configuration file.
 
-           <b>get</b>
+          <b>get</b>    The value of the specified configuration item is  printed  to
+                 stdout.  If the item has multiple values (it is a list), each
+                 value is separated by a newline character.
 
-                  The value of the specified configuration item is printed  to
-                  stdout. If the item has multiple values (it is a list), each
-                  value is separated by a newline character.
+          <b>set</b>    The specified configuration item is set to the  given  value.
+                 To specify a multiple-value item (a list), provide each value
+                 as a separate command-line argument.
 
-           <b>set</b>
+                 If no values are provided, the specified  configuration  item
+                 will be removed from the configuration file.
 
-                  The specified configuration item is set to the given  value.
-                  To  specify  a  multiple-value  item  (a list), provide each
-                  value as a separate command-line argument.
+          <b>list</b>   Every configuration item is printed to stdout, each on a sep‐
+                 arate line of the form:
 
-                  If no values are provided, the specified configuration  item
-                  will be removed from the configuration file.
+                 <u>section</u>.<u>item</u>=<u>value</u>
 
-           <b>list</b>
-
-                  Every  configuration  item  is  printed to stdout, each on a
-                  separate line of the form:
-
-                  <u>section</u>.<u>item</u>=<u>value</u>
-
-                  No additional whitespace surrounds the dot  or  equals  sign
-                  characters.  In  a  multiple-value item (a list), the values
-                  are separated by semicolon characters.
+                 No additional whitespace surrounds the  dot  or  equals  sign
+                 characters. In a multiple-value item (a list), the values are
+                 separated by semicolon characters.
 
        The available configuration items are described below.
 
-           <b>database.path</b>
+          <b>database.path</b>
+                 The top-level directory where your mail currently exists  and
+                 to  where  mail will be delivered in the future. Files should
+                 be individual email messages. Notmuch will store its database
+                 within  a  sub-directory  of  the  path configured here named
+                 <b>.notmuch</b>.
 
-                  The top-level directory where your mail currently exists and
-                  to  where mail will be delivered in the future. Files should
-                  be  individual  email  messages.  Notmuch  will  store   its
-                  database  within a sub-directory of the path configured here
-                  named .notmuch.
+          <b>user.name</b>
+                 Your full name.
 
-           <b>user.name</b>
+          <b>user.primary</b>_<b>email</b>
+                 Your primary email address.
 
-                  Your full name.
+          <b>user.other</b>_<b>email</b>
+                 A list of other email addresses at which you receive email.
 
-           <b>user.primary</b>_<b>email</b>
+          <b>new.tags</b>
+                 A list of tags that will be added to  all  messages  incorpo‐
+                 rated by <b>notmuch</b> <b>new</b>.
 
-                  Your primary email address.
+          <b>new.ignore</b>
+                 A  list  of file and directory names, without path, that will
+                 not be searched for messages by <b>notmuch</b> <b>new</b>.  All  the  files
+                 and directories matching any of the names specified here will
+                 be ignored, regardless of the  location  in  the  mail  store
+                 directory hierarchy.
 
-           <b>user.other</b>_<b>email</b>
+          <b>search.exclude</b>_<b>tags</b>
+                 A  list  of tags that will be excluded from search results by
+                 default. Using an excluded tag in a query will override  that
+                 exclusion.
 
-                  A list of other email addresses at which you receive  email.
+          <b>maildir.synchronize</b>_<b>flags</b>
+                 If  true,  then the following maildir flags (in message file‐
+                 names) will be synchronized with  the  corresponding  notmuch
+                 tags:
 
-           <b>new.tags</b>
+                              ┌─────┬────────────────────────────┐
+                              │Flag │ Tag                        │
+                              ├─────┼────────────────────────────┤
+                              │D    │ draft                      │
+                              ├─────┼────────────────────────────┤
+                              │F    │ flagged                    │
+                              ├─────┼────────────────────────────┤
+                              │P    │ passed                     │
+                              ├─────┼────────────────────────────┤
+                              │R    │ replied                    │
+                              ├─────┼────────────────────────────┤
+                              │S    │ unread   (added  when  &apos;S&apos; │
+                              │     │ flag is not present)       │
+                              └─────┴────────────────────────────┘
 
-                  A  list  of tags that will be added to all messages incorpo-
-                  rated by <b>notmuch</b> <b>new</b>.
+                 The <b>notmuch</b> <b>new</b> command will notice flag changes in filenames
+                 and  update  tags,  while the <b>notmuch</b> <b>tag</b> and <b>notmuch</b> <b>restore</b>
+                 commands will notice tag changes and update  flags  in  file‐
+                 names.
 
-           <b>new.ignore</b>
-
-                  A list of file and directory names, without path, that  will
-                  not  be  searched for messages by <b>notmuch</b> <b>new</b>. All the files
-                  and directories matching any of  the  names  specified  here
-                  will  be  ignored,  regardless  of  the location in the mail
-                  store directory hierarchy.
-
-           <b>search.exclude</b>_<b>tags</b>
-
-                  A list of tags that will be excluded from search results  by
-                  default. Using an excluded tag in a query will override that
-                  exclusion.
-
-           <b>maildir.synchronize</b>_<b>flags</b>
-
-                  If true, then the following maildir flags (in message  file-
-                  names)  will  be synchronized with the corresponding notmuch
-                  tags:
-
-                              +-----+----------------------------+
-                              |Flag | Tag                        |
-                              +-----+----------------------------+
-                              |D    | draft                      |
-                              +-----+----------------------------+
-                              |F    | flagged                    |
-                              +-----+----------------------------+
-                              |P    | passed                     |
-                              +-----+----------------------------+
-                              |R    | replied                    |
-                              +-----+----------------------------+
-                              |S    | unread  (added  when   &apos;S&apos; |
-                              |     | flag is not present)       |
-                              +-----+----------------------------+
-
-                  The  <b>notmuch</b>  <b>new</b>  command will notice flag changes in file-
-                  names and update tags, while the  <b>notmuch</b>  <b>tag</b>  and  <b>notmuch</b>
-                  <b>restore</b> commands will notice tag changes and update flags in
-                  filenames.
-
-                  If there have been any changes in the maildir (new  messages
-                  added,  old  ones removed or renamed, maildir flags changed,
-                  etc.), it is advisable to run <b>notmuch</b> <b>new</b> before <b>notmuch</b> <b>tag</b>
-                  or  <b>notmuch</b>  <b>restore</b>  commands to ensure the tag changes are
-                  properly synchronized to the maildir flags, as the  commands
-                  expect the database and maildir to be in sync.
+                 If  there  have been any changes in the maildir (new messages
+                 added, old ones removed or renamed,  maildir  flags  changed,
+                 etc.),  it is advisable to run <b>notmuch</b> <b>new</b> before <b>notmuch</b> <b>tag</b>
+                 or <b>notmuch</b> <b>restore</b> commands to ensure  the  tag  changes  are
+                 properly  synchronized  to the maildir flags, as the commands
+                 expect the database and maildir to be in sync.
 </pre>
 
 <h2>ENVIRONMENT</h2>
@@ -126,18 +112,17 @@
        of notmuch.
 
        <b>NOTMUCH</b>_<b>CONFIG</b>
-
-              Specifies the location of the notmuch configuration  file.  Not-
-              much  will  use  ${HOME}/.notmuch-config if this variable is not
+              Specifies  the  location of the notmuch configuration file. Not‐
+              much will use ${HOME}/.notmuch-config if this  variable  is  not
               set.
 </pre>
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5),  <a href='../notmuch-insert-1/'>not-</a>
-       <a href='../notmuch-insert-1/'>much-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1), <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
-       <a href='../notmuch-search-1/'>notmuch-search</a>(1),      <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),       <a href='../notmuch-show-1/'>notmuch-show</a>(1),
-       <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
+       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-count-1/'>notmuch-count</a>(1),  <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5), <a href='../notmuch-insert-1/'>not‐</a>
+       <a href='../notmuch-insert-1/'>much-insert</a>(1), <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
+       <a href='../notmuch-search-1/'>notmuch-search</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),   <a href='../notmuch-tag-1/'>not‐</a>
+       <a href='../notmuch-tag-1/'>much-tag</a>(1)
 </pre>
 
 <h2>AUTHOR</h2>
@@ -150,4 +135,4 @@
        2014, Carl Worth and many others
 </pre>
 
-<h2>0.18</h2>
+<h2>0.18.1</h2>

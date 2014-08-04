@@ -30,31 +30,28 @@
        specify a &quot;--&quot; argument to separate the tags from the search terms.
 
        <b>notmuch</b> <b>tag</b> updates the maildir flags according to tag changes  if  the
-       <b>maildir.synchronize</b>_<b>flags</b>  configuration  option  is  enabled. See <a href='../notmuch-config-1/'>not-</a>
+       <b>maildir.synchronize</b>_<b>flags</b>  configuration  option  is  enabled. See <a href='../notmuch-config-1/'>not‐</a>
        <a href='../notmuch-config-1/'>much-config</a>(1) for details.
 
        Supported options for <b>tag</b> include
 
-           <b>--remove-all</b>
+          <b>--remove-all</b>
+                 Remove all tags from each message matching the  search  terms
+                 before  applying  the  tag  changes  appearing on the command
+                 line.  This means setting the tags of  each  message  to  the
+                 tags  to be added. If there are no tags to be added, the mes‐
+                 sages will have no tags.
 
-                  Remove all tags from each message matching the search  terms
-                  before  applying  the  tag  changes appearing on the command
-                  line.  This means setting the tags of each  message  to  the
-                  tags to be added. If there are no tags to be added, the mes-
-                  sages will have no tags.
+          <b>--batch</b>
+                 Read batch tagging operations from a file (stdin by default).
+                 This is more efficient than repeated <b>notmuch</b> <b>tag</b> invocations.
+                 See <u>TAG</u> <u>FILE</u> <u>FORMAT</u> below for the input format.  This  option
+                 is  not  compatible  with  specifying  tagging on the command
+                 line.
 
-           <b>--batch</b>
-
-                  Read  batch  tagging  operations  from  a  file  (stdin   by
-                  default).   This is more efficient than repeated <b>notmuch</b> <b>tag</b>
-                  invocations. See <u>TAG</u> <u>FILE</u> <u>FORMAT</u> below for the input format.
-                  This option is not compatible with specifying tagging on the
-                  command line.
-
-           <b>--input=&lt;filename&gt;</b>
-
-                  Read input from given file, instead of from  stdin.  Implies
-                  --batch.
+          <b>--input=&lt;filename&gt;</b>
+                 Read input from given file, instead of  from  stdin.  Implies
+                 <b>--batch</b>.
 </pre>
 
 <h2>TAG FILE FORMAT</h2>
@@ -63,7 +60,7 @@
 
        +&lt;<u>tag</u>&gt;|-&lt;<u>tag</u>&gt; [...] [--] &lt;<u>query</u>&gt;
 
-       Each  line  is  interpreted similarly to <b>notmuch</b> <b>tag</b> command line argu-
+       Each  line  is  interpreted similarly to <b>notmuch</b> <b>tag</b> command line argu‐
        ments. The delimiter is one or more spaces &apos; &apos;. Any characters in &lt;<u>tag</u>&gt;
        <b>may</b>  be  hex-encoded  with %NN where NN is the hexadecimal value of the
        character. To hex-encode a character with a multi-byte UTF-8  encoding,
@@ -77,10 +74,10 @@
        The &lt;<u>query</u>&gt; should be quoted using Xapian boolean term  quoting  rules:
        if  a term contains whitespace or a close paren or starts with a double
        quote, it must be enclosed in double quotes (not including any  prefix)
-       and  double quotes inside the term must be doubled (see below for exam-
+       and  double quotes inside the term must be doubled (see below for exam‐
        ples).
 
-       Leading and trailing space &apos; &apos; is ignored. Empty lines and lines begin-
+       Leading and trailing space &apos; &apos; is ignored. Empty lines and lines begin‐
        ning with &apos;#&apos; are ignored.
 </pre>
 
@@ -90,23 +87,23 @@
        isolated &apos;*&apos; acts as a wildcard. Also note the two  different  quotings
        of the tag <b>space</b> <b>in</b> <b>tags</b>
 
-       +winner *
-       +foo::bar%25 -- (One and Two) or (One and tag:winner)
-       +found::it -- tag:foo::bar%
-       # ignore this line and the next
+          +winner *
+          +foo::bar%25 -- (One and Two) or (One and tag:winner)
+          +found::it -- tag:foo::bar%
+          # ignore this line and the next
 
-       +space%20in%20tags -- Two
-       # add tag &apos;(tags)&apos;, among other stunts.
-       +crazy{ +(tags) +&amp;are +#possible\ -- tag:&quot;space in tags&quot;
-       +match*crazy -- tag:crazy{
-       +some_tag -- id:&quot;this is &quot;&quot;nauty)&quot;&quot;&quot;
+          +space%20in%20tags -- Two
+          # add tag &apos;(tags)&apos;, among other stunts.
+          +crazy{ +(tags) +&amp;are +#possible\ -- tag:&quot;space in tags&quot;
+          +match*crazy -- tag:crazy{
+          +some_tag -- id:&quot;this is &quot;&quot;nauty)&quot;&quot;&quot;
 </pre>
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not-</a>
+       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not‐</a>
        <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
-       <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),  <a href='../notmuch-search-1/'>notmuch-search</a>(1),  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),  <a href='../notmuch-show-1/'>not-</a>
+       <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),  <a href='../notmuch-search-1/'>notmuch-search</a>(1),  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),  <a href='../notmuch-show-1/'>not‐</a>
        <a href='../notmuch-show-1/'>much-show</a>(1),
 </pre>
 
@@ -120,4 +117,4 @@
        2014, Carl Worth and many others
 </pre>
 
-<h2>0.18</h2>
+<h2>0.18.1</h2>

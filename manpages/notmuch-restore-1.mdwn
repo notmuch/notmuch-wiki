@@ -20,60 +20,53 @@
 
        Supported options for <b>restore</b> include
 
-           <b>--accumulate</b>
+          <b>--accumulate</b>
+                 The union of the existing and new tags is applied, instead of
+                 replacing each message&apos;s tags as they are read  in  from  the
+                 dump file.
 
-                  The  union  of the existing and new tags is applied, instead
-                  of replacing each message&apos;s tags as they are  read  in  from
-                  the dump file.
+          <b>--format=(sup|batch-tag|auto)</b>
+                 Notmuch  restore  supports  two plain text dump formats, with
+                 each line specifying a message-id and  a  set  of  tags.  For
+                 details of the actual formats, see <a href='../notmuch-dump-1/'>notmuch-dump</a>(1).
 
-           <b>--format=(sup|batch-tag|auto)</b>
+                 <b>sup</b>    The  <b>sup</b> dump file format is specifically chosen to be
+                        compatible  with  the  format  of  files  produced  by
+                        sup-dump.  So  if you&apos;ve previously been using sup for
+                        mail, then the <b>notmuch</b> <b>restore</b> command provides you  a
+                        way to import all of your tags (or labels as sup calls
+                        them).
 
-                  Notmuch  restore  supports two plain text dump formats, with
-                  each line specifying a message-id and a  set  of  tags.  For
-                  details of the actual formats, see <a href='../notmuch-dump-1/'>notmuch-dump</a>(1).
+                 <b>batch-tag</b>
+                        The <b>batch-tag</b> dump format is intended to  more  robust
+                        against  malformed  message-ids  and  tags  containing
+                        whitespace  or  non-<b>ascii</b>(7)  characters.   See   <a href='../notmuch-dump-1/'>not‐</a>
+                        <a href='../notmuch-dump-1/'>much-dump</a>(1) for details on this format.
 
-                  <b>sup</b>
+                        <b>notmuch</b> <b>restore</b> updates the maildir flags according to
+                        tag changes if the <b>maildir.synchronize</b>_<b>flags</b>  configu‐
+                        ration  option  is  enabled. See <a href='../notmuch-config-1/'>notmuch-config</a>(1) for
+                        details.
 
-                         The <b>sup</b> dump file format is specifically chosen to be
-                         compatible with  the  format  of  files  produced  by
-                         sup-dump.  So if you&apos;ve previously been using sup for
-                         mail, then the <b>notmuch</b> <b>restore</b> command provides you a
-                         way  to  import  all  of  your tags (or labels as sup
-                         calls them).
-
-                  <b>batch-tag</b>
-
-                         The <b>batch-tag</b> dump format is intended to more  robust
-                         against  malformed  message-ids  and  tags containing
-                         whitespace  or  non-<b>ascii</b>(7)  characters.  See   <a href='../notmuch-dump-1/'>not-</a>
-                         <a href='../notmuch-dump-1/'>much-dump</a>(1) for details on this format.
-
-                         <b>notmuch</b>  <b>restore</b>  updates the maildir flags according
-                         to tag changes if the <b>maildir.synchronize</b>_<b>flags</b>  con-
-                         figuration  option  is enabled. See <a href='../notmuch-config-1/'>notmuch-config</a>(1)
-                         for details.
-
-                  <b>auto</b>
-
-                         This option (the default) tries to guess  the  format
-                         from  the input. For correctly formed input in either
-                         supported format, this heuristic, based the fact that
-                         batch-tag  format  contains no parentheses, should be
-                         accurate.
+                 <b>auto</b>   This option (the default) tries to  guess  the  format
+                        from  the  input. For correctly formed input in either
+                        supported format, this heuristic, based the fact  that
+                        batch-tag  format  contains  no parentheses, should be
+                        accurate.
 </pre>
 
 <h2>GZIPPED INPUT</h2>
 <pre>
-       <b>notmuch</b> <b>restore</b> will detect if the input is compressed in <b>gzip</b>(1)  for-
+       <b>notmuch</b> <b>restore</b> will detect if the input is compressed in <b>gzip</b>(1)  for‐
        mat  and automatically decompress it while reading. This detection does
        not depend on file naming and in particular works for standard input.
 </pre>
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not-</a>
+       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not‐</a>
        <a href='../notmuch-hooks-5/'>much-hooks</a>(5),   <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
-       <a href='../notmuch-search-1/'>notmuch-search</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),   <a href='../notmuch-tag-1/'>not-</a>
+       <a href='../notmuch-search-1/'>notmuch-search</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),   <a href='../notmuch-tag-1/'>not‐</a>
        <a href='../notmuch-tag-1/'>much-tag</a>(1)
 </pre>
 
@@ -87,4 +80,4 @@
        2014, Carl Worth and many others
 </pre>
 
-<h2>0.18</h2>
+<h2>0.18.1</h2>
