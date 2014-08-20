@@ -521,6 +521,17 @@ part.
   installed, it will shadow the fixed version of easypg included with
   emacs.
 
+## Reading and verifying encrypted and signed messages
+
+Encrypted and signed mime messages can be read and verified with:
+
+        (notmuch-crypto-process-mime t)
+
+Decrypting or verifying inline pgp messages can be done by selecting
+an the inline pgp area and and using:
+
+        M-x epa-decrypt-region RET
+
 ## Multiple identities using gnus-alias
 
 [gnus-alias](http://www.emacswiki.org/emacs/GnusAlias) allows you to
