@@ -109,6 +109,14 @@ mentioned as script arguments. (Note: The script expects that you have
         done
         emacsclient -a '' -c -e "(progn (compose-mail) $attach_cmds)"
 
+## Controlling external handlers for attachements
+
+You can choose e.g. which pdf viewer to invoke from notmuch-show mode by
+adding a .mailcap file in your home directory. Here is an example:
+
+    application/pdf; /usr/bin/mupdf %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+    application/x-pdf; /usr/bin/mupdf %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+
 ## Issues with Emacs 24
 
 If notmuch-show-mode behaves badly for you in emacs 24.x try adding one of
@@ -724,11 +732,11 @@ but as a contrib file, so you might have to work a bit to load it.
 
 In Debian and derivatives,
 
-	(add-to-list 'load-path "/usr/share/org-mode/lisp")
+    (add-to-list 'load-path "/usr/share/org-mode/lisp")
 
 Then
 
-	(require 'org-notmuch)
+    (require 'org-notmuch)
 
 In general it is nice to have a key for org-links (not just for notmuch). For example
 
