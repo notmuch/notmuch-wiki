@@ -22,7 +22,7 @@ See [[excluding]].
 
 ## How do I configure the citation line when replying in Emacs?
 
-   (setq message-citation-line-format "On %a, %d %b %Y, %f wrote:")
-   (setq message-citation-line-function 'message-insert-formatted-citation-line)
+        (setq message-citation-line-format "On %a, %d %b %Y, %f wrote:")
+        (setq message-citation-line-function 'message-insert-formatted-citation-line)
 
 See help for `message-citation-line-format` for details.
