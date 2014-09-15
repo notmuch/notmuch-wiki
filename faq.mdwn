@@ -19,3 +19,10 @@ with the same message (i.e. the files have identical Message-ID). A
 ## How do I delete messages
 
 See [[excluding]].
+
+## How do I configure the citation line when replying in Emacs?
+
+   (setq message-citation-line-format "On %a, %d %b %Y, %f wrote:")
+   (setq message-citation-line-function 'message-insert-formatted-citation-line)
+
+See help for `message-citation-line-format` for details.
