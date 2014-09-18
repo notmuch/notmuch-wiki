@@ -500,6 +500,20 @@ As described above, you can now add the following settings to your
         (setq notmuch-address-command "~/bin/akonadimailsearch.sh")
         (notmuch-address-message-insinuate)
 
+### Completion selection with helm
+
+An address query might return multiple possible matches from which you
+will have to select one. To ease this task, several different
+frameworks in emacs support completion selection. One of them is
+[helm](https://github.com/emacs-helm/helm). The following snippet
+improves the out-of-the-box support for helm in notmuch as it enables
+the required-match option and also does not ignore the first returned
+address.
+
+        (setq notmuch-address-selection-function
+          (lambda (prompt collection initial-input)
+            (completing-read prompt (cons initial-input collection) nil t nil 'notmuch-address-history)))
+
 
 ## How to sign/encrypt messages with gpg
 
