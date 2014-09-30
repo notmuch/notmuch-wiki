@@ -486,18 +486,13 @@ Enter the cloned repository and create a build directory:
         cd build
         cmake ..; make;
 
-You will find the akonadimailsearch binary in the build/src directory.
-Create a ~/bin/akonadimailsearch.sh file with the following content and make it executable:
-(Adjust the path for the akonadimailsearch binary.)
+You will find the akonadimailsearch binary in the build/src directory. Copy it to ~/bin .
 
-        #!/bin/sh
-        akonadimailsearch "$@" 2>/dev/null
-
-As described above, you can now add the following settings to your
+You can now add the following settings to your
 [notmuch init file](#notmuch_init_file):
 
         (require 'notmuch-address)
-        (setq notmuch-address-command "~/bin/akonadimailsearch.sh")
+        (setq notmuch-address-command "~/bin/akonadimailsearch")
         (notmuch-address-message-insinuate)
 
 ### Completion selection with helm
