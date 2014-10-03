@@ -152,7 +152,10 @@ search in emacs):
 You might or might not want as many exclusions.  Another interesting
 search is:
 
-    tag:notmuch::reviewed and not tag:notmuch::pushed
+    tag:notmuch::patch and not tag:notmuch::needs-review and not \
+        tag:notmuch::pushed and not tag:notmuch::obsolete and not \
+            tag:notmuch::wontfix and not tag:notmuch::moreinfo and not \
+                tag:notmuch::stale and not tag:notmuch::wip
 
 See the [[status|http://nmbug.tethera.net/status]] page for more
 example searches.
