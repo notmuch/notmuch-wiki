@@ -23,6 +23,9 @@ and push back to the wiki:
 
 The syntax used on the pages is [markdown](http://daringfireball.net/projects/markdown/syntax). In order to preview your modifications you can copy and paste the page in this [online preview](http://daringfireball.net/projects/markdown/dingus).
 
+Please make sure you have valid and real git `user.name` and `user.email`
+configuration options set.
+
 ## License
 
 We are in the process of updating the wiki license. By pushing to the repository
