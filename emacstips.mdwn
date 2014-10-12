@@ -371,13 +371,6 @@ With that in place, you need a `.msmtprc` with the accounts configured
 for the domains you want to send out using specific SMTP servers and
 the rest will go to the default account.
 
-If you have a hard time getting the above to work for you, as I did,
-it's also possible to add a message-send-mail-hook in your .emacs to
-send the from header explicitly as an argument to msmtp as described
-[here](http://www.emacswiki.org/cgi-bin/wiki/GnusMSMTP#toc2) on the
-emacswiki.
-
-
 ## <span id="address_completion">Address completion when composing</span>
 
 There are currently three solutions to this:
