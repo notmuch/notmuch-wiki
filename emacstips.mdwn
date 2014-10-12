@@ -334,51 +334,13 @@ useful to you.
 
 ## Viewing HTML messages with an external viewer
 
-The emacs client can display an HTML message inline using either the
-`html2text` library or some text browser, like w3m or lynx. This is
-controlled by the `mm-text-html-renderer` variable.
+The Emacs client can generally display HTML messages inline using one of the
+supported HTML renderers. This is controlled by the `mm-text-html-renderer`
+variable.
 
-The first option is theorically better, because it can generate
-strings formatted for emacs and do whatever you want, e.g., substitute
-text inside &lt;b&gt; tags for bold text in the buffer. The library, however
-is still in a very early development phase and cannot yet process
-properly many elements, like tables and <style> directives, and even
-the generated text is often poorly formatted.
-
-Among the available browsers, w3m seems to do a better job converting
-the html, and if you have the w3m emacs package, you can use it,
-instead of the w3m-standalone, and thus preserve the text formatting.
-
-But if the rendering fails for one reason or another, or if you really
-need to see the graphical presentation of the HTML message, it can be
-useful to display the message in an external viewer, such as a web
-browser. Here's a little script that Keith Packard wrote, which he
-calls `view-html`:
-
-        #!/bin/sh
-        dir=`mktemp -d`
-        trap "rm -r $dir" 0
-        cat "$@" > "$dir"/msg
-        if munpack -C "$dir" -t < "$dir"/msg 2>&1 | grep 'Did not find'; then
-            sed -n '/[Hh][Tt][Mm][Ll]/,$p' "$dir"/msg > $dir/part1.html
-            rm "$dir"/msg
-        fi
-        for i in "$dir"/part*; do
-            if grep -q -i -e '<html>' -e 'text/html' "$i"; then
-                iceweasel "$i" &
-                sleep 3
-                exit 0
-            fi
-        done
-
-Save that script somewhere in your `${PATH}`, make it executable,
-and change the invocation of `iceweasel` to any other HTML viewer if
-necessary. Then within the emacs client, press '|' to pipe the
-current message, then type "view-html".
-
-Keith mentions the following caveat, "Note that if iceweasel isn't
-already running, it seems to shut down when the script exits. I
-don't know why."
+Sometimes it may be necessary to display the message, or a single MIME part, in
+an external browser. This can be done by `(notmuch-show-view-part)`, bound to
+`. v` by default.
 
 ## msmtp, message mode and multiple accounts
 
