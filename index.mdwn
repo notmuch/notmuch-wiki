@@ -164,4 +164,5 @@ for non-subscribers.
 ## Website
 
 This wiki is maintained using [ikiwiki](http://ikiwiki.info). Here are
-[[instructions on how to edit the wiki|wikiwriteaccess]].
+[[instructions on how to edit the wiki|wikiwriteaccess]]. The wiki contents are
+mostly [[dual licensed under CC-BY-SA-3.0 and GPLv3+|COPYING]].

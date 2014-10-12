@@ -28,11 +28,4 @@ configuration options set.
 
 ## License
 
-We are in the process of updating the wiki license. By pushing to the repository
-you agree that all of your contributions to the notmuch wiki will be dual
-licensed under:
-
-- [CC-BY-SA-3.0](http://creativecommons.org/licenses/by-sa/3.0/) <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" />
-
-- [The GNU General Public License](http://www.gnu.org/licenses/gpl.txt), either
-  version 3.0 or at your option any later version.
+See the [[Notmuch wiki license terms|COPYING]] before pushing any changes.

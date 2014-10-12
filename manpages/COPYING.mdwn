@@ -1,0 +1,2 @@
+The manual pages are licensed under under the GNU General Public License, either
+version 3.0 or at your option any later version.

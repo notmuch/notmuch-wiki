@@ -15,3 +15,7 @@ Manual page index
 * <a href='notmuch-tag-1/'>notmuch-tag</a>(1) - add/remove tags for all messages matching the search terms
 * <a href='notmuch-hooks-5/'>notmuch-hooks</a>(5) - hooks for notmuch
 * <a href='notmuch-search-terms-7/'>notmuch-search-terms</a>(7) - syntax for notmuch queries
+
+The manual pages are licensed under
+[the GNU General Public License](http://www.gnu.org/licenses/gpl.txt),
+either version 3.0 or at your option any later version.

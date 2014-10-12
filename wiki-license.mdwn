@@ -1,14 +1,4 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # License
 
-*Warning* This page is just a prototype, the actual licenses are subject to change until this warning is removed.
-
-Any page on this wiki which links to this page (and this page itself) is dual licensed under 
-
-- [CC-BY-SA-3.0](http://creativecommons.org/licenses/by-sa/3.0/) <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" />
-
-- [The GNU General Public License](http://www.gnu.org/licenses/gpl.txt),
-  either version 3.0 or at your option any later version.
-
-Please don't make such links without the consent of the copyright holders.
-
+See [[COPYING]].
