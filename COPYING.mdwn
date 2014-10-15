@@ -21,4 +21,4 @@ Notmuch wiki comply with the above.
 
 Copies of the license texts should be included in the
 [[wiki repository|wikiwriteaccess]],
-in the COPYING-GPL-3 and COPYING-CC-BY-SA-3.0 files.
+in the [[COPYING-GPL-3]] and [[COPYING-CC-BY-SA-3.0]] files.
