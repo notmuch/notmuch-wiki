@@ -1,24 +1,19 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Wiki Write Access
 
-This website is a wiki maintained using
-[ikiwiki](http://ikiwiki.info). You can pull and push changes using
-the following URL:
+This website is a wiki maintained using [ikiwiki](http://ikiwiki.info). The wiki
+source can be checked out via git with this command:
 
-    git://notmuchmail.org/git/notmuch-wiki
-
-Clone the wiki branch with:
-
-    git clone git://notmuchmail.org/git/notmuch-wiki
+        git clone git://notmuchmail.org/git/notmuch-wiki
 
 Then you can edit the wiki locally, commit the changes with:
 
-    git add ...
-    git commit
+        git add ...
+        git commit
 
 and push back to the wiki:
 
-    git push
+        git push
 
 
 The syntax used on the pages is [markdown](http://daringfireball.net/projects/markdown/syntax). In order to preview your modifications you can copy and paste the page in this [online preview](http://daringfireball.net/projects/markdown/dingus).
