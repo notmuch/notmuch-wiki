@@ -1,0 +1,175 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# Wiki License History
+
+The wiki originally had no explicit licensing text. This has been fixed since
+the wiki commit
+[COPYING: The wiki is now dual licensed under CC-BY-SA-3.0 and GPL v3+](http://git.notmuchmail.org/git/notmuch-wiki/commit/8ca2edf66a79cd4dcc628cafc0c9801007f2ab71)
+with the addition of [[COPYING]]. To be able to do that all the commits before
+the license change had to be accounted for; this page is a description of it for
+posterity.
+
+All the content in the wiki fell into one of these categories, in decreasing
+order of quantity:
+
+* The authors have agreed that all of their contributions to the notmuch
+  wiki can be dual licensed under CC-BY-SA-3.0 and GPL v3+.
+
+* The content is copied from the notmuch main repository and is licensed
+  under GPL v3+. Effectively this is the man pages.
+
+* The authors have not been reached but their contribution have been a
+  very minor or trivial change or cleanup of content falling into above
+  categories.
+
+* The authors have not been reached but the content has been deleted.
+
+Below is first a list of authors who have agreed to the license change. Next is
+a list of commits identifying the content in the last three categories. Finally,
+at the end of the page, is a script for verifying the commits in the wiki
+repository against the authors and the commits.
+
+## Authors
+
+The following authors have stated, "I agree that all of my contributions to the
+notmuch wiki can be dual licensed under CC-BY-SA-3.0 and GPL v3+."
+
+	Adam Wolfe Gordon <awg@xvx.ca>
+	Adeodato Simó <dato@net.com.org.es>
+	Alexandru Ghitza <aghitza@alum.mit.edu>
+	Amadeusz Żołnowski <aidecoe@aidecoe.name>
+	Andrei Popescu <andreimpopescu@gmail.com>
+	Antoine Amarilli <a3nm@a3nm.net>
+	Austin Clements <amdragon@mit.edu>
+	Ben Gamari <bgamari.foss@gmail.com>
+	Bernard `Guyzmo` Pratz <guyzmo+notmuch@m0g.net>
+	Carl Worth <cworth@cworth.org>
+	Carl Worth <cworth@olra.theworths.org>
+	Charles Celerier <cceleri@cs.stanford.edu>
+	Daniel Schoepe <daniel@schoepe.org>
+	David Bremner <bremner@debian.org>
+	David Bremner <bremner@unb.ca>
+	David Bremner <david@tethera.net>
+	David Edmondson <dme@dme.org>
+	Faidon Liambotis <paravoid@debian.org>
+	Florian Friesdorf <flo@chaoflow.net>
+	Gregor Zattler <telegraph@gmx.net>
+	Guyzmo <guyzmo+github@m0g.net>
+	Hamish Downer <hamish@foobacca.co.uk>
+	Jameson Graef Rollins <jrollins@finestructure.net>
+	Jameson Rollins <jrollins@finestructure.net>
+	Jani Nikula <jani@nikula.org>
+	Jesse Rosenthal <jkr@commonmeasure.org>
+	Jesse Rosenthal <jkr@watt>
+	Jesse Rosenthal <jrosenthal@jhu.edu>
+	Justus Winter <4winter@informatik.uni-hamburg.de>
+	Kenyon Ralph <kenyon@kenyonralph.com>
+	Kristian Høgsberg <krh@bitplanet.net>
+	Mark Walters <markwalters1009@gmail.com>
+	Maximilian Mehnert <maximilian.mehnert@gmx.de>
+	Michael Kesper <mkesper@schokokeks.org>
+	Michael Stapelberg <michael@stapelberg.de>
+	Michal Sojka <sojka@os.inf.tu-dresden.de>
+	Michal Sojka <sojkam1@fel.cvut.cz>
+	Petr Baudis <pasky@ucw.cz>
+	Philip Hands <phil@hands.com>
+	Ralph Giles <giles@thaumas.net>
+	Robbie Harwood (frozencemetery) <rharwood@club.cc.cmu.edu>
+	Sean Escriva <sean.escriva@gmail.com>
+	Sebastian Fischmeister <sfischme@uwaterloo.ca>
+	Sebastian Spaeth <Sebastian@SSpaeth.de>
+	Sergei Shilovsky <sshilovsky@gmail.com>
+	Soeren Finster <sf@9by6.org>
+	Stefano Zacchiroli <zack@upsilon.cc>
+	Svend Sorensen <svend@ciffer.net>
+	Thomas Schwinge <thomas@schwinge.name>
+	Thorsten Behrens <tbehrens@suse.com>
+	Tim Stoakes <tim@stoakes.net>
+	Tomi Ollila <tomi.ollila@iki.fi>
+	Tomi Ollila <too@iki.fi>
+	Vagrant Cascadian <vagrant@debian.org>
+	W. Trevor King <wking@tremily.us>
+	Xavier Maillard <xma@gnu.org>
+	frozencemetery <frozencemetery@localhost.localdomain>
+	martin f. krafft <madduck@madduck.net>
+	Øyvind A. Holm <sunny@sunbase.org>
+
+## Commits
+
+The following commits, from authors who could not be reached, have been deemed
+non-copyrightable (as trivial, cleanup, etc.) or the content has been deleted:
+
+	44097e84934cdeb300cb526b682e710c4784383d trivial
+	e8571f19c1be03b7b29fa28cba80b7bde3cc7b8a news; GPLv3+ from notmuch repo
+	85063ec790ce2f7152318d225581e5f4fb96ede4 deleted content (feature-requests.mdwn)
+	2c97f666c6c97bac025e5666afbc02a07e78f30d deleted content (feature-requests.mdwn)
+	64753682ebcac84b8934d2c682f575c74d9dc7ca deleted content (feature-requests.mdwn)
+	1d7231bf3d86fc9bccf2c04f55b8586fb56c1737 add link
+	8d3942dde2b3f4b84c27c36e6357e86b3f117c49 deleted content (patchformatting.mdwn)
+	bdb4c3bd6c7be4fd1d83f6346c789061a5e92417 trivial
+	64780f2d6503854f503fd49913da07465e49043d deleted content (feature-requests.mdwn)
+	0eb698568098800852272a7255e766de5988c7b5 trivial
+	e5c004916ff69ea08403dffe5ee50f5cafe1b0e8 trivial
+	91415226d1831ea35d5567997c8431b47ca0db61 cleanup
+	cfab60c68413c111d4b4462ed002f83332f33f4e trivial
+	679a378c83370aeacc603ed161208da2288e902a deleted content (feature-requests.mdwn)
+	87f260230e0d98fe1e3007205105268ed52bfb45 trivial
+	ebe33962ec06e29afd80d9130f5f3ab96382d732 add link
+	22f25b55898bee292bb841b9baec2865de470122 trivial
+	4277e59a21ed364e987408dbf2ba62cb3b2f0938 trivial
+	2d44339b72f243553f08c9dae1c182aec0380e82 cleanup
+	f1bc6af50df4383abc038fd22d26356eb18075bc deleted content (author not reachable)
+	cc8370490738411c7a33fc0f0c2a318e8b5da897 deleted content (rewritten)
+	8a5cd7bd9456fa5caf243e50ca288c95371bd573 trivial
+	e37567f20588e4075b06efd8e29d29f70338ad8c merge
+	703ae92a5c0acdbea5384b36b78ea341e0b07da1 deleted content (rewritten)
+	e9e13d3e669e822d7d453c89e4326a64c829c7c2 deleted content (feature-requests.mdwn)
+	ed1a219c82539da3768812731786d6b34e0ec3d5 deleted content (feature-requests.mdwn)
+	0a81a0425754e58b128d7323bdb134a773eb60b6 deleted content (feature-requests.mdwn)
+	9c5f2d5178d5702c5342fa6afdfabf93d21e0e1f merge
+	c9f9c63e11d4b8aa534457b9ae042c5c1e34fef3 link to deleted content (feature-requests.mdwn)
+	5c10a55951057c3f4d05657c24c00898dd0556d1 deleted content (feature-requests.mdwn)
+	37599ae0c3839973e458d99e1b63a4844acdd454 deleted content (feature-requests.mdwn)
+	4f3e942c093abe74ca449482d7be5f56e37debf8 deleted content (feature-requests.mdwn)
+	54e98175f11a9d8e0ab587f86f37ded9fa4140f8 deleted content (feature-requests.mdwn)
+	5386734f85877be5cec661a86bc64b5732340687 deleted content (feature-requests.mdwn)
+	4b5bf116f4dbc79be9910bcb6641dbb73fec7388 deleted content (feature-requests.mdwn)
+	b8c1f4bfa1c09f0b096869deddea468db5e78d5f deleted content (feature-requests.mdwn)
+	8b5bfd125901ec41f16f4581f36deeec589c584e cleanup
+	653e0f2c2a337264d666a05bb48893d7e90a5980 trivial
+	c6b6f82f02ce133e78e2fba743b0f2bebd2a1769 trivial
+	7d4ba3c04557a156c3091239cb78271abb211e0a trivial / movement
+	a5b25a6c5fff843a940424f04a298d33ab563ce5 trivial
+	8b22c661bd75a1ca15ef6d0b4a60c8224f059039 trivial / rewritten
+	80bdaf9762c7f8fdf3ae37ee660234eddbef0dda rewritten
+
+## License Check Script
+
+You can put the above lists to two files, and run them through this script to
+show all commits that are not accounted for by one way or another (if everything
+is well, this should not print anything).
+
+	#!/bin/sh
+
+	if [ "$#" != 2 ]; then
+		echo "usage: $0 agree.txt ignore.txt"
+		exit 1
+	fi
+
+	# cutoff point where license was switched
+	cutoff=8ca2edf66a79cd4dcc628cafc0c9801007f2ab71
+
+	# file listing all authors that have agreed to license change
+	agree=$1
+
+	# file listing all commits that can be ignored
+	ignore=$2
+
+	# for each commit from authors that have *not* agreed to license change
+	for commit in $(git log --format="format:%H %aN <%aE>" $cutoff | \
+		grep -v -f $agree | cut -f 1 -d " "); do
+
+		# display commits that are *not* trivial, cleanup, deleted, etc.
+		if ! grep -q $commit $ignore; then
+			git --no-pager show $commit
+		fi
+	done
