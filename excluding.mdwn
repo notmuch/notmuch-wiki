@@ -34,7 +34,7 @@ This will find messages from "foo" with the tag "spam", even though
 Notmuch makes it very easy to access the underlying mail files
 associated with specific search terms using the "file" output format
 of notmuch search.  To find all message files associated with the tag
-"foo" rung:
+"foo" run:
 
         $ notmuch search --output=files tag:foo
 
