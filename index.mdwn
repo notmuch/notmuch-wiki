@@ -16,7 +16,7 @@ Because dealing with your mail can be so much better.
   that you can keep your inbox tamed and focus on what really matters
   in your life, (which is surely not email).
 
-* Notmuch is an answer to [Sup](http://sup.rubyforge.org/).
+* Notmuch is an answer to [Sup](http://supmua.org/).
   Sup is a very good email program written by William Morgan (and
   others) and is the direct inspiration for Notmuch. Notmuch began as
   an effort to rewrite performance-critical pieces of Sup in C rather
