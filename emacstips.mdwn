@@ -402,9 +402,14 @@ available:
     http://commonmeasure.org/~jkr/git/notmuch_addresses.git`) (slower, but
     no compilation required so good for testing the setup)
 
+  * The C-based [notmuch-addrlookup](https://github.com/aperezdc/notmuch-addrlookup-c) by [Adrian Perez](http://perezdecastro.org/), which is faster but needs to be compiled.
+
+        git clone https://github.com/aperezdc/notmuch-addrlookup-c
+        cd notmuch-addrlookup-c
+        make
+        
   * The vala-based
-    [addrlookup](http://github.com/spaetz/vala-notmuch) (faster, but
-    needs compiling).  The addrlookup binary needs to be compiled.
+    [addrlookup](http://github.com/spaetz/vala-notmuch) The addrlookup binary needs to be compiled.
     Grab
     `http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c`
     and build it with:
