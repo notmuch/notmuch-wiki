@@ -1,0 +1,176 @@
+[[!meta date="2014-11-14"]]
+
+Notmuch 0.19 (2014-11-14)
+=========================
+
+Overview
+--------
+
+This release improves the reliability of `notmuch dump` and the error
+handling for `notmuch insert`. The new `notmuch address` command is
+intended to make searching for email addresses more convenient. At the
+library level the revised handling of missing messages fixes at least
+one bug in threading. The release also includes several interface
+improvements to the emacs interface, most notably the ability to bind
+keyboard shortcuts to saved searches.
+
+Command-Line Interface
+----------------------
+
+### Stopped `notmuch dump` failing if someone writes to the database
+
+The dump command now takes the write lock when running. This
+prevents other processes from writing to the database during the
+dump which would cause the dump to fail. Note, if another notmuch
+process already has the write lock the dump will not start, so
+script callers should still check the return value.
+
+### `notmuch insert` requires succesful message indexing for success status
+
+Previously the `notmuch insert` subcommand indicated success even if
+the message indexing failed, as long as the message was delivered to
+file system. This could have lead to delivered messages missing
+tags, etc. `notmuch insert` is now more strict, also requiring
+succesful indexing for success status. Use the new `--keep` option
+to revert to the old behaviour (keeping the delivered message file
+and returning success even if indexing fails).
+
+### `notmuch insert` has gained support for `post-insert` hook
+
+The new `post-insert` hook is run after message delivery, similar to
+`post-new`. There's also a new option `notmuch insert --no-hooks` to
+skip the hook. See the notmuch-hooks(1) man page for details.
+
+### `notmuch deliver` is deprecated
+
+With this release we believe that `notmuch insert` has reached
+parity with `notmuch deliver`. We recommend that all users of
+`notmuch deliver` switch to `notmuch insert` as the former is
+currently unmaintained.
+
+### `notmuch search` now supports `--duplicate=N` option with `--output=messages`
+
+Complementing the `notmuch search --duplicate=N --output=files`
+options, the new `--duplicate=N --output=messages` combination
+limits output of message IDs to messages matching search terms that
+have at least `N` files associated with them.
+
+### Added `notmuch address` subcommand
+
+This new subcommand searches for messages matching the given search
+terms, and prints the addresses from them. Duplicate addresses are
+filtered out. The `--output` option controls which of the following
+information is printed: sender addresses, recipient addresses and
+count of duplicate addresses.
+
+Emacs Interface
+---------------
+
+### Use the `j` key to access saved searches from anywhere in notmuch
+
+`j` is now globally bound to `notmuch-jump`, which provides fast,
+interactive keyboard shortcuts to saved searches.  For example,
+with the default saved searches `j i` from anywhere in notmuch will
+bring up the inbox.
+
+### Improved handling of the unread tag
+
+Notmuch now marks an open message read (i.e., removes the unread
+tag) if point enters the message at any time in a show buffer
+regardless of how point got there (mouse click, cursor command, page
+up/down, notmuch commands such as n,N etc). This fixes various
+anomalies or bugs in the previous handling. Additionally it is
+possible to customize the mark read handling by setting
+`notmuch-show-mark-read-function` to a custom function.
+
+### Expanded default saved search settings
+
+The default saved searches now include several more common searches,
+as well as shortcut keys for `notmuch-jump`.
+
+### Improved `q` binding in notmuch buffers
+
+`q` will now bury rather than kill a notmuch search, show or tree
+buffer if there are multiple windows showing the buffer. If only a
+single window is showing the buffer, it is killed.
+
+### `notmuch-show-stash-mlarchive-link-alist` now supports functions
+
+Some list archives may use a more complicated scheme for referring
+to messages than just concatenated URL and message ID. For example,
+patchwork requires a query to translate message ID to a patchwork
+patch ID. `notmuch-show-stash-mlarchive-link-alist` now supports
+functions to better cover such cases. See the help documentation for
+the variable for details.
+
+Library changes
+---------------
+
+### Introduced database version 3 with support for "database features."
+
+Features are independent aspects of the database schema.
+Representing these independently of the database version number will
+let us evolve the database format faster and more incrementally,
+while maintaining better forwards and backwards compatibility.
+
+### Library users are no longer required to call `notmuch_database_upgrade`
+
+Previously, library users were required to call
+`notmuch_database_needs_upgrade` and `notmuch_database_upgrade`
+before using a writable database.  Even the CLI didn't get this
+right, and it is no longer required.  Now, individual APIs may
+return `NOTMUCH_STATUS_UPGRADE_REQUIRED` if the database format is
+too out of date for that API.
+
+### Library users can now abort an atomic section by closing the database
+
+Previously there was no supported way to abort an atomic section.
+Callers can now simply close the database, and any outstanding
+atomic section will be aborted.
+
+### Add return status to notmuch_database_close and notmuch_database_destroy
+
+### Bug fixes and performance improvements for thread linking
+
+The database now represents missing-but-referenced messages ("ghost
+messages") similarly to how it represents regular messages.  This
+enables an improved thread linking algorithm that performs better
+and fixes a bug that sometimes prevented notmuch from linking
+messages into the same thread.
+
+nmbug
+-----
+
+The Perl script has been translated to Python; you'll need Python 2.7
+or anything from the 3.x line.  Most of the user-facing interface is
+the same, but `nmbug help` is not `nmbug --help`, and the following nmbug
+commands have slightly different interfaces: `archive`, `commit`,
+`fetch`, `log`, `pull`, `push`, and `status`.  For details on the
+new interface for a given command, run `nmbug COMMAND --help`.
+
+nmbug-status
+------------
+
+`nmbug-status` can now optionally load header and footer templates
+from the config file.  Use something like:
+
+    {
+      "meta": {
+        "header": "<!DOCTYPE html>\n<html lang="en">\n...",
+        "footer": "</body></html>",
+         ...
+      },
+      ...
+    },
+
+Python Bindings
+---------------
+
+### Add support for `notmuch_query_add_tag_exclude`
+
+Build System
+------------
+
+The notmuch binaries and libraries are now build with debugging symbols
+by default.  Users concerned with disk space should change the
+defaults when configuring or use the strip(1) command.
