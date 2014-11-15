@@ -128,7 +128,7 @@ Previously there was no supported way to abort an atomic section.
 Callers can now simply close the database, and any outstanding
 atomic section will be aborted.
 
-### Add return status to notmuch_database_close and notmuch_database_destroy
+### Add return status to `notmuch_database_close` and `notmuch_database_destroy`
 
 ### Bug fixes and performance improvements for thread linking
 
