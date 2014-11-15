@@ -37,7 +37,7 @@
                  intended  for  programs that invoke <a href='../notmuch-1/'>notmuch</a>(1) internally. If
                  omitted, the latest supported version will be used.
 
-          <b>--output=(summary|threads|messages|files|tags)</b>
+          <b>--output=(summary|threads|messages|files|tags|sender|recipients)</b>
 
               <b>summary</b>
                      Output a summary of each thread with any message matching
@@ -125,10 +125,14 @@
                  than the number of matching messages.
 
           <b>--duplicate=N</b>
-                 Effective with <b>--output=files</b>, output the Nth filename  asso‐
-                 ciated  with  each message matching the query (N is 1-based).
-                 If N is greater than the number of files associated with  the
-                 message, don&apos;t print anything.
+                 For <b>--output=files</b>, output the Nth filename  associated  with
+                 each  message  matching  the  query  (N  is 1-based). If N is
+                 greater than the number of files associated with the message,
+                 don&apos;t print anything.
+
+                 For  <b>--output=messages</b>,  only  output message IDs of messages
+                 matching the search terms that  have  at  least  N  filenames
+                 associated with them.
 
                  Note  that  this option is orthogonal with the <b>folder:</b> search
                  prefix. The prefix matches messages based on filenames.  This
@@ -149,7 +153,7 @@
        <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not‐</a>
        <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
        <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),  <a href='../notmuch-tag-1/'>not‐</a>
-       <a href='../notmuch-tag-1/'>much-tag</a>(1)
+       <a href='../notmuch-tag-1/'>much-tag</a>(1) <a href='../notmuch-address-1/'>notmuch-address</a>(1)
 </pre>
 
 <h2>AUTHOR</h2>
@@ -162,4 +166,4 @@
        2014, Carl Worth and many others
 </pre>
 
-<h2>0.18.1</h2>
+<h2>0.19</h2>

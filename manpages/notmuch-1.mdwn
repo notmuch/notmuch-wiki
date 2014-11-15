@@ -87,8 +87,8 @@
        tax. See <b>notmuch-search-terms</b>(7) for more details on the supported syn‐
        tax.
 
-       The <b>search</b>, <b>show</b> and <b>count</b> commands are used to query the  email  data‐
-       base.
+       The <b>search</b>, <b>show</b>, <b>address</b> and <b>count</b> commands  are  used  to  query  the
+       email database.
 
        The  <b>reply</b>  command  is  useful  for  preparing a template for an email
        reply.
@@ -127,7 +127,7 @@
        <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5),
        <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),      <a href='../notmuch-new-1/'>notmuch-new</a>(1),      <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),     <a href='../notmuch-restore-1/'>not‐</a>
        <a href='../notmuch-restore-1/'>much-restore</a>(1),   <a href='../notmuch-search-1/'>notmuch-search</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>not‐</a>
-       <a href='../notmuch-show-1/'>much-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
+       <a href='../notmuch-show-1/'>much-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1), <a href='../notmuch-address-1/'>notmuch-address</a>(1)
 
        The notmuch website: <b>http://notmuchmail.org</b>
 </pre>
@@ -152,4 +152,4 @@
        2014, Carl Worth and many others
 </pre>
 
-<h2>0.18.1</h2>
+<h2>0.19</h2>

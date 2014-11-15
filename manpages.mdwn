@@ -2,6 +2,7 @@ Manual page index
 =================
 
 * <a href='notmuch-1/'>notmuch</a>(1) - thread-based email index, search, and tagging
+* <a href='notmuch-address-1/'>notmuch-address</a>(1) - output addresses from matching messages
 * <a href='notmuch-compact-1/'>notmuch-compact</a>(1) - compact the notmuch database
 * <a href='notmuch-config-1/'>notmuch-config</a>(1) - access notmuch configuration file
 * <a href='notmuch-count-1/'>notmuch-count</a>(1) - count messages matching the given search terms
