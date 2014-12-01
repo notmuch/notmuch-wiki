@@ -3,6 +3,18 @@
 
 [[!toc levels=2]]
 
+## Use of ecryptfs slows notmuch down.
+
+I noticed that my `notmuch new` was really slow (several minutes) for
+less then 20 new emails (around 20K in my database).
+
+The performance tests in the notmuch source didn't show any real
+issue, even on a non-encrypted ext4 fs.
+
+After investigation and running different tests, a switch to a
+LUKS-btrfs based filesystem to replace the ext4-ecryptfs resolved the
+issue. It now takes some seconds to index hundreds of messages.
+
 ## Xapian 1.2.x database format: chert vs. flint
 
 Xapian 1.2 (in contrast to 1.0.x) uses a new database format called
