@@ -48,7 +48,7 @@ be used to train a spam filter:
 
 It can also be used to purge mail files from disk:
 
-        $ notmuch search --format=text0 --output=files tag:deleted | xargs -0 rm
+        $ notmuch search --format=text0 --output=files tag:deleted | xargs -0 --no-run-if-empty rm
 
 Make sure you run "notmuch new" after the last command so the database
 becomes aware that the files have been removed and can remove the
