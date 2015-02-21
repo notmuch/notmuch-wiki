@@ -126,6 +126,11 @@ output.  Using the instructions from [Gmane's
 site](http://gmane.org/export.php), we can download an mbox file, which we
 can then convert to maildir using mb2md or other utility.
 
+Please note that mail delivered by Postfix will have envelope headers
+that may cause notmuch to complain about "single-message mbox files".
+Removing the first line from the message or passing it through
+reformail will solve the problem.
+
 ## <span id="special_tags">**Take advantage of tags that are special to notmuch**</span>
 
 See [[tags special to notmuch|special-tags]].
