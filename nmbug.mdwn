@@ -70,9 +70,9 @@ email) to David Bremner.  There is a convenience command:
 
     $ nmbug push
 
-But you will have to change your url with:
+But you will have to change your push URL with:
 
-    $ git --git-dir=$HOME/.nmbug remote set-url origin nmbug@nmbug.tethera.net:nmbug-tags
+    $ git --git-dir=$HOME/.nmbug remote set-url --push origin nmbug@nmbug.tethera.net:nmbug-tags
 
 ## Tagging conventions
 
