@@ -1,0 +1,40 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# Troubleshooting and Bug reporting
+
+## Deciding what level the problem lives at
+
+If you are experiencing a crash or very slow performance with a
+particular query, please try it on the command line using "notmuch
+search" or "notmuch show"; it's easier for us to debug if the problem
+is there, and it's useful to know if the problem is introduced by a
+front end.
+
+## Troubleshooting the Emacs interface
+
+It's very easy for Emacs packages to interfere with each other. For
+this reason we ask you to try and find the problem with only notmuch
+loaded.  You can do this with
+
+    emacs -Q -L /path/to/your/notmuch/lisp --eval "(require 'notmuch)"
+
+where `/path/to/your/notmuch/lisp` is either to the emacs directory in the source, or the installed (and possibly compiled) version installed by your package manager, e.g. `/usr/share/emacs/site-lisp/notmuch`.  After Emacs starts, run the command that is giving you trouble using e.g.
+
+    M-x notmuch
+
+or
+
+    M-x notmuch-mua-mail
+
+## Bug and patch tracking
+
+Bug reports should be sent to the Notmuch mailing list notmuch@notmuchmail.org.
+
+Bugs are tracked using a collaborative tagging tool call [[nmbug]].
+If you submit lots of bugs and/or patches, you may want become
+involved with this tagging process, but feel free to just send mail to
+the list; someone will tag messages appropriately.  The status of bugs
+and current patches can also be followed
+[online](http://nmbug.tethera.net/status).
+
+
+

@@ -123,15 +123,11 @@ its
 Contributions, such as patches, to Notmuch are most welcome. Please refer to the
 [[guide to contributing|contributing]].
 
-## Bug and patch tracking
+## Troubleshooting and reporting bugs
 
-The tagging and filtering features of notmuch make it quite suitable
-for use as a bug- and patch-tracker. We are currently experimenting
-with using it for this purpose for notmuch development, using a
-utility called [[nmbug]]. The status of bugs and current patches can also be
-followed [online](http://nmbug.tethera.net/status).
+For hints about troubleshooting and bug reporting see [[bugs]].
 
-Bug reports should be sent to the Notmuch mailing list notmuch@notmuchmail.org.
+For a list of known bugs see the [[nmbug status page|http://nmbug.tethera.net/status/#Bugs]]
 
 ## Contact: Email & IRC
 
