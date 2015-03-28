@@ -7,7 +7,8 @@ There is a dump of (some views of) the nmbug [[status|http://nmbug.tethera.net/s
 
 ## Getting started
 
-0. Make sure that the whole notmuch&#64;notmuchmail.org mailing list archive is available in your email database.
+0. Make sure that the whole [notmuch&#64;notmuchmail.org mailing list
+   archive][archive] is available in your email database.
 
 1. Install and use nmbug from notmuch version **0.18** or newer and
    perl module `Pod::Usage` (packaged as `perl-doc` in debian).
@@ -184,4 +185,5 @@ The `%25` represents hex code for a character that cannot be used directly
 - Currently the parser of nmbug (like that of notmuch restore) assumes
   that there are no spaces in message-ids.
 
+[archive]: http://notmuchmail.org/archives/notmuch.mbox
 [nmbug]: http://git.notmuchmail.org/git/notmuch/blob/HEAD:/devel/nmbug/nmbug
