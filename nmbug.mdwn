@@ -3,7 +3,7 @@
 
 ## Web View
 
-There is a dump of (some views of) the nmbug [[status|http://nmbug.tethera.net/status]].
+There is a dump of (some views of) the nmbug [[status|http://nmbug.notmuchmail.org/status]].
 
 ## Getting started
 
@@ -19,7 +19,7 @@ There is a dump of (some views of) the nmbug [[status|http://nmbug.tethera.net/s
 
 3. Enter the following command to obtain the current tag repository:
 
-   `$ nmbug clone http://nmbug.tethera.net/git/nmbug-tags.git`
+   `$ nmbug clone http://nmbug.notmuchmail.org/git/nmbug-tags.git`
 
 ## Using nmbug, simple example
 
@@ -63,7 +63,7 @@ There is a dump of (some views of) the nmbug [[status|http://nmbug.tethera.net/s
 
 For the moment, we are using a central repo, hosted at:
 
-    nmbug@nmbug.tethera.net:nmbug-tags
+    nmbug@nmbug.notmuchmail.org:nmbug-tags
 
 To get push access, send your public key (ideally in a gpg signed
 email) to David Bremner.  There is a convenience command:
@@ -72,7 +72,7 @@ email) to David Bremner.  There is a convenience command:
 
 But you will have to change your push URL with:
 
-    $ git --git-dir=$HOME/.nmbug remote set-url --push origin nmbug@nmbug.tethera.net:nmbug-tags
+    $ git --git-dir=$HOME/.nmbug remote set-url --push origin nmbug@nmbug.notmuchmail.org:nmbug-tags
 
 ## Tagging conventions
 
@@ -158,7 +158,7 @@ search is:
             tag:notmuch::wontfix and not tag:notmuch::moreinfo and not \
                 tag:notmuch::stale and not tag:notmuch::wip
 
-See the [[status|http://nmbug.tethera.net/status]] page for more
+See the [[status|http://nmbug.notmuchmail.org/status]] page for more
 example searches.
 
 ## Design notes

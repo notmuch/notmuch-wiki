@@ -34,7 +34,7 @@ If you submit lots of bugs and/or patches, you may want become
 involved with this tagging process, but feel free to just send mail to
 the list; someone will tag messages appropriately.  The status of bugs
 and current patches can also be followed
-[online](http://nmbug.tethera.net/status).
+[online](http://nmbug.notmuchmail.org/status).
 
 
 
