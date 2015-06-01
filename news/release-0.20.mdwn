@@ -1,0 +1,91 @@
+[[!meta date="2015-05-31"]]
+
+Notmuch 0.20 (2015-05-31)
+=========================
+
+Command-Line Interface
+----------------------
+
+### There is a new `mimetype:` search prefix
+
+The new `mimetype:` search prefix allows searching for the
+content-type of attachments, which is now indexed. See the
+`notmuch-search-terms` manual page for details.
+
+### Path to gpg is now configurable
+
+On systems with multiple versions of gpg, you can tell
+notmuch which one to use by setting `crypto.gpg_path`
+
+Emacs
+-----
+
+Avoid rendering large text attachements.
+
+Improved rendering of CID references in HTML.
+
+Vim
+---
+
+Vim client now respects excluded tags.
+
+Notmuch-Mutt
+------------
+
+Support messages without Message-IDs.
+
+Library
+-------
+
+### Undeprecate single message mboxes
+
+It seems more trouble to remove this feature than expected, so
+`notmuch new` will no longer nag about mboxes with a single message.
+
+### New error logging facility
+
+Clients should call `notmuch_database_status_string` to retrieve
+output formerly printed to stderr.
+
+### Several bug fixes related to stale iterators
+
+### New status code returning API for n_query_search_{messages,thread}
+
+### Fix for library `install_name` on Mac OS X
+
+### Fix for rounding of seconds
+
+Documentation
+-------------
+
+### Sphinx is now mandatory to build docs
+
+Support for using rst2man in place of sphinx to build the
+docmumentation has been removed.
+
+### Improved notmuch-search-terms.7
+
+The man page `notmuch-search-terms(7)` has been extended, merging
+some material from the relicensed wiki.
+
+Contrib
+-------
+
+`notmuch-deliver` is removed. As far as we know, all functionality
+previously provided by `notmuch-deliver` should now be provided by
+`notmuch insert`, provided by the main notmuch binary.
+
+nmbug-status
+------------
+
+`nmbug-status` now only matches local branches when reading
+`status-config.json` from the `config` branch of the `NMBGIT`
+repository.  To help new users running `nmbug-status`, `nmbug clone`
+now creates a local `config` branch tracking `origin/config`.  Folks
+who use `nmbug-status` with an in-Git config (i.e. you don't use the
+`--config` option) who already have `NMBGIT` set up are encouraged to
+run:
+
+    git checkout config origin/config
+
+in their `NMBGIT` repository (usually `~/.nmbug`).
