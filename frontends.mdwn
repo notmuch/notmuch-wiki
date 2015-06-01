@@ -11,6 +11,7 @@
 ## Other email clients and front ends based on Notmuch
 
 * [alot](https://github.com/pazz/alot), a curses frontend written in Python with the [Urwid](http://excess.org/urwid/) toolkit.
+* [astroid](https://github.com/gauteh/astroid), a graphical threads-with-tags mail user agent for notmuch. Written in C++ using GTK+, WebKit and gmime.
 * [bower](https://github.com/wangp/bower), a curses frontend written in [Mercury](http://www.cs.mu.oz.au/research/mercury/).
 * [jaro-mail](http://www.dyne.org/software/jaro-mail) a terminal application to access, store and operate e-mail using notmuch and [alot](https://github.com/pazz/alot) for search and backup operations. Features GNOME keyring support, server-side Sieve filter generation, Anonymous remailer (via mixmaster3), GnuPG encryption and tools to manipulate maildirs and address lists (to/from VCard). Written in Zsh and C. Integrates [mutt](http://www.mutt.org/), [fetchmail](http://www.fetchmail.info/), [msmtp](http://msmtp.sourceforge.net/), [abook](http://abook.sourceforge.net/).
 * [mutt-kz](https://github.com/karelzak/mutt-kz), a fork of [mutt](http://www.mutt.org/) with Notmuch as a backend (actually linked against lib notmuch).
