@@ -54,9 +54,9 @@ Then notmuch may be exactly what you've been looking for.
 ## Documentation
 
 To get started with notmuch, just run "notmuch" at the command line.
-The configuration wizard will walk you through initial setup,
-including specifying the location of your mail store and how to start
-the initial indexing.  After that, come back and checkout our docs:
+This command will walk you through initial setup, including specifying
+the location of your mail store and how to start the initial indexing.
+After that, come back and checkout our documentation:
 
   * [[Notmuch manual pages|manpages]]
   * [[General how-tos|howto]]
