@@ -1,15 +1,22 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Notmuch -- Just an email system
 
-Nomcuh is an email sytem that provides fast, global search of a local
-email store. It provides command-line access for easy scripting, as
-well as full-featured interfaces within consoles (or within text
-editors such as emacs). It also provides a clean, library-interface in
-C so that its functionality could be added to existing email programs.
+If you've been looking for a fast, global-search and tag-based email
+system to use within your text editor or in a terminal...
 
-## Why Notmuch?
+If you're the kind of person that gets excited about being able to
+write shell scripts for exploring or managing your email...
 
-Because dealing with your mail can be so much better.
+If you're a developer of an existing email program and would love a
+good library interface for fast, global search with support for
+arbitrary tags...
+
+If you want the convenience of fast, reliable search of all your
+email, but don't want to give a 3rd-party access to your email...
+
+Then notmuch may be exactly what you've been looking for.
+
+## Why is it named Notmuch?
 
 * "Not much mail" is what Notmuch thinks about your email
   collection. Even if you receive 12000 messages per month or have on
@@ -39,15 +46,6 @@ Because dealing with your mail can be so much better.
   [Xapian](http://xapian.org).  So if Notmuch provides no user
   interface and Xapian does all the heavy lifting, then what's left
   here? Not much.
-
-If you've been looking for a fast, global-search and tag-based email
-reader to use within your text editor or in a terminal, then Notmuch
-may be exactly what you've been looking for.
-
-If you're a developer of an existing email program and would love a
-good library interface for fast, global search with support for
-arbitrary tags, then Notmuch also may be exactly what you've been
-looking for.
 
 ## News
 
