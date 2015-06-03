@@ -9,7 +9,8 @@ but once you get the hang of it, it'll be fun. This page should help
 you get there. DON'T PANIC.
 
 The headlines below act as a checklist. Not all of them apply in all
-situations; use common sense.
+situations. Use your best judgment, and the Notmuch community will
+help out as needed.
 
 [[!toc levels=2]]
 
