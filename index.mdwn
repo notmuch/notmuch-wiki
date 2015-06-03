@@ -1,6 +1,12 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Notmuch -- Just an email system
 
+Nomcuh is an email sytem that provides fast, global search of a local
+email store. It provides command-line access for easy scripting, as
+well as full-featured interfaces within consoles (or within text
+editors such as emacs). It also provides a clean, library-interface in
+C so that its functionality could be added to existing email programs.
+
 ## Why Notmuch?
 
 Because dealing with your mail can be so much better.
