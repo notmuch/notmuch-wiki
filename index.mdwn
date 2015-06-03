@@ -97,11 +97,12 @@ Notmuch is packaged for at least the following distributions:
 * [Debian](http://packages.debian.org/search?keywords=notmuch)
 * [Fedora](https://apps.fedoraproject.org/packages/notmuch)
 * [Gentoo](http://packages.gentoo.org/package/net-mail/notmuch)
+* [NetBSD](http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/mail/notmuch/README.html)
 * [openSUSE](https://build.opensuse.org/search?search_text=notmuch)
 * [Slackware](http://slackbuilds.org/repository/13.37/office/notmuch/)
 * [Ubuntu](http://packages.ubuntu.com/search?keywords=notmuch)
 
-Notmuch can be installed on Mac OS X using [MacPorts](https://www.macports.org/ports.php?by=name&substr=notmuch).
+Notmuch can be installed on OS X using [Homebrew](https://github.com/Homebrew/homebrew/blob/master/Library/Formula/notmuch.rb), [MacPorts](https://www.macports.org/ports.php?by=name&substr=notmuch), or [pkgsrc](http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/mail/notmuch/README.html).
 
 ## Development and Contributing
 
