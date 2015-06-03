@@ -1,5 +1,5 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
-# Notmuch -- The mail indexer
+# Notmuch -- Just an email system
 
 ## Why Notmuch?
 
