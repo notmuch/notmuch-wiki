@@ -48,18 +48,30 @@
                  within  a  sub-directory  of  the  path configured here named
                  <b>.notmuch</b>.
 
+                 Default: <b>$MAILDIR</b> variable if set, otherwise <b>$HOME/mail</b>.
+
           <b>user.name</b>
                  Your full name.
+
+                 Default:  <b>$NAME</b>  variable  if  set,   otherwise   read   from
+                 <b>/etc/passwd</b>.
 
           <b>user.primary</b>_<b>email</b>
                  Your primary email address.
 
+                 Default:  <b>$EMAIL</b>  variable if set, otherwise constructed from
+                 the username and hostname of the current machine.
+
           <b>user.other</b>_<b>email</b>
                  A list of other email addresses at which you receive email.
+
+                 Default: not set.
 
           <b>new.tags</b>
                  A list of tags that will be added to  all  messages  incorpo‐
                  rated by <b>notmuch</b> <b>new</b>.
+
+                 Default: <b>unread;inbox</b>.
 
           <b>new.ignore</b>
                  A  list  of file and directory names, without path, that will
@@ -68,14 +80,19 @@
                  be ignored, regardless of the  location  in  the  mail  store
                  directory hierarchy.
 
+                 Default: empty list.
+
           <b>search.exclude</b>_<b>tags</b>
                  A  list  of tags that will be excluded from search results by
                  default. Using an excluded tag in a query will override  that
                  exclusion.
 
+                 Default:   empty   list.   Note  that  <b>notmuch-setup</b>(1)  puts
+                 <b>deleted;spam</b> here when creating new configuration file.
+
           <b>maildir.synchronize</b>_<b>flags</b>
-                 If  true,  then the following maildir flags (in message file‐
-                 names) will be synchronized with  the  corresponding  notmuch
+                 If true, then the following maildir flags (in  message  file‐
+                 names)  will  be  synchronized with the corresponding notmuch
                  tags:
 
                               ┌─────┬────────────────────────────┐
@@ -89,21 +106,29 @@
                               ├─────┼────────────────────────────┤
                               │R    │ replied                    │
                               ├─────┼────────────────────────────┤
-                              │S    │ unread   (added  when  &apos;S&apos; │
+                              │S    │ unread  (added  when   &apos;S&apos; │
                               │     │ flag is not present)       │
                               └─────┴────────────────────────────┘
 
                  The <b>notmuch</b> <b>new</b> command will notice flag changes in filenames
-                 and  update  tags,  while the <b>notmuch</b> <b>tag</b> and <b>notmuch</b> <b>restore</b>
-                 commands will notice tag changes and update  flags  in  file‐
+                 and update tags, while the <b>notmuch</b> <b>tag</b>  and  <b>notmuch</b>  <b>restore</b>
+                 commands  will  notice  tag changes and update flags in file‐
                  names.
 
-                 If  there  have been any changes in the maildir (new messages
-                 added, old ones removed or renamed,  maildir  flags  changed,
-                 etc.),  it is advisable to run <b>notmuch</b> <b>new</b> before <b>notmuch</b> <b>tag</b>
-                 or <b>notmuch</b> <b>restore</b> commands to ensure  the  tag  changes  are
-                 properly  synchronized  to the maildir flags, as the commands
+                 If there have been any changes in the maildir  (new  messages
+                 added,  old  ones  removed or renamed, maildir flags changed,
+                 etc.), it is advisable to run <b>notmuch</b> <b>new</b> before <b>notmuch</b>  <b>tag</b>
+                 or  <b>notmuch</b>  <b>restore</b>  commands  to ensure the tag changes are
+                 properly synchronized to the maildir flags, as  the  commands
                  expect the database and maildir to be in sync.
+
+                 Default: <b>true</b>.
+
+          <b>crypto.gpg</b>_<b>path</b>
+              Name  (or  full  path)  of gpg binary to use in verification and
+              decryption of PGP/MIME messages.
+
+              Default: <b>gpg</b>.
 </pre>
 
 <h2>ENVIRONMENT</h2>
@@ -135,4 +160,4 @@
        2014, Carl Worth and many others
 </pre>
 
-<h2>0.19</h2>
+<h2>0.20.1</h2>

@@ -53,6 +53,9 @@
                         supported format, this heuristic, based the fact  that
                         batch-tag  format  contains  no parentheses, should be
                         accurate.
+
+          <b>--input=&lt;filename&gt;</b>
+                 Read input from given file instead of stdin.
 </pre>
 
 <h2>GZIPPED INPUT</h2>
@@ -80,4 +83,4 @@
        2014, Carl Worth and many others
 </pre>
 
-<h2>0.19</h2>
+<h2>0.20.1</h2>

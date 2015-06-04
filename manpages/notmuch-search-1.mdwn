@@ -37,7 +37,7 @@
                  intended  for  programs that invoke <a href='../notmuch-1/'>notmuch</a>(1) internally. If
                  omitted, the latest supported version will be used.
 
-          <b>--output=(summary|threads|messages|files|tags|sender|recipients)</b>
+          <b>--output=(summary|threads|messages|files|tags)</b>
 
               <b>summary</b>
                      Output a summary of each thread with any message matching
@@ -166,4 +166,4 @@
        2014, Carl Worth and many others
 </pre>
 
-<h2>0.19</h2>
+<h2>0.20.1</h2>
