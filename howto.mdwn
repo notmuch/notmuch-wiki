@@ -40,6 +40,9 @@ utilities support these formats:
 
 * [fetchmail](http://fetchmail.berlios.de/)
 
+* [muchsync](http://www.muchsync.org/) - replicate and synchronize
+  your notmuch database (mail and tags) across machines
+
 See the [[initial_tagging]] page for more info on initial tagging of
 messages.
 
