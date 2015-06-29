@@ -1,0 +1,9 @@
+[[!meta date="2015-06-27"]]
+
+Notmuch 0.20.2 (2015-06-27)
+===========================
+
+Emacs Interface
+---------------
+
+Bug fix for marking messages read in `notmuch-tree` mode.
