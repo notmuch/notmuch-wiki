@@ -1,0 +1,17 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# Notmuch Language Bindings [DRAFT]
+
+The Notmuch library, `libnotmuch`, can be used from many programming languages
+using the Notmuch language bindings. The [[command line interface|manpages]] and
+many of the [[email clients and frontends|frontends]] are based on the language
+bindings.
+
+[[!toc levels=2]]
+
+## C and C++
+
+## Python
+
+## Ruby
+
+## Go
