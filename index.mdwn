@@ -75,7 +75,7 @@ below).  Join the mailing list.  Read the archives.  Ask questions.
 ## Email clients and front ends
 
 Notmuch ships with a powerful set of [[command-line tools|manpages]], an
-[[email client for Emacs|emacstips]], another
+[[email client for Emacs|notmuch-emacs]], another
 [client for vim](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README),
 and a [[Mutt integration script|notmuch-mutt]].
 

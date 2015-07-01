@@ -1,121 +1,10 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
-# Tips and Tricks for using notmuch with Emacs
+# Tips and Tricks for using Notmuch with Emacs
 
-One of the more popular notmuch message reading clients is
-**notmuch.el**, an [emacs](http://www.gnu.org/software/emacs/) major
-mode for interacting with notmuch.  It is included in the notmuch
-package (notmuch-emacs in Debian).  This page goes over some usage
-tips for using notmuch with Emacs.
+Here are some tips and tricks for using Notmuch with Emacs. See the [[Notmuch
+Emacs Interface|notmuch-emacs]] page for basics.
 
 [[!toc levels=2]]
-
-## Setup
-
-Have a look at the [Howto](http://notmuchmail.org/howto/) for
-prerequisites.  Be sure you have done the general setup using the
-notmuch cli command!
-
-To use the Notmuch emacs mode, first add the following line to your
-`.emacs` rc file:
-
-        (autoload 'notmuch "notmuch" "notmuch mail" t)
-
-or if you always want to load notmuch when you start emacs:
-
-        (require 'notmuch)
-
-Then, either run "emacs -f notmuch", or execute the command `M-x
-notmuch` from within a running emacs.
-
-### <span id="notmuch_init_file"> Notmuch Emacs configuration file: </span>
-
-(Since Notmuch 0.18)
-
-After notmuch is loaded `notmuch-init-file` (typically
- `~/.emacs.d/notmuch-config.el`) is checked out. If such file exists
-it is loaded. Most emacs lisp based configuration not suitable via
-customization can be put there instead of `~/.emacs`.
-
-## Navigating & reading mails
-
-When first starting notmuch in emacs, you will be presented with the
-notmuch "hello" page.  If it exits with an error after writing
-"Welcome to notmutch. You have" you need to do the basic notmuch setup
-first (see above).
-From here you can do searches, see lists of recent
-searches, saved searches, message tags, help information, etc.
-
-Executing a search will open a new buffer in `notmuch-search-mode`
-displaying the search results.  Each line in the search results
-represents a message thread.  Hitting the '?' key will show help for
-this mode.
-
-In general, the 'q' will kill the current notmuch buffer and return
-you to the previous buffer (sort of like a 'pop').
-
-In search mode, navigating to a thread and hitting return will then
-open a new buffer in `notmuch-show-mode`, which will show the actual
-message contents of the thread.
-
-## Sending mail
-
-In any notmuch mode, you can start a new message by hitting the 'm'
-key.  To reply to a message or thread, just hit the 'r' key.
-
-When composing new messages, you will be entered in emacs's
-`message-mode`, which is a powerful mode for composing and sending
-messages.  When in message mode, you can type `C-c ?` for help.
-
-If you would like to use address autocompletion when composing
-messages, see [address completion](#address_completion).
-
-When you are ready to send a message, type `C-c C-c`. By default
-message mode will use your sendmail command to send mail, so make sure
-that works. One annoying standard configuration of message mode is
-that it will hide the sent mail in your emacs frame stack, but it will
-not close it. If you type several mails in an emacs session they will
-accumulate and make switching between buffers more annoying. You can
-avoid that behavior by adding `(setq message-kill-buffer-on-exit t)`
-in your `.emacs` file
-(or doing `M-x customize-variable<RET>message-kill-buffer-on-exit<RET>`)
-which will really close the mail window after sending it.
-
-## Attaching files
-
-Using the `M-x mml-attach-file` command, you can attach any file to be
-sent with your mail. By default this command is bound to the menu item
-*Attachments--Attach File* with the key binding `C-c C-a`. The
-variable `mml-dnd-attach-options` (`M-x
-customize-variable<RET>mml-dnd-attach-options<RET>`) can be set to
-allow the prompting for various attachment options (such as
-inline/attachment) if you want to do that.
-
-For those who prefer a more graphical interface, you can also simply
-drag and drop files from a file manager into a mail composition window
-to have them attached. In Ubuntu this works without any modifications
-if files are dragged from the file manager.
-
-And for those who prefer working from command line, the following
-script opens new emacs window with empty message and attaches files
-mentioned as script arguments. (Note: The script expects that you have
-`(server-start)` in your `.emacs` file.)
-
-        #!/bin/sh
-        attach_cmds=""
-        while [ $# -gt 0 ]; do
-            fullpath=$(readlink --canonicalize "$1")
-            attach_cmds="$attach_cmds (mml-attach-file \"$fullpath\")"
-            shift
-        done
-        emacsclient -a '' -c -e "(progn (compose-mail) $attach_cmds)"
-
-## Controlling external handlers for attachements
-
-You can choose e.g. which pdf viewer to invoke from notmuch-show mode by
-adding a .mailcap file in your home directory. Here is an example:
-
-    application/pdf; /usr/bin/mupdf %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
-    application/x-pdf; /usr/bin/mupdf %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 
 ## Issues with Emacs 24
 
@@ -129,9 +18,13 @@ or
 
 to your .emacs file.
 
------
+## Controlling external handlers for attachements
 
-# Advanced tips and tweaks
+You can choose e.g. which pdf viewer to invoke from notmuch-show mode by
+adding a .mailcap file in your home directory. Here is an example:
+
+    application/pdf; /usr/bin/mupdf %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+    application/x-pdf; /usr/bin/mupdf %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
 
 ## Overwriting the sender address
 
