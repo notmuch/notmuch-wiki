@@ -300,7 +300,7 @@ available:
         git clone https://github.com/aperezdc/notmuch-addrlookup-c
         cd notmuch-addrlookup-c
         make
-        
+
   * The vala-based
     [addrlookup](http://github.com/spaetz/vala-notmuch) The addrlookup binary needs to be compiled.
     Grab
@@ -400,6 +400,9 @@ part.
   2011-02-02.  Note that if you have the Debian package easypg
   installed, it will shadow the fixed version of easypg included with
   emacs.
+
+- If you wish `mml-secure-encrypt` to encrypt also for the sender, then
+  `M-x customize-variable mml2015-encrypt-to-self` might suit your need.
 
 ## Reading and verifying encrypted and signed messages
 
