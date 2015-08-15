@@ -32,6 +32,7 @@ Security concerns
 * wrong key selection during composition
 * reply (message mode defaults)
 * inline PGP
+* message-id collisions
 * webmail authentication/authorization (muliple users?)
 * webmail message escaping (XSS, etc)
 * shell injection
