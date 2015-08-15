@@ -13,16 +13,19 @@ Agenda
 
 Moving parts for secure e-mail
 ------------
-* libnotmuch
-* /usr/bin/notmuch
-* notmuch-emacs
-* libgmime
-* GnuPG
-* xapian
-* mml-mode (emacs)
+* libxapian  (C++, full text search)
+* libgmime (C, glib, RFC822+MIME library)
+* libnotmuch (C and C++)
+* /usr/bin/notmuch (C)
+* GnuPG (C)
+* Emacs UI (emacs lisp)
+  * notmuch-emacs
+  * mml-mode
+* Alot / nmbug / nmbug-status (python)
+  * python-bindings
 * webmail:
-  * noservice
-  * notmuch web
+  * noservice (Clojure)
+  * notmuch web (Haskell)
 
 Security concerns
 -----------------
