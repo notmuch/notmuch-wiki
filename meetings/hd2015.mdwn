@@ -2,6 +2,51 @@ Bremner and dkg are co-hosting a BoF at debconf:
 
 https://summit.debconf.org/debconf15/meeting/217/improving-privacy-and-security-for-notmuch-mail/
 
+Agenda
+======
+
+Moving parts for secure e-mail
+------------
+* libnotmuch
+* /usr/bin/notmuch
+* notmuch-emacs
+* libgmime
+* GnuPG
+* mml-mode
+* webmail:
+  * noservice
+  * notmuch web
+
+Security concerns
+-----------------
+* wrong key selection during composition
+* reply (message mode defaults)
+* inline PGP
+* webmail authentication/authorization (muliple users?)
+* webmail message escaping (XSS, etc)
+* shell injection
+* terminal escape sequences
+* S/MIME support
+
+### usability as security?
+
+* indexing encrypted mail
+* Memory Hole protected headers
+* key selection indicators during compositoin
+
+
+Breakout sessions
+-----------------
+
+* based on moving part
+
+Reportbacks
+-----------
+
+
+
+-------------------------
+
 proposed session:
 ---------
 One of (at least my) primary motivations for working on Notmuch is reducing my dependence on cloud services, and supporting the secure sending and receiving of signed and encrypted mail.  Like any realworld piece of software, notmuch is far from perfect, and several areas related to privacy and security could clearly be improved. During this BoF we'd like to plan out some topics to work on in followup hacking sessions. Anyone is welcome, even if they don't feel like hacking on notmuch. Potential topics of discussion andhacking include:
