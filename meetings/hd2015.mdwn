@@ -12,7 +12,8 @@ Moving parts for secure e-mail
 * notmuch-emacs
 * libgmime
 * GnuPG
-* mml-mode
+* xapian
+* mml-mode (emacs)
 * webmail:
   * noservice
   * notmuch web
