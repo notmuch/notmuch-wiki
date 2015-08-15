@@ -1,0 +1,39 @@
+Bremner and dkg are co-hosting a BoF at debconf:
+
+https://summit.debconf.org/debconf15/meeting/217/improving-privacy-and-security-for-notmuch-mail/
+
+proposed session:
+---------
+One of (at least my) primary motivations for working on Notmuch is reducing my dependence on cloud services, and supporting the secure sending and receiving of signed and encrypted mail.  Like any realworld piece of software, notmuch is far from perfect, and several areas related to privacy and security could clearly be improved. During this BoF we'd like to plan out some topics to work on in followup hacking sessions. Anyone is welcome, even if they don't feel like hacking on notmuch. Potential topics of discussion andhacking include:
+        * S/MIME signatures and encryption
+        * Improving the security of the Emacs MML mime composer
+        * Searching of GPG encrypted mail
+        * Auditing and fixing "webbug" style problems in front ends
+        * Making notmuch build reproducibly
+
+---------
+
+more complete agenda:
+
+        * S/MIME signatures and encryption
+            * test suites
+            * integration with other keyrings
+            * signature only (easyish) versus encryption (more work)
+        * Improving the security of the Emacs MML mime composer
+            * automated "encrypt-when-i-have-keys-available" mode or other convenience functions?
+            * can an adversary force signatures based on quoted text?
+            * generate memory-hole-style messages
+        * Searching of GPG encrypted mail
+            * possible implementation mechanism: "notmuch reindex --with-filter=decrypt"
+        * Auditing and fixing "webbug" style problems in front ends
+            * can we instruct emacs to restrict all network access from notmuch?
+            * what other frontends might call out to the network?
+        * Making notmuch build reproducibly
+            * https://reproducible.debian.net/rb-pkg/unstable/amd64/notmuch.html
+        * Protect against spoofed signature verification?
+            * how do we deal with multipart messages where only a subtree is signed?
+            * are other sorts of spoofing possible?
+        * read and display memory-hole-style messages
+        * "safe" ways to display html parts (e.g. without text/plain alternatives)
+
+
