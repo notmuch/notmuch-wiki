@@ -3,7 +3,7 @@ What, Where, When
 
 *  Bremner and dkg are co-hosting a BoF at [debconf](https://summit.debconf.org/debconf15/meeting/217/improving-privacy-and-security-for-notmuch-mail/).
 
-* The meeting is Monday 2015-08-17, 1700-1800
+* The meeting is Monday 2015-08-17, 1700-1800 CET
 
 * Video streaming should be [available](https://wiki.debconf.org/wiki/DebConf15/Videostream/Amsterdam)
 
