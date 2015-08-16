@@ -34,6 +34,7 @@ Security and privacy concerns
 * Oops I just sent...
   * wrong key selection during composition
   * reply (message mode defaults)
+  * opportunistic signing and encryption
 * inline PGP
 
 * webmail authentication/authorization (multiple users?)
@@ -43,6 +44,7 @@ Security and privacy concerns
 * S/MIME support
   * signatures
   * encryption
+  * integration with other keyrings
 * reproducible builds:
   [sphinx man pages](https://reproducible.debian.net/rb-pkg/testing/amd64/notmuch.html)
 
@@ -69,9 +71,6 @@ Reportbacks
 
 more complete agenda:
 
-        * S/MIME signatures and encryption
-            * test suites
-            * integration with other keyrings
             * signature only (easyish) versus encryption (more work)
         * Improving the security of the Emacs MML mime composer
             * automated "encrypt-when-i-have-keys-available" mode or other convenience functions?
