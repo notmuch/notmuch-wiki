@@ -30,10 +30,12 @@ Moving parts for secure e-mail
 Security and privacy concerns
 -----------------------------
 * privacy leaks rendering messages
-* wrong key selection during composition
-* reply (message mode defaults)
-* inline PGP
 * message-id collisions
+* Oops I just sent...
+  * wrong key selection during composition
+  * reply (message mode defaults)
+* inline PGP
+
 * webmail authentication/authorization (multiple users?)
 * webmail message escaping (XSS, etc)
 * shell injection
@@ -61,12 +63,6 @@ Reportbacks
 
 -------------------------
 
-proposed session:
----------
-        * Improving the security of the Emacs MML mime composer
-        * Searching of GPG encrypted mail
-        * Auditing and fixing "webbug" style problems in front ends
----------
 
 more complete agenda:
 
