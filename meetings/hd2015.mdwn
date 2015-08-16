@@ -38,6 +38,8 @@ Security concerns
 * shell injection
 * terminal escape sequences
 * S/MIME support
+* reproducible builds:
+  [sphinx man pages](https://reproducible.debian.net/rb-pkg/testing/amd64/notmuch.html)
 
 ### usability as security?
 
