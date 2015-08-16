@@ -7,6 +7,13 @@ What, Where, When
 
 * Video streaming should be [available](https://wiki.debconf.org/wiki/DebConf15/Videostream/Amsterdam)
 
+* We will probably use
+  [gobby](https://packages.debian.org/jessie/gobby) for collaborative
+  editing. Unfortunately the infinote backend for emacs-rudel seems
+  not work. After installing gobby (>= 5.0), run
+
+      % gobby infinote://gobby.debian.org/debconf15/bof/notmuch-privacy-and-security
+
 
 Agenda
 ======
