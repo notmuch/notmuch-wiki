@@ -60,6 +60,10 @@ Security and privacy concerns
   * integration with other keyrings
 * reproducible builds:
   [sphinx man pages](https://reproducible.debian.net/rb-pkg/testing/amd64/notmuch.html)
+* decryption happens in the CLI rather than the UI
+  * when using the UI and the CLI on different machines (so called "remote" mode), this leads to some undesirable and odd behaviour:
+    * decrypted content is passed across a potentially insecure channel (though usually ssh)
+    * the CLI needs access to keys, which can be awkward or impossible
 
 Usability as security?
 ----------------------
