@@ -29,6 +29,7 @@ Moving parts for secure e-mail
 
 Security concerns
 -----------------
+* privacy leaks rendering messages
 * wrong key selection during composition
 * reply (message mode defaults)
 * inline PGP
