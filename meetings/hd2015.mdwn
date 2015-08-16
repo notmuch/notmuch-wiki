@@ -62,13 +62,9 @@ Reportbacks
 
 proposed session:
 ---------
-One of (at least my) primary motivations for working on Notmuch is reducing my dependence on cloud services, and supporting the secure sending and receiving of signed and encrypted mail.  Like any realworld piece of software, notmuch is far from perfect, and several areas related to privacy and security could clearly be improved. During this BoF we'd like to plan out some topics to work on in followup hacking sessions. Anyone is welcome, even if they don't feel like hacking on notmuch. Potential topics of discussion andhacking include:
-        * S/MIME signatures and encryption
         * Improving the security of the Emacs MML mime composer
         * Searching of GPG encrypted mail
         * Auditing and fixing "webbug" style problems in front ends
-        * Making notmuch build reproducibly
-
 ---------
 
 more complete agenda:
