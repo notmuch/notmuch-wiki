@@ -46,7 +46,8 @@ Security and privacy concerns
 * reproducible builds:
   [sphinx man pages](https://reproducible.debian.net/rb-pkg/testing/amd64/notmuch.html)
 
-### usability as security?
+Usability as security?
+----------------------
 
 * indexing encrypted mail
 * Memory Hole protected headers
