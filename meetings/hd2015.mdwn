@@ -36,9 +36,9 @@ Security and privacy concerns
   * reply (message mode defaults)
   * opportunistic signing and encryption
 * inline PGP
-
-* webmail authentication/authorization (multiple users?)
-* webmail message escaping (XSS, etc)
+* webmail
+  * authentication/authorization (multiple users?)
+  *  message escaping (XSS, etc)
 * shell injection
 * terminal escape sequences
 * S/MIME support
