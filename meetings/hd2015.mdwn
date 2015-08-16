@@ -20,7 +20,7 @@ Moving parts for secure e-mail
 * GnuPG (C)
 * Emacs UI (emacs lisp)
   * notmuch-emacs
-  * mml-mode
+  * mml-mode, mm multimedia rendering library
 * Alot / nmbug / nmbug-status (python)
   * python-bindings
 * webmail:
