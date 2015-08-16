@@ -27,8 +27,8 @@ Moving parts for secure e-mail
   * noservice (Clojure)
   * notmuch web (Haskell)
 
-Security concerns
------------------
+Security and privacy concerns
+-----------------------------
 * privacy leaks rendering messages
 * wrong key selection during composition
 * reply (message mode defaults)
