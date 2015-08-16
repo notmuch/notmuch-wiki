@@ -29,12 +29,18 @@ Moving parts for secure e-mail
 
 Security and privacy concerns
 -----------------------------
-* privacy leaks rendering messages
 * message-id collisions
+* rendering "rich" messages
+  * network access in front ends
+  * safe rendering of HTML
+* rendering security information
+  * spoofing signatures
+  * partially signed messages
 * Oops I just sent...
   * wrong key selection during composition
   * reply (message mode defaults)
   * opportunistic signing and encryption
+  * using markup for security
 * inline PGP
 * webmail
   * authentication/authorization (multiple users?)
@@ -51,10 +57,10 @@ Security and privacy concerns
 Usability as security?
 ----------------------
 
-* indexing encrypted mail
+* Indexing encrypted mail
+  * incremental re-indexing?
 * Memory Hole protected headers
-* key selection indicators during composition
-
+* Key selection indicators during composition
 
 Breakout sessions
 -----------------
@@ -63,30 +69,5 @@ Breakout sessions
 
 Reportbacks
 -----------
-
-
-
--------------------------
-
-
-more complete agenda:
-
-            * signature only (easyish) versus encryption (more work)
-        * Improving the security of the Emacs MML mime composer
-            * automated "encrypt-when-i-have-keys-available" mode or other convenience functions?
-            * can an adversary force signatures based on quoted text?
-            * generate memory-hole-style messages
-        * Searching of GPG encrypted mail
-            * possible implementation mechanism: "notmuch reindex --with-filter=decrypt"
-        * Auditing and fixing "webbug" style problems in front ends
-            * can we instruct emacs to restrict all network access from notmuch?
-            * what other frontends might call out to the network?
-        * Making notmuch build reproducibly
-            * https://reproducible.debian.net/rb-pkg/unstable/amd64/notmuch.html
-        * Protect against spoofed signature verification?
-            * how do we deal with multipart messages where only a subtree is signed?
-            * are other sorts of spoofing possible?
-        * read and display memory-hole-style messages
-        * "safe" ways to display html parts (e.g. without text/plain alternatives)
 
 
