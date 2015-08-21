@@ -91,7 +91,8 @@ Notmuch. And a few tips about integrating it with [[Mutt|mutttips]] and [[Vim|vi
 [Notmuch source releases](http://notmuchmail.org/releases/) are available as
 source tar balls.
 
-Notmuch is packaged for at least the following distributions:
+Notmuch is packaged for at least the following operating systems and
+distributions:
 
 * [Arch Linux](https://www.archlinux.org/packages/?q=notmuch)
 * [Debian](http://packages.debian.org/search?keywords=notmuch)
@@ -99,10 +100,9 @@ Notmuch is packaged for at least the following distributions:
 * [Gentoo](http://packages.gentoo.org/package/net-mail/notmuch)
 * [NetBSD](http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/mail/notmuch/README.html)
 * [openSUSE](https://build.opensuse.org/search?search_text=notmuch)
+* OS X [Homebrew](https://github.com/Homebrew/homebrew/blob/master/Library/Formula/notmuch.rb), [MacPorts](https://www.macports.org/ports.php?by=name&substr=notmuch), or [pkgsrc](http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/mail/notmuch/README.html).
 * [Slackware](http://slackbuilds.org/repository/13.37/office/notmuch/)
 * [Ubuntu](http://packages.ubuntu.com/search?keywords=notmuch)
-
-Notmuch can be installed on OS X using [Homebrew](https://github.com/Homebrew/homebrew/blob/master/Library/Formula/notmuch.rb), [MacPorts](https://www.macports.org/ports.php?by=name&substr=notmuch), or [pkgsrc](http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/mail/notmuch/README.html).
 
 ## Development and Contributing
 
