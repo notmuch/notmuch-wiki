@@ -646,3 +646,65 @@ refine, next hunk etc all work.
 and then this function needs to bound into the keymap with something like
 
     (define-key 'notmuch-show-mode-map "D" 'my-notmuch-show-view-as-patch)
+
+## Interfacing with Patchwork
+
+[Patchwork](http://jk.ozlabs.org/projects/patchwork/) is a web-based system for
+tracking patches sent to a mailing list. While the Notmuch project doesn't use
+it, many other open source projects do. Having an easy way to get from a patch
+email in your favorite mail client to the web page of the patch in the Patchwork
+instance is a cool thing to have. Here's how to abuse the notmuch stash feature
+to achieve this. (Don't know stash? See `notmuch-show-stash-mlarchive-link`,
+bound to `c l` in `notmuch-show`.)
+
+The trick needed is turning the email Message-ID into a unique Patchwork ID
+assigned by Patchwork. We'll use the `pwclient` command-line tool to achieve
+this. You'll first need to get that working and configured for the Patchwork
+instance you're using. That part is beyond this tip here; please refer to
+Patchwork documentation.
+
+Check your configuration on the command-line, for example:
+
+    /path/to/pwclient -p <the-project> -n 5 -f "%{id}"
+
+Note that the -f format argument may require a reasonably new version of the
+client. Once you have the above working, you can `M-x customize-variable RET
+notmuch-show-stash-mlarchive-link-alist RET`.
+
+Add a new entry with "Function returning the URL:" set to:
+
+     (lambda (message-id)
+       (concat "http://patchwork.example.com/patch/"
+               (nth 0
+                    (process-lines "/path/to/pwclient" "search"
+                                   "-p" "the-project"
+                                   "-m" (concat "<" message-id ">")
+                                   "-n" "1"
+				   "-f" "%{id}"))))
+
+Replacing `http://patchwork.example.com/patch/`, `/path/to/pwclient`, and
+`the-project` appropiately. You should now be able to stash the Patchwork URL
+using `c l`.
+
+Going further, if the patch has been committed, you can get the commit hash with
+this:
+
+     (lambda (message-id)
+       (nth 0
+            (process-lines "/path/to/pwclient" "search"
+                           "-p" "the-project"
+                           "-m" (concat "<" message-id ">")
+                           "-n" "1"
+			   "-f" "%{commit_ref}")))
+
+And finally, if the project has a web interface to its source repository, you
+can turn the commit hash into a URL pointing there, for example:
+
+     (lambda (message-id)
+       (concat "http://cgit.example.com/the-project/commit/?id="
+               (nth 0
+                    (process-lines "/path/to/pwclient" "search"
+                                   "-p" "the-project"
+                                   "-m" (concat "<" message-id ">")
+                                   "-n" "1"
+				   "-f" "%{commit_ref}"))))
