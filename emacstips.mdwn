@@ -673,14 +673,14 @@ notmuch-show-stash-mlarchive-link-alist RET`.
 
 Add a new entry with "Function returning the URL:" set to:
 
-     (lambda (message-id)
-       (concat "http://patchwork.example.com/patch/"
-               (nth 0
-                    (process-lines "/path/to/pwclient" "search"
-                                   "-p" "the-project"
-                                   "-m" (concat "<" message-id ">")
-                                   "-n" "1"
-				   "-f" "%{id}"))))
+    (lambda (message-id)
+      (concat "http://patchwork.example.com/patch/"
+              (nth 0
+                   (process-lines "/path/to/pwclient" "search"
+                                  "-p" "the-project"
+                                  "-m" (concat "<" message-id ">")
+                                  "-n" "1"
+                                  "-f" "%{id}"))))
 
 Replacing `http://patchwork.example.com/patch/`, `/path/to/pwclient`, and
 `the-project` appropiately. You should now be able to stash the Patchwork URL
@@ -689,22 +689,22 @@ using `c l`.
 Going further, if the patch has been committed, you can get the commit hash with
 this:
 
-     (lambda (message-id)
-       (nth 0
-            (process-lines "/path/to/pwclient" "search"
-                           "-p" "the-project"
-                           "-m" (concat "<" message-id ">")
-                           "-n" "1"
-			   "-f" "%{commit_ref}")))
+    (lambda (message-id)
+      (nth 0
+           (process-lines "/path/to/pwclient" "search"
+                          "-p" "the-project"
+                          "-m" (concat "<" message-id ">")
+                          "-n" "1"
+                          "-f" "%{commit_ref}")))
 
 And finally, if the project has a web interface to its source repository, you
 can turn the commit hash into a URL pointing there, for example:
 
-     (lambda (message-id)
-       (concat "http://cgit.example.com/the-project/commit/?id="
-               (nth 0
-                    (process-lines "/path/to/pwclient" "search"
-                                   "-p" "the-project"
-                                   "-m" (concat "<" message-id ">")
-                                   "-n" "1"
-				   "-f" "%{commit_ref}"))))
+    (lambda (message-id)
+      (concat "http://cgit.example.com/the-project/commit/?id="
+              (nth 0
+                   (process-lines "/path/to/pwclient" "search"
+                                  "-p" "the-project"
+                                  "-m" (concat "<" message-id ">")
+                                  "-n" "1"
+                                  "-f" "%{commit_ref}"))))
