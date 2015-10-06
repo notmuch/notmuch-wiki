@@ -137,3 +137,14 @@ reformail will solve the problem.
 ## <span id="special_tags">**Take advantage of tags that are special to notmuch**</span>
 
 See [[tags special to notmuch|special-tags]].
+
+
+## <span id="special_tags">**Index all your gpg-encrypted email**</span>
+
+If you don't mind replacing your encrypted emails with cleartext versions and
+re-indexing them, there are some scripts that do that at
+[github](https://github.com/mmehnert/maildir-decrypt) . That would make sense
+in a scenario where you have encrypted your hard disk anyway and are
+comfortable with the security implications (and until notmuch can index
+encrypted email itself).
+
