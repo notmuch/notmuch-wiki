@@ -218,7 +218,7 @@ displaying the count for the saved-search. For example
         (setq notmuch-saved-searches '((:name "inbox"
                                         :query "tag:inbox"
                                         :count-query "tag:inbox and tag:unread"
-                                        :sort-order 'oldest-first)))
+                                        :sort-order oldest-first)))
 
 specifies a single saved search for inbox, but the number displayed by
 the search will be the number of unread messages in the inbox, and the
