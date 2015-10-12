@@ -32,7 +32,7 @@ release](http://notmuchmail.org/releases/), please refer to the
 
 To configure Notmuch, just run
 
-	notmuch
+    notmuch
 
 This will interactively guide you through the setup process, and save the
 configuration to `$HOME/.notmuch-config`. If you'd like to change the
@@ -45,7 +45,7 @@ This step only modifies the configuration file.
 
 Notmuch needs a search database to operate. The next step is to run
 
-	notmuch new
+    notmuch new
 
 to index all your messages in the search database. The database will be stored
 in `.notmuch` directory under your mail store. The database is not a replacement
