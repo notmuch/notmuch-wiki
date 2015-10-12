@@ -1,0 +1,75 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# Getting Started with Notmuch
+
+*This is a work in progress.*
+
+[[!toc levels=2]]
+
+This is your friendly guide and tutorial to getting started with Notmuch. It
+will help you through the first steps of setting up Notmuch.
+
+## Prerequisites
+
+In order to use Notmuch, you will need to have your email messages stored in
+your local filesystem, one message per file. For example,
+[Maildir](http://cr.yp.to/proto/maildir.html), Maildir++, and MH formats work
+like this, while [mbox](https://en.wikipedia.org/wiki/Mbox) does not. Storing
+the messages one message per file is the only hard dependency for trying out
+Notmuch.
+
+We will get back to delivering messages later, for now we'll just assume you
+already have messages in this format.
+
+## Installation
+
+On Linux, the easiest way to install Notmuch is through your distribution's
+package repository. If you're installing Notmuch from a [git
+checkout](http://git.notmuchmail.org/git/notmuch) or a [source
+release](http://notmuchmail.org/releases/), please refer to the
+[INSTALL](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/INSTALL) document.
+
+## Configuration
+
+To configure Notmuch, just run
+
+	notmuch
+
+This will interactively guide you through the setup process, and save the
+configuration to `$HOME/.notmuch-config`. If you'd like to change the
+configuration in the future, you can either edit that file directly, or run
+`notmuch setup`.
+
+This step only modifies the configuration file.
+
+## Initial Indexing
+
+Notmuch needs a search database to operate. The next step is to run
+
+	notmuch new
+
+to index all your messages in the search database. The database will be stored
+in `.notmuch` directory under your mail store. The database is not a replacement
+or storage for your messages; it's just an index to find the right message
+files.
+
+Notmuch does not modify or delete your mails. This is one of the main design
+principles of Notmuch. (The only exception is renaming files upon tagging
+according to the Maildir specification if the `maildir.synchronize_flags`
+configuration option is set.) It should be safe to try Notmuch.
+
+Depending on the amount of mail you have the initial indexing process can take a
+long time, so expect that. Also, the resulting database will require roughly the
+same amount of storage space as your current collection of email.
+
+After this step, you can try out the [[Notmuch command-line
+interface|manpages]], or [[Notmuch Emacs interface|notmuch-emacs]].
+
+## Converting Existing mbox to Maildir
+
+## Delivering New Messages
+
+## Automation Via Hooks
+
+## Backing up and Restoring the Database
+
+## Removing Notmuch
