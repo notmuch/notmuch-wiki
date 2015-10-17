@@ -10,13 +10,13 @@ Tips for using Notmuch with vim; these may be applicable when using vim with
 
 ## Addressbook management and vim
 
-There are some emacs tips over [here](http://notmuchmail.org/emacstips/#index15h2) that
+There are some emacs tips over [[here|emacstips#index15h2]] that
 explains how to configure emacs with an addressbook, but the few solutions were not fast enough
-for me. And I never could test the vala-based code. So I updated the notmuch_addresses code to
+for me. And I never could test the vala-based code. So I updated the notmuch\_addresses code to
 use a cache to be able to make better matches and still be lightning fast.
 
 And finally, [I needed](http://i.got.nothing.to/blog/2013/03/20/how-i-learned-to-stop-worrying-and-love-the-mail/) to have a way to autocomplete my recipients' addresses
-automagically from within `vim`. So that's why I created the [notmuch_abook](https://github.com/guyzmo/notmuch-abook) code.
+automagically from within `vim`. So that's why I created the [notmuch\_abook](https://github.com/guyzmo/notmuch-abook) code.
 You can either install it as a plugin in vim, using vundle:
 
         Vundle 'guyzmo/notmuch-abook'
