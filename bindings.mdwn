@@ -3,15 +3,44 @@
 
 The Notmuch library, `libnotmuch`, can be used from many programming languages
 using the Notmuch language bindings. The [[command line interface|manpages]] and
-many of the [[email clients and frontends|frontends]] are based on the language
+the [[email clients and frontends|frontends]] are based on the language
 bindings.
 
 [[!toc levels=2]]
 
 ## C and C++
 
+`libnotmuch` is a shared C library. [The API](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/lib/notmuch.h)
+
+The Notmuch command-line interface is based on the C library.
+
 ## Python
+
+Notmuch includes Python bindings to the Notmuch shared library. Please refer to
+the nice and extensive [Notmuch Python API
+documentation](http://notmuch.readthedocs.org/projects/notmuch-python/).
+
+The bindings are very simple to use. As an example, given you have the Python
+bindings installed (or simply set your PYTHONPATH environment variable to point
+to the .../bindings/python directory), this snippet will produce a list of mails
+matching the given expression:
+
+        >>> import notmuch
+        >>> db = notmuch.Database()
+        >>> query = db.create_query('tag:inbox AND NOT tag:killed')
+        >>> list(query.search_messages()) # doctest:+ELLIPSIS
+        [...]
+
+[The source](http://git.notmuchmail.org/git/notmuch/tree/HEAD:/bindings/python/)
 
 ## Ruby
 
+[The source](http://git.notmuchmail.org/git/notmuch/tree/HEAD:/bindings/ruby/)
+
+The [client for
+vim](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README) is in Ruby,
+so worth a look.
+
 ## Go
+
+[The source](http://git.notmuchmail.org/git/notmuch/tree/HEAD:/bindings/go/)

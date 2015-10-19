@@ -66,21 +66,7 @@ refer to the mailing list.
 
 ## <span id="python">**Use notmuch from python**</span>
 
-Notmuch includes python bindings to the notmuch shared library. Please
-refer to the nice and extensive
-[notmuch python API documentation](http://notmuch.readthedocs.org/).
-
-The bindings are very simple to use.  As an example, given you have
-the python bindings installed (or simply set your PYTHONPATH
-environment variable to point to the .../bindings/python directory),
-this snippet will produce a list of mails matching the given
-expression:
-
-        >>> import notmuch
-        >>> db = notmuch.Database()
-        >>> query = db.create_query('tag:inbox AND NOT tag:killed')
-        >>> list(query.search_messages()) # doctest:+ELLIPSIS
-        [...]
+See the [[Notmuch Library Language Bindings|bindings]] page.
 
 ## <span id="print_filenames">**Using notmuch with Mutt**</span>
 

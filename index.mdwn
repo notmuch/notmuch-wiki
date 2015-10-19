@@ -68,6 +68,7 @@ After that, come back and checkout our documentation:
   * [[Remote usage|remoteusage]]
   * [[Performance|performance]]
   * [[References|references]]
+  * [[Notmuch Library Language Bindings|bindings]]
 
 Apart from the wiki, help is available via email and on IRC (see
 below).  Join the mailing list.  Read the archives.  Ask questions.
