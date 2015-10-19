@@ -35,7 +35,7 @@ You can use the `post-new` hook, which is automatically run after `notmuch new`,
 to do post-processing. See `man notmuch-hooks` for details on hooks.
 
 
-# Other solutions
+## Other solutions
 
 * [Carl Worth's approach to tagging](http://notmuchmail.org/pipermail/notmuch/2010/001691.html). It
   is email id:87r5o8stbj.fsf@yoom.home.cworth.org in the notmuch
@@ -64,9 +64,8 @@ to do post-processing. See `man notmuch-hooks` for details on hooks.
   of sent mails) and has some fancy features (e.g. mail classification
   using bayesian filters).
 
-# Notmuch Delivery Agent -- `notmuch-deliver`
+## Notmuch MDA -- `notmuch-insert`
 
-The [Notmuch Delivery Agent](http://github.com/alip/notmuch-deliver/)
-([announcement](http://notmuchmail.org/pipermail/notmuch/2010/002871.html)) is
-a tool for delivering emails to maildir, add them to the Notmuch database, and
-tag them as desired.
+The [[notmuch insert command|manpages/notmuch-insert-1]] is a tool for
+delivering emails to maildir, indexing them to the Notmuch database, and tagging
+them as desired.
