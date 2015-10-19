@@ -1,17 +1,78 @@
-[[!meta title=Screenshots]]
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# Notmuch Screenshots
 
-## Notmuch 0.5 -- Emacs UI
+## Notmuch Emacs UI
 
-[[!img Screenshot-notmuch-hello.png alt="Hello screen"]]
-[[!img Screenshot-notmuch-search.png alt="Search results"]]
-[[!img Screenshot-notmuch-show.png alt="Thread view"]]
-[[!img Screenshot-notmuch-thread.png alt="Collapsed thread"]]
-[[!img Screenshot-notmuch-search-fruitsalad.png alt="Search results, in technicolor!"]]
+### Hello View
 
-## Notmuch 0.11 -- Emacs UI
+The hello view is a welcome screen giving an overview of saved and recent
+searches.
 
-[[!img Screenshot-notmuch-show-html.png alt="Thread view, with HTML and an embedded image"]]
+[[!img notmuch-hello.png alt="Hello View"]]
 
-## Notmuch 0.14 -- Emacs UI
+### Jump Search
 
-[[!img Screenshot-notmuch-thread-zkj.png alt="Thread view, with folded citation lines"]]
+The jump search, bound to `j`, works from all views. Quickly access your most
+important saved searches from anywhere, with configurable jump keys.
+
+[[!img notmuch-jump-search.png alt="Jump Search"]]
+
+### Search View
+
+The search results, one line per thread. Highlights and colors are configurable,
+including images for tags (like the star). Search anywhere using the `s` key.
+
+[[!img notmuch-search.png alt="Search View"]]
+
+### Show View
+
+Show view displaying a thread, with most messages collapsed. Quoted parts are
+colored, signature is hidden by default. Tags added/removed in this buffer are
+highlighted.
+
+[[!img notmuch-show.png alt="Show View"]]
+
+### Show View: Collapsed
+
+Show view displaying a thread, with all messages collapsed. The subject for each
+mail is shown only if it's different from its parent in the thread.
+
+[[!img notmuch-show-collapsed.png alt="Show View: Collapsed"]]
+
+### Show View: Citation
+
+Show view displaying a message, with long citations collapsed.
+
+[[!img notmuch-show-citation.png alt="Show View: Citation"]]
+
+### Show View: Patch
+
+Show view displaying a message which includes a patch.
+
+[[!img notmuch-show-patch.png alt="Show View: Patch"]]
+
+### Tree View
+
+The tree view displays search results with one message per line, with thread
+structure. Use 'z' to search when you want the results in tree view.
+
+[[!img notmuch-tree.png alt="Tree View"]]
+
+### Split Tree View
+
+The tree view has a split view with threaded search results and a single-message
+view.
+
+[[!img notmuch-tree-split.png alt="Split Tree View"]]
+
+### Help
+
+Every view in has help accessible via `?`.
+
+[[!img notmuch-help.png alt="Help"]]
+
+### Customization
+
+All configuration is available via the customization interface.
+
+[[!img notmuch-customize.png alt="Customization"]]
