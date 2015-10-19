@@ -1,6 +1,8 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Notmuch Screenshots
 
+[[!toc levels=3]]
+
 ## Notmuch Emacs UI
 
 ### Hello View
@@ -61,13 +63,14 @@ structure. Use 'z' to search when you want the results in tree view.
 ### Split Tree View
 
 The tree view has a split view with threaded search results and a single-message
-view.
+display.
 
 [[!img notmuch-tree-split.png alt="Split Tree View"]]
 
 ### Help
 
-Every view in has help accessible via `?`.
+Every view has built-in help accessible via `?`. Documentation covers even the
+functionality available through prefix arguments and in sub-keymaps.
 
 [[!img notmuch-help.png alt="Help"]]
 
