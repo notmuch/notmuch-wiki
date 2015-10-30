@@ -6,8 +6,7 @@ Notmuch 0.21 (2015-10-29)
 General
 -------
 
-Notmuch now requires gmime >= 2.6.7. The gmime 2.4 series is no longer
-supported.
+### Notmuch now requires gmime >= 2.6.7. The gmime 2.4 series is no longer supported
 
 ### Database revision tracking: `lastmod:` queries
 
