@@ -41,7 +41,9 @@
 <pre>
        Supported global options for <b>notmuch</b> include
 
-          <b>--help</b> Print a synopsis of available commands and exit.
+          <b>--help</b> <b>[command-name]</b>
+                 Print a synopsis of available commands  and  exit.   With  an
+                 optional command name, show the man page for that subcommand.
 
           <b>--version</b>
                  Print the installed version of notmuch, and exit.
@@ -49,6 +51,17 @@
           <b>--config=FILE</b>
                  Specify the configuration file to  use.  This  overrides  any
                  configuration file specified by ${NOTMUCH_CONFIG}.
+
+          <b>--uuid=HEX</b>
+                 Enforce that the database UUID  (a  unique  identifier  which
+                 persists  until  e.g. the database is compacted) is HEX; exit
+                 with an error if it is not. This is useful to detect rollover
+                 in  modification  counts  on messages. You can find this UUID
+                 using e.g. <b>notmuch</b> <b>count</b> <b>--lastmod</b>
+
+       All global options except <b>--config</b> can also be specified after the com‐
+       mand.  For example, <b>notmuch</b> <b>subcommand</b> <b>--uuid=HEX</b> is equivalent to <b>not-</b>
+       <b>much</b> <b>--uuid=HEX</b> <b>subcommand</b>.
 </pre>
 
 <h2>COMMANDS</h2>
@@ -149,7 +162,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2015, Carl Worth and many others
+       2009-2015, Carl Worth and many others
 </pre>
 
-<h2>0.20.2</h2>
+<h2>0.21</h2>

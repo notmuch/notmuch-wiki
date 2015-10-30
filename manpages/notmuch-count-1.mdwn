@@ -49,6 +49,11 @@
                  option is not compatible with specifying search terms on  the
                  command line.
 
+          <b>--lastmod</b>
+                 Append  lastmod  (counter for number of database updates) and
+                 UUID to  the  output.  lastmod  values  are  only  comparable
+                 between databases with the same UUID.
+
           <b>--input=&lt;filename&gt;</b>
                  Read  input  from  given file, instead of from stdin. Implies
                  <b>--batch</b>.
@@ -69,7 +74,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2015, Carl Worth and many others
+       2009-2015, Carl Worth and many others
 </pre>
 
-<h2>0.20.2</h2>
+<h2>0.21</h2>

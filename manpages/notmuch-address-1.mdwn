@@ -53,6 +53,26 @@
                      Note:  With this option, addresses are printed only after
                      the whole search is finished. This may take long time.
 
+          <b>--deduplicate=(no|mailbox|address)</b>
+              Control the deduplication of results.
+
+              <b>no</b>     Output all occurences of addresses in the  matching  mes‐
+                     sages. This is not applicable with --output=count.
+
+              <b>mailbox</b>
+                     Deduplicate  addresses  based on the full, case sensitive
+                     name and email address, or mailbox. This  is  effectively
+                     the  same as piping the --deduplicate=no output to <b>sort</b> <b>|</b>
+                     <b>uniq</b>, except for  the  order  of  results.  This  is  the
+                     default.
+
+              <b>address</b>
+                     Deduplicate  addresses  based  on  the  case  insensitive
+                     address part of the mailbox. Of all  the  variants  (with
+                     different  name  or  case),  print the one occurring most
+                     frequently among the matching messages. If --output=count
+                     is specified, include all variants in the count.
+
           <b>--sort=(newest-first|oldest-first)</b>
                  This option can be used to present results in either  chrono‐
                  logical  order  (<b>oldest-first</b>) or reverse chronological order
@@ -62,7 +82,9 @@
                  cal  order,  (that  is,  the newest results will be displayed
                  first).
 
-                 This option is not supported with --output=count.
+                 However, if either --output=count or --deduplicate=address is
+                 specified, this option  is  ignored  and  the  order  of  the
+                 results is unspecified.
 
           <b>--exclude=(true|false)</b>
                  A message is called &quot;excluded&quot; if it matches at least one tag
@@ -101,7 +123,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2015, Carl Worth and many others
+       2009-2015, Carl Worth and many others
 </pre>
 
-<h2>0.20.2</h2>
+<h2>0.21</h2>
