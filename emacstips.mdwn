@@ -276,8 +276,6 @@ the rest will go to the default account.
 
 ## sending mail using smtpmail
 
-another option is to use remov
-
 <!-- By default message mode will use the system `sendmail` command to send
 mail. However, on a typical desktop machine there may not be local SMTP
 daemon running (nor it is configured to send mail outside of the system). -->
@@ -286,13 +284,20 @@ If setting up local `sendmail` or `msmtp` is not feasible or desirable,
 the Emacs `smtpmail` package can be used to send email by talking to remote
 SMTP server via TCP connection. It is pretty easy to configure:
 
-1. `M-x customize-group smtpmail`
+1. Emacs variable `message-send-mail-function` has not been set
 
-   as as minimum, 'Smtpmail Smtp Server' needs to be set.
+   Initially, Emacs variable `message-send-mail-function` has value of
+   `sendmail-query-once`. When (notmuch) message mode is about to send email,
+   `sendmail-query-once` will ask how emacs should send email. Typing `smtp`
+   will configure `smtpmail` and Emacs may prompt for SMTP settings.
 
-   - then continue with `M-x load-library message` and
-     `M-x customize-variable message-send-mail-function`
-     -- choose `message-smtpmail-send-it` for that.
+1. `M-x customize-group RET smtpmail`
+
+   As a minimum, 'Smtpmail Smtp Server' needs to be set.
+
+   After doing that, continue with `M-x load-library RET message` and
+   `M-x customize-variable RET message-send-mail-function`.
+   In the customization buffer select `message-smtpmail-send-it`.
 
 1. Set some variables in .emacs or in [notmuch init file](/notmuch-emacs#notmuch_init_file)
 
