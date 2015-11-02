@@ -318,7 +318,7 @@ available:
     from notmuch.  It also includes a vim plugin.
 
 You can perform tab-completion using any of these programs.
-Just add the following to your [notmuch init file](#notmuch_init_file):
+Just add the following to your [notmuch init file](/notmuch-emacs#notmuch_init_file):
 
         (require 'notmuch-address)
         (setq notmuch-address-command "/path/to/address_fetching_program")
@@ -352,7 +352,7 @@ Enter the cloned repository and create a build directory:
 You will find the akonadimailsearch binary in the build/src directory. Copy it to ~/bin .
 
 You can now add the following settings to your
-[notmuch init file](#notmuch_init_file):
+[notmuch init file](/notmuch-emacs#notmuch_init_file):
 
         (require 'notmuch-address)
         (setq notmuch-address-command "~/bin/akonadimailsearch")
@@ -484,7 +484,7 @@ See also the **Usage:** section in `gnus-alias.el`.
 
 ## Resending (or bouncing) messages
 
-Add the following to your [notmuch init file](#notmuch_init_file) to be able
+Add the following to your [notmuch init file](/notmuch-emacs#notmuch_init_file) to be able
 to resend the current message in show mode.
 
         (define-key notmuch-show-mode-map "b"
@@ -496,7 +496,7 @@ to resend the current message in show mode.
 
 ## `notmuch-hello` refresh status message
 
-Add the following to your [notmuch init file](#notmuch_init_file) to get a
+Add the following to your [notmuch init file](/notmuch-emacs#notmuch_init_file) to get a
 status message about the change in the number of messages in the mail store
 when refreshing the `notmuch-hello` buffer.
 
@@ -526,7 +526,7 @@ when refreshing the `notmuch-hello` buffer.
 
 Mailman mailing list software rewrites and rewraps long message subjects in
 a way that causes TABs to appear in the middle of the subject and header
-lines. Add this to your [notmuch init file](#notmuch_init_file) to replace
+lines. Add this to your [notmuch init file](/notmuch-emacs#notmuch_init_file) to replace
 tabs with spaces in subject lines:
 
         (defun notmuch-show-subject-tabs-to-spaces ()
