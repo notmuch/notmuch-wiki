@@ -296,17 +296,17 @@ SMTP server via TCP connection. It is pretty easy to configure:
 
 1. Set some variables in .emacs or in [notmuch init file](/notmuch-emacs#notmuch_init_file)
 
-      (setq smtpmail-smtp-server "smtp.server.tld" ;; <-- edit this !!!
-      ;; smtpmail-smtp-service 25 ;; 25 is default -- uncomment and edit if needed
-      ;; smtpmail-stream-type 'starttls
-      ;; smtpmail-debug-info t
-      ;; smtpmail-debug-verb t
-         message-send-mail-function 'message-smtpmail-send-it)
+        (setq smtpmail-smtp-server "smtp.server.tld" ;; <-- edit this !!!
+        ;; smtpmail-smtp-service 25 ;; 25 is default -- uncomment and edit if needed
+        ;; smtpmail-stream-type 'starttls
+        ;; smtpmail-debug-info t
+        ;; smtpmail-debug-verb t
+           message-send-mail-function 'message-smtpmail-send-it)
 
 More information for smtpmail is available:
 
 * In Emacs: `M-x info-display-manual smtpmail`
-* At http://www.emacswiki.org/emacs/SendingMail
+* [EmacsWiki Page](http://www.emacswiki.org/emacs/SendingMail)
 
 
 ## <span id="address_completion">Address completion when composing</span>
