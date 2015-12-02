@@ -4,9 +4,17 @@
 This page collects scripts and strategies for organizing mail using
 notmuch and doing automated initial tagging.
 
-Here's a very general and ad-hoc approach to initial message tagging.
 The `[new]` config section allows you to control which tags new messages
-receive.  This sets all new messages to get the *new* tag:
+receive. By default, `notmuch config` will use the tags *inbox* and *unread*.
+
+If `maildir.synchronize_flags` is true (which is the default), Maildir flags 
+have precedence over the initial tags. Thus an already read mail gets its 
+initial *unread* tag correctly removed.
+
+## The *new* tag approach
+
+Here's another very general and ad-hoc approach to initial message tagging, 
+which sets all new messages to get the *new* tag:
 
     [new]
     tags=new;
@@ -27,6 +35,8 @@ following:
 
     # finally, retag all "new" messages "inbox" and "unread"
     notmuch tag +inbox +unread -new -- tag:new
+
+Note that the command above will mark a new but already-read mail as unread.
 
 Since the post-processing is only acting on a few messages, it is
 generally extremely fast.
