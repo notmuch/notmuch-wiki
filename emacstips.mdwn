@@ -448,7 +448,7 @@ part.
 
 Encrypted and signed mime messages can be read and verified with:
 
-        (notmuch-crypto-process-mime t)
+        (setq notmuch-crypto-process-mime t)
 
 Decrypting or verifying inline pgp messages can be done by selecting
 an the inline pgp area and and using:
