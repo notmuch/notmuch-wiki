@@ -308,6 +308,9 @@ SMTP server via TCP connection. It is pretty easy to configure:
         ;;    smtpmail-debug-verb t
               message-send-mail-function 'message-smtpmail-send-it)
 
+Note that emacs 24 or newer is required for `smtpmail-stream-type`
+(and smtp authentication) to be effective.
+
 More information for smtpmail is available:
 
 * In Emacs: `M-x info-display-manual smtpmail`
