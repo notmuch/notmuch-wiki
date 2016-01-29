@@ -109,6 +109,14 @@ Other links of interest:
 
 ## <span id="mda">**Filters and mail delivery agents**</span>
 
+Mail delivery agent (or MDA for short) is a piece of software that performs the
+final step of mail transfer: saving it into user's mailbox.
+This is invoked either by SMTP server (MTA), mail fetcher, or chained from
+other delivery agent to perform such tasks as mail filtering, saving to
+different folders, or forwarding to different addresses.
+
+Following software can deliver to Maildir mailboxes:
+
 * [procmail](http://www.procmail.org/)
 * Courier (or standalone): [maildrop](http://www.courier-mta.org/maildrop/)
 * Dovecot: [dovecot-lda](http://wiki.dovecot.org/LDA)
@@ -127,27 +135,27 @@ Unfortunately Maildir does not have standard way to encode keywords, so there ar
 
 ### <span id="dovecot">**Dovecot**</span>
 
+[Homepage](http://dovecot.org/) | [Maildir extensions](http://wiki.dovecot.org/MailboxFormat/Maildir)
+
 The fully standard-compliant IMAP server.
 Has efficient syncing and multimaster replication capability.
-
-* Homepage: http://dovecot.org/
-* Maildir extensions: http://wiki.dovecot.org/MailboxFormat/Maildir
 
 Up to 26 different keywords can be stored per-maildir using Maildir flags a-z.
 Their meaning is defined via `dovecot-keywords` file which is simple, well-defined text file which maps each letter to specifig tag/keyword.
 If more than 26 keywords appear in one Maildir then some of them are stored in [dovecot-specific](http://wiki.dovecot.org/Design/Indexes/MainIndex) [index files](http://wiki.dovecot.org/IndexFiles).
 Dovecot's dsync will sync keywords into this format.
 
-### <span id="dovecot">**Courier**</span>
+### <span id="courier">**Courier**</span>
 
-The origin of [Maildir++](http://www.courier-mta.org/imap/README.maildirquota.html) format. Ships many useful commandline tools.
+[Homepage](http://www.courier-mta.org/) | [Maildir++ specification](http://www.courier-mta.org/maildir.html) | [Further Maildir++ specification](http://www.courier-mta.org/imap/README.maildirquota.html)
 
-Further maildir specification: http://www.courier-mta.org/maildir.html
+The origin of Maildir++ format which was also adopted by dovecot, among others.
+Ships many useful commandline tools.
 
 It stores keywords in [courierimapkeywords](http://www.courier-mta.org/imap/README.imapkeywords.html) inside the maildir.
 It supports arbitrary amount of keywords, but unfortunately actually reading them is rather convoluted process.
 
 ### <span id="imap-other">**Other**</span>
 
-* UW-IMAP supports MH folders and there is a patch for Maildir support.
-* Cyrus has it's [own mailbox format](http://www.cyrusimap.org/docs/cyrus-imapd/2.5.7/internal/mailbox-format.php), but stores messages as single files which should be indexable.
+* [UW-IMAP](http://www.washington.edu/imap/) supports MH folders and there is a patch for Maildir support.
+* [Cyrus](http://www.cyrusimap.org/) has it's [own mailbox format](http://www.cyrusimap.org/docs/cyrus-imapd/2.5.7/internal/mailbox-format.php), but stores messages as single files which should be indexable.
