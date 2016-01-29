@@ -1,0 +1,153 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# Sofware working with Maildir and Notmuch
+
+## <span id="formats">**Mail storage formats**</span>
+
+Notmuch can index any mail that is stored as singular files in directory structure.
+Here are some popular formats used.
+
+### <span id="maildir">**Maildir**</span>
+
+This is the native mail storage format for notmuch.
+In addition to indexing mail content notmuch can synchronize standard maildir flags with notmuch tags. See [[special-tags]].
+
+[Original specification](http://cr.yp.to/proto/maildir.html), for extensions see below.
+
+There are slight differences on how to handle the `new` subdirectory.
+While the definition specifies it's for freshly-delivered mail before adding flags only, some software (notably mutt) use it for all unread mail even after the flags were added to filenames.
+
+### <span id="nntp-spool">**NNTP Spool**</span>
+
+As NNTP uses incrementing number for each message in a newsgroup those are often used for filenames in NNTP software.
+Notmuch can index mail stored like this, but flag synchronization is unavailable and mail-reading software that expects maildir might not work with it.
+
+### <span id="nntp-spool">**MH folders**</span>
+
+This is structured very much like NNTP Spool with numbered messages in a directory.
+Above statements apply.
+
+## <span id="frontends">**Notmuch frontends**</span>
+
+Have a separate [[wiki page|frontends]].
+
+## <span id="synchronizers">**Mail fetchers and synchronizers**</span>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Bidirectional</th>
+      <th>Protocol</th>
+      <th>Keywords/tags</th>
+      <th>More info</th>
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="http://offlineimap.org/">offlineimap</a></td>
+      <td>yes</td>
+      <td>IMAP4</td>
+      <td>standard-only?</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><a href="http://www.muchsync.org/">muchsync</a></td>
+      <td>yes</td>
+      <td>custom</td>
+      <td>notmuch database</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><a href="http://wiki2.dovecot.org/Tools/Doveadm/Sync">dsync</a></td>
+      <td>yes</td>
+      <td>IMAP4/POP3/custom</td>
+      <td>dovecot format</td>
+      <td>
+        <ul>
+        <li><a href="http://wiki2.dovecot.org/Migration/Dsync">IMAP/POP howto</a></li>
+        <li><a href="http://wiki2.dovecot.org/Replication">replication howto<a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="http://isync.sourceforge.net/">mbsync/isync</a></td>
+      <td>yes</td>
+      <td>IMAP4</td>
+      <td>standard-only</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><a href="http://pyropus.ca/software/getmail/">getmail</a></td>
+      <td>no</td>
+      <td>IMAP4/POP3</td>
+      <td>no</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><a href="http://fetchmail.berlios.de/">fetchmail</a></td>
+      <td>no</td>
+      <td>IMAP4/POP3</td>
+      <td>no</td>
+      <td>no maildir support, can deliver to SMTP or local MDA</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/OfflineIMAP/imapfw">imapfw</a></td>
+      <td>yes</td>
+      <td>IMAP4</td>
+      <td>?</td>
+      <td>work in progress</td>
+    </tr>
+  </tbody>
+</table>
+
+Other links of interest:
+
+* [mswatch](http://mswatch.sourceforge.net/) Triggers sync on mailbox changes.
+* [mailsync](http://mailsync.sourceforge.net/) Based on UW library that doesn't support Maildir out of the box. MH folders are supported.
+* [imapsync](http://imapsync.lamiral.info/) (unidirectional)
+* [slrnpull](http://slrn.sourceforge.net/docs/slrn-FAQ-5.html) Fetches NNTP newsgroups (such as USENET or Gmane) into numbered spool format which notmuch can index.
+
+## <span id="mda">**Filters and mail delivery agents**</span>
+
+* [procmail](http://www.procmail.org/)
+* Courier (or standalone): [maildrop](http://www.courier-mta.org/maildrop/)
+* Dovecot: [dovecot-lda](http://wiki.dovecot.org/LDA)
+* Postfix: [local](http://www.postfix.org/local.8.html)
+* Exim: [appendfile](http://exim.org/exim-html-current/doc/html/spec_html/ch-the_appendfile_transport.html#SECTmaildirdelivery)
+* Qmail: [qmail-local](http://qmail.org/man/man8/qmail-local.html)
+* OpenSMTPD: supports tuning via [.forward](https://www.opensmtpd.org/forward.5.html) files
+
+Many MDAs also support filtering via [Sieve](https://en.wikipedia.org/wiki/Sieve_%28mail_filtering_language%29) language.
+
+## <span id="imap">**IMAP servers**</span>
+
+Internet Mail Access Protocol servers that can interoperate with notmuch.
+It is of note that IMAP protocol supports storing so-called [keywords](https://tools.ietf.org/html/rfc3501#page-11) (user-defined flags) which are mostly equivalent to notmuch tags.
+Unfortunately Maildir does not have standard way to encode keywords, so there are extensions neccessary to store that information.
+
+### <span id="dovecot">**Dovecot**</span>
+
+The fully standard-compliant IMAP server.
+Has efficient syncing and multimaster replication capability.
+
+* Homepage: http://dovecot.org/
+* Maildir extensions: http://wiki.dovecot.org/MailboxFormat/Maildir
+
+Up to 26 different keywords can be stored per-maildir using Maildir flags a-z.
+Their meaning is defined via `dovecot-keywords` file which is simple, well-defined text file which maps each letter to specifig tag/keyword.
+If more than 26 keywords appear in one Maildir then some of them are stored in [dovecot-specific](http://wiki.dovecot.org/Design/Indexes/MainIndex) [index files](http://wiki.dovecot.org/IndexFiles).
+Dovecot's dsync will sync keywords into this format.
+
+### <span id="dovecot">**Courier**</span>
+
+The origin of [Maildir++](http://www.courier-mta.org/imap/README.maildirquota.html) format. Ships many useful commandline tools.
+
+Further maildir specification: http://www.courier-mta.org/maildir.html
+
+It stores keywords in [courierimapkeywords](http://www.courier-mta.org/imap/README.imapkeywords.html) inside the maildir.
+It supports arbitrary amount of keywords, but unfortunately actually reading them is rather convoluted process.
+
+### <span id="imap-other">**Other**</span>
+
+* UW-IMAP supports MH folders and there is a patch for Maildir support.
+* Cyrus has it's [own mailbox format](http://www.cyrusimap.org/docs/cyrus-imapd/2.5.7/internal/mailbox-format.php), but stores messages as single files which should be indexable.
