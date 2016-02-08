@@ -46,6 +46,18 @@ utilities support these formats:
 See more exhaustive list of [[software]] notmuch works with and the
 [[initial_tagging]] page for more info on initial tagging of messages.
 
+
+## <span id="send_mail">**Send mail**</span>
+
+By default, NotMuch uses sendmail to send your mail. But if you prefer
+a simpler solution like msmtp, first [install and configure msmtp](http://msmtp.sourceforge.net/).
+
+Then create a symbolic link so that msmtp will be called instead of sendmail
+when you press the keyboard shortcut to send your message.
+
+    $ sudo ln -s /usr/bin/msmtp /usr/local/bin/sendmail
+
+
 ## <span id="sync_maildir_flags">**Sync notmuch tags and maildir flags**</span>
 
 notmuch has the ability to synchronize maildir flags and respective tags in both
