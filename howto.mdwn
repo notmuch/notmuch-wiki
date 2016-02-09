@@ -49,13 +49,16 @@ See more exhaustive list of [[software]] notmuch works with and the
 
 ## <span id="send_mail">**Send mail**</span>
 
-By default, NotMuch uses sendmail to send your mail. But if you prefer
-a simpler solution like msmtp, first [install and configure msmtp](http://msmtp.sourceforge.net/).
+Notmuch does not send your mail. The frontends (MUAs) that utilize notmuch
+does that. Often these MUAs use sendmail(8) to send your mail.
+
+If you prefer a simpler solution like msmtp, first
+[install and configure msmtp](http://msmtp.sourceforge.net/).
 
 Then create a symbolic link so that msmtp will be called instead of sendmail
 when you press the keyboard shortcut to send your message.
 
-    $ sudo ln -s /usr/bin/msmtp /usr/local/bin/sendmail
+    $ sudo ln -s /usr/bin/msmtp /usr/sbin/sendmail
 
 
 ## <span id="sync_maildir_flags">**Sync notmuch tags and maildir flags**</span>
