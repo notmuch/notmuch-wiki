@@ -92,15 +92,15 @@ However, for users running with databases created in older versions of
 notmuch, these tags are missing in pre-existing messages and need to be
 added.  One way to do this is as follows:
 
-        $ notmuch dump --output=~/out.nm
+        $ notmuch dump --output=$HOME/out.nm
         $ mv ~/Mail/.notmuch ~/.notmuch.bak
         $ notmuch new
         $ notmuch tag -inbox -unread '*'
-        $ notmuch restore --accumulate --input=~/out.nm
+        $ notmuch restore --accumulate --input=$HOME/out.nm
 
 At this point, one should run a sanity check on the tags, and if everything
 has merged correctly, the ~/.notmuch.bak directory is expendable, as is
-~/out.nm.
+$HOME/out.nm.
 
 ## <span id="mbox">**Dealing with mbox and other formats**</span>
 
