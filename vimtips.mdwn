@@ -7,9 +7,9 @@ Tips for using Notmuch with vim; these may be applicable when using vim with
 
 [[!toc levels=2]]
 
-## Install the vim addon for NotMuch
+## Install the vim addon for Notmuch
 
-Before you can run NotMuch within vim, you must install notmuch as a vim addon. 
+Before you can run Notmuch within vim, you must install notmuch as a vim addon.
 
 For example, if you have installed from the debian package:
 
@@ -19,18 +19,18 @@ then to install as an addon, run this command:
 
     $ vim-addon-manager install notmuch
 
-## Run NotMuch within vim
+## Run Notmuch within vim
 
 Open vim and type
 
-    :NotMuch
+    :Notmuch
 
 and press ENTER. Voila.
 
 
 Alternatively, you can invoce vim with the -c flag:
 
-    $ vim -c :NotMuch
+    $ vim -c :Notmuch
 
 ## Addressbook management and vim
 
