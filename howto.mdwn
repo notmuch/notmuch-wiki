@@ -6,12 +6,6 @@ various "third party" notmuch utilities.
 
 [[!toc levels=2]]
 
-## <span id="debian_packages">**Debian squeeze packages outdated**</span>
-
-The notmuch package(s) in Debian squeeze are very old (version 0.3).
-It's better to start off with an up to date version from
-[backports](http://backports-master.debian.org/).
-
 ## <span id="receive_mail">**Receive mail**</span>
 
 Notmuch does not fetch mail for you.  For that, you need to use an
