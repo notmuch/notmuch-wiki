@@ -1,11 +1,13 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# Using Notmuch with bare Mutt, the old fashioned way
 
 Notmuch is a great mail indexing tool that can also be used *in conjunction*
 with existing Mail User Agents (MUA) instead of replacing them. The advantage of
 such mixed solutions is that users can benefit from notmuch features (such as
 full-text search and thread reconstruction) without *having to* change MUA.
 
-# Using Notmuch with bare Mutt, the old fashioned way
+The `notmuch-mutt` script shipping with Notmuch bridges the gap between Notmuch
+and Mutt.
 
 ## Using
   [notmuch-mutt](http://git.notmuchmail.org/git/notmuch/tree/HEAD:/contrib/notmuch-mutt),
