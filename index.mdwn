@@ -133,7 +133,7 @@ Contributions, such as patches, to Notmuch are most welcome. Please refer to the
 
 For hints about troubleshooting and bug reporting see [[bugs]].
 
-For a list of known bugs see the [[nmbug status page|http://nmbug.notmuchmail.org/status/#Bugs]]
+For a list of known bugs see the [[nmbug status page|http://nmbug.notmuchmail.org/status/#Bugs]].
 
 ## Contact: Email & IRC
 
