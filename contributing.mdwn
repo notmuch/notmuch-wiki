@@ -134,7 +134,7 @@ before submitting patches.
 ## Send your patches to the mailing list
 
 Changes to Notmuch are contributed as [emailed
-patches](http://git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project#Public-Large-Project).
+patches](http://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#Public-Project-over-Email).
 Once you have your changes ready in your local repository, you need to
 send them to the Notmuch mailing list. The simplest way is to use `git
 send-email` to send the patches directly from your repository:
