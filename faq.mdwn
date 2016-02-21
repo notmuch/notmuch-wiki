@@ -26,3 +26,18 @@ See [[excluding]].
         (setq message-citation-line-function 'message-insert-formatted-citation-line)
 
 See help for `message-citation-line-format` for details.
+
+## How do I search for messages that have no tags?
+
+Unfortunately, there is no way to do this directly.
+
+However, it's possible to accomplish this using two searches in shell. First,
+you need to query all tags in the database, and transform the result into a
+query that matches messages that have none of those tags:
+
+        $ notmuch search --output=tags \* | sed 's/^/not tag:/;2~1s/^/and /'
+
+Next, use that to query the messages:
+
+        $ notmuch search $(notmuch search --output=tags \* | \
+                sed 's/^/not tag:/;2~1s/^/and /')
