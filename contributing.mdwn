@@ -59,7 +59,7 @@ Each commit should contain one logical change only. The code should
 build and the tests should pass after each commit. Changes to lib,
 cli, emacs, tests, man pages, or news are usually best kept
 separate. Also separate cleanups from functional changes. See the
-Notmuch source history (**`git log`**) for examples.
+Notmuch source history (`git log`) for examples.
 
 For in-depth discussion on the subject, see
 [Software Release Practice HOWTO](http://tldp.org/HOWTO/Software-Release-Practice-HOWTO/) by Eric S. Raymond.
@@ -75,8 +75,8 @@ See also
 on commit guidelines, including commit messages.
 
 It is customary to prefix the subject line with "lib:", "cli:", "emacs:",
-etc. depending on which part of Notmuch the commit is changing. See
-**`git log`** for examples.
+etc. depending on which part of Notmuch the commit is changing. See `git log`
+for examples.
 
 Wrap the lines to about 72 characters.
 
