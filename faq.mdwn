@@ -45,7 +45,7 @@ Next, use that to query the messages:
 ## How do I search for punctuation, specific special characters, or regexp?
 
 Please see the [[notmuch-search-terms manual
-page|manpages/notmuch-search-terms-7]] first,
+page|manpages/notmuch-search-terms-7]] first.
 
 The main thing to understand is that Xapian, and therefore Notmuch, searches are
 closer to natural language searches than regular expression
