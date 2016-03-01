@@ -60,6 +60,16 @@ the location of your mail store and how to start the initial indexing.
 For a little more detailed guide, see [[Getting Started with
 Notmuch|getting-started]].
 
+## Email Clients and Front Ends
+
+Notmuch ships with a powerful set of [[command-line tools|manpages]], an
+[[email client for Emacs|notmuch-emacs]], another
+[client for vim](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README),
+and a [[Mutt integration script|notmuch-mutt]].
+
+There are also many other [[email clients and frontends|frontends]] based on
+Notmuch.
+
 ## Documentation
 
   * [[Notmuch manual pages|manpages]]
@@ -68,24 +78,14 @@ Notmuch|getting-started]].
   * [[Searching]]
   * [[Excluding and deleting messages|excluding]]
   * [[Initial tagging|Initial_Tagging]]
-  * [[Tips for using notmuch within Emacs|emacstips]]
-  * [[Remote usage|remoteusage]]
+  * Tips for using Notmuch with [[Emacs|emacstips]], [[Vim|vimtips]], and [[Mutt|mutttips]]
+  * [[Emacs remote usage|remoteusage]]
   * [[Performance|performance]]
   * [[References|references]]
   * [[Notmuch Library Language Bindings|bindings]]
 
 Apart from the wiki, help is available via email and on IRC (see
 below).  Join the mailing list.  Read the archives.  Ask questions.
-
-## Email clients and front ends
-
-Notmuch ships with a powerful set of [[command-line tools|manpages]], an
-[[email client for Emacs|notmuch-emacs]], another
-[client for vim](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README),
-and a [[Mutt integration script|notmuch-mutt]].
-
-There are also many other [[email clients and frontends|frontends]] based on
-Notmuch. And a few tips about integrating it with [[Mutt|mutttips]] and [[Vim|vimtips]].
 
 ## Screenshots
 
