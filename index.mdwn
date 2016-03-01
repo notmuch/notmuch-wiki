@@ -51,12 +51,16 @@ Then notmuch may be exactly what you've been looking for.
 
 [[The latest news from notmuch|news]]
 
-## Documentation
+## Getting Started
 
-To get started with notmuch, just run "notmuch" at the command line.
+To get started with Notmuch, just run "notmuch" at the command line.
 This command will walk you through initial setup, including specifying
 the location of your mail store and how to start the initial indexing.
-After that, come back and checkout our documentation:
+
+For a little more detailed guide, see [[Getting Started with
+Notmuch|getting-started]].
+
+## Documentation
 
   * [[Notmuch manual pages|manpages]]
   * [[General how-tos|howto]]
