@@ -121,12 +121,13 @@ versions can be checked out via git with this command:
 
         git clone git://notmuchmail.org/git/notmuch
 
-You can browse the
-[Notmuch code history online](http://git.notmuchmail.org/git/notmuch). And
-finally, you can
-[subscribe to the `notmuch-commits` list](http://notmuchmail.org/mailman/listinfo/notmuch-commits)
-to watch every commit made to notmuch and the notmuchmail.org web
-site.
+You can browse the [Notmuch code history
+online](http://git.notmuchmail.org/git/notmuch). A notification is sent to the
+[notmuch-commits mailing
+list](http://notmuchmail.org/mailman/listinfo/notmuch-commits) for every commit
+made to Notmuch and the notmuchmail.org web site. [The Notmuch OpenHub project
+page](https://www.openhub.net/p/notmuch) has a nice summary of the codebase and
+activity.
 
 We have a [buildbot](http://buildbot.notmuchmail.org/grid) (here's
 its
