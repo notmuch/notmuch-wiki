@@ -8,6 +8,9 @@
 This is your friendly guide and tutorial to getting started with Notmuch. It
 will help you through the first steps of setting up Notmuch.
 
+All Notmuch commands have [[manual pages|manpages]]. Please refer to them for
+details.
+
 ## Prerequisites
 
 In order to use Notmuch, you will need to have your email messages stored in
