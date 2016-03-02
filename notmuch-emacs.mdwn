@@ -11,13 +11,31 @@ the [[tips and tricks page|emacstips]] for more advanced details.
 
 [[!toc levels=2]]
 
+## Prerequisites
+
+The Notmuch Emacs interface uses the Notmuch [[command line interface|manpages]]
+to interact with the Notmuch database and your mail store. Please make sure
+you've [[set up Notmuch|getting-started]] first.
+
+## Installation
+
+Due to the dependency on the command line interface, the Notmuch Emacs interface
+version must be compatible with the Notmuch version. On Linux, the easiest way
+to ensure this is to use the package(s) in your distribution's package
+repository.
+
+If you've installed Notmuch from a [git
+checkout](http://git.notmuchmail.org/git/notmuch) or a [source
+release](http://notmuchmail.org/releases/), Notmuch Emacs is included by
+default.
+
+It is **not** recommended to install Notmuch Emacs from the Emacs Lisp Package
+Archive (ELPA), as the version there is likely not in sync with the command line
+interface.
+
 ## Setup
 
-Have a look at the [[Howto|howto]] for prerequisites. Be sure you have done the
-general setup using the Notmuch cli command!
-
-To use the Notmuch Emacs mode, first add the following line to your `.emacs` rc
-file:
+First, you need to tell Emacs about Notmuch. Add this to your `.emacs` rc file:
 
         (autoload 'notmuch "notmuch" "notmuch mail" t)
 
@@ -25,12 +43,17 @@ or if you always want to load Notmuch when you start Emacs:
 
         (require 'notmuch)
 
-Then, either run `emacs -f notmuch`, or execute the command `M-x notmuch` from
-within a running Emacs.
+To start Notmuch Emacs, either run `emacs -f notmuch`, or execute the command
+`M-x notmuch RET` from within a running Emacs. This will bring you to the
+Notmuch Hello view.
 
-### <span id="notmuch_init_file"> Notmuch Emacs configuration file: </span>
+## Customization
 
-(Since Notmuch 0.18)
+Notmuch Emacs uses the Emacs customization interface extensively for
+configuration. Execute `M-x customize-group RET notmuch RET` to get to the
+Notmuch main customization group.
+
+### <span id="notmuch_init_file"> Notmuch Emacs configuration file </span>
 
 After Notmuch is loaded `notmuch-init-file` (typically
  `~/.emacs.d/notmuch-config.el`) is checked out. If such file exists
