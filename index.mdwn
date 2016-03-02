@@ -16,6 +16,8 @@ email, but don't want to give a 3rd-party access to your email...
 
 Then notmuch may be exactly what you've been looking for.
 
+[[!toc levels=2]]
+
 ## Why is it named Notmuch?
 
 * "Not much mail" is what Notmuch thinks about your email
