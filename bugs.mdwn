@@ -1,5 +1,7 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
-# Troubleshooting and Bug reporting
+# Troubleshooting and Bug Reporting
+
+[[!toc levels=2]]
 
 ## Deciding what level the problem lives at
 
@@ -36,5 +38,18 @@ the list; someone will tag messages appropriately.  The status of bugs
 and current patches can also be followed
 [online](http://nmbug.notmuchmail.org/status).
 
+## Debugging Queries
 
+If a search doesn't seem to do what you want, you can enable query debugging to
+print the Xapian queries the Notmuch library constructs by setting the
+`NOTMUCH_DEBUG_QUERY` environment variable to a non-empty value.
 
+For example:
+
+        $ NOTMUCH_DEBUG_QUERY=1 notmuch search big brown fox
+        Query string is:
+        big brown fox
+        Exclude query is:
+        Xapian::Query()
+        Final query is:
+        Xapian::Query((Tmail AND Zbig:(pos=1) AND Zbrown:(pos=2) AND Zfox:(pos=3)))
