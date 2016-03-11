@@ -75,15 +75,15 @@ Notmuch itself does not receive messages. There is no IMAP or POP support. You
 will need to set up other tools, such as fetchmail, offlineimap, or mbsync, to
 receive the messages.
 
-There is two ways to deliver and index the messages:
+There are two ways to deliver and index messages:
 
 * Use an external tool (such as offlineimap or mbsync) to deliver the messages
-  to your mail store, and call `notmuch new` to discover and index the newly
+  to your mail store, and run `notmuch new` to discover and index the newly
   delivered messages (and any other changes in the mail store).
 
 * Use an external tool (such as fetchmail) receive the messages, and configure
-  the tool to use `notmuch insert` to deliver the messages to your mail store
-  and index them.
+  the tool to use `notmuch insert` as a Mail Delivery Agent to deliver the
+  messages to your mail store and index them.
 
 ## Automation Via Hooks
 
