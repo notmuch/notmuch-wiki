@@ -87,6 +87,14 @@ There are two ways to deliver and index messages:
 
 ## Automation Via Hooks
 
+Notmuch supports running [[user defined hooks|manpages/notmuch-hooks-5]] before
+or after certain commands. Hooks can be arbitrary executable programs or
+scripts. For example, if you always run your mail delivery tool first and
+`notmuch new` after that, you can run the tool from Notmuch `pre-new` hook, and
+simply run `notmuch new` to do both. If you always do some tagging after
+indexing of new messages, you may want to set up a `post-new` or `post-insert`
+hook to do that automatically.
+
 ## Backing up and Restoring the Database
 
 ## Removing Notmuch
