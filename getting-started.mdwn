@@ -69,6 +69,12 @@ interface|manpages]], or [[Notmuch Emacs interface|notmuch-emacs]].
 
 ## Converting Existing mbox to Maildir
 
+The [`mb2md`](http://batleth.sapienti-sat.org/projects/mb2md/) tool can be used
+to convert existing mbox files to Maildir.
+
+Beware that the source and destination directory options to `mb2md` are relative
+to the user's home directory, not relative to the current working directory.
+
 ## Delivering New Messages
 
 Notmuch itself does not receive messages. There is no IMAP or POP support. You
