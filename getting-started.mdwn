@@ -71,6 +71,20 @@ interface|manpages]], or [[Notmuch Emacs interface|notmuch-emacs]].
 
 ## Delivering New Messages
 
+Notmuch itself does not receive messages. There is no IMAP or POP support. You
+will need to set up other tools, such as fetchmail, offlineimap, or mbsync, to
+receive the messages.
+
+There is two ways to deliver and index the messages:
+
+* Use an external tool (such as offlineimap or mbsync) to deliver the messages
+  to your mail store, and call `notmuch new` to discover and index the newly
+  delivered messages (and any other changes in the mail store).
+
+* Use an external tool (such as fetchmail) receive the messages, and configure
+  the tool to use `notmuch insert` to deliver the messages to your mail store
+  and index them.
+
 ## Automation Via Hooks
 
 ## Backing up and Restoring the Database
