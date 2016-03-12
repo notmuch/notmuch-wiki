@@ -51,7 +51,7 @@ Then notmuch may be exactly what you've been looking for.
 
 ## News
 
-[[The latest news from notmuch|news]]
+[[Notmuch news|news]] (mostly release notes and changes).
 
 ## Getting Started
 
