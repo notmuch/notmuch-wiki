@@ -164,9 +164,7 @@ made to Notmuch and the notmuchmail.org web site. [The Notmuch OpenHub project
 page](https://www.openhub.net/p/notmuch) has a nice summary of the codebase and
 activity.
 
-We have a [buildbot](http://buildbot.notmuchmail.org/grid) (here's
-its
-[configuration](https://github.com/tomprince/buildbot-configs/tree/notmuch)).
+Continuous integration build and test suite status: [![Build Status](https://travis-ci.org/notmuch/notmuch.svg?branch=master)](https://travis-ci.org/notmuch/notmuch)
 
 Contributions, such as patches, to Notmuch are most welcome. Please refer to the
 [[guide to contributing|contributing]].
