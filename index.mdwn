@@ -111,31 +111,6 @@ distributions:
 * [Slackware](http://slackbuilds.org/repository/13.37/office/notmuch/)
 * [Ubuntu](http://packages.ubuntu.com/search?keywords=notmuch)
 
-## Development and Contributing
-
-All of the code for Notmuch is available as [free
-software](http://www.fsf.org/licensing/essays/free-sw.html) released
-under the GNU [GPL version
-3](http://www.fsf.org/licensing/licenses/gpl.html). The latest
-versions can be checked out via git with this command:
-
-        git clone git://notmuchmail.org/git/notmuch
-
-You can browse the [Notmuch code history
-online](http://git.notmuchmail.org/git/notmuch). A notification is sent to the
-[notmuch-commits mailing
-list](http://notmuchmail.org/mailman/listinfo/notmuch-commits) for every commit
-made to Notmuch and the notmuchmail.org web site. [The Notmuch OpenHub project
-page](https://www.openhub.net/p/notmuch) has a nice summary of the codebase and
-activity.
-
-We have a [buildbot](http://buildbot.notmuchmail.org/grid) (here's
-its
-[configuration](https://github.com/tomprince/buildbot-configs/tree/notmuch)).
-
-Contributions, such as patches, to Notmuch are most welcome. Please refer to the
-[[guide to contributing|contributing]].
-
 ## Contact: Email & IRC
 
 Comments? Please feel free to email the notmuch mailing list:
@@ -169,6 +144,31 @@ For hints about troubleshooting and bug reporting see [[bugs]].
 Please see the [nmbug status page](http://nmbug.notmuchmail.org/status/) for
 lists of [known bugs](http://nmbug.notmuchmail.org/status/#Bugs) and [feature
 requests](http://nmbug.notmuchmail.org/status/#Wish-list).
+
+## Development and Contributing
+
+All of the code for Notmuch is available as [free
+software](http://www.fsf.org/licensing/essays/free-sw.html) released
+under the GNU [GPL version
+3](http://www.fsf.org/licensing/licenses/gpl.html). The latest
+versions can be checked out via git with this command:
+
+        git clone git://notmuchmail.org/git/notmuch
+
+You can browse the [Notmuch code history
+online](http://git.notmuchmail.org/git/notmuch). A notification is sent to the
+[notmuch-commits mailing
+list](http://notmuchmail.org/mailman/listinfo/notmuch-commits) for every commit
+made to Notmuch and the notmuchmail.org web site. [The Notmuch OpenHub project
+page](https://www.openhub.net/p/notmuch) has a nice summary of the codebase and
+activity.
+
+We have a [buildbot](http://buildbot.notmuchmail.org/grid) (here's
+its
+[configuration](https://github.com/tomprince/buildbot-configs/tree/notmuch)).
+
+Contributions, such as patches, to Notmuch are most welcome. Please refer to the
+[[guide to contributing|contributing]].
 
 ## Website
 
