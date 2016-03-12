@@ -145,7 +145,7 @@ For a list of known bugs see the [[nmbug status page|http://nmbug.notmuchmail.or
 ## Contact: Email & IRC
 
 Comments? Please feel free to email the notmuch mailing list:
-notmuch&#64;notmuchmail.org (subscription is not required, but you can
+<mailto:notmuch@notmuchmail.org> (subscription is not required, but you can
 also subscribe to the
 [notmuch mailing list](http://notmuchmail.org/mailman/listinfo/notmuch)). You
 can also browse the
