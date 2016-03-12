@@ -136,12 +136,6 @@ its
 Contributions, such as patches, to Notmuch are most welcome. Please refer to the
 [[guide to contributing|contributing]].
 
-## Troubleshooting and reporting bugs
-
-For hints about troubleshooting and bug reporting see [[bugs]].
-
-For a list of known bugs see the [[nmbug status page|http://nmbug.notmuchmail.org/status/#Bugs]].
-
 ## Contact: Email & IRC
 
 Comments? Please feel free to email the notmuch mailing list:
@@ -164,12 +158,17 @@ If you prefer real-time chat, there is often someone on the
 ask if you can ask a question, just ask, and please wait for an answer, we might
 not be in your timezone.
 
-## Feature ideas
+## Troubleshooting, Reporting Bugs and Feature Requests
 
-If you have a feature idea/request, please send it to the
-[mailing list](http://notmuchmail.org/mailman/listinfo/notmuch). You
-don't have to be subscribed to send, although there might be a delay
-for non-subscribers.
+Please send bug reports and feature requests to the [Notmuch mailing
+list](http://notmuchmail.org/mailman/listinfo/notmuch)
+<mailto:notmuch@notmuchmail.org>.
+
+For hints about troubleshooting and bug reporting see [[bugs]].
+
+Please see the [nmbug status page](http://nmbug.notmuchmail.org/status/) for
+lists of [known bugs](http://nmbug.notmuchmail.org/status/#Bugs) and [feature
+requests](http://nmbug.notmuchmail.org/status/#Wish-list).
 
 ## Website
 
