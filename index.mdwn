@@ -75,6 +75,7 @@ Notmuch.
 ## Documentation
 
   * [[Notmuch manual pages|manpages]]
+  * [[Email clients and frontends|frontends]]
   * [[General how-tos|howto]]
   * [[Frequently Asked Questions|faq]]
   * [[Searching]]
