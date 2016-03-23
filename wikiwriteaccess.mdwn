@@ -8,8 +8,8 @@ source can be checked out via git with this command:
 
 Then you can edit the wiki locally, commit the changes with:
 
-        git add ...
-        git commit
+        git add _any-new-files_
+        git commit -a
 
 and push back to the wiki:
 
