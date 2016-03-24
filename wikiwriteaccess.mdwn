@@ -6,10 +6,11 @@ source can be checked out via git with this command:
 
         git clone git://notmuchmail.org/git/notmuch-wiki
 
-Then you can edit the wiki locally, commit the changes with:
+Then you can edit the wiki content locally. To publish your changes,
+commit the changes with:
 
-        git add ...
-        git commit
+        git add _any-new-files_
+        git commit -a
 
 and push back to the wiki:
 
