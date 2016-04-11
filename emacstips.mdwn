@@ -335,7 +335,7 @@ If you are not yet running 0.22, you can still use it by adding a
 wrapper around the command called, say, `notmuch-address`:
 
     #!/bin/sh
-    exec notmuch address from:"$@"
+    exec notmuch address from:"$*"
 
 Then you can set the `notmuch-address-command` to `notmuch-address`
 (if it is in your `$PATH` of course, otherwise use an absolute path).
