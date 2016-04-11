@@ -321,6 +321,25 @@ More information for smtpmail is available:
 
 There are currently three solutions to this:
 
+### notmuch address
+
+Starting with Notmuch 0.21, there is a builtin command to perform
+autocompletion directly within Notmuch. Starting with 0.22, it is
+configured by default, so if you have previously configured another
+completion mechanism, you may want to try out the new internal
+method. Use `M-x customize-variable RET notmuch-address-command` and
+reset the value to "internal address completion" (`'internal` in
+lisp).
+
+If you are not yet running 0.22, you can still use it by adding a
+wrapper around the command called, say, `notmuch-address`:
+
+    #!/bin/sh
+    exec notmuch address from:"$@"
+
+Then you can set the `notmuch-address-command` to `notmuch-address`
+(if it is in your `$PATH` of course, otherwise use an absolute path).
+
 ### bbdb
 
 [bbdb](http://bbdb.sourceforge.net) is a contact database for emacs
