@@ -15,12 +15,13 @@
        Constructs a reply template for a set of messages.
 
        To  make  replying to email easier, <b>notmuch</b> <b>reply</b> takes an existing set
-       of messages and constructs a  suitable  mail  template.  The  Reply-to:
-       header  (if  any,  otherwise From:) is used for the To: address. Unless
-       <b>--reply-to=sender</b> is specified, values from the To: and Cc: headers are
-       copied, but not including any of the current user&apos;s email addresses (as
-       configured in primary_mail or other_email in the .notmuch-config  file)
-       in the recipient list.
+       of messages and constructs a suitable mail template. Its To: address is
+       set  according  to  the  original  email  in this way: if the Reply-to:
+       header is present and different from any To:/Cc: address  it  is  used,
+       otherwise  From: header is used. Unless <b>--reply-to=sender</b> is specified,
+       values from the To: and Cc: headers are copied, but not  including  any
+       of the current user&apos;s email addresses (as configured in primary_mail or
+       other_email in the .notmuch-config file) in the recipient list.
 
        It  also  builds a suitable new subject, including Re: at the front (if
        not already present), and adding the message IDs of the messages  being
@@ -116,7 +117,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2015, Carl Worth and many others
+       2009-2016, Carl Worth and many others
 </pre>
 
-<h2>0.21</h2>
+<h2>0.22</h2>
