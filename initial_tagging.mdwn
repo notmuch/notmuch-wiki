@@ -74,6 +74,10 @@ to do post-processing. See `man notmuch-hooks` for details on hooks.
   of sent mails) and has some fancy features (e.g. mail classification
   using bayesian filters).
 
+* [p6-notmuch-filter](https://github.com/goneri/p6-notmuch-filter) a initial
+  tagging script that read its configuration from a JSON file. The script is
+  written in Perl6 and depends on the Email::Notmuch binding.
+
 ## Notmuch MDA -- `notmuch-insert`
 
 The [[notmuch insert command|manpages/notmuch-insert-1]] is a tool for
