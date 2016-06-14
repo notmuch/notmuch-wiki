@@ -617,7 +617,7 @@ I like to have an inbox saved search, but only show unread messages when they
 view a thread. This takes two steps:
 
 1. Apply
-[this patch from Mark Walters](http://notmuchmail.org/pipermail/notmuch/2012/010817.html)
+[this patch from Mark Walters](https://notmuchmail.org/pipermail/notmuch/2012/010817.html)
 to add the `notmuch-show-filter-thread` function.
 1. Add the following hook to your emacs configuration:
 

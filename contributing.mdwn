@@ -49,7 +49,7 @@ achieve. You may prefix the subjects of such patches with "RFC" or
 
 The Notmuch code base follows a fairly uniform coding style. See the existing
 code around your changes, and read
-[`devel/STYLE`](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/devel/STYLE)
+[`devel/STYLE`](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/devel/STYLE)
 in the Notmuch source. It's not difficult to get it right, and may save you an
 extra review round.
 
@@ -100,7 +100,7 @@ easy to confirm your changes actually fix the issue. Some people use this
 approach also for adding new features.
 
 See
-[`test/README`](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/test/README)
+[`test/README`](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/test/README)
 in the Notmuch source for further information.
 
 ## Update the documentation
@@ -115,7 +115,7 @@ update the Emacs documentation.
 ## Update NEWS
 
 If you make user visible changes, you should add an entry to the
-[`NEWS`](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/NEWS) file.
+[`NEWS`](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/NEWS) file.
 
 ## Update command-line completion
 
@@ -128,7 +128,7 @@ afterwards.
 ## Subscribe to the Notmuch mailing list
 
 While strictly not required, it is advisable to subscribe to the
-[Notmuch mailing list](http://notmuchmail.org/mailman/listinfo/notmuch)
+[Notmuch mailing list](https://notmuchmail.org/mailman/listinfo/notmuch)
 before submitting patches.
 
 ## Send your patches to the mailing list
@@ -158,7 +158,7 @@ If you are submitting a non-trivial set of patches, or if there's any
 extra information you want to share that is not really part of the
 commit messages, it is advisable to write a cover letter to give an
 overview of your work. See the
-[Notmuch mailing list archives](http://notmuchmail.org/pipermail/notmuch/)
+[Notmuch mailing list archives](https://notmuchmail.org/pipermail/notmuch/)
 for examples. Use the `--cover-letter` option of `git format-patch`,
 or `--compose` option of `git send-email`.
 
@@ -166,7 +166,7 @@ or `--compose` option of `git send-email`.
 
 When you're developing an email tool, all the problems start looking
 like email. This applies to patch and bug tracking as well. The
-Notmuch project uses [nmbug](http://notmuchmail.org/nmbug/) for
+Notmuch project uses [nmbug](https://notmuchmail.org/nmbug/) for
 tracking. The Notmuch developers will tag your patches too, making
 them show up in the
 [nmbug status page](http://nmbug.notmuchmail.org/status/), but requesting
@@ -180,7 +180,7 @@ usually by one or two developers, depending on the impact of the
 changes. You are expected to follow up on the review comments you
 receive, either by discussing the comments and the code, or modifying
 your patches. Again, see the [Notmuch mailing list
-archives](http://notmuchmail.org/pipermail/notmuch/) for examples.
+archives](https://notmuchmail.org/pipermail/notmuch/) for examples.
 
 ## Send another round addressing review comments
 
@@ -205,7 +205,7 @@ version is generally discouraged, particularly for large series, but
 there are no hard rules. Usually the message-id reference to the
 previous version is sufficient and preferred.
 
-Tag the old patches obsolete in [nmbug](http://notmuchmail.org/nmbug/)
+Tag the old patches obsolete in [nmbug](https://notmuchmail.org/nmbug/)
 if you have access.
 
 ## Review other people's work
@@ -217,7 +217,7 @@ people to review your patches if you review theirs.
 
 Send bug reports to the Notmuch mailing list. Preferably prefix the
 subject line with "BUG:" or similar. Tag the message as a bug in
-[nmbug](http://notmuchmail.org/nmbug/).
+[nmbug](https://notmuchmail.org/nmbug/).
 
 Even better, send a patch adding a "known broken" test to the test suite
 highlighting the issue.

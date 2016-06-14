@@ -10,7 +10,7 @@ dual licensed under:
   version 3.0 or at your option any later version.
 
 The [[Notmuch manual pages|manpages]], copied from the
-[Notmuch source tree](http://git.notmuchmail.org/git/notmuch) and
+[Notmuch source tree](https://git.notmuchmail.org/git/notmuch) and
 modified for the wiki, *and* any source code fragment specifically
 marked by its contributor as [[COPYING-GPL-ONLY]] are licensed under
 [the GNU General Public License](http://www.gnu.org/licenses/gpl.txt),

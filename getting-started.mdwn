@@ -27,9 +27,9 @@ already have messages in this format.
 
 On Linux, the easiest way to install Notmuch is through your distribution's
 package repository. If you're installing Notmuch from a [git
-checkout](http://git.notmuchmail.org/git/notmuch) or a [source
-release](http://notmuchmail.org/releases/), please refer to the
-[INSTALL](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/INSTALL) document.
+checkout](https://git.notmuchmail.org/git/notmuch) or a [source
+release](https://notmuchmail.org/releases/), please refer to the
+[INSTALL](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/INSTALL) document.
 
 ## Configuration
 

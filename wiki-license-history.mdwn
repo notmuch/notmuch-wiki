@@ -3,7 +3,7 @@
 
 The wiki originally had no explicit licensing text. This has been fixed since
 the wiki commit
-[COPYING: The wiki is now dual licensed under CC-BY-SA-3.0 and GPL v3+](http://git.notmuchmail.org/git/notmuch-wiki/commit/8ca2edf66a79cd4dcc628cafc0c9801007f2ab71)
+[COPYING: The wiki is now dual licensed under CC-BY-SA-3.0 and GPL v3+](https://git.notmuchmail.org/git/notmuch-wiki/commit/8ca2edf66a79cd4dcc628cafc0c9801007f2ab71)
 with the addition of [[COPYING]]. To be able to do that all the commits before
 the license change had to be accounted for; this page is a description of it for
 posterity.

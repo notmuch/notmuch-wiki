@@ -47,16 +47,16 @@ to do post-processing. See `man notmuch-hooks` for details on hooks.
 
 ## Other solutions
 
-* [Carl Worth's approach to tagging](http://notmuchmail.org/pipermail/notmuch/2010/001691.html). It
+* [Carl Worth's approach to tagging](https://notmuchmail.org/pipermail/notmuch/2010/001691.html). It
   is email id:87r5o8stbj.fsf@yoom.home.cworth.org in the notmuch
   mailing list archives.
 
 
-* [One user's setup](http://notmuchmail.org/pipermail/notmuch/2010/001690.html)
+* [One user's setup](https://notmuchmail.org/pipermail/notmuch/2010/001690.html)
   (id:87hbp5j9dv.fsf@hackervisions.org), which includes using the
   inbox tag as a "new mail" flag.
 
-* [Another user's setup](http://notmuchmail.org/pipermail/notmuch/2011/003976.html)
+* [Another user's setup](https://notmuchmail.org/pipermail/notmuch/2011/003976.html)
   (id:"87tyfu3k5a.fsf@gmail.com"), which uses a dedicated tag for
   marking new mail, which is then sorted with a python script using
   Bogofilter for spam detection.  This is generally a great deal

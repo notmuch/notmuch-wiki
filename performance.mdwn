@@ -108,8 +108,8 @@ Remove old and renamed compacted, if compacting went well:
 
 ### More information about this in the email archives:
 
-* [Carl Worth](http://notmuchmail.org/pipermail/notmuch/2010/001105.html)
+* [Carl Worth](https://notmuchmail.org/pipermail/notmuch/2010/001105.html)
 
-* [Sebastian Spaeth](http://notmuchmail.org/pipermail/notmuch/2011/004048.html)
+* [Sebastian Spaeth](https://notmuchmail.org/pipermail/notmuch/2011/004048.html)
 
-* [Pieter Praet](http://notmuchmail.org/pipermail/notmuch/2011/004175.html)
+* [Pieter Praet](https://notmuchmail.org/pipermail/notmuch/2011/004175.html)

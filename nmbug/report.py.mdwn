@@ -40,7 +40,7 @@ last <span class="hl opt">= {}</span>
 
 <span class="hl kwa">print</span> <span class="hl str">'Generated: %s&lt;br&gt;'</span> <span class="hl opt">%</span> datetime<span class="hl opt">.</span>date<span class="hl opt">.</span><span class="hl kwd">today</span><span class="hl opt">()</span>
 
-<span class="hl kwa">print</span> <span class="hl str">'For more infomation see &lt;a href=&quot;http://notmuchmail.org/nmbug&quot;&gt;nmbug&lt;/a&gt;'</span>
+<span class="hl kwa">print</span> <span class="hl str">'For more infomation see &lt;a href=&quot;https://notmuchmail.org/nmbug&quot;&gt;nmbug&lt;/a&gt;'</span>
 
 <span class="hl kwa">print</span> <span class="hl str">'&lt;h3&gt;Query&lt;/h3&gt;'</span>
 <span class="hl kwa">print</span> QUERY

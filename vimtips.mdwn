@@ -3,7 +3,7 @@
 
 Tips for using Notmuch with vim; these may be applicable when using vim with
 [[notmuch-mutt]], [mutt-kz](https://github.com/karelzak/mutt-kz), or
-[notmuch-vim](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README).
+[notmuch-vim](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README).
 
 [[!toc levels=2]]
 

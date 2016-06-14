@@ -10,7 +10,7 @@ bindings.
 
 ## C and C++
 
-`libnotmuch` is a shared C library. [The API](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/lib/notmuch.h)
+`libnotmuch` is a shared C library. [The API](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/lib/notmuch.h)
 
 The Notmuch command-line interface is based on the C library.
 
@@ -31,16 +31,16 @@ matching the given expression:
         >>> list(query.search_messages()) # doctest:+ELLIPSIS
         [...]
 
-[The source](http://git.notmuchmail.org/git/notmuch/tree/HEAD:/bindings/python/)
+[The source](https://git.notmuchmail.org/git/notmuch/tree/HEAD:/bindings/python/)
 
 ## Ruby
 
-[The source](http://git.notmuchmail.org/git/notmuch/tree/HEAD:/bindings/ruby/)
+[The source](https://git.notmuchmail.org/git/notmuch/tree/HEAD:/bindings/ruby/)
 
 The [client for
-vim](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README) is in Ruby,
+vim](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README) is in Ruby,
 so worth a look.
 
 ## Go
 
-[The source](http://git.notmuchmail.org/git/notmuch/tree/HEAD:/bindings/go/)
+[The source](https://git.notmuchmail.org/git/notmuch/tree/HEAD:/bindings/go/)

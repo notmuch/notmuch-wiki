@@ -2,7 +2,7 @@
     
     # Run notmuch on remote host over SSH
     #
-    # http://notmuchmail.org/remoteusage/
+    # https://notmuchmail.org/remoteusage/
     #
     # Put this script in your path and add (setq notmuch-command
     # "notmuch-remote") to your emacs configuration.

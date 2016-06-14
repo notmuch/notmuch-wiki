@@ -25,8 +25,8 @@ to ensure this is to use the package(s) in your distribution's package
 repository.
 
 If you've installed Notmuch from a [git
-checkout](http://git.notmuchmail.org/git/notmuch) or a [source
-release](http://notmuchmail.org/releases/), Notmuch Emacs is included by
+checkout](https://git.notmuchmail.org/git/notmuch) or a [source
+release](https://notmuchmail.org/releases/), Notmuch Emacs is included by
 default.
 
 It is **not** recommended to install Notmuch Emacs from the Emacs Lisp Package

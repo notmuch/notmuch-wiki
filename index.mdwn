@@ -66,7 +66,7 @@ Notmuch|getting-started]].
 
 Notmuch ships with a powerful set of [[command-line tools|manpages]], an
 [[email client for Emacs|notmuch-emacs]], another
-[client for vim](http://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README),
+[client for vim](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README),
 and a [[Mutt integration script|notmuch-mutt]].
 
 There are also many other [[email clients and frontends|frontends]] based on
@@ -96,7 +96,7 @@ below).  Join the mailing list.  Read the archives.  Ask questions.
 
 ## Obtaining Notmuch
 
-[Notmuch source releases](http://notmuchmail.org/releases/) are available as
+[Notmuch source releases](https://notmuchmail.org/releases/) are available as
 source tar balls.
 
 Notmuch is packaged for at least the following operating systems and
@@ -117,12 +117,12 @@ distributions:
 Comments? Please feel free to email the notmuch mailing list:
 <mailto:notmuch@notmuchmail.org> (subscription is not required, but you can
 also subscribe to the
-[notmuch mailing list](http://notmuchmail.org/mailman/listinfo/notmuch)). You
+[notmuch mailing list](https://notmuchmail.org/mailman/listinfo/notmuch)). You
 can also browse the
-[online list archives](http://notmuchmail.org/pipermail/notmuch/),
+[online list archives](https://notmuchmail.org/pipermail/notmuch/),
 read them as a
 [web forum (nabble)](http://notmuch.198994.n3.nabble.com/), or
-download an [mbox file](http://notmuchmail.org/archives/notmuch.mbox)
+download an [mbox file](https://notmuchmail.org/archives/notmuch.mbox)
 of the entire mailing-list.
 
 The `mb2md` utility can be used to convert the archives to maildir
@@ -137,7 +137,7 @@ not be in your timezone.
 ## Troubleshooting, Reporting Bugs and Feature Requests
 
 Please send bug reports and feature requests to the [Notmuch mailing
-list](http://notmuchmail.org/mailman/listinfo/notmuch)
+list](https://notmuchmail.org/mailman/listinfo/notmuch)
 <mailto:notmuch@notmuchmail.org>.
 
 For hints about troubleshooting and bug reporting see [[bugs]].
@@ -157,9 +157,9 @@ versions can be checked out via git with this command:
         git clone git://notmuchmail.org/git/notmuch
 
 You can browse the [Notmuch code history
-online](http://git.notmuchmail.org/git/notmuch). A notification is sent to the
+online](https://git.notmuchmail.org/git/notmuch). A notification is sent to the
 [notmuch-commits mailing
-list](http://notmuchmail.org/mailman/listinfo/notmuch-commits) for every commit
+list](https://notmuchmail.org/mailman/listinfo/notmuch-commits) for every commit
 made to Notmuch and the notmuchmail.org web site. [The Notmuch OpenHub project
 page](https://www.openhub.net/p/notmuch) has a nice summary of the codebase and
 activity.

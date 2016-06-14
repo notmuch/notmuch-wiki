@@ -10,7 +10,7 @@ The `notmuch-mutt` script shipping with Notmuch bridges the gap between Notmuch
 and Mutt.
 
 ## Using
-  [notmuch-mutt](http://git.notmuchmail.org/git/notmuch/tree/HEAD:/contrib/notmuch-mutt),
+  [notmuch-mutt](https://git.notmuchmail.org/git/notmuch/tree/HEAD:/contrib/notmuch-mutt),
   which will create a "virtual" maildir folder with search results whenever a
   search is made. The upside is that you can search all your folders
   simultanously; the downside is that your modifications in the results listing
