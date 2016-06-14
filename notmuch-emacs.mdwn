@@ -2,7 +2,7 @@
 # Notmuch Emacs Interface
 
 One of the more popular Notmuch message reading clients is **notmuch.el**, or
-`notmuch-emacs`, an [Emacs](http://www.gnu.org/software/emacs/) major mode for
+`notmuch-emacs`, an [Emacs](https://www.gnu.org/software/emacs/) major mode for
 interacting with Notmuch. It is included in the Notmuch package (`notmuch-emacs`
 in Debian). The [[screenshots|screenshots]] give a good overview of the mode.
 

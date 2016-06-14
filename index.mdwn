@@ -149,9 +149,9 @@ requests](http://nmbug.notmuchmail.org/status/#Wish-list).
 ## Development and Contributing
 
 All of the code for Notmuch is available as [free
-software](http://www.fsf.org/licensing/essays/free-sw.html) released
+software](https://www.fsf.org/licensing/essays/free-sw.html) released
 under the GNU [GPL version
-3](http://www.fsf.org/licensing/licenses/gpl.html). The latest
+3](https://www.fsf.org/licensing/licenses/gpl.html). The latest
 versions can be checked out via git with this command:
 
         git clone git://notmuchmail.org/git/notmuch

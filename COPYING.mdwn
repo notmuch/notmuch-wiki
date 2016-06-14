@@ -4,16 +4,16 @@
 The contents of this wiki are (unless otherwise explicitly noted, see below)
 dual licensed under:
 
-- [CC-BY-SA-3.0](http://creativecommons.org/licenses/by-sa/3.0/) <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" />
+- [CC-BY-SA-3.0](https://creativecommons.org/licenses/by-sa/3.0/) <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" />
 
-- [The GNU General Public License](http://www.gnu.org/licenses/gpl.txt), either
+- [The GNU General Public License](https://www.gnu.org/licenses/gpl.txt), either
   version 3.0 or at your option any later version.
 
 The [[Notmuch manual pages|manpages]], copied from the
 [Notmuch source tree](https://git.notmuchmail.org/git/notmuch) and
 modified for the wiki, *and* any source code fragment specifically
 marked by its contributor as [[COPYING-GPL-ONLY]] are licensed under
-[the GNU General Public License](http://www.gnu.org/licenses/gpl.txt),
+[the GNU General Public License](https://www.gnu.org/licenses/gpl.txt),
 either version 3.0 or at your option any later version.
 
 By pushing to the repository you agree that all of your contributions to the
