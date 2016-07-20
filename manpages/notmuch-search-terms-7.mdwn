@@ -59,6 +59,8 @@
 
        · lastmod:&lt;initial-revision&gt;..&lt;final-revision&gt;
 
+       · query:&lt;name&gt;
+
        The <b>from:</b> prefix is used to match the name or address of the sender  of
        an email message.
 
@@ -130,6 +132,10 @@
        added/removed or filenames changed).  This is usually used in  conjunc‐
        tion  with  the <b>--uuid</b> argument to <b>notmuch</b> <b>search</b> to find messages that
        have changed since an earlier query.
+
+       The <b>query:</b> prefix allows queries to refer to previously  saved  queries
+       added  with <a href='../notmuch-config-1/'>notmuch-config</a>(1). Named queries are only available if not‐
+       much is built with <b>Xapian</b> <b>Field</b> <b>Processors</b> (see below).
 </pre>
 
 <h3> &nbsp; Operators</h3>
@@ -197,14 +203,11 @@
        flexible <b>term</b> based searching. The prefixes currently supported by not‐
        much are as follows.
 
-              ┌───────────────────────────┬────────────────────────────┐
-              │Boolean
-              ├───────────────────────────┼────────────────────────────┤
-              │
-              │
-              │       <b>thread:</b>     <b>folder:</b> │        <b>subject:</b>    <b>attach‐</b> │
-              │       <b>path:</b>               │        <b>ment:</b> <b>mimetype:</b>     │
-              └───────────────────────────┴────────────────────────────┘
+       <b>Boolean</b>
+              <b>tag:</b>, <b>id:</b>, <b>thread:</b>, <b>folder:</b>, <b>path:</b>
+
+       <b>Probabilistic</b>
+              <b>from:</b>, <b>to:</b>, <b>subject:</b>, <b>attachment:</b>, <b>mimetype:</b>
 </pre>
 
 <h3> &nbsp; Terms and phrases</h3>
@@ -265,9 +268,9 @@
        date:&lt;expr&gt;..!  can be used as a shorthand for date:&lt;expr&gt;..&lt;expr&gt;. The
        expansion takes place before interpretation,  and  thus,  for  example,
        date:monday..!  matches  from  the beginning of Monday until the end of
-       Monday. (Note that  entering  date:&lt;expr&gt;  without  &quot;..&quot;,  for  example
-       date:yesterday,  won&apos;t work, as it&apos;s not interpreted as a range expres‐
-       sion at all. Again, use date:yesterday..!)
+       Monday.  With <b>Xapian</b> <b>Field</b> <b>Processor</b>  support  (see  below),  non-range
+       date  queries such as date:yesterday will work, but otherwise will give
+       unexpected results; if in doubt use date:yesterday..!
 
        Currently, we do not support  spaces  in  range  expressions.  You  can
        replace the spaces with &apos;_&apos;, or (in most cases) &apos;-&apos;, or (in some cases)
@@ -352,6 +355,22 @@
        · (+|-)HH[MM]
 
        Some time zone codes, e.g. UTC, EET.
+</pre>
+
+<h2>XAPIAN FIELD PROCESSORS</h2>
+<pre>
+       Certain optional features of the notmuch query processor  rely  on  the
+       presence  of  the Xapian field processor API. You can determine if your
+       notmuch was built against a sufficiently recent version  of  Xapian  by
+       running
+
+          % notmuch config get built_with.field_processor
+
+       Currently the following features require field processor support:
+
+       · non-range date queries, e.g. &quot;date:today&quot;
+
+       · named queries e.g. &quot;query:my_special_query&quot;
 </pre>
 
 <h2>SEE ALSO</h2>

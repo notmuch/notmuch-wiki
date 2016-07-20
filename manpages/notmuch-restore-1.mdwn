@@ -54,6 +54,21 @@
                         batch-tag  format  contains  no parentheses, should be
                         accurate.
 
+          <b>--include=(config|tags)</b>
+              Control what kind of metadata is restored.
+                 <b>config</b>
+                     Restore configuration data to the database. Each configu‐
+                     ration line starts with &quot;#@ &quot;, followed by a space seper‐
+                     ated key-value pair.  Both key and value are hex  encoded
+                     if needed.
+
+                 <b>tags</b>
+                     Output  per-message  metadata,  namely  tags.  See <u>format</u>
+                     above for more details.
+
+              The default is to restore both tags and  configuration  informa‐
+              tion
+
           <b>--input=&lt;filename&gt;</b>
                  Read input from given file instead of stdin.
 </pre>

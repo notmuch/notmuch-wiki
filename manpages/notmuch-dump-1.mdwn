@@ -68,6 +68,26 @@
                      characters.  Note  also that tags with spaces will not be
                      correctly restored with this format.
 
+          <b>--include=(config|tags)</b>
+
+          Control what kind of metadata is included in the output.
+              <b>config</b>
+                 Output configuration data stored in the database.  Each  line
+                 starts  with  &quot;#@  &quot;, followed by a space seperated key-value
+                 pair.  Both key and value are hex encoded if needed.
+
+              <b>tags</b>
+                 Output per-message metadata, namely tags.  See  <u>format</u>  above
+                 for description of the output.
+
+              The  default  is to include both tags and configuration informa‐
+              tion. As of version 2 of the dump format, there is a header line
+              of the following form
+
+                #notmuch-dump &lt;<u>format</u>&gt;:&lt;<u>version</u>&gt; &lt;<u>included</u>&gt;
+
+              where &lt;<u>included</u>&gt; is a comma separated list of the above options.
+
           <b>--output=&lt;filename&gt;</b>
                  Write output to given file instead of stdout.
 </pre>

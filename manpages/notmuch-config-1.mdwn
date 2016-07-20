@@ -129,6 +129,15 @@
               decryption of PGP/MIME messages.
 
               Default: <b>gpg</b>.
+
+          <b>built</b>_<b>with.&lt;name&gt;</b>
+              Compile time feature &lt;name&gt;. Current possibilities include &quot;com‐
+              pact&quot;  (see  <a href='../notmuch-compact-1/'>notmuch-compact</a>(1)) and &quot;field_processor&quot; (see <a href='../notmuch-search-terms-7/'>not‐</a>
+              <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7)).
+
+          <b>query.&lt;name&gt;</b>
+              Expansion   for   named   query   called   &lt;name&gt;.   See    <a href='../notmuch-search-terms-7/'>not‐</a>
+              <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7) for more information about named queries.
 </pre>
 
 <h2>ENVIRONMENT</h2>
