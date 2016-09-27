@@ -68,3 +68,10 @@ but you would expect a `List-Id:` search to find the message, regardless of the
 order in which the duplicates were received. This is a more general problem than
 just `List-Id:`, and once this has been resolved, adding `List-Id:` indexing is
 trivial.
+
+## Can I use notmuch with grsec?
+
+Sure! It works out of the box. If you have TPE enabled (trusted path execution),
+make sure the user is executing the script belongs to the
+`kernel.grsecurity.tpe_gid` (in debian this is grsec-tpe).
+This is required in order to run the `pre-new` and `post-new` hooks.
