@@ -1,0 +1,87 @@
+
+digraph ecosystem {
+	size = "4,3"
+	margin=0
+	graph [fontsize=20,dpi=200]
+	node [fontsize=20]
+	edge [fontsize=20]
+
+	gmime
+	xapian
+	notmuch_cli [shape=record,style=filled, color=yellow,label="notmuch CLI"]
+	libnotmuch [style=filled,color=yellow]
+
+	subgraph cluster_clients {
+		style=filled;
+		color=green;
+		label="Mail user agents";
+		node [shape=record, style=filled, color=white];
+		notmuch_emacs [label="notmuch-emacs",color=yellow]
+		alot
+		bower
+		astroid
+		notmuch_web [label="notmuch-web"]
+		noservice
+		neomutt [label="neomutt"]
+		notmuch_vim [label="notmuch-vim", color=lightyellow]
+		notmuch_mutt [label="notmuch-mutt", color=lightyellow]
+        }
+
+	
+	subgraph cluster_tools {
+		style=filled;
+		color=SlateBlue;
+		label="tools";
+		node [shape=record, style=filled, color=white];
+		afew
+		nmbug [color=yellow]
+		nmbug_status [color=yellow]
+        }
+
+	subgraph cluster_bindings {
+		label="Bindings"
+		style=filled;
+		color=YellowGreen;
+		node [shape=record, style=filled, color=white];
+		ruby_notmuch [label="ruby", color=yellow]
+		python_notmuch [label="python", color=yellow]
+		notmuch_go [label="go"]
+	}
+
+	neomutt -> libnotmuch
+	astroid -> libnotmuch
+	alot->python_notmuch
+	notmuch_emacs->notmuch_cli
+	notmuch_mutt->notmuch_cli
+	notmuch_vim->ruby_notmuch
+	bower -> notmuch_cli
+
+	noservice->notmuch_cli
+	nmbug->notmuch_cli
+	nmbug_status-> python_notmuch
+	
+	python_notmuch->libnotmuch
+	ruby_notmuch->libnotmuch
+	notmuch_go ->libnotmuch
+
+	notmuch_web->notmuch_cli
+	notmuch_cli->libnotmuch
+	
+	afew->python_notmuch
+
+	libnotmuch->xapian
+	libnotmuch->gmime
+	{
+	edge [style="invisible",arrowhead="none"]
+	notmuch_emacs->astroid
+	notmuch_emacs->neomutt
+	notmuch_emacs->notmuch_vim
+	notmuch_emacs->alot
+	notmuch_emacs->bower
+	bower->notmuch_vim
+	bower->astroid
+	notmuch_web->noservice
+	}
+
+}
+

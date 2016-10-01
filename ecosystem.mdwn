@@ -1,0 +1,11 @@
+
+[[ecosystem.png]]
+
+
+### Notes
+
+Figure produced via
+
+       dot -Tpng -o ecosystem.png ecosystem.dot.mdwn
+       
+The silly file naming is to (hopefully) placate ikiwiki.
