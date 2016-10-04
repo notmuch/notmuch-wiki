@@ -75,3 +75,21 @@ Sure! It works out of the box. If you have TPE enabled (trusted path execution),
 make sure the user is executing the script belongs to the
 `kernel.grsecurity.tpe_gid` (in debian this is grsec-tpe).
 This is required in order to run the `pre-new` and `post-new` hooks.
+
+## Can I tag threads?
+
+No. Tagging is message based.
+
+It is possible, however, to make tags propagate to all messages in a thread
+using a little bit of scripting in the [[post-new
+hook|manpages/notmuch-hooks-5]]. For example, to add the muted tag to all
+messages in threads that have at least one message with the muted tag:
+
+        THREAD_TAGS="muted"
+        for tag in "$THREAD_TAGS"; do
+                notmuch tag +$tag $(notmuch search --output=threads tag:$tag)
+        done
+
+You can add other tags to `THREAD_TAGS` as needed. Note that this is one way
+only; you need to explicitly remove the tag from all the messages in a thread to
+stop it from propagating again.
