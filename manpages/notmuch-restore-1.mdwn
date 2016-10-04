@@ -54,20 +54,26 @@
                         batch-tag  format  contains  no parentheses, should be
                         accurate.
 
-          <b>--include=(config|tags)</b>
+          <b>--include=(config|properties|tags)</b>
               Control what kind of metadata is restored.
                  <b>config</b>
                      Restore configuration data to the database. Each configu‐
-                     ration line starts with &quot;#@ &quot;, followed by a space seper‐
-                     ated key-value pair.  Both key and value are hex  encoded
+                     ration  line starts with &quot;#@ &quot;, followed by a space sepa‐
+                     rated key-value pair.  Both key and value are hex encoded
                      if needed.
 
+                 <b>properties</b>
+                     Output   per-message  (key,value)  metadata.   Each  line
+                     starts with &quot;#= &quot;, followed by a message id, and a  space
+                     separated  list of key=value pairs.  pair.  Ids, keys and
+                     values are hex encoded if needed.
+
                  <b>tags</b>
-                     Output  per-message  metadata,  namely  tags.  See <u>format</u>
+                     Output per-message  metadata,  namely  tags.  See  <u>format</u>
                      above for more details.
 
-              The default is to restore both tags and  configuration  informa‐
-              tion
+              The  default  is  to  restore  all available types of data.  The
+              option can be specified multiple times to select some subset.
 
           <b>--input=&lt;filename&gt;</b>
                  Read input from given file instead of stdin.
@@ -98,4 +104,4 @@
        2009-2016, Carl Worth and many others
 </pre>
 
-<h2>0.22.1</h2>
+<h2>0.23</h2>

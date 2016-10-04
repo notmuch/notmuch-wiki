@@ -68,21 +68,28 @@
                      characters.  Note  also that tags with spaces will not be
                      correctly restored with this format.
 
-          <b>--include=(config|tags)</b>
+          <b>--include=(config|properties|tags)</b>
 
           Control what kind of metadata is included in the output.
               <b>config</b>
                  Output configuration data stored in the database.  Each  line
-                 starts  with  &quot;#@  &quot;, followed by a space seperated key-value
+                 starts  with  &quot;#@  &quot;, followed by a space separated key-value
                  pair.  Both key and value are hex encoded if needed.
 
-              <b>tags</b>
-                 Output per-message metadata, namely tags.  See  <u>format</u>  above
-                 for description of the output.
+              <b>properties</b>
+                 Output per-message (key,value) metadata.   Each  line  starts
+                 with  &quot;#=  &quot;, followed by a message id, and a space separated
+                 list of key=value pairs.  pair.  Ids, keys and values are hex
+                 encoded if needed.
 
-              The  default  is to include both tags and configuration informa‐
-              tion. As of version 2 of the dump format, there is a header line
-              of the following form
+              <b>tags</b>
+                 Output  per-message boolean metadata, namely tags. See <u>format</u>
+                 above for description of the output.
+
+              The default is to include all  available  types  of  data.   The
+              option can be specified multiple times to select some subset. As
+              of version 2 of the dump format, there is a header line  of  the
+              following form
 
                 #notmuch-dump &lt;<u>format</u>&gt;:&lt;<u>version</u>&gt; &lt;<u>included</u>&gt;
 
@@ -95,7 +102,7 @@
 <h2>SEE ALSO</h2>
 <pre>
        <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5), <a href='../notmuch-insert-1/'>not‐</a>
-       <a href='../notmuch-insert-1/'>much-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1), <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
+       <a href='../notmuch-insert-1/'>much-insert</a>(1), <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
        <a href='../notmuch-search-1/'>notmuch-search</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),   <a href='../notmuch-tag-1/'>not‐</a>
        <a href='../notmuch-tag-1/'>much-tag</a>(1)
 </pre>
@@ -110,4 +117,4 @@
        2009-2016, Carl Worth and many others
 </pre>
 
-<h2>0.22.1</h2>
+<h2>0.23</h2>

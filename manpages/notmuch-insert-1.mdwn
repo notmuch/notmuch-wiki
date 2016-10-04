@@ -45,7 +45,7 @@
           <b>--keep</b> Keep the message file if indexing fails, and keep the message
                  indexed if applying  tags  or  maildir  flag  synchronization
                  fails.  Ignore these errors and return exit status 0 to indi‐
-                 cate succesful mail delivery.
+                 cate successful mail delivery.
 
           <b>--no-hooks</b>
                  Prevent hooks from being run.
@@ -53,9 +53,9 @@
 
 <h2>EXIT STATUS</h2>
 <pre>
-       This command returns exit status 0 on succesful mail delivery, non-zero
-       otherwise.  The  default  is  to  indicate  failed mail delivery on any
-       errors, including message file  delivery  to  the  filesystem,  message
+       This command  returns  exit  status  0  on  successful  mail  delivery,
+       non-zero  otherwise. The default is to indicate failed mail delivery on
+       any errors, including message file delivery to the filesystem,  message
        indexing  to Notmuch database, changing tags, and synchronizing tags to
        maildir flags. The <b>--keep</b> option may be used to settle  for  successful
        message file delivery.
@@ -81,4 +81,4 @@
        2009-2016, Carl Worth and many others
 </pre>
 
-<h2>0.22.1</h2>
+<h2>0.23</h2>

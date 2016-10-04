@@ -41,7 +41,7 @@
               This hook is invoked by the <b>insert</b> command after the message has
               been  delivered,  added  to  the database, and initial tags have
               been applied. The hook will not be run if there  have  been  any
-              errors  during the message delivery; what is regarded as succes‐
+              errors during the message delivery; what is regarded as success‐
               ful delivery depends on the <b>--keep</b> option.
 
               Typically this hook is used to  perform  additional  query-based
@@ -66,4 +66,4 @@
        2009-2016, Carl Worth and many others
 </pre>
 
-<h2>0.22.1</h2>
+<h2>0.23</h2>

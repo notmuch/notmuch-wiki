@@ -61,6 +61,8 @@
 
        · query:&lt;name&gt;
 
+       · property:&lt;key&gt;=&lt;value&gt;
+
        The <b>from:</b> prefix is used to match the name or address of the sender  of
        an email message.
 
@@ -136,27 +138,32 @@
        The <b>query:</b> prefix allows queries to refer to previously  saved  queries
        added  with <a href='../notmuch-config-1/'>notmuch-config</a>(1). Named queries are only available if not‐
        much is built with <b>Xapian</b> <b>Field</b> <b>Processors</b> (see below).
+
+       The  <b>property:</b>  prefix  searches  for  messages   with   a   particular
+       &lt;key&gt;=&lt;value&gt;  property pair. Properties are used internally by notmuch
+       (and extensions) to add metadata  to  messages.  A  given  key  can  be
+       present on a given message with several different values.
 </pre>
 
 <h3> &nbsp; Operators</h3>
 <pre>
-       In addition to individual terms, multiple terms can  be  combined  with
-       Boolean  operators (<b>and</b>, <b>or</b>, <b>not</b>, and <b>xor</b>). Each term in the query will
-       be implicitly connected by a logical AND if  no  explicit  operator  is
-       provided  (except  that  terms  with a common prefix will be implicitly
-       combined with OR).  The  shorthand  &apos;-&lt;term&gt;&apos;  can  be  used  for  &apos;not
+       In  addition  to  individual terms, multiple terms can be combined with
+       Boolean operators (<b>and</b>, <b>or</b>, <b>not</b>, and <b>xor</b>). Each term in the query  will
+       be  implicitly  connected  by  a logical AND if no explicit operator is
+       provided (except that terms with a common  prefix  will  be  implicitly
+       combined  with  OR).   The  shorthand  &apos;-&lt;term&gt;&apos;  can  be used for &apos;not
        &lt;term&gt;&apos; but unfortunately this does not work at the start of an expres‐
-       sion.  Parentheses can also be used to control the combination  of  the
+       sion.   Parentheses  can also be used to control the combination of the
        Boolean operators, but will have to be protected from interpretation by
        the shell, (such as by putting quotation marks around any parenthesized
        expression).
 
-       In  addition to the standard boolean operators, Xapian provides several
+       In addition to the standard boolean operators, Xapian provides  several
        operators specific to text searching.
 
           notmuch search term1 NEAR term2
 
-       will return results where term1  is  within  10  words  of  term2.  The
+       will  return  results  where  term1  is  within  10 words of term2. The
        threshold can be set like this:
 
           notmuch search term1 NEAR/2 term2
@@ -166,7 +173,7 @@
           notmuch search term1 ADJ term2
 
        will return results where term1 is within 10 words of term2, but in the
-       same order as in the query. The threshold can be set the same  as  with
+       same  order  as in the query. The threshold can be set the same as with
        NEAR:
 
           notmuch search term1 ADJ/7 term2
@@ -180,31 +187,31 @@
           notmuch search details
           notmuch search detail
 
-       will  all  return identical results, because Xapian first &quot;reduces&quot; the
+       will all return identical results, because Xapian first  &quot;reduces&quot;  the
        term to the common stem (here &apos;detail&apos;) and then performs the search.
 
-       There are two ways to turn this off: a search for  a  capitalized  word
-       will  be performed unstemmed, so that one can search for &quot;John&quot; and not
-       get results for &quot;Johnson&quot;; phrase  searches  are  also  unstemmed  (see
-       below  for details).  Stemming is currently only supported for English.
+       There  are  two  ways to turn this off: a search for a capitalized word
+       will be performed unstemmed, so that one can search for &quot;John&quot; and  not
+       get  results  for  &quot;Johnson&quot;;  phrase  searches are also unstemmed (see
+       below for details).  Stemming is currently only supported for  English.
        Searches for words in other languages will be performed unstemmed.
 </pre>
 
 <h3> &nbsp; Wildcards</h3>
 <pre>
-       It is possible to use a trailing  &apos;*&apos;  as  a  wildcard.  A  search  for
+       It  is  possible  to  use  a  trailing  &apos;*&apos; as a wildcard. A search for
        &apos;wildc*&apos; will match &apos;wildcard&apos;, &apos;wildcat&apos;, etc.
 </pre>
 
 <h3> &nbsp; Boolean and Probabilistic Prefixes</h3>
 <pre>
-       Xapian  (and  hence  notmuch)  prefixes  are either <b>boolean</b>, supporting
-       exact matches like &quot;<u>tag:inbox</u>&quot;  or  <b>probabilistic</b>,  supporting  a  more
+       Xapian (and hence notmuch)  prefixes  are  either  <b>boolean</b>,  supporting
+       exact  matches  like  &quot;<u>tag:inbox</u>&quot;   or <b>probabilistic</b>, supporting a more
        flexible <b>term</b> based searching. The prefixes currently supported by not‐
        much are as follows.
 
        <b>Boolean</b>
-              <b>tag:</b>, <b>id:</b>, <b>thread:</b>, <b>folder:</b>, <b>path:</b>
+              <b>tag:</b>, <b>id:</b>, <b>thread:</b>, <b>folder:</b>, <b>path:</b>, <b>property:</b>
 
        <b>Probabilistic</b>
               <b>from:</b>, <b>to:</b>, <b>subject:</b>, <b>attachment:</b>, <b>mimetype:</b>
@@ -212,10 +219,10 @@
 
 <h3> &nbsp; Terms and phrases</h3>
 <pre>
-       In general Xapian distinguishes between lists  of  terms  and  <b>phrases</b>.
+       In  general  Xapian  distinguishes  between lists of terms and <b>phrases</b>.
        Phrases are indicated by double quotes (but beware you probably need to
-       protect those from your shell) and insist that  those  unstemmed  words
-       occur  in  that  order. One useful, but initially surprising feature is
+       protect  those  from  your shell) and insist that those unstemmed words
+       occur in that order. One useful, but initially  surprising  feature  is
        that the following are equivalant ways to write the same phrase.
 
        · &quot;a list of words&quot;
@@ -244,11 +251,11 @@
 
 <h2>DATE AND TIME SEARCH</h2>
 <pre>
-       notmuch  understands a variety of standard and natural ways of express‐
+       notmuch understands a variety of standard and natural ways of  express‐
        ing dates and times, both in absolute terms (&quot;2012-10-24&quot;) and in rela‐
-       tive  terms (&quot;yesterday&quot;). Any number of relative terms can be combined
-       (&quot;1 hour 25 minutes&quot;) and an absolute date/time can  be  combined  with
-       relative  terms  to  further adjust it. A non-exhaustive description of
+       tive terms (&quot;yesterday&quot;). Any number of relative terms can be  combined
+       (&quot;1  hour  25  minutes&quot;) and an absolute date/time can be combined with
+       relative terms to further adjust it. A  non-exhaustive  description  of
        the syntax supported for absolute and relative terms is given below.
 </pre>
 
@@ -256,23 +263,23 @@
 <pre>
        date:&lt;since&gt;..&lt;until&gt;
 
-       The above expression  restricts  the  results  to  only  messages  from
+       The  above  expression  restricts  the  results  to  only messages from
        &lt;since&gt; to &lt;until&gt;, based on the Date: header.
 
-       &lt;since&gt;  and &lt;until&gt; can describe imprecise times, such as &quot;yesterday&quot;.
-       In this case, &lt;since&gt; is taken as the earliest time it  could  describe
+       &lt;since&gt; and &lt;until&gt; can describe imprecise times, such as  &quot;yesterday&quot;.
+       In  this  case, &lt;since&gt; is taken as the earliest time it could describe
        (the beginning of yesterday) and &lt;until&gt; is taken as the latest time it
-       could describe (the end of yesterday). Similarly,  date:january..febru‐
+       could  describe (the end of yesterday). Similarly, date:january..febru‐
        ary matches from the beginning of January to the end of February.
 
-       date:&lt;expr&gt;..!  can be used as a shorthand for date:&lt;expr&gt;..&lt;expr&gt;. The
-       expansion takes place before interpretation,  and  thus,  for  example,
-       date:monday..!  matches  from  the beginning of Monday until the end of
-       Monday.  With <b>Xapian</b> <b>Field</b> <b>Processor</b>  support  (see  below),  non-range
-       date  queries such as date:yesterday will work, but otherwise will give
+       date:&lt;expr&gt;..! can be used as a shorthand for date:&lt;expr&gt;..&lt;expr&gt;.  The
+       expansion  takes  place  before  interpretation, and thus, for example,
+       date:monday..! matches from the beginning of Monday until  the  end  of
+       Monday.   With  <b>Xapian</b>  <b>Field</b>  <b>Processor</b> support (see below), non-range
+       date queries such as date:yesterday will work, but otherwise will  give
        unexpected results; if in doubt use date:yesterday..!
 
-       Currently, we do not support  spaces  in  range  expressions.  You  can
+       Currently,  we  do  not  support  spaces  in range expressions. You can
        replace the spaces with &apos;_&apos;, or (in most cases) &apos;-&apos;, or (in some cases)
        leave  the  spaces out altogether. Examples in this man page use spaces
        for clarity.
@@ -290,15 +297,15 @@
 
        All refer to past, can be repeated and will be accumulated.
 
-       Units  can  be  abbreviated to any length, with the otherwise ambiguous
+       Units can be abbreviated to any length, with  the  otherwise  ambiguous
        single m being m for minutes and M for months.
 
-       Number can also be written out one,  two,  ...,  ten,  dozen,  hundred.
+       Number  can  also  be  written  out one, two, ..., ten, dozen, hundred.
        Additionally, the unit may be preceded by &quot;last&quot; or &quot;this&quot; (e.g., &quot;last
        week&quot; or &quot;this month&quot;).
 
-       When combined with absolute date and time, the relative date  and  time
-       specification  will  be  relative  from the specified absolute date and
+       When  combined  with absolute date and time, the relative date and time
+       specification will be relative from the  specified  absolute  date  and
        time.
 
        Examples: 5M2d, two weeks
@@ -359,9 +366,9 @@
 
 <h2>XAPIAN FIELD PROCESSORS</h2>
 <pre>
-       Certain optional features of the notmuch query processor  rely  on  the
-       presence  of  the Xapian field processor API. You can determine if your
-       notmuch was built against a sufficiently recent version  of  Xapian  by
+       Certain  optional  features  of the notmuch query processor rely on the
+       presence of the Xapian field processor API. You can determine  if  your
+       notmuch  was  built  against a sufficiently recent version of Xapian by
        running
 
           % notmuch config get built_with.field_processor
@@ -390,4 +397,4 @@
        2009-2016, Carl Worth and many others
 </pre>
 
-<h2>0.22.1</h2>
+<h2>0.23</h2>

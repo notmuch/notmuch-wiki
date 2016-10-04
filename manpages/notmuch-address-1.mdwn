@@ -74,12 +74,12 @@
                      is specified, include all variants in the count.
 
           <b>--sort=(newest-first|oldest-first)</b>
-                 This option can be used to present results in either  chrono‐
-                 logical  order  (<b>oldest-first</b>) or reverse chronological order
+                 This  option can be used to present results in either chrono‐
+                 logical order (<b>oldest-first</b>) or reverse  chronological  order
                  (<b>newest-first</b>).
 
-                 By default, results will be displayed in reverse  chronologi‐
-                 cal  order,  (that  is,  the newest results will be displayed
+                 By  default, results will be displayed in reverse chronologi‐
+                 cal order, (that is, the newest  results  will  be  displayed
                  first).
 
                  However, if either --output=count or --deduplicate=address is
@@ -88,14 +88,14 @@
 
           <b>--exclude=(true|false)</b>
                  A message is called &quot;excluded&quot; if it matches at least one tag
-                 in  search.tag_exclude that does not appear explicitly in the
-                 search terms. This option specifies whether to omit  excluded
+                 in search.tag_exclude that does not appear explicitly in  the
+                 search  terms. This option specifies whether to omit excluded
                  messages in the search process.
 
-                 The  default  value,  <b>true</b>,  prevents  excluded messages from
+                 The default value,  <b>true</b>,  prevents  excluded  messages  from
                  matching the search terms.
 
-                 <b>false</b> allows excluded messages  to  match  search  terms  and
+                 <b>false</b>  allows  excluded  messages  to  match search terms and
                  appear in displayed results.
 </pre>
 
@@ -110,9 +110,9 @@
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not‐</a>
-       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
-       <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),  <a href='../notmuch-tag-1/'>not‐</a>
+       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not‐</a>
+       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),   <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
+       <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),   <a href='../notmuch-tag-1/'>not‐</a>
        <a href='../notmuch-tag-1/'>much-tag</a>(1), <a href='../notmuch-search-1/'>notmuch-search</a>(1)
 </pre>
 
@@ -126,4 +126,4 @@
        2009-2016, Carl Worth and many others
 </pre>
 
-<h2>0.22.1</h2>
+<h2>0.23</h2>
