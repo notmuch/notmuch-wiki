@@ -11,6 +11,9 @@ its own connection. As long as master ssh connection is live, slave
 can use it. Disconnecting master all future attempts to connect
 from the script will fail.
 
+It is possible to use this solution without any changes to
+`$HOME/.ssh/config`.
+
 At the end of this document there is information for some possible ways
 how master ssh connection can be done.
 
@@ -20,7 +23,8 @@ Write the following code to a file, for example `remote-notmuch.sh`.
 
 	#!/bin/bash
 
-	set -eu
+	set -euf
+
 	# To trace execution, uncomment next line:
 	#exec 6>>remote-errors; BASH_XTRACEFD=6; echo -- >&6; set -x
 
@@ -155,6 +159,31 @@ notmuch specific) configuration files:
 wrapper.
 
 (*) general most likely being ~/.emacs
+
+### Yet another possibility -- script to start emacs
+
+Instead of adding new configurations you could also write a special
+script which starts and configures emacs suitable for remote usage.
+Copy the following "template" to a new name e.g. in `$HOME/bin/`,
+edit the value for `master-USER@HOST3:22` and perhaps add more
+post eval-after-load notmuch configs there.
+
+    #!/bin/sh
+    :; exec "${EMACS:-emacs}" --debug-init --load "$0" "$@"; exit
+
+    (setenv "REMOTE_NOTMUCH_SSHCTRL_SOCK" "master-USER@HOST3:22")
+
+    (eval-after-load "notmuch"
+      (lambda ()
+        (setq notmuch-command (concat (file-name-directory load-file-name)
+                                      "remote-notmuch.sh"))
+        ;; place for more post-notmuch-load emacs configs if any
+        ))
+    (notmuch)
+
+    ;; Local Variables:
+    ;; mode: emacs-lisp
+    ;; End:
 
 ## Creating master connection
 
