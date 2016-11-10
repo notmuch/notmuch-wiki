@@ -82,14 +82,16 @@ script:
 
     (setq notmuch-command "/path/to/your/remote-notmuch.sh")
 
-If you use Fcc, you may want to do something like this on the client, to
-Bcc mails to yourself:
+If you use Fcc and Notmuch older than 0.23, you may want to do something like
+this on the client, to Bcc mails to yourself:
 
     (setq notmuch-fcc-dirs nil)
     (add-hook 'message-header-setup-hook
         (lambda () (insert (format "Bcc: %s <%s>\n"
                     (notmuch-user-name)
                     (notmuch-user-primary-email))))))
+
+Starting from 0.23, Fcc is also done through notmuch-command.
 
 ## Problems ##
 
