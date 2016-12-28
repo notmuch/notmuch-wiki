@@ -60,6 +60,13 @@
        maildir flags. The <b>--keep</b> option may be used to settle  for  successful
        message file delivery.
 
+       This command supports the following special exit status code for errors
+       most likely to be temporary in nature, e.g. failure to get  a  database
+       write lock.
+
+       <b>75</b> <b>(EX</b>_<b>TEMPFAIL)</b>
+              A temporary failure occured; the user is invited to retry.
+
        The exit status of the <b>post-insert</b> hook does not affect the exit status
        of the <b>insert</b> command.
 </pre>
@@ -81,4 +88,4 @@
        2009-2016, Carl Worth and many others
 </pre>
 
-<h2>0.23</h2>
+<h2>0.23.4</h2>

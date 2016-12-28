@@ -45,6 +45,14 @@
                  Do not print progress or results.
 </pre>
 
+<h2>EXIT STATUS</h2>
+<pre>
+       This command supports the following special exit status code
+
+       <b>75</b> <b>(EX</b>_<b>TEMPFAIL)</b>
+              A temporary failure occured; the user is invited to retry.
+</pre>
+
 <h2>SEE ALSO</h2>
 <pre>
        <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not‐</a>
@@ -63,4 +71,4 @@
        2009-2016, Carl Worth and many others
 </pre>
 
-<h2>0.23</h2>
+<h2>0.23.4</h2>
