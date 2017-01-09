@@ -1,0 +1,10 @@
+[[!meta date="2017-01-09"]]
+
+Notmuch 0.23.5 (2017-01-09)
+===========================
+
+Build system
+------------
+
+Fix quoting bug in configure. This had introduced a RUNPATH into the
+notmuch binary in cases where it was not not needed.
