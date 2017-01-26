@@ -32,7 +32,7 @@ utilities support these formats:
 
 * [getmail](http://pyropus.ca/software/getmail/)
 
-* [fetchmail](http://fetchmail.berlios.de/)
+* [fetchmail](http://www.fetchmail.info/)
 
 * [muchsync](http://www.muchsync.org/) - replicate and synchronize
   your notmuch database (mail and tags) across machines
