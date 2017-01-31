@@ -8,6 +8,7 @@
 * [notmuch-vim](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README), the vim frontend.
 * [[notmuch-mutt]], mutt interoperability script.
 * [[nmbug]], a tag sharing and patch/bug tracking system.
+* [notmuch-report](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/devel/nmbug/notmuch-report), a tool to generate web pages from Notmuch queries.
 
 ## Other email clients and front ends based on Notmuch
 
