@@ -1,5 +1,5 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
-# Available email clients and front ends
+# Available email clients, front ends and tools
 
 ## Shipping with Notmuch
 
@@ -18,3 +18,8 @@
 * [ner](http://the-ner.org/), a curses frontend written in C.
 * [notmuch-web](https://bitbucket.org/wuzzeb/notmuch-web) A web front end written in [Haskell](http://hackage.haskell.org/package/notmuch-web).
 * [notmuchfs](https://github.com/tsto/notmuchfs), a virtual maildir file system for Notmuch queries.
+
+## Tools based on Notmuch
+
+* [patches](https://github.com/stefanha/patches), a patch tracking system.
+* [notmuch-extract-patch](https://github.com/aaptel/notmuch-extract-patch), a tool to extract patches from a thread.
