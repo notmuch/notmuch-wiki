@@ -1,0 +1,18 @@
+[[!meta date="2017-02-27"]]
+
+Notmuch 0.23.6 (2017-02-27)
+===========================
+
+Command Line Interface
+----------------------
+
+Fix read-after-free bug in `notmuch new`.
+
+Test Suite
+----------
+
+Use gpgconf --create-socketdir if available.
+
+GnuPG has a facility to use sockets in /run or /var/run to avoid
+problems with long socket paths, but this is not enabled by default
+for GNUPGHOME other than $HOME/.gnupg. Enable it, if possible.
