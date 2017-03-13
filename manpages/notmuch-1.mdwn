@@ -74,7 +74,7 @@
        The  setup  command  will prompt for your full name, your primary email
        address, any alternate email addresses you use, and the directory  con‐
        taining your email archives. Your answers will be written to a configu‐
-       ration file in ${NOTMUCH_CONFIG} (if set) or ${HOME}/.notmuch-config.
+       ration file in ${NOTMUCH_CONFIG} (if set) or ${HOME}/.notmuch-config  .
        This configuration file will be created with descriptive comments, mak‐
        ing it easy to edit by hand later to change the configuration.  Or  you
        can run <b>notmuch</b> <b>setup</b> again to change the configuration.
@@ -88,7 +88,7 @@
        Mail  storage that uses mbox format, (where one mbox file contains many
        messages), will not work with notmuch. If that&apos;s how your mail is  cur‐
        rently stored, it is recommended you first convert it to maildir format
-       with a utility such as mb2md before running <b>notmuch</b> <b>setup</b>.
+       with a utility such as mb2md before running <b>notmuch</b> <b>setup</b> <b>.</b>
 
        Invoking <b>notmuch</b> with no command argument will run <b>setup</b> if  the  setup
        command has not previously been completed.
@@ -114,6 +114,15 @@
 
        The  <b>config</b>  command  can be used to get or set settings in the notmuch
        configuration file.
+</pre>
+
+<h3> &nbsp; CUSTOM COMMANDS</h3>
+<pre>
+       If the given command is not known to notmuch, notmuch tries to  execute
+       the external <b>notmuch-&lt;subcommand&gt;</b> in ${PATH} instead. This allows users
+       to have their own notmuch related tools to be run via the notmuch  com‐
+       mand. By design, this does not allow notmuch&apos;s own commands to be over‐
+       riden using external commands.
 </pre>
 
 <h2>ENVIRONMENT</h2>
@@ -163,7 +172,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2016, Carl Worth and many others
+       2009-2017, Carl Worth and many others
 </pre>
 
-<h2>0.23.4</h2>
+<h2>0.24</h2>

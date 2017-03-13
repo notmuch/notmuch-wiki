@@ -7,6 +7,7 @@ Manual page index
 * <a href='notmuch-config-1/'>notmuch-config</a>(1) - access notmuch configuration file
 * <a href='notmuch-count-1/'>notmuch-count</a>(1) - count messages matching the given search terms
 * <a href='notmuch-dump-1/'>notmuch-dump</a>(1) - creates a plain-text dump of the tags of each message
+* <a href='notmuch-emacs-mua-1/'>notmuch-emacs-mua</a>(1) - send mail with notmuch and emacs
 * <a href='notmuch-insert-1/'>notmuch-insert</a>(1) - add a message to the maildir and notmuch database
 * <a href='notmuch-new-1/'>notmuch-new</a>(1) - incorporate new mail into the notmuch database
 * <a href='notmuch-reply-1/'>notmuch-reply</a>(1) - constructs a reply template for a set of messages
@@ -21,4 +22,4 @@ The manual pages are licensed under
 [the GNU General Public License](https://www.gnu.org/licenses/gpl.txt),
 either version 3.0 or at your option any later version.
 
-<h2>0.23.4</h2>
+<h2>0.24</h2>
