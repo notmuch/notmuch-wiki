@@ -49,10 +49,10 @@ customize `notmuch-address-save-filename`.
 ### Tag jump menu
 
 It is now possible to configure tagging shortcuts (with an interface
-like notmuch jump). For example (by default) k u will remove the
-unread tag, and k s will add a tag "spam" and remove the inbox
-tag. Pressing k twice will do the reverse operation so, for example,
-k k s removes the spam tag and adds the inbox tag. See the customize
+like notmuch jump). For example (by default) `k u` will remove the
+unread tag, and `k s` will add a tag "spam" and remove the inbox
+tag. Pressing `k` twice will do the reverse operation so, for example,
+`k k s` removes the spam tag and adds the inbox tag. See the customize
 variable `notmuch-tagging-keys` for more information.
 
 ### Refresh all buffers
@@ -69,7 +69,7 @@ overrides this and does not display them by default. If you have
 customized `mm-inline-override-types` then we assume you know what
 you want and do not interfere; if you do want to stop the display of
 `application/*` add `application/*` to your customization. If you want
-to allow application/* then set `mm-inline-override-types` to
+to allow `application/*` then set `mm-inline-override-types` to
 "non/existent".
 
 ### Small change in the api for notmuch-search-tag
