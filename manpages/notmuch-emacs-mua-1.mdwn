@@ -87,12 +87,12 @@
 
 <h2>AUTHOR</h2>
 <pre>
-       Carl Worth and many others
+       Jani Nikula
 </pre>
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2017, Carl Worth and many others
+       2014-2017, Jani Nikula
 </pre>
 
 <h2>0.24</h2>
