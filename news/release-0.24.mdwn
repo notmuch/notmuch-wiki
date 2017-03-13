@@ -60,15 +60,15 @@ variable `notmuch-tagging-keys` for more information.
 It is now possible to refresh all notmuch buffers to reflect the
 current state of the database with a single command, `M-=`.
 
-### Stop display of application/* parts
+### Stop display of `application/*` parts
 
-By default gnus displays all application/* parts such as
+By default gnus displays all `application/*` parts such as
 application/zip in the message buffer. This has several undesirable
 effects for notmuch (security, triggering errors etc). Notmuch now
 overrides this and does not display them by default. If you have
 customized `mm-inline-override-types` then we assume you know what
 you want and do not interfere; if you do want to stop the display of
-application/* add application/* to your customization. If you want
+`application/*` add `application/*` to your customization. If you want
 to allow application/* then set `mm-inline-override-types` to
 "non/existent".
 
