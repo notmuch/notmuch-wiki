@@ -1,0 +1,31 @@
+[[!meta date="2017-04-01"]]
+
+Notmuch 0.24.1 (2017-04-01)
+===========================
+
+General
+-------
+
+### Fix regressions in non-regexp search for `from:` and `subject:`
+
+The regexp search code in 0.24 introduced a regression in the
+handling of empty queries and wildcards. These are both corrected in
+this release.
+
+Command Line Interface
+----------------------
+
+### Fix several memory leaks in `notmuch show`
+
+### Update NEWS for 0.24 to mention schema changes
+
+### Fix bug in dump header
+
+The previous version of the dump header failed to mention the
+inclusion of tags. This fix bumps the version number of the dump
+format to 3. There are no other changes to the format.
+
+Library Changes
+---------------
+
+Fix a read-after-free in the library.
