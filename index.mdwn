@@ -126,6 +126,13 @@ read them as a
 download an [mbox file](https://notmuchmail.org/archives/notmuch.mbox)
 of the entire mailing-list.
 
+### Another mailing list
+
+Currently the mailing list at notmuchmail.org is not working much, so
+we have a temporary (?) list at
+[freelists.org](https://www.freelists.org/list/notmuch). Feel free to
+subscribe if you like, and to CC both lists with problem reports.
+
 The `mb2md` utility can be used to convert the archives to maildir
 format which is convenient for reading the archives within notmuch
 itself.
