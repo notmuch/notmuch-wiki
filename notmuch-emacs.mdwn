@@ -91,7 +91,7 @@ When composing new messages, you will be entered in Emacs's
 messages.  When in message mode, you can type `C-c ?` for help.
 
 If you would like to use address autocompletion when composing
-messages, see [address completion](emacstips#index13h2).
+messages, see [address completion](/emacstips#index13h2).
 
 When you are ready to send a message, type `C-c C-c`. By default
 message mode will use your sendmail command to send mail, so make sure
