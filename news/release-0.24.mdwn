@@ -20,6 +20,13 @@ You can now add your own `notmuch-` prefixed commands in PATH, and
 have notmuch run them as if they were notmuch commands. See the
 `notmuch(1)` man page for details
 
+### New default output format to 3
+
+See devel/schemata for details. Users of the structured output
+format are reminded of the `--format-version` argument to `notmuch
+show` and `notmuch search` which can prevent breakage when the
+default format changes.
+
 Emacs
 -----
 
@@ -49,10 +56,10 @@ customize `notmuch-address-save-filename`.
 ### Tag jump menu
 
 It is now possible to configure tagging shortcuts (with an interface
-like notmuch jump). For example (by default) `k u` will remove the
-unread tag, and `k s` will add a tag "spam" and remove the inbox
-tag. Pressing `k` twice will do the reverse operation so, for example,
-`k k s` removes the spam tag and adds the inbox tag. See the customize
+like notmuch jump). For example (by default) k u will remove the
+unread tag, and k s will add a tag "spam" and remove the inbox
+tag. Pressing k twice will do the reverse operation so, for example,
+k k s removes the spam tag and adds the inbox tag. See the customize
 variable `notmuch-tagging-keys` for more information.
 
 ### Refresh all buffers
