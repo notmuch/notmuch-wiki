@@ -44,17 +44,6 @@ generally extremely fast.
 You can use the `post-new` hook, which is automatically run after `notmuch new`,
 to do post-processing. See `man notmuch-hooks` for details on hooks.
 
-## tagging based on content
-
-Since notmuch currently does not index arbitrary headers, it can be
-useful to tag based on content.  Here is a snippet that would fit with
-the 'new' tag approach discussed above.
-
-    for mid in $(notmuch search --output=messages tag:new); do
-        if notmuch show --format=raw "$mid" | awk '!NF{exit 1} /^X-Spam_bar: ++++++++/ {exit 0}'; then
-        notmuch tag +spam "$mid"
-        fi
-    done
 
 ## Other solutions
 
