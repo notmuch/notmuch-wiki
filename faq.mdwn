@@ -54,6 +54,14 @@ searches. Punctuation is mostly ignored.
 The boolean prefix searches (see Boolean and Probabilistic Prefixes in the man
 page), such as tag: or path: searches, need an exact match.
 
+## How do I search for folders or paths with spaces?
+
+The spaces in the names must be escaped. For example if you use bash or zsh,
+you can search for messages with tag `foo` in folder `INBOX/folder with spaces`
+with this query:
+
+        $ notmuch search tag:foo 'folder:"INBOX/folder with spaces"'
+
 ## How do I search for the `List-Id:` header?
 
 Currently there is no way to search for `List-Id:`. As a workaround, try using a

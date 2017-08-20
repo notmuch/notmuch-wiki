@@ -6,7 +6,7 @@ source can be checked out via git with this command:
 
         git clone git://notmuchmail.org/git/notmuch-wiki
 
-Then you can edit the wiki content locally. To publish your changes,
+Then you can edit the website content locally. To publish your changes,
 commit the changes with:
 
         git add _any-new-files_

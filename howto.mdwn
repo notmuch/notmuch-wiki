@@ -143,3 +143,6 @@ in a scenario where you have encrypted your hard disk anyway and are
 comfortable with the security implications (and until notmuch can index
 encrypted email itself).
 
+## Translations
+
+- A translation of this page into [[Russian|howto-ru]]
