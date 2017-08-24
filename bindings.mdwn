@@ -43,4 +43,4 @@ so worth a look.
 
 ## Go
 
-[The source](https://git.notmuchmail.org/git/notmuch/tree/HEAD:/bindings/go/)
+[The source](https://git.notmuchmail.org/git/notmuch/tree/HEAD:/contrib/go/)
