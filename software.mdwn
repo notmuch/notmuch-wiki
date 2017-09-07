@@ -97,6 +97,13 @@ Have a separate [[wiki page|frontends]].
       <td>?</td>
       <td>work in progress</td>
     </tr>
+    <tr>
+      <td><a href="https://github.com/gauteh/gmailieer">gmailieer</a></td>
+      <td>no</td>
+      <td>GMail</td>
+      <td>bi-directional tag</td>
+      <td>Fast email-fetching and two-way tag synchronization between notmuch and GMail written using GMail API and Notmuch Python</td>
+    </tr>
   </tbody>
 </table>
 

@@ -90,6 +90,8 @@ the 'new' tag approach discussed above.
   tagging script that read its configuration from a JSON file. The script is
   written in Perl6 and depends on the Email::Notmuch binding.
 
+* [gmailieer](https://github.com/gauteh/gmailieer) Fast email-fetching and two-way tag synchronization between notmuch and GMail.
+
 ## Notmuch MDA -- `notmuch-insert`
 
 The [[notmuch insert command|manpages/notmuch-insert-1]] is a tool for
