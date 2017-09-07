@@ -22,7 +22,7 @@
 
 ## Historical
 
-* ner, a curses frontend written in C++ ([github mirror](https://github.com/pioto/ner).
+* ner, a curses frontend written in C++ ([github mirror](https://github.com/pioto/ner)).
 
 ## Tools based on Notmuch
 
