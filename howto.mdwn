@@ -61,7 +61,7 @@ when you press the keyboard shortcut to send your message.
 
 notmuch has the ability to synchronize maildir flags and respective tags in both
 directions. For more information on maildir flags see the [maildir
-page](http://cr.yp.to/proto/maildir.html) and [Special tags|special-tags], and for the respective tags see your
+page](http://cr.yp.to/proto/maildir.html) and [[Special tags|special-tags]], and for the respective tags see your
 notmuch configuration file. This feature is enabled by default, but if you don't
 need it, it is simple to disable it with the 'notmuch config' command:
 
