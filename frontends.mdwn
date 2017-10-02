@@ -16,6 +16,7 @@
 * [astroid](https://github.com/astroidmail/astroid), a graphical threads-with-tags mail user agent for notmuch. Written in C++ using GTK+, WebKit and gmime.
 * [bower](https://github.com/wangp/bower), a curses frontend written in [Mercury](http://www.cs.mu.oz.au/research/mercury/).
 * [neomutt](https://www.neomutt.org/feature/notmuch), a fork of [mutt](http://www.mutt.org/) able to use Notmuch for virtual folders. 
+* [noservice](https://gitlab.com/noservice/noservice). Web interface, written in Clojure.
 * [notmuchfs](https://github.com/tsto/notmuchfs), a virtual maildir file system for Notmuch queries.
 
 ## Historical
