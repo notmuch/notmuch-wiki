@@ -3,7 +3,7 @@
 
 ## Web View
 
-There is a dump of (some views of) the nmbug [[status|http://nmbug.notmuchmail.org/status]].
+There is a dump of (some views of) the nmbug [[status|https://nmbug.notmuchmail.org/status]].
 
 ## Getting started
 
@@ -25,7 +25,7 @@ There is a dump of (some views of) the nmbug [[status|http://nmbug.notmuchmail.o
 
 3. Enter the following command to obtain the current tag repository:
 
-   `$ nmbug clone http://nmbug.notmuchmail.org/git/nmbug-tags.git`
+   `$ nmbug clone https://nmbug.notmuchmail.org/git/nmbug-tags.git`
 
 4. Clobber your local `notmuch::…` tag namespace with:
 
@@ -171,7 +171,7 @@ search is:
             tag:notmuch::wontfix and not tag:notmuch::moreinfo and not \
                 tag:notmuch::stale and not tag:notmuch::wip
 
-See the [[status|http://nmbug.notmuchmail.org/status]] page for more
+See the [[status|https://nmbug.notmuchmail.org/status]] page for more
 example searches.
 
 ## Design notes

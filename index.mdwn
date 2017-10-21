@@ -150,9 +150,9 @@ list](https://notmuchmail.org/mailman/listinfo/notmuch)
 
 For hints about troubleshooting and bug reporting see [[bugs]].
 
-Please see the [nmbug status page](http://nmbug.notmuchmail.org/status/) for
-lists of [known bugs](http://nmbug.notmuchmail.org/status/#Bugs) and [feature
-requests](http://nmbug.notmuchmail.org/status/#Wish-list).
+Please see the [nmbug status page](https://nmbug.notmuchmail.org/status/) for
+lists of [known bugs](https://nmbug.notmuchmail.org/status/#Bugs) and [feature
+requests](https://nmbug.notmuchmail.org/status/#Wish-list).
 
 ## Development and Contributing
 

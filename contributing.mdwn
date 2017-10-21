@@ -169,7 +169,7 @@ like email. This applies to patch and bug tracking as well. The
 Notmuch project uses [nmbug](https://notmuchmail.org/nmbug/) for
 tracking. The Notmuch developers will tag your patches too, making
 them show up in the
-[nmbug status page](http://nmbug.notmuchmail.org/status/), but requesting
+[nmbug status page](https://nmbug.notmuchmail.org/status/), but requesting
 access and tagging your patches yourself will be helpful in the long
 run.
 

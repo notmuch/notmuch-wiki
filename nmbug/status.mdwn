@@ -1,5 +1,5 @@
-[[!meta redirect="http://nmbug.tethera.net/status"]]
+[[!meta redirect="https://nmbug.notmuchmail.org/status"]]
 
 
-This page has [[moved|http://nmbug.tethera.net/status]]. Sorry for the
+This page has [[moved|https://nmbug.notmuchmail.org/status]]. Sorry for the
 inconvenience.
