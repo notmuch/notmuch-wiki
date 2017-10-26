@@ -63,14 +63,8 @@ procedure:
 
         $ notmuch config set search.exclude_tags deleted
 
-* Add a key binding to your favorite ui to add a "deleted" tag to
-  messages that you want to delete.  In [[emacs|emacstips]] that might
-  be:
-
-        (define-key notmuch-show-mode-map "d"
-          (lambda ()
-            (interactive)
-              (notmuch-show-tag "+deleted")))
+* In emacs MUA use keybinding `k d` to add a "deleted" tag to messages
+  that you want to delete.
 
 * And, finally, if you _really_ want the messages purged from disk,
   you can delete them manually with:
