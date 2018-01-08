@@ -15,7 +15,7 @@ None of the tags recognized by the lib are configurable.
  - passed
  - replied
  - unread
- - deleted (*)
+
 
 The above tags are recognized by the lib, and synchronized with the
 corresponding maildir flags through the following lib function calls:
@@ -26,9 +26,6 @@ corresponding maildir flags through the following lib function calls:
 The cli calls the above functions if the maildir.synchronize_flags configuration
 option is enabled. Maildir flags are synchronized to tags in "notmuch new", and
 tags are synchronized to maildir flags in "notmuch tag" and "notmuch restore".
-
-(*) The "deleted" tag is not synced to maildir T flag at the moment, but it may
-be in the future.
 
 ### Automatic tags
 
@@ -52,14 +49,9 @@ All of the tags recognized by the cli are configurable.
 
  - unread
  - inbox
- - new (*)
 
 These are the tags assigned to new message by default. The tags can be changed
 using the new.tags configuration option.
-
-(*) The "new" tag is by no means special or default, but it is documented here
-as the typically used intermediate tag to use between "notmuch tag" and a
-post-new tagging script. See [[Initial_Tagging]].
 
 ### Default excluded tags
 
@@ -87,11 +79,8 @@ when archiving a message.
 
  - replied
  - flagged
- - deleted (*)
 
 The tag(s) specified by `notmuch-message-replied-tags` ("replied" by default)
 are added to messages that are replied to, and "flagged" messages are
 highlighted through `notmuch-search-line-faces` by default.
 
-(*) There are patches to tag, untag, and hide "deleted" tagged messages, but
-they have not been merged at the time of writing this.
