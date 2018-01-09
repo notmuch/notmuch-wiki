@@ -41,23 +41,23 @@
 <pre>
        Supported global options for <b>notmuch</b> include
 
-          <b>--help</b> <b>[command-name]</b>
-                 Print a synopsis of available commands  and  exit.   With  an
-                 optional command name, show the man page for that subcommand.
+       <b>--help</b> <b>[command-name]</b>
+              Print a  synopsis  of  available  commands  and  exit.  With  an
+              optional command name, show the man page for that subcommand.
 
-          <b>--version</b>
-                 Print the installed version of notmuch, and exit.
+       <b>--version</b>
+              Print the installed version of notmuch, and exit.
 
-          <b>--config=FILE</b>
-                 Specify  the  configuration  file  to use. This overrides any
-                 configuration file specified by ${NOTMUCH_CONFIG}.
+       <b>--config=FILE</b>
+              Specify  the  configuration file to use. This overrides any con‐
+              figuration file specified by ${NOTMUCH_CONFIG}.
 
-          <b>--uuid=HEX</b>
-                 Enforce that the database UUID  (a  unique  identifier  which
-                 persists  until  e.g. the database is compacted) is HEX; exit
-                 with an error if it is not. This is useful to detect rollover
-                 in  modification  counts  on messages. You can find this UUID
-                 using e.g. <b>notmuch</b> <b>count</b> <b>--lastmod</b>
+       <b>--uuid=HEX</b>
+              Enforce that the database UUID (a unique identifier  which  per‐
+              sists until e.g. the database is compacted) is HEX; exit with an
+              error if it is not. This is useful to detect rollover in modifi‐
+              cation  counts  on  messages.  You can find this UUID using e.g.
+              <b>notmuch</b> <b>count</b> <b>--lastmod</b>
 
        All global options except <b>--config</b> can also be specified after the com‐
        mand.  For example, <b>notmuch</b> <b>subcommand</b> <b>--uuid=HEX</b> is equivalent to <b>not-</b>
@@ -122,7 +122,19 @@
        the external <b>notmuch-&lt;subcommand&gt;</b> in ${PATH} instead. This allows users
        to have their own notmuch related tools to be run via the notmuch  com‐
        mand. By design, this does not allow notmuch&apos;s own commands to be over‐
-       riden using external commands.
+       ridden using external commands.
+</pre>
+
+<h3> &nbsp; OPTION SYNTAX</h3>
+<pre>
+       All options accepting an argument can be used with &apos;=&apos; or &apos;:&apos; as a sep‐
+       arator. For the cases where it&apos;s not ambiguous (in particular excluding
+       boolean options), a space can also  be  used.  The  following  are  all
+       equivalent:
+
+          notmuch --config=alt-config config get user.name
+          notmuch --config:alt-config config get user.name
+          notmuch --config alt-config config get user.name
 </pre>
 
 <h2>ENVIRONMENT</h2>
@@ -131,37 +143,37 @@
        of notmuch.
 
        <b>NOTMUCH</b>_<b>CONFIG</b>
-              Specifies  the  location of the notmuch configuration file. Not‐
-              much will use ${HOME}/.notmuch-config if this  variable  is  not
+              Specifies the location of the notmuch configuration  file.  Not‐
+              much  will  use  ${HOME}/.notmuch-config if this variable is not
               set.
 
        <b>NOTMUCH</b>_<b>TALLOC</b>_<b>REPORT</b>
-              Location  to  write  a  talloc  memory  usage  report.  See <b>tal-</b>
+              Location to  write  a  talloc  memory  usage  report.  See  <b>tal-</b>
               <b>loc</b>_<b>enable</b>_<b>leak</b>_<b>report</b>_<b>full</b> in <b>talloc</b>(3) for more information.
 
        <b>NOTMUCH</b>_<b>DEBUG</b>_<b>QUERY</b>
-              If set to a non-empty value, the notmuch library will print  (to
+              If  set to a non-empty value, the notmuch library will print (to
               stderr) Xapian queries it constructs.
 </pre>
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-address-1/'>notmuch-address</a>(1),    <a href='../notmuch-compact-1/'>notmuch-compact</a>(1),    <a href='../notmuch-config-1/'>notmuch-config</a>(1),   <a href='../notmuch-count-1/'>not‐</a>
+       <a href='../notmuch-address-1/'>notmuch-address</a>(1),   <a href='../notmuch-compact-1/'>notmuch-compact</a>(1),    <a href='../notmuch-config-1/'>notmuch-config</a>(1),    <a href='../notmuch-count-1/'>not‐</a>
        <a href='../notmuch-count-1/'>much-count</a>(1),  <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),
-       <a href='../notmuch-new-1/'>notmuch-new</a>(1),      <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),     <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),     <a href='../notmuch-search-1/'>not‐</a>
-       <a href='../notmuch-search-1/'>much-search</a>(1),    <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),    <a href='../notmuch-show-1/'>notmuch-show</a>(1),    <a href='../notmuch-tag-1/'>not‐</a>
-       <a href='../notmuch-tag-1/'>much-tag</a>(1)
+       <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-properties-7/'>notmuch-properties</a>(7),    <a href='../notmuch-reindex-1/'>notmuch-reindex</a>(1),    <a href='../notmuch-reply-1/'>not‐</a>
+       <a href='../notmuch-reply-1/'>much-reply</a>(1),      <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),     <a href='../notmuch-search-1/'>notmuch-search</a>(1),     <a href='../notmuch-search-terms-7/'>not‐</a>
+       <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 
        The notmuch website: <b>https://notmuchmail.org</b>
 </pre>
 
 <h2>CONTACT</h2>
 <pre>
-       Feel  free to send questions, comments, or kudos to the notmuch mailing
-       list &lt;<u>notmuch@notmuchmail.org</u>&gt; . Subscription is  not  required  before
+       Feel free to send questions, comments, or kudos to the notmuch  mailing
+       list  &lt;<u>notmuch@notmuchmail.org</u>&gt;  .  Subscription is not required before
        posting, but is available from the notmuchmail.org website.
 
-       Real-time  interaction  with the Notmuch community is available via IRC
+       Real-time interaction with the Notmuch community is available  via  IRC
        (server: irc.freenode.net, channel: #notmuch).
 </pre>
 
@@ -172,7 +184,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2017, Carl Worth and many others
+       2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.24</h2>
+<h2>0.26</h2>

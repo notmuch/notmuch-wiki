@@ -20,18 +20,18 @@
 
        Supported options for <b>address</b> include
 
-          <b>--format=(json|sexp|text|text0)</b>
-                 Presents  the  results in either JSON, S-Expressions, newline
-                 character separated plain-text (default), or  null  character
-                 separated  plain-text  (compatible  with  <b>xargs</b>(1)  -0 option
-                 where available).
+       <b>--format=</b>(<b>json</b>|<b>sexp</b>|<b>text</b>|<b>text0</b>)
+              Presents  the  results  in  either  JSON, S-Expressions, newline
+              character separated plain-text (default), or null character sep‐
+              arated  plain-text  (compatible  with  <b>xargs</b>(1)  -0 option where
+              available).
 
-          <b>--format-version=N</b>
-                 Use the specified structured output format version.  This  is
-                 intended  for  programs that invoke <a href='../notmuch-1/'>notmuch</a>(1) internally. If
-                 omitted, the latest supported version will be used.
+       <b>--format-version=N</b>
+              Use the specified structured  output  format  version.  This  is
+              intended  for  programs  that  invoke  <a href='../notmuch-1/'>notmuch</a>(1) internally. If
+              omitted, the latest supported version will be used.
 
-          <b>--output=(sender|recipients|count)</b>
+       <b>--output=(sender|recipients|count|address)</b>
               Controls which information appears in the  output.  This  option
               can  be given multiple times to combine different outputs.  When
               neither --output=sender nor --output=recipients is given, --out‐
@@ -53,10 +53,15 @@
                      Note:  With this option, addresses are printed only after
                      the whole search is finished. This may take long time.
 
-          <b>--deduplicate=(no|mailbox|address)</b>
+              <b>address</b>
+                     Output only the email addresses instead of the full mail‐
+                     boxes  with names and email addresses. This option has no
+                     effect on the JSON or S-Expression output formats.
+
+       <b>--deduplicate=(no|mailbox|address)</b>
               Control the deduplication of results.
 
-              <b>no</b>     Output all occurences of addresses in the  matching  mes‐
+              <b>no</b>     Output all occurrences of addresses in the matching  mes‐
                      sages. This is not applicable with --output=count.
 
               <b>mailbox</b>
@@ -73,30 +78,29 @@
                      frequently among the matching messages. If --output=count
                      is specified, include all variants in the count.
 
-          <b>--sort=(newest-first|oldest-first)</b>
-                 This  option can be used to present results in either chrono‐
-                 logical order (<b>oldest-first</b>) or reverse  chronological  order
-                 (<b>newest-first</b>).
+       <b>--sort=</b>(<b>newest-first</b>|<b>oldest-first</b>)
+              This option can be used to present results in either chronologi‐
+              cal order (<b>oldest-first</b>) or reverse  chronological  order  (<b>new-</b>
+              <b>est-first</b>).
 
-                 By  default, results will be displayed in reverse chronologi‐
-                 cal order, (that is, the newest  results  will  be  displayed
-                 first).
+              By  default,  results will be displayed in reverse chronological
+              order, (that is, the newest results will be displayed first).
 
-                 However, if either --output=count or --deduplicate=address is
-                 specified, this option  is  ignored  and  the  order  of  the
-                 results is unspecified.
+              However, if either --output=count  or  --deduplicate=address  is
+              specified,  this  option is ignored and the order of the results
+              is unspecified.
 
-          <b>--exclude=(true|false)</b>
-                 A message is called &quot;excluded&quot; if it matches at least one tag
-                 in search.tag_exclude that does not appear explicitly in  the
-                 search  terms. This option specifies whether to omit excluded
-                 messages in the search process.
+       <b>--exclude=(true|false)</b>
+              A message is called &quot;excluded&quot; if it matches at least one tag in
+              search.tag_exclude that does not appear explicitly in the search
+              terms. This option specifies whether to omit  excluded  messages
+              in the search process.
 
-                 The default value,  <b>true</b>,  prevents  excluded  messages  from
-                 matching the search terms.
+              The  default value, <b>true</b>, prevents excluded messages from match‐
+              ing the search terms.
 
-                 <b>false</b>  allows  excluded  messages  to  match search terms and
-                 appear in displayed results.
+              <b>false</b> allows excluded messages to match search terms and  appear
+              in displayed results.
 </pre>
 
 <h2>EXIT STATUS</h2>
@@ -110,9 +114,9 @@
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not‐</a>
-       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),   <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
-       <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),   <a href='../notmuch-tag-1/'>not‐</a>
+       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not‐</a>
+       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
+       <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),  <a href='../notmuch-tag-1/'>not‐</a>
        <a href='../notmuch-tag-1/'>much-tag</a>(1), <a href='../notmuch-search-1/'>notmuch-search</a>(1)
 </pre>
 
@@ -123,7 +127,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2017, Carl Worth and many others
+       2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.24</h2>
+<h2>0.26</h2>

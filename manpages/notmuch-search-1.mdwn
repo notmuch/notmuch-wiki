@@ -26,117 +26,130 @@
 
        Supported options for <b>search</b> include
 
-          <b>--format=(json|sexp|text|text0)</b>
-                 Presents  the  results in either JSON, S-Expressions, newline
-                 character separated plain-text (default), or  null  character
-                 separated  plain-text  (compatible  with  <b>xargs</b>(1)  -0 option
-                 where available).
+       <b>--format=</b>(<b>json</b>|<b>sexp</b>|<b>text</b>|<b>text0</b>)
+              Presents  the  results  in  either  JSON, S-Expressions, newline
+              character separated plain-text (default), or null character sep‐
+              arated  plain-text  (compatible  with  <b>xargs</b>(1)  -0 option where
+              available).
 
-          <b>--format-version=N</b>
-                 Use the specified structured output format version.  This  is
-                 intended  for  programs that invoke <a href='../notmuch-1/'>notmuch</a>(1) internally. If
-                 omitted, the latest supported version will be used.
+       <b>--format-version=N</b>
+              Use the specified structured  output  format  version.  This  is
+              intended  for  programs  that  invoke  <a href='../notmuch-1/'>notmuch</a>(1) internally. If
+              omitted, the latest supported version will be used.
 
-          <b>--output=(summary|threads|messages|files|tags)</b>
+       <b>--output=(summary|threads|messages|files|tags)</b>
 
               <b>summary</b>
                      Output a summary of each thread with any message matching
                      the  search  terms.  The  summary includes the thread ID,
                      date, the number of messages in the thread (both the num‐
                      ber  matched  and  the  total number), the authors of the
-                     thread and the subject.
+                     thread and the subject. In the case where a  thread  con‐
+                     tains  multiple files for some messages, the total number
+                     of files is printed in  parentheses  (see  below  for  an
+                     example).
 
               <b>threads</b>
-                     Output the thread IDs of all  threads  with  any  message
-                     matching  the  search  terms, either one per line (--for‐
+                     Output  the  thread  IDs  of all threads with any message
+                     matching the search terms, either one  per  line  (--for‐
                      mat=text), separated by null characters (--format=text0),
-                     as  a JSON array (--format=json), or an S-Expression list
+                     as a JSON array (--format=json), or an S-Expression  list
                      (--format=sexp).
 
               <b>messages</b>
-                     Output the message  IDs  of  all  messages  matching  the
-                     search  terms, either one per line (--format=text), sepa‐
-                     rated by null  characters  (--format=text0),  as  a  JSON
+                     Output  the  message  IDs  of  all  messages matching the
+                     search terms, either one per line (--format=text),  sepa‐
+                     rated  by  null  characters  (--format=text0),  as a JSON
                      array (--format=json), or as an S-Expression list (--for‐
                      mat=sexp).
 
-              <b>files</b>  Output the filenames of all messages matching the  search
-                     terms,  either one per line (--format=text), separated by
+              <b>files</b>  Output  the filenames of all messages matching the search
+                     terms, either one per line (--format=text), separated  by
                      null characters (--format=text0), as a JSON array (--for‐
                      mat=json), or as an S-Expression list (--format=sexp).
 
-                     Note  that each message may have multiple filenames asso‐
-                     ciated with it. All of them are included  in  the  output
-                     (unless  limited with the --duplicate=N option). This may
-                     be particularly confusing for <b>folder:</b> or  <b>path:</b>  searches
+                     Note that each message may have multiple filenames  asso‐
+                     ciated  with  it.  All of them are included in the output
+                     (unless limited with the --duplicate=N option). This  may
+                     be  particularly  confusing for <b>folder:</b> or <b>path:</b> searches
                      in a specified directory, as the messages may have dupli‐
-                     cates in other directories that are included in the  out‐
-                     put,  although  these  files  alone  would  not match the
+                     cates  in other directories that are included in the out‐
+                     put, although these  files  alone  would  not  match  the
                      search.
 
-              <b>tags</b>   Output all tags that appear on any message  matching  the
-                     search  terms, either one per line (--format=text), sepa‐
-                     rated by null  characters  (--format=text0),  as  a  JSON
+              <b>tags</b>   Output  all  tags that appear on any message matching the
+                     search terms, either one per line (--format=text),  sepa‐
+                     rated  by  null  characters  (--format=text0),  as a JSON
                      array (--format=json), or as an S-Expression list (--for‐
                      mat=sexp).
 
-          <b>--sort=(newest-first|oldest-first)</b>
-                 This option can be used to present results in either  chrono‐
-                 logical  order  (<b>oldest-first</b>) or reverse chronological order
-                 (<b>newest-first</b>).
+       <b>--sort=</b>(<b>newest-first</b>|<b>oldest-first</b>)
+              This option can be used to present results in either chronologi‐
+              cal order (<b>oldest-first</b>) or reverse  chronological  order  (<b>new-</b>
+              <b>est-first</b>).
 
-                 Note: The thread order will be  distinct  between  these  two
-                 options  (beyond being simply reversed). When sorting by <b>old-</b>
-                 <b>est-first</b> the threads will be sorted by the oldest message in
-                 each  thread,  but  when  sorting by <b>newest-first</b> the threads
-                 will be sorted by the newest message in each thread.
+              Note:  The  thread  order  will  be  distinct  between these two
+              options (beyond being simply reversed).  When  sorting  by  <b>old-</b>
+              <b>est-first</b>  the  threads  will be sorted by the oldest message in
+              each thread, but when sorting by <b>newest-first</b> the  threads  will
+              be sorted by the newest message in each thread.
 
-                 By default, results will be displayed in reverse  chronologi‐
-                 cal  order,  (that  is,  the newest results will be displayed
-                 first).
+              By  default,  results will be displayed in reverse chronological
+              order, (that is, the newest results will be displayed first).
 
-          <b>--offset=[-]N</b>
-                 Skip displaying the first N results. With  the  leading  &apos;-&apos;,
-                 start at the Nth result from the end.
+       <b>--offset=[-]N</b>
+              Skip displaying the first N results. With the leading &apos;-&apos;, start
+              at the Nth result from the end.
 
-          <b>--limit=N</b>
-                 Limit the number of displayed results to N.
+       <b>--limit=N</b>
+              Limit the number of displayed results to N.
 
-          <b>--exclude=(true|false|all|flag)</b>
-                 A message is called &quot;excluded&quot; if it matches at least one tag
-                 in search.tag_exclude that does not appear explicitly in  the
-                 search  terms. This option specifies whether to omit excluded
-                 messages in the search process.
+       <b>--exclude=(true|false|all|flag)</b>
+              A message is called &quot;excluded&quot; if it matches at least one tag in
+              search.tag_exclude that does not appear explicitly in the search
+              terms.  This  option specifies whether to omit excluded messages
+              in the search process.
 
-                 The default value,  <b>true</b>,  prevents  excluded  messages  from
-                 matching the search terms.
+              <b>true</b> (default)
+                     Prevent excluded messages from matching the search terms.
 
-                 <b>all</b> additionally prevents excluded messages from appearing in
-                 displayed results, in effect behaving as though the  excluded
-                 messages do not exist.
+              <b>all</b>    Additionally prevent excluded messages from appearing  in
+                     displayed  results,  in  effect  behaving  as  though the
+                     excluded messages do not exist.
 
-                 <b>false</b>  allows  excluded  messages  to  match search terms and
-                 appear in displayed  results.  Excluded  messages  are  still
-                 marked in the relevant outputs.
+              <b>false</b>  Allow excluded messages to match search terms and  appear
+                     in  displayed results. Excluded messages are still marked
+                     in the relevant outputs.
 
-                 <b>flag</b>  only has an effect when <b>--output=summary</b>. The output is
-                 almost identical to <b>false</b>, but the &quot;match count&quot; is the  num‐
-                 ber  of  matching non-excluded messages in the thread, rather
-                 than the number of matching messages.
+              <b>flag</b>   Only has an effect when <b>--output=summary</b>. The  output  is
+                     almost  identical  to <b>false</b>, but the &quot;match count&quot; is the
+                     number of matching non-excluded messages in  the  thread,
+                     rather than the number of matching messages.
 
-          <b>--duplicate=N</b>
-                 For <b>--output=files</b>, output the Nth filename  associated  with
-                 each  message  matching  the  query  (N  is 1-based). If N is
-                 greater than the number of files associated with the message,
-                 don&apos;t print anything.
+       <b>--duplicate=N</b>
+              For <b>--output=files</b>, output the Nth filename associated with each
+              message matching the query (N is 1-based). If N is greater  than
+              the  number  of  files  associated with the message, don&apos;t print
+              anything.
 
-                 For  <b>--output=messages</b>,  only  output message IDs of messages
-                 matching the search terms that  have  at  least  N  filenames
-                 associated with them.
+              For <b>--output=messages</b>,  only  output  message  IDs  of  messages
+              matching the search terms that have at least N filenames associ‐
+              ated with them.
 
-                 Note  that  this option is orthogonal with the <b>folder:</b> search
-                 prefix. The prefix matches messages based on filenames.  This
-                 option filters filenames of the matching messages.
+              Note that this option is orthogonal with the <b>folder:</b> search pre‐
+              fix. The prefix matches messages based on filenames. This option
+              filters filenames of the matching messages.
+</pre>
+
+<h2>EXAMPLE</h2>
+<pre>
+       The following shows an example of the summary output format,  with  one
+       message having multiple filenames.
+
+          % notmuch search date:today.. and tag:bad-news
+          thread:0000000000063c10 Today [1/1] Some Persun; To the bone (inbox unread)
+          thread:0000000000063c25 Today [1/1(2)] Ann Other; Bears (inbox unread)
+          thread:0000000000063c00 Today [1/1] A Thurd; Bites, stings, sad feelings (inbox unread)
 </pre>
 
 <h2>EXIT STATUS</h2>
@@ -163,7 +176,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2017, Carl Worth and many others
+       2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.24</h2>
+<h2>0.26</h2>

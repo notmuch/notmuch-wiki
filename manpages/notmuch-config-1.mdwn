@@ -17,126 +17,198 @@
 <h2>DESCRIPTION</h2>
 <pre>
        The  <b>config</b>  command  can be used to get or set settings in the notmuch
-       configuration file.
+       configuration file and corresponding database.
 
-          <b>get</b>    The value of the specified configuration item is  printed  to
-                 stdout.  If the item has multiple values (it is a list), each
-                 value is separated by a newline character.
+       Items marked <b>[STORED</b> <b>IN</b> <b>DATABASE]</b>  are  only  in  the  database.   They
+       should  not be placed in the configuration file, and should be accessed
+       programmatically as described in the SYNOPSIS above.
 
-          <b>set</b>    The specified configuration item is set to the  given  value.
-                 To specify a multiple-value item (a list), provide each value
-                 as a separate command-line argument.
+       <b>get</b>    The value of the specified configuration item is printed to std‐
+              out.  If the item has multiple values (it is a list), each value
+              is separated by a newline character.
 
-                 If no values are provided, the specified  configuration  item
-                 will be removed from the configuration file.
+       <b>set</b>    The specified configuration item is set to the given  value.  To
+              specify  a multiple-value item (a list), provide each value as a
+              separate command-line argument.
 
-          <b>list</b>   Every configuration item is printed to stdout, each on a sep‐
-                 arate line of the form:
+              If no values are provided, the specified configuration item will
+              be removed from the configuration file.
 
-                 <u>section</u>.<u>item</u>=<u>value</u>
+       <b>list</b>   Every  configuration  item is printed to stdout, each on a sepa‐
+              rate line of the form:
 
-                 No additional whitespace surrounds the  dot  or  equals  sign
-                 characters. In a multiple-value item (a list), the values are
-                 separated by semicolon characters.
+                 *section*.\ *item*\ =\ *value*
+
+              No additional whitespace surrounds the dot or equals sign  char‐
+              acters.  In a multiple-value item (a list), the values are sepa‐
+              rated by semicolon characters.
 
        The available configuration items are described below.
 
-          <b>database.path</b>
-                 The top-level directory where your mail currently exists  and
-                 to  where  mail will be delivered in the future. Files should
-                 be individual email messages. Notmuch will store its database
-                 within  a  sub-directory  of  the  path configured here named
-                 <b>.notmuch</b>.
+       <b>database.path</b>
+              The top-level directory where your mail currently exists and  to
+              where  mail  will  be  delivered  in the future. Files should be
+              individual email  messages.  Notmuch  will  store  its  database
+              within  a  sub-directory of the path configured here named <b>.not-</b>
+              <b>much</b>.
 
-                 Default: <b>$MAILDIR</b> variable if set, otherwise <b>$HOME/mail</b>.
+              Default: <b>$MAILDIR</b> variable if set, otherwise <b>$HOME/mail</b>.
 
-          <b>user.name</b>
-                 Your full name.
+       <b>user.name</b>
+              Your full name.
 
-                 Default:  <b>$NAME</b>  variable  if  set,   otherwise   read   from
-                 <b>/etc/passwd</b>.
+              Default: <b>$NAME</b> variable if set, otherwise read from <b>/etc/passwd</b>.
 
-          <b>user.primary</b>_<b>email</b>
-                 Your primary email address.
+       <b>user.primary</b>_<b>email</b>
+              Your primary email address.
 
-                 Default:  <b>$EMAIL</b>  variable if set, otherwise constructed from
-                 the username and hostname of the current machine.
+              Default: <b>$EMAIL</b> variable if set, otherwise constructed from  the
+              username and hostname of the current machine.
 
-          <b>user.other</b>_<b>email</b>
-                 A list of other email addresses at which you receive email.
+       <b>user.other</b>_<b>email</b>
+              A list of other email addresses at which you receive email.
 
-                 Default: not set.
+              Default: not set.
 
-          <b>new.tags</b>
-                 A list of tags that will be added to  all  messages  incorpo‐
-                 rated by <b>notmuch</b> <b>new</b>.
+       <b>new.tags</b>
+              A  list  of tags that will be added to all messages incorporated
+              by <b>notmuch</b> <b>new</b>.
 
-                 Default: <b>unread;inbox</b>.
+              Default: <b>unread;inbox</b>.
 
-          <b>new.ignore</b>
-                 A  list  of file and directory names, without path, that will
-                 not be searched for messages by <b>notmuch</b> <b>new</b>.  All  the  files
-                 and directories matching any of the names specified here will
-                 be ignored, regardless of the  location  in  the  mail  store
-                 directory hierarchy.
+       <b>new.ignore</b>
+              A list to  specify  files  and  directories  that  will  not  be
+              searched  for messages by <b>notmuch</b> <b>new</b>. Each entry in the list is
+              either:
 
-                 Default: empty list.
+              A file or a directory name, without path, that will be  ignored,
+              regardless  of  the location in the mail store directory hierar‐
+              chy.
 
-          <b>search.exclude</b>_<b>tags</b>
-                 A  list  of tags that will be excluded from search results by
-                 default. Using an excluded tag in a query will override  that
-                 exclusion.
+              Or:
 
-                 Default:   empty   list.   Note  that  <b>notmuch-setup</b>(1)  puts
-                 <b>deleted;spam</b> here when creating new configuration file.
+              A regular expression delimited with  //  that  will  be  matched
+              against  the path of the file or directory relative to the data‐
+              base path. Matching files and directories will be  ignored.  The
+              beginning  and  end  of  string must be explicitly anchored. For
+              example, /.*/foo$/ would match &quot;bar/foo&quot; and &quot;bar/baz/foo&quot;,  but
+              not &quot;foo&quot; or &quot;bar/foobar&quot;.
 
-          <b>maildir.synchronize</b>_<b>flags</b>
-                 If true, then the following maildir flags (in  message  file‐
-                 names)  will  be  synchronized with the corresponding notmuch
-                 tags:
+              Default: empty list.
 
-                              ┌─────┬────────────────────────────┐
-                              │Flag │ Tag                        │
-                              ├─────┼────────────────────────────┤
-                              │D    │ draft                      │
-                              ├─────┼────────────────────────────┤
-                              │F    │ flagged                    │
-                              ├─────┼────────────────────────────┤
-                              │P    │ passed                     │
-                              ├─────┼────────────────────────────┤
-                              │R    │ replied                    │
-                              ├─────┼────────────────────────────┤
-                              │S    │ unread  (added  when   &apos;S&apos; │
-                              │     │ flag is not present)       │
-                              └─────┴────────────────────────────┘
+       <b>search.exclude</b>_<b>tags</b>
+              A  list  of  tags  that  will be excluded from search results by
+              default. Using an excluded tag in a  query  will  override  that
+              exclusion.
 
-                 The <b>notmuch</b> <b>new</b> command will notice flag changes in filenames
-                 and update tags, while the <b>notmuch</b> <b>tag</b>  and  <b>notmuch</b>  <b>restore</b>
-                 commands  will  notice  tag changes and update flags in file‐
-                 names.
+              Default:   empty   list.   Note   that   <b>notmuch-setup</b>(1)   puts
+              <b>deleted;spam</b> here when creating new configuration file.
 
-                 If there have been any changes in the maildir  (new  messages
-                 added,  old  ones  removed or renamed, maildir flags changed,
-                 etc.), it is advisable to run <b>notmuch</b> <b>new</b> before <b>notmuch</b>  <b>tag</b>
-                 or  <b>notmuch</b>  <b>restore</b>  commands  to ensure the tag changes are
-                 properly synchronized to the maildir flags, as  the  commands
-                 expect the database and maildir to be in sync.
+       <b>maildir.synchronize</b>_<b>flags</b>
+              If true, then the following maildir flags (in message filenames)
+              will be synchronized with the corresponding notmuch tags:
 
-                 Default: <b>true</b>.
+                            ┌─────┬────────────────────────────┐
+                            │Flag │ Tag                        │
+                            ├─────┼────────────────────────────┤
+                            │D    │ draft                      │
+                            ├─────┼────────────────────────────┤
+                            │F    │ flagged                    │
+                            ├─────┼────────────────────────────┤
+                            │P    │ passed                     │
+                            ├─────┼────────────────────────────┤
+                            │R    │ replied                    │
+                            ├─────┼────────────────────────────┤
+                            │S    │ unread   (added  when  &apos;S&apos; │
+                            │     │ flag is not present)       │
+                            └─────┴────────────────────────────┘
 
-          <b>crypto.gpg</b>_<b>path</b>
+              The <b>notmuch</b> <b>new</b> command will notice flag  changes  in  filenames
+              and  update tags, while the <b>notmuch</b> <b>tag</b> and <b>notmuch</b> <b>restore</b> com‐
+              mands will notice tag changes and update flags in filenames.
+
+              If there have been any changes  in  the  maildir  (new  messages
+              added,  old  ones  removed  or  renamed,  maildir flags changed,
+              etc.), it is advisable to run <b>notmuch</b> <b>new</b> before <b>notmuch</b> <b>tag</b>  or
+              <b>notmuch</b>  <b>restore</b> commands to ensure the tag changes are properly
+              synchronized to the maildir flags, as the  commands  expect  the
+              database and maildir to be in sync.
+
+              Default: <b>true</b>.
+
+       <b>crypto.gpg</b>_<b>path</b>
               Name  (or  full  path)  of gpg binary to use in verification and
-              decryption of PGP/MIME messages.
+              decryption of PGP/MIME messages.  NOTE: This configuration  item
+              is  deprecated,  and will be ignored if notmuch is built against
+              GMime 3.0 or later.
 
               Default: <b>gpg</b>.
 
-          <b>built</b>_<b>with.&lt;name&gt;</b>
+       <b>index.decrypt</b> <b>[STORED</b> <b>IN</b> <b>DATABASE]</b>
+              Policy for decrypting encrypted messages during indexing.   Must
+              be one of: <b>false</b>, <b>auto</b>, <b>nostash</b>, or <b>true</b>.
+
+              When  indexing  an encrypted e-mail message, if this variable is
+              set to <b>true</b>, notmuch will try to decrypt the message  and  index
+              the  cleartext,  stashing  a copy of any discovered session keys
+              for the message.  If <b>auto</b>, it will try to index the cleartext if
+              a  stashed  session  key  is already known for the message (e.g.
+              from a previous copy), but will not try to  access  your  secret
+              keys.  Use <b>false</b> to avoid decrypting even when a stashed session
+              key is already present.
+
+              <b>nostash</b> is the same as  <b>true</b>  except  that  it  will  not  stash
+              newly-discovered session keys in the database.
+
+              From   the   command  line  (i.e.  during  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-insert-1/'>not‐</a>
+              <a href='../notmuch-insert-1/'>much-insert</a>(1), or <a href='../notmuch-reindex-1/'>notmuch-reindex</a>(1)), the  user  can  override
+              the  database&apos;s  stored  decryption  policy  with the <b>--decrypt=</b>
+              option.
+
+              Here is a table that summarizes the  functionality  of  each  of
+              these policies:
+
+                      ┌──────────────┬───────┬──────┬─────────┬──────┐
+                      │              │ false │ auto │ nostash │ true │
+                      ├──────────────┼───────┼──────┼─────────┼──────┤
+                      │Index cleart‐ │       │ X    │ X       │ X    │
+                      │ext     using │       │      │         │      │
+                      │stashed  ses‐ │       │      │         │      │
+                      │sion keys     │       │      │         │      │
+                      ├──────────────┼───────┼──────┼─────────┼──────┤
+                      │Index cleart‐ │       │      │ X       │ X    │
+                      │ext     using │       │      │         │      │
+                      │secret keys   │       │      │         │      │
+                      ├──────────────┼───────┼──────┼─────────┼──────┤
+                      │Stash session │       │      │         │ X    │
+                      │keys
+                      ├──────────────┼───────┼──────┼─────────┼──────┤
+                      │Delete
+                      │stashed  ses‐ │       │      │         │      │
+                      │sion  keys on │       │      │         │      │
+                      │reindex       │       │      │         │      │
+                      └──────────────┴───────┴──────┴─────────┴──────┘
+
+              Stashed session keys are kept  in  the  database  as  properties
+              associated with the message.  See <b>session-key</b> in <a href='../notmuch-properties-7/'>notmuch-proper‐</a>
+              <a href='../notmuch-properties-7/'>ties</a>(7) for more details about how they can be useful.
+
+              Be aware that the notmuch index  is  likely  sufficient  (and  a
+              stashed  session key is certainly sufficient) to reconstruct the
+              cleartext of the message itself, so please ensure that the  not‐
+              much   message  index  is  adequately  protected.   DO  NOT  USE
+              <b>index.decrypt=true</b> or <b>index.decrypt=nostash</b> without  considering
+              the security of your index.
+
+              Default: <b>auto</b>.
+
+       <b>built</b>_<b>with.&lt;name&gt;</b>
               Compile time feature &lt;name&gt;. Current possibilities include &quot;com‐
-              pact&quot;  (see  <a href='../notmuch-compact-1/'>notmuch-compact</a>(1)) and &quot;field_processor&quot; (see <a href='../notmuch-search-terms-7/'>not‐</a>
+              pact&quot; (see <a href='../notmuch-compact-1/'>notmuch-compact</a>(1)) and &quot;field_processor&quot;  (see  <a href='../notmuch-search-terms-7/'>not‐</a>
               <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7)).
 
-          <b>query.&lt;name&gt;</b>
-              Expansion   for   named   query   called   &lt;name&gt;.   See    <a href='../notmuch-search-terms-7/'>not‐</a>
+       <b>query.&lt;name&gt;</b> <b>[STORED</b> <b>IN</b> <b>DATABASE]</b>
+              Expansion    for   named   query   called   &lt;name&gt;.   See   <a href='../notmuch-search-terms-7/'>not‐</a>
               <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7) for more information about named queries.
 </pre>
 
@@ -146,17 +218,17 @@
        of notmuch.
 
        <b>NOTMUCH</b>_<b>CONFIG</b>
-              Specifies the location of the notmuch configuration  file.  Not‐
-              much  will  use  ${HOME}/.notmuch-config if this variable is not
+              Specifies  the  location of the notmuch configuration file. Not‐
+              much will use ${HOME}/.notmuch-config if this  variable  is  not
               set.
 </pre>
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5),  <a href='../notmuch-insert-1/'>not‐</a>
-       <a href='../notmuch-insert-1/'>much-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1), <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
-       <a href='../notmuch-search-1/'>notmuch-search</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),   <a href='../notmuch-tag-1/'>not‐</a>
-       <a href='../notmuch-tag-1/'>much-tag</a>(1)
+       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-count-1/'>notmuch-count</a>(1),  <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5), <a href='../notmuch-insert-1/'>not‐</a>
+       <a href='../notmuch-insert-1/'>much-insert</a>(1), <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
+       <a href='../notmuch-search-1/'>notmuch-search</a>(1), <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7), <a href='../notmuch-properties-7/'>notmuch-properties</a>(7), <a href='../notmuch-show-1/'>not‐</a>
+       <a href='../notmuch-show-1/'>much-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
 <h2>AUTHOR</h2>
@@ -166,7 +238,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2017, Carl Worth and many others
+       2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.24</h2>
+<h2>0.26</h2>

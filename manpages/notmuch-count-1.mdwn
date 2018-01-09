@@ -23,7 +23,8 @@
        &lt;search-terms&gt;.
 
        Supported options for <b>count</b> include
-          <b>--output=(messages|threads|files)</b>
+
+       <b>--output=(messages|threads|files)</b>
 
               <b>messages</b>
                      Output  the  number  of  matching  messages.  This is the
@@ -37,32 +38,31 @@
                      messages due to duplicates (i.e.  multiple  files  having
                      the same message-id).
 
-          <b>--exclude=(true|false)</b>
-                 Specify  whether to omit messages matching search.tag_exclude
-                 from the count (the default) or not.
+       <b>--exclude=(true|false)</b>
+              Specify  whether  to  omit  messages matching search.tag_exclude
+              from the count (the default) or not.
 
-          <b>--batch</b>
-                 Read queries from a file (stdin by default),  one  per  line,
-                 and  output  the  number of matching messages (or threads) to
-                 stdout, one per line. On an empty input line the count of all
-                 messages  (or  threads)  in the database will be output. This
-                 option is not compatible with specifying search terms on  the
-                 command line.
+       <b>--batch</b>
+              Read queries from a file (stdin by default), one per  line,  and
+              output  the  number of matching messages (or threads) to stdout,
+              one per line. On an empty input line the count of  all  messages
+              (or  threads) in the database will be output. This option is not
+              compatible with specifying search terms on the command line.
 
-          <b>--lastmod</b>
-                 Append  lastmod  (counter for number of database updates) and
-                 UUID to  the  output.  lastmod  values  are  only  comparable
-                 between databases with the same UUID.
+       <b>--lastmod</b>
+              Append lastmod (counter for number of database updates) and UUID
+              to  the output. lastmod values are only comparable between data‐
+              bases with the same UUID.
 
-          <b>--input=&lt;filename&gt;</b>
-                 Read  input  from  given file, instead of from stdin. Implies
-                 <b>--batch</b>.
+       <b>--input=&lt;filename&gt;</b>
+              Read input from given  file,  instead  of  from  stdin.  Implies
+              <b>--batch</b>.
 </pre>
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5),  <a href='../notmuch-insert-1/'>not‐</a>
-       <a href='../notmuch-insert-1/'>much-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1), <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
+       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5), <a href='../notmuch-insert-1/'>not‐</a>
+       <a href='../notmuch-insert-1/'>much-insert</a>(1), <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
        <a href='../notmuch-search-1/'>notmuch-search</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),   <a href='../notmuch-tag-1/'>not‐</a>
        <a href='../notmuch-tag-1/'>much-tag</a>(1)
 </pre>
@@ -74,7 +74,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2017, Carl Worth and many others
+       2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.24</h2>
+<h2>0.26</h2>

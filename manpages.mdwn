@@ -10,16 +10,18 @@ Manual page index
 * <a href='notmuch-emacs-mua-1/'>notmuch-emacs-mua</a>(1) - send mail with notmuch and emacs
 * <a href='notmuch-insert-1/'>notmuch-insert</a>(1) - add a message to the maildir and notmuch database
 * <a href='notmuch-new-1/'>notmuch-new</a>(1) - incorporate new mail into the notmuch database
+* <a href='notmuch-reindex-1/'>notmuch-reindex</a>(1) - re-index matching messages
 * <a href='notmuch-reply-1/'>notmuch-reply</a>(1) - constructs a reply template for a set of messages
 * <a href='notmuch-restore-1/'>notmuch-restore</a>(1) - restores the tags from the given file (see notmuch dump)
 * <a href='notmuch-search-1/'>notmuch-search</a>(1) - search for messages matching the given search terms
 * <a href='notmuch-show-1/'>notmuch-show</a>(1) - show messages matching the given search terms
 * <a href='notmuch-tag-1/'>notmuch-tag</a>(1) - add/remove tags for all messages matching the search terms
 * <a href='notmuch-hooks-5/'>notmuch-hooks</a>(5) - hooks for notmuch
+* <a href='notmuch-properties-7/'>notmuch-properties</a>(7) - notmuch message property conventions and documentation
 * <a href='notmuch-search-terms-7/'>notmuch-search-terms</a>(7) - syntax for notmuch queries
 
 The manual pages are licensed under
 [the GNU General Public License](https://www.gnu.org/licenses/gpl.txt),
 either version 3.0 or at your option any later version.
 
-<h2>0.24</h2>
+<h2>0.26</h2>

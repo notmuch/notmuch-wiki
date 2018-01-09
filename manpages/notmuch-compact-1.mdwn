@@ -25,14 +25,14 @@
 
        Supported options for <b>compact</b> include
 
-          <b>--backup=&lt;directory&gt;</b>
-                 Save the current  database  to  the  given  directory  before
-                 replacing  it  with the compacted database. The backup direc‐
-                 tory must not exist and it must reside on  the  same  mounted
-                 filesystem as the current database.
+       <b>--backup=&lt;directory&gt;</b>
+              Save the current database to the given directory before  replac‐
+              ing  it  with  the compacted database. The backup directory must
+              not exist and it must reside on the same mounted  filesystem  as
+              the current database.
 
-          <b>--quiet</b>
-                 Do not report database compaction progress to stdout.
+       <b>--quiet</b>
+              Do not report database compaction progress to stdout.
 </pre>
 
 <h2>ENVIRONMENT</h2>
@@ -61,7 +61,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2017, Carl Worth and many others
+       2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.24</h2>
+<h2>0.26</h2>

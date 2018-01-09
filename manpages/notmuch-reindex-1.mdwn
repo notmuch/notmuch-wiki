@@ -1,0 +1,68 @@
+<h1>NOTMUCH-REINDEX(1)</h1>
+
+<h2>NAME</h2>
+<pre>
+       notmuch-reindex - re-index matching messages
+</pre>
+
+<h2>SYNOPSIS</h2>
+<pre>
+       <b>notmuch</b> <b>reindex</b> [<u>option</u> ...] &lt;<u>search-term</u>&gt; ...
+</pre>
+
+<h2>DESCRIPTION</h2>
+<pre>
+       Re-index all messages matching the search terms.
+
+       See  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7)  for  details  of the supported syntax for
+       &lt;<u>search-term</u>&gt;.
+
+       The <b>reindex</b> command searches for all  messages  matching  the  supplied
+       search  terms,  and  re-creates  the  full-text index on these messages
+       using the supplied options.
+
+       Supported options for <b>reindex</b> include
+
+       <b>--decrypt=(true|nostash|auto|false)</b>
+              If <b>true</b>, when encountering an encrypted message, try to  decrypt
+              it  while  reindexing, stashing any session keys discovered.  If
+              <b>auto</b>, and notmuch already knows about a session key for the mes‐
+              sage, it will try decrypting using that session key but will not
+              try to access the user&apos;s secret keys.  If decryption is success‐
+              ful, index the cleartext itself.
+
+              <b>nostash</b>  is  the  same  as  <b>true</b>  except  that it will not stash
+              newly-discovered session keys in the database.
+
+              If <b>false</b>, notmuch reindex will also delete any  stashed  session
+              keys for all messages matching the search terms.
+
+              Be aware that the index is likely sufficient (and a stashed ses‐
+              sion key is certainly sufficient) to reconstruct  the  cleartext
+              of the message itself, so please ensure that the notmuch message
+              index is adequately protected.  DO  NOT  USE  <b>--decrypt=true</b>  or
+              <b>--decrypt=nostash</b>  without  considering  the  security  of  your
+              index.
+
+              See also <b>index.decrypt</b> in <a href='../notmuch-config-1/'>notmuch-config</a>(1).
+</pre>
+
+<h2>SEE ALSO</h2>
+<pre>
+       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not‐</a>
+       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),   <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
+       <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),  <a href='../notmuch-search-1/'>notmuch-search</a>(1),  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),  <a href='../notmuch-show-1/'>not‐</a>
+       <a href='../notmuch-show-1/'>much-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
+</pre>
+
+<h2>AUTHOR</h2>
+<pre>
+       Carl Worth and many others
+</pre>
+
+<h2>COPYRIGHT</h2>
+<pre>
+       2009-2018, Carl Worth and many others
+</pre>
+
+<h2>0.26</h2>

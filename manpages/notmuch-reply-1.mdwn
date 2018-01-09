@@ -34,7 +34,8 @@
        The resulting message template is output to stdout.
 
        Supported options for <b>reply</b> include
-          <b>--format=</b>(<b>default</b>|<b>json</b>|<b>sexp</b>|<b>headers-only</b>)
+
+       <b>--format=</b>(<b>default</b>|<b>json</b>|<b>sexp</b>|<b>headers-only</b>)
 
               <b>default</b>
                      Includes subject and quoted message body as an  RFC  2822
@@ -54,14 +55,14 @@
                      Only  produces  In-Reply-To,  References, To, Cc, and Bcc
                      headers.
 
-          <b>--format-version=N</b>
-                 Use the specified structured output format version.  This  is
-                 intended  for  programs that invoke <a href='../notmuch-1/'>notmuch</a>(1) internally. If
-                 omitted, the latest supported version will be used.
+       <b>--format-version=N</b>
+              Use the specified structured  output  format  version.  This  is
+              intended  for  programs  that  invoke  <a href='../notmuch-1/'>notmuch</a>(1) internally. If
+              omitted, the latest supported version will be used.
 
-          <b>--reply-to=</b>(<b>all</b>|<b>sender</b>)
+       <b>--reply-to=</b>(<b>all</b>|<b>sender</b>)
 
-              <b>all</b> <b>(default)</b>
+              <b>all</b> (default)
                      Replies to all addresses.
 
               <b>sender</b> Replies only to the sender. If  replying  to  user&apos;s  own
@@ -70,16 +71,24 @@
                      ers  in  this  order, and copy values from the first that
                      contains something other than only the user&apos;s addresses.
 
-          <b>--decrypt</b>
-                 Decrypt any MIME encrypted parts found in the  selected  con‐
-                 tent (ie. &quot;multipart/encrypted&quot; parts). Status of the decryp‐
-                 tion will be reported (currently only supported  with  --for‐
-                 mat=json  and --format=sexp) and on successful decryption the
-                 multipart/encrypted part will be replaced  by  the  decrypted
-                 content.
+       <b>--decrypt=(false|auto|true)</b>
+          If <b>true</b>, decrypt any MIME encrypted parts found in the selected con‐
+          tent  (i.e.,  &quot;multipart/encrypted&quot; parts). Status of the decryption
+          will be reported (currently only supported  with  --format=json  and
+          --format=sexp), and on successful decryption the multipart/encrypted
+          part will be replaced by the decrypted content.
 
-                 Decryption  expects a functioning <b>gpg-agent</b>(1) to provide any
-                 needed credentials. Without one, the decryption will fail.
+          If <b>auto</b>, and a session key is already known for the message, then it
+          will  be  decrypted,  but  notmuch will not try to access the user&apos;s
+          secret keys.
+
+          Use <b>false</b> to avoid even automatic decryption.
+
+          Non-automatic decryption expects a functioning <b>gpg-agent</b>(1) to  pro‐
+          vide any needed credentials. Without one, the decryption will likely
+          fail.
+
+          Default: <b>auto</b>
 
        See <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7) for details of  the  supported  syntax  for
        &lt;search-terms&gt;.
@@ -117,7 +126,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2017, Carl Worth and many others
+       2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.24</h2>
+<h2>0.26</h2>

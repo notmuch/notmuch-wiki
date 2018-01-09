@@ -29,82 +29,82 @@
 
        Supported options for <b>dump</b> include
 
-          <b>--gzip</b> Compress the output in a format compatible with <b>gzip</b>(1).
+       <b>--gzip</b> Compress the output in a format compatible with <b>gzip</b>(1).
 
-          <b>--format=(sup|batch-tag)</b>
-                 Notmuch restore supports two plain text  dump  formats,  both
-                 with one message-id per line, followed by a list of tags.
+       <b>--format=(sup|batch-tag)</b>
+              Notmuch restore supports two plain text dump formats, both  with
+              one message-id per line, followed by a list of tags.
 
-                 <b>batch-tag</b>
+              <b>batch-tag</b>
                      The  default  <b>batch-tag</b>  dump  format is intended to more
                      robust against malformed message-ids and tags  containing
                      whitespace  or non-<b>ascii</b>(7) characters. Each line has the
-                     form
-                        +&lt;<u>encoded-tag</u>&gt; +&lt;<u>encoded-tag</u>&gt; ...  --  id:&lt;<u>quoted-mes‐</u>
-                        <u>sage-id</u>&gt;
+                     form:
+
+                        +&lt;*encoded-tag*\ &gt; +&lt;*encoded-tag*\ &gt; ... -- id:&lt;*quoted-message-id*\ &gt;
 
                      Tags are hex-encoded by replacing every byte not matching
                      the regex <b>[A-Za-z0-9@=.,</b>_<b>+-]</b> with <b>%nn</b> where nn is the two
-                     digit  hex  encoding.  The  message  ID is a valid Xapian
+                     digit hex encoding. The message  ID  is  a  valid  Xapian
                      query, quoted using Xapian boolean term quoting rules: if
-                     the  ID  contains  whitespace  or a close paren or starts
+                     the ID contains whitespace or a  close  paren  or  starts
                      with a double quote, it must be enclosed in double quotes
-                     and  double  quotes  inside  the  ID must be doubled. The
-                     astute reader will notice this is a special case  of  the
+                     and double quotes inside the  ID  must  be  doubled.  The
+                     astute  reader  will notice this is a special case of the
                      batch input format for <a href='../notmuch-tag-1/'>notmuch-tag</a>(1); note that the sin‐
                      gle message-id query is mandatory for <a href='../notmuch-restore-1/'>notmuch-restore</a>(1).
 
-                 <b>sup</b>
-                     The <b>sup</b> dump file format is  specifically  chosen  to  be
+              <b>sup</b>    The  <b>sup</b>  dump  file  format is specifically chosen to be
                      compatible with the format of files produced by sup-dump.
                      So if you&apos;ve previously been using sup for mail, then the
-                     <b>notmuch</b>  <b>restore</b> command provides you a way to import all
+                     <b>notmuch</b> <b>restore</b> command provides you a way to import  all
                      of your tags (or labels as sup calls them). Each line has
-                     the following form
-                        &lt;<u>message-id</u>&gt; <b>(</b> &lt;<u>tag</u>&gt; ... <b>)</b>
+                     the following form:
+
+                        &lt;*message-id*\ &gt; **(** &lt;*tag*\ &gt; ... **)**
 
                      with zero or more tags are separated by spaces. Note that
-                     (malformed) message-ids may  contain  arbitrary  non-null
-                     characters.  Note  also that tags with spaces will not be
+                     (malformed)  message-ids  may  contain arbitrary non-null
+                     characters. Note also that tags with spaces will  not  be
                      correctly restored with this format.
 
-          <b>--include=(config|properties|tags)</b>
+       <b>--include=(config|properties|tags)</b>
+              Control what kind of metadata is included in the output.
 
-          Control what kind of metadata is included in the output.
-              <b>config</b>
-                 Output configuration data stored in the database.  Each  line
-                 starts  with  &quot;#@  &quot;, followed by a space separated key-value
-                 pair.  Both key and value are hex encoded if needed.
+              <b>config</b> Output  configuration  data  stored in the database. Each
+                     line starts with &quot;#@ &quot;, followed  by  a  space  separated
+                     key-value  pair.   Both  key and value are hex encoded if
+                     needed.
 
               <b>properties</b>
-                 Output per-message (key,value) metadata.   Each  line  starts
-                 with  &quot;#=  &quot;, followed by a message id, and a space separated
-                 list of key=value pairs.  pair.  Ids, keys and values are hex
-                 encoded if needed.
+                     Output  per-message  (key,value)  metadata.   Each   line
+                     starts  with &quot;#= &quot;, followed by a message id, and a space
+                     separated list of key=value pairs.  Ids, keys and  values
+                     are hex encoded if needed.  See <a href='../notmuch-properties-7/'>notmuch-properties</a>(7) for
+                     more details.
 
-              <b>tags</b>
-                 Output  per-message boolean metadata, namely tags. See <u>format</u>
-                 above for description of the output.
+              <b>tags</b>   Output per-message boolean  metadata,  namely  tags.  See
+                     <u>format</u> above for description of the output.
 
-              The default is to include all  available  types  of  data.   The
+              The  default  is  to  include  all available types of data.  The
               option can be specified multiple times to select some subset. As
-              of version 2 of the dump format, there is a header line  of  the
-              following form
+              of  version  3 of the dump format, there is a header line of the
+              following form:
 
-                #notmuch-dump &lt;<u>format</u>&gt;:&lt;<u>version</u>&gt; &lt;<u>included</u>&gt;
+                 #notmuch-dump &lt;*format*&gt;:&lt;*version*&gt; &lt;*included*&gt;
 
               where &lt;<u>included</u>&gt; is a comma separated list of the above options.
 
-          <b>--output=&lt;filename&gt;</b>
-                 Write output to given file instead of stdout.
+       <b>--output=&lt;filename&gt;</b>
+              Write output to given file instead of stdout.
 </pre>
 
 <h2>SEE ALSO</h2>
 <pre>
        <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5), <a href='../notmuch-insert-1/'>not‐</a>
-       <a href='../notmuch-insert-1/'>much-insert</a>(1), <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
-       <a href='../notmuch-search-1/'>notmuch-search</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),   <a href='../notmuch-tag-1/'>not‐</a>
-       <a href='../notmuch-tag-1/'>much-tag</a>(1)
+       <a href='../notmuch-insert-1/'>much-insert</a>(1),     <a href='../notmuch-new-1/'>notmuch-new</a>(1),     <a href='../notmuch-properties-7/'>notmuch-properties</a>(7),     <a href='../notmuch-reply-1/'>not‐</a>
+       <a href='../notmuch-reply-1/'>much-reply</a>(1),     <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),     <a href='../notmuch-search-1/'>notmuch-search</a>(1),      <a href='../notmuch-search-terms-7/'>not‐</a>
+       <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
 <h2>AUTHOR</h2>
@@ -114,7 +114,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2017, Carl Worth and many others
+       2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.24</h2>
+<h2>0.26</h2>

@@ -17,55 +17,52 @@
 
        Supported options for <b>emacs-mua</b> include
 
-          <b>-h,</b> <b>--help</b>
-                 Display help.
+       <b>-h,</b> <b>--help</b>
+              Display help.
 
-          <b>-s,</b> <b>--subject=&lt;subject&gt;</b>
-                 Specify the subject of the message.
+       <b>-s,</b> <b>--subject=&lt;subject&gt;</b>
+              Specify the subject of the message.
 
-          <b>--to=&lt;to-address&gt;</b>
-                 Specify a recipient (To).
+       <b>--to=&lt;to-address&gt;</b>
+              Specify a recipient (To).
 
-          <b>-c,</b> <b>--cc=&lt;cc-address&gt;</b>
-                 Specify a carbon-copy (Cc) recipient.
+       <b>-c,</b> <b>--cc=&lt;cc-address&gt;</b>
+              Specify a carbon-copy (Cc) recipient.
 
-          <b>-b,</b> <b>--bcc=&lt;bcc-address&gt;</b>
-                 Specify a blind-carbon-copy (Bcc) recipient.
+       <b>-b,</b> <b>--bcc=&lt;bcc-address&gt;</b>
+              Specify a blind-carbon-copy (Bcc) recipient.
 
-          <b>-i,</b> <b>--body=&lt;file&gt;</b>
-                 Specify a file to include into the body of the message.
+       <b>-i,</b> <b>--body=&lt;file&gt;</b>
+              Specify a file to include into the body of the message.
 
-          <b>--hello</b>
-                 Go to the Notmuch hello screen instead of the message  compo‐
-                 sition window if no message composition parameters are given.
+       <b>--hello</b>
+              Go to the Notmuch hello screen instead of the  message  composi‐
+              tion window if no message composition parameters are given.
 
-          <b>--no-window-system</b>
-                 Even  if a window system is available, use the current termi‐
-                 nal.
+       <b>--no-window-system</b>
+              Even if a window system is available, use the current terminal.
 
-          <b>--client</b>
-                 Use <b>emacsclient</b>, rather than <b>emacs</b>. For <b>emacsclient</b> to  work,
-                 you  need  an  already  running  Emacs  with a server, or use
-                 <b>--auto-daemon</b>.
+       <b>--client</b>
+              Use <b>emacsclient</b>, rather than <b>emacs</b>. For <b>emacsclient</b> to work, you
+              need an already running Emacs with a server, or use  <b>--auto-dae-</b>
+              <b>mon</b>.
 
-          <b>--auto-daemon</b>
-                 Automatically start Emacs in daemon mode, if the Emacs server
-                 is  not  running.  Applicable  with  <b>--client</b>. Implies <b>--cre-</b>
-                 <b>ate-frame</b>.
+       <b>--auto-daemon</b>
+              Automatically start Emacs in daemon mode, if the Emacs server is
+              not running. Applicable with <b>--client</b>. Implies <b>--create-frame</b>.
 
-          <b>--create-frame</b>
-                 Create a new frame instead of trying to use the current Emacs
-                 frame.  Applicable  with <b>--client</b>. This will be required when
-                 Emacs is running (or automatically started  with  <b>--auto-dae-</b>
-                 <b>mon</b>) in daemon mode.
+       <b>--create-frame</b>
+              Create a new frame instead of trying to use  the  current  Emacs
+              frame.  Applicable  with  <b>--client</b>.  This  will be required when
+              Emacs is running (or automatically started  with  <b>--auto-daemon</b>)
+              in daemon mode.
 
-          <b>--print</b>
-                 Output  the  resulting  elisp to stdout instead of evaluating
-                 it.
+       <b>--print</b>
+              Output the resulting elisp to stdout instead of evaluating it.
 
-       The supported positional parameters and short options are a  compatible
+       The  supported positional parameters and short options are a compatible
        subset of the <b>mutt</b> MUA command-line options. The options and positional
-       parameters modifying the message can&apos;t be  combined  with  the  mailto:
+       parameters  modifying  the  message  can&apos;t be combined with the mailto:
        URL.
 
        Options may be specified multiple times.
@@ -76,7 +73,7 @@
        <b>EMACS</b>  Name of emacs command to invoke. Defaults to &quot;emacs&quot;.
 
        <b>EMACSCLIENT</b>
-              Name  of  emacsclient  command  to  invoke.  Defaults  to &quot;emac‐
+              Name of  emacsclient  command  to  invoke.  Defaults  to  &quot;emac‐
               sclient&quot;.
 </pre>
 
@@ -87,12 +84,12 @@
 
 <h2>AUTHOR</h2>
 <pre>
-       Jani Nikula
+       Carl Worth and many others
 </pre>
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2014-2017, Jani Nikula
+       2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.24</h2>
+<h2>0.26</h2>

@@ -1,0 +1,129 @@
+<h1>NOTMUCH-PROPERTIES(7)</h1>
+
+<h2>NAME</h2>
+<pre>
+       notmuch-properties  - notmuch message property conventions and documen‐
+       tation
+</pre>
+
+<h2>SYNOPSIS</h2>
+<pre>
+       <b>notmuch</b> <b>count</b> <b>property:</b>&lt;<u>key</u>&gt;=&lt;<u>value</u>&gt;
+
+       <b>notmuch</b> <b>search</b> <b>property:</b>&lt;<u>key</u>&gt;=&lt;<u>value</u>&gt;
+
+       <b>notmuch</b> <b>show</b> <b>property:</b>&lt;<u>key</u>&gt;=&lt;<u>value</u>&gt;
+
+       <b>notmuch</b> <b>reindex</b> <b>property:</b>&lt;<u>key</u>&gt;=&lt;<u>value</u>&gt;
+
+       <b>notmuch</b> <b>tag</b> +&lt;<u>tag</u>&gt; <b>property:</b>&lt;<u>key</u>&gt;=&lt;<u>value</u>&gt;
+
+       <b>notmuch</b> <b>dump</b> <b>--include=properties</b>
+
+       <b>notmuch</b> <b>restore</b> <b>--include=properties</b>
+</pre>
+
+<h2>DESCRIPTION</h2>
+<pre>
+       Several notmuch commands can search for, modify, add or remove  proper‐
+       ties  associated  with  specific  messages.   Properties  are key/value
+       pairs, and a message can have more than one key/value pair for the same
+       key.
+
+       While  users  can  select  based on a specific property in their search
+       terms with the prefix <b>property:</b>,  the  notmuch  command-line  interface
+       does  not  provide  mechanisms for modifying properties directly to the
+       user.
+
+       Instead, message properties are expected to be set and used programmat‐
+       ically, according to logic in notmuch itself, or in extensions to it.
+
+       Extensions  to  notmuch  which make use of properties are encouraged to
+       report the specific properties used to the upstream notmuch project, as
+       a way of avoiding collisions in the property namespace.
+</pre>
+
+<h2>CONVENTIONS</h2>
+<pre>
+       Any  property with a key that starts with &quot;index.&quot; will be removed (and
+       possibly re-set) upon reindexing (see <a href='../notmuch-reindex-1/'>notmuch-reindex</a>(1)).
+</pre>
+
+<h2>MESSAGE PROPERTIES</h2>
+<pre>
+       The following properties are set by notmuch internally in the course of
+       its normal activity.
+
+       <b>index.decryption</b>
+              If  a  message  contains encrypted content, and notmuch tries to
+              decrypt that content during indexing, it will add  the  property
+              <b>index.decryption=success</b>  when  the  cleartext  was successfully
+              indexed.  If notmuch attempts to decrypt any part of  a  message
+              during  indexing  and that decryption attempt fails, it will add
+              the property <b>index.decryption=failure</b> to the message.
+
+              Note that it&apos;s possible  for  a  single  message  to  have  both
+              <b>index.decryption=success</b> and <b>index.decryption=failure</b>.  Consider
+              an encrypted e-mail  message  that  contains  another  encrypted
+              e-mail  message  as an attachment -- if the outer message can be
+              decrypted, but the attached part cannot,  then  both  properties
+              will be set on the message as a whole.
+
+              If  notmuch  never  tried to decrypt an encrypted message during
+              indexing (which  is  the  default,  see  <b>index.decrypt</b>  in  <a href='../notmuch-config-1/'>not‐</a>
+              <a href='../notmuch-config-1/'>much-config</a>(1)), then this property will not be set on that mes‐
+              sage.
+
+       <b>session-key</b>
+          When <a href='../notmuch-show-1/'>notmuch-show</a>(1) or <b>nomtuch-reply</b> encounters a message  with  an
+          encrypted  part,  if notmuch finds a <b>session-key</b> property associated
+          with the message, it will try that stashed session key  for  decryp‐
+          tion.
+
+          If  you  do  not  want to use any stashed session keys that might be
+          present, you should pass those programs <b>--decrypt=false</b>.
+
+          Using a stashed session key with &quot;notmuch show&quot; will speed  up  ren‐
+          dering  of  long  encrypted  threads.   It  also  allows the user to
+          destroy the secret part of  any  expired  encryption-capable  subkey
+          while  still being able to read any retained messages for which they
+          have stashed the session key.  This enables truly deletable  e-mail,
+          since   (once  the  session  key  and  asymmetric  subkey  are  both
+          destroyed) there are no keys left that can be used  to  decrypt  any
+          copy of the original message previously stored by an adversary.
+
+          However,  access to the stashed session key for an encrypted message
+          permits full byte-for-byte reconstruction of the cleartext  message.
+          This includes attachments, cryptographic signatures, and other mate‐
+          rial that cannot be reconstructed from the index alone.
+
+          See <b>index.decrypt</b> in <a href='../notmuch-config-1/'>notmuch-config</a>(1) for more details about how to
+          set notmuch&apos;s policy on when to store session keys.
+
+          The  session key should be in the ASCII text form produced by GnuPG.
+          For OpenPGP, that consists of a decimal representation of  the  hash
+          algorithm  used  (identified  by  number from RFC 4880, e.g. 9 means
+          AES-256) followed by a colon, followed by a hexadecimal  representa‐
+          tion  of  the  algorithm-specific  key.  For example, an AES-128 key
+          might   be   stashed   in    a    notmuch    property    as:    <b>ses-</b>
+          <b>sion-key=7:14B16AF65536C28AF209828DFE34C9E0</b>.
+</pre>
+
+<h2>SEE ALSO</h2>
+<pre>
+       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-insert-1/'>notmuch-insert</a>(1), <a href='../notmuch-new-1/'>not‐</a>
+       <a href='../notmuch-new-1/'>much-new</a>(1), <a href='../notmuch-reindex-1/'>notmuch-reindex</a>(1), <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
+       <a href='../notmuch-show-1/'>notmuch-show</a>(1), <b>*notmuch-search-terms</b>(7)
+</pre>
+
+<h2>AUTHOR</h2>
+<pre>
+       Carl Worth and many others
+</pre>
+
+<h2>COPYRIGHT</h2>
+<pre>
+       2009-2018, Carl Worth and many others
+</pre>
+
+<h2>0.26</h2>
