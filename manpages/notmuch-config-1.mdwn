@@ -181,9 +181,9 @@
                       │secret keys   │       │      │         │      │
                       ├──────────────┼───────┼──────┼─────────┼──────┤
                       │Stash session │       │      │         │ X    │
-                      │keys
+                      │keys          │       │      │         │      │
                       ├──────────────┼───────┼──────┼─────────┼──────┤
-                      │Delete
+                      │Delete        │       │      │         │      │
                       │stashed  ses‐ │       │      │         │      │
                       │sion  keys on │       │      │         │      │
                       │reindex       │       │      │         │      │
