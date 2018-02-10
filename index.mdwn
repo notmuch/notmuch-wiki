@@ -162,7 +162,7 @@ under the GNU [GPL version
 3](https://www.fsf.org/licensing/licenses/gpl.html). The latest
 versions can be checked out via git with this command:
 
-        git clone git://notmuchmail.org/git/notmuch
+        git clone https://git.notmuchmail.org/git/notmuch
 
 You can browse the [Notmuch code history
 online](https://git.notmuchmail.org/git/notmuch). A notification is sent to the

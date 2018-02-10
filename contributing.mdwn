@@ -19,7 +19,7 @@ help out as needed.
 The Notmuch source code is maintained in [git](http://git-scm.com/). Get the
 source code using:
 
-        git clone git://notmuchmail.org/git/notmuch
+        git clone https://git.notmuchmail.org/git/notmuch
 
 This guide assumes a working knowledge of git. There are plenty of resources
 available on git, such as [Pro Git](http://git-scm.com/book) and the git man
