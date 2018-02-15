@@ -145,6 +145,33 @@ in a scenario where you have encrypted your hard disk anyway and are
 comfortable with the security implications (and until notmuch can index
 encrypted email itself).
 
+## <span id="special_tags">**Index and search emails written in CJK scripts**</span>
+
+CJK (Chinese, Japanese and Korean) languages do not use spaces for word
+separation. The full-text indexer (Xapian) must first perform word segmentation
+on the sentence in its TermGenerator. Otherwise, large amount of long terms
+will be included in the database, leading to extremely slow indexing and
+ineffective searching with CJK search terms.
+
+Xapian supports [N-gram](https://xapian.org/docs/sourcedoc/html/classXapian_1_1TermGenerator.html)
+term generator [since 2011](https://u7fa9.org/memo/HEAD/archives/2012-06/2012-06-01.rst)
+to as a simple substitute for word segmentation. It can be turned on by
+setting the environment variable
+
+        $ export XAPIAN_CJK_NGRAM=1
+        $ notmuch new
+
+For existing databases, one can reindex the database (since notmuch 0.26)
+with
+
+        $ export XAPIAN_CJK_NGRAM=1
+        $ notmuch reindex '*'
+
+Xapian has an on-going [pull-request](https://github.com/xapian/xapian/pull/114)
+that adds support for real CJK word-segmentation based on the ICU library.
+When it gets merged, one probably will gets better indexing and searching
+results with this new method.
+
 ## Translations
 
 - A translation of this page into [[Russian|howto-ru]]
