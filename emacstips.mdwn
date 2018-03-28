@@ -437,7 +437,7 @@ address.
 
 ## How to sign/encrypt messages with gpg
 
-Messages can by signed using gpg by invoking
+Messages can be signed using gpg by invoking
 `M-x mml-secure-sign-pgpmime` (or `M-x mml-secure-encrypt-pgpmime`).
 These functions are available via the standard `message-mode` keybindings
 `C-c C-m s p` and `C-c C-m c p`. To sign outgoing mail by default, use the
