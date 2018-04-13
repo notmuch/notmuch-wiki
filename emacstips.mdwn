@@ -819,3 +819,16 @@ can turn the commit hash into a URL pointing there, for example:
                                   "-m" (concat "<" message-id ">")
                                   "-n" "1"
                                   "-f" "%{commit_ref}"))))
+
+## Never forget attachments
+
+Very often we forget to actually attach the file when we send an email
+that's supposed to have an attachment. Did this never happen to you?
+If not, then it will.
+
+There is a hook out there that checks the content of the email for
+keywords and warns you before the email is sent out if there's no
+attachment. This is currently work in progress, but you can already
+add the hook to your `~/.emacs.d/notmuch-config.el` file to test
+it. Details available (and feedback welcome) in the [relevant
+discussion](https://notmuchmail.org/pipermail/notmuch/2018/026414.html).

@@ -132,3 +132,7 @@ mentioned as script arguments. (Note: The script expects that you have
             shift
         done
         emacsclient -a '' -c -e "(progn (compose-mail) $attach_cmds)"
+
+Also, if you're the kind of person who forgets to add attachments,
+there's a cure for that disease. See [Never forget
+attachments](/emacstips#index27h2) for all the details.
