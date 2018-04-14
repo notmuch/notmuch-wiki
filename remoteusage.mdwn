@@ -69,7 +69,7 @@ Save this to a file, for example `remote-notmuch.sh`, in your `PATH`:
     printf -v ARGS "%q " "$@"
     exec ssh notmuch notmuch ${ARGS}
 
-and give it execute permissons: `chmod +x remote-notmuch.sh`
+and give it execute permissions: `chmod +x remote-notmuch.sh`
 
 Now you can run `remote-notmuch.sh new`, or other notmuch commands. You
 can call the script anything you like. (You could also call it `notmuch`

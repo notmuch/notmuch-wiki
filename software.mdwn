@@ -1,5 +1,5 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
-# Sofware working with Maildir and Notmuch
+# Software working with Maildir and Notmuch
 
 ## <span id="formats">**Mail storage formats**</span>
 
@@ -138,7 +138,7 @@ Many MDAs also support filtering via [Sieve](https://en.wikipedia.org/wiki/Sieve
 
 Internet Mail Access Protocol servers that can interoperate with notmuch.
 It is of note that IMAP protocol supports storing so-called [keywords](https://tools.ietf.org/html/rfc3501#page-11) (user-defined flags) which are mostly equivalent to notmuch tags.
-Unfortunately Maildir does not have standard way to encode keywords, so there are extensions neccessary to store that information.
+Unfortunately Maildir does not have standard way to encode keywords, so there are extensions necessary to store that information.
 
 ### <span id="dovecot">**Dovecot**</span>
 
@@ -148,7 +148,7 @@ The fully standard-compliant IMAP server.
 Has efficient syncing and multimaster replication capability.
 
 Up to 26 different keywords can be stored per-maildir using Maildir flags a-z.
-Their meaning is defined via `dovecot-keywords` file which is simple, well-defined text file which maps each letter to specifig tag/keyword.
+Their meaning is defined via `dovecot-keywords` file which is simple, well-defined text file which maps each letter to specific tag/keyword.
 If more than 26 keywords appear in one Maildir then some of them are stored in [dovecot-specific](http://wiki.dovecot.org/Design/Indexes/MainIndex) [index files](http://wiki.dovecot.org/IndexFiles).
 Dovecot's dsync will sync keywords into this format.
 

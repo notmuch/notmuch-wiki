@@ -88,5 +88,5 @@ mailing list.
 ### nmbug - share tags with a given prefix
 
 nmbug helps maintain a git repo containing all tags with a given
-prefix (by default "notmuch::"). Tags can be shared by commiting
+prefix (by default "notmuch::"). Tags can be shared by committing
 them to git in one location and restoring in another.

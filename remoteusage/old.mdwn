@@ -4,7 +4,7 @@
 (the "old" page, see also [[new|remoteusage]] page)
 
 ##Why?##
-It is hard to keep nomuch tags in sync across multiple instances of
+It is hard to keep notmuch tags in sync across multiple instances of
 notmuch, on multiple computers. Though you can do this with "notmuch
 dump" and "notmuch restore", it is often preferable to be able to use
 notmuch on a remote computer as if it were present on a local
@@ -33,7 +33,7 @@ optional, or allow screen or tmux to be used instead.
 server. [Here](http://www.debian-administration.org/articles/152) is a
 good page on how to set it up.
 
-5.  a reasonably fast connection. (This isn't really *neccessary*, but
+5.  a reasonably fast connection. (This isn't really *necessary*, but
 if your connection is too slow, this won't be very pleasant to use,
 and certainly won't seem transparent.)
 

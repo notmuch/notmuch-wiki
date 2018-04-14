@@ -28,7 +28,7 @@ Open vim and type
 and press ENTER. Voila.
 
 
-Alternatively, you can invoce vim with the -c flag:
+Alternatively, you can invoke vim with the -c flag:
 
     $ vim -c :Notmuch
 

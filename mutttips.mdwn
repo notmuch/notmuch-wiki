@@ -33,7 +33,7 @@ configure. Otherwise, it is a good old autoconf setup, so here it goes:
 
 ## Configuration:
 
-Here is my `.muttrc` I use with `mutt-kz`, explainations as comments:
+Here is my `.muttrc` I use with `mutt-kz`, explanations as comments:
 
         # notmuch
         set nm_default_uri="notmuch:///PATH/TO/MY/Maildir" # path to the maildir

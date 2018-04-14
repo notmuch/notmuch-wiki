@@ -18,7 +18,7 @@ or
 
 to your .emacs file.
 
-## Controlling external handlers for attachements
+## Controlling external handlers for attachments
 
 You can choose e.g. which pdf viewer to invoke from notmuch-show mode by
 adding a .mailcap file in your home directory. Here is an example:
@@ -794,7 +794,7 @@ Add a new entry with "Function returning the URL:" set to:
                                   "-f" "%{id}"))))
 
 Replacing `http://patchwork.example.com/patch/`, `/path/to/pwclient`, and
-`the-project` appropiately. You should now be able to stash the Patchwork URL
+`the-project` appropriately. You should now be able to stash the Patchwork URL
 using `c l`.
 
 Going further, if the patch has been committed, you can get the commit hash with

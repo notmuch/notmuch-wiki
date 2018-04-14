@@ -128,4 +128,4 @@ Go Bindings
 Previously, it was impossible to open writable database handles,
 because `DATABASE_MODE_READ_ONLY` and `DATABASE_MODE_READ_WRITE` were
 both set to zero.
-The same issue occured with sort modes.
+The same issue occurred with sort modes.
