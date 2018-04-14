@@ -70,7 +70,7 @@ Write the following code to a file, for example `remote-notmuch.sh`.
 
 Note the `0.1` in ssh command line. It is used to avoid any opportunistic
 behaviour ssh might do; for example if control socket is not alive ssh
-would attempt to do it's own ssh connection to remote ssh server. As
+would attempt to do its own ssh connection to remote ssh server. As
 address `0.1` is invalid this attempt will fail early.
 
 ## Test

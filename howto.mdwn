@@ -12,7 +12,7 @@ Notmuch does not fetch mail for you.  For that, you need to use an
 external mail syncing utility.  Some recommended utilities are listed
 below.
 
-Notmuch requires that every individual message be in it's own file.
+Notmuch requires that every individual message be in its own file.
 The well-supported [maildir](http://cr.yp.to/proto/maildir.html) or
 "mh"-style storage formats are compatible with notmuch.  Basically any
 setup in which each mail is in a file of its own will work.  The older
