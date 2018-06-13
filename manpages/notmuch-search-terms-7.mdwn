@@ -45,7 +45,7 @@
        results  to  those  whose  value  matches  a  regular  expression  (see
        <b>regex</b>(7)) delimited with //, for example:
 
-          notmuch search &apos;from:/bob@.*[.]example[.]com/&apos;
+          notmuch search &apos;from:&quot;/bob@.*[.]example[.]com/&quot;&apos;
 
        <b>from:&lt;name-or-address&gt;</b> <b>or</b> <b>from:/&lt;regex&gt;/</b>
               The  <b>from:</b>  prefix  is  used to match the name or address of the
@@ -86,50 +86,65 @@
               messages).  These thread ID values can be seen in the first col‐
               umn of output from <b>notmuch</b> <b>search</b>
 
+       <b>thread:{&lt;notmuch</b> <b>query&gt;}</b>
+              If notmuch is built with <b>Xapian</b> <b>Field</b>  <b>Processors</b>  (see  below),
+              threads may be searched for indirectly by providing an arbitrary
+              notmuch query in <b>{}</b>. For example, the following returns  threads
+              containing  a  message from mallory and one (not necessarily the
+              same message) with Subject containing the word &quot;crypto&quot;.
+
+                 % notmuch search &apos;thread:&quot;{from:mallory}&quot; and thread:&quot;{subject:crypto}&quot;&apos;
+
+              The performance of such queries can vary wildly.  To  understand
+              this, the user should think of the query <b>thread:{&lt;something&gt;}</b> as
+              expanding to all of the thread IDs which match <b>&lt;something&gt;</b>; not‐
+              much then performs a second search using the expanded query.
+
        <b>path:&lt;directory-path&gt;</b> <b>or</b> <b>path:&lt;directory-path&gt;/**</b> <b>or</b> <b>path:/&lt;regex&gt;/</b>
               The <b>path:</b> prefix searches for email messages that are in partic‐
-              ular  directories  within  the mail store. The directory must be
-              specified relative to the top-level  maildir  (and  without  the
+              ular directories within the mail store. The  directory  must  be
+              specified  relative  to  the  top-level maildir (and without the
               leading slash). By default, <b>path:</b> matches messages in the speci‐
-              fied directory only. The &quot;/**&quot; suffix can be used to match  mes‐
-              sages  in  the  specified  directory  and all its subdirectories
-              recursively. <b>path:&quot;&quot;</b> matches messages in the root  of  the  mail
+              fied  directory only. The &quot;/**&quot; suffix can be used to match mes‐
+              sages in the specified  directory  and  all  its  subdirectories
+              recursively.  <b>path:&quot;&quot;</b>  matches  messages in the root of the mail
               store and, likewise, <b>path:**</b> matches all messages.
 
-              <b>path:</b>  will find a message if <u>any</u> copy of that message is in the
+              <b>path:</b> will find a message if <u>any</u> copy of that message is in  the
               specific directory.
 
        <b>folder:&lt;maildir-folder&gt;</b> <b>or</b> <b>folder:/&lt;regex&gt;/</b>
-              The <b>folder:</b> prefix searches for email messages by maildir or  MH
-              folder.  For  MH-style folders, this is equivalent to <b>path:</b>. For
+              The  <b>folder:</b> prefix searches for email messages by maildir or MH
+              folder. For MH-style folders, this is equivalent to  <b>path:</b>.  For
               maildir, this includes messages in the &quot;new&quot; and &quot;cur&quot; subdirec‐
-              tories.  The  exact  syntax  for maildir folders depends on your
-              mail configuration. For maildir++, <b>folder:&quot;&quot;</b> matches  the  inbox
-              folder  (which  is  the  root  in maildir++), other folder names
+              tories. The exact syntax for maildir  folders  depends  on  your
+              mail  configuration.  For maildir++, <b>folder:&quot;&quot;</b> matches the inbox
+              folder (which is the root  in  maildir++),  other  folder  names
               always start with &quot;.&quot;, and nested folders are separated by &quot;.&quot;s,
               such as <b>folder:.classes.topology</b>. For &quot;file system&quot; maildir, the
               inbox is typically <b>folder:INBOX</b> and nested folders are separated
               by slashes, such as <b>folder:classes/topology</b>.
 
-              <b>folder:</b>  will  find  a message if <u>any</u> copy of that message is in
+              <b>folder:</b> will find a message if <u>any</u> copy of that  message  is  in
               the specific folder.
 
        <b>date:&lt;since&gt;..&lt;until&gt;</b> <b>or</b> <b>date:&lt;date&gt;</b>
-              The <b>date:</b> prefix can be used to restrict  the  results  to  only
-              messages  within  a  particular  time  range (based on the Date:
+              The  <b>date:</b>  prefix  can  be used to restrict the results to only
+              messages within a particular time  range  (based  on  the  Date:
               header).
 
-              See <b>DATE</b> <b>AND</b> <b>TIME</b> <b>SEARCH</b> below for details on the range  expres‐
+              See  <b>DATE</b> <b>AND</b> <b>TIME</b> <b>SEARCH</b> below for details on the range expres‐
               sion, and supported syntax for &lt;since&gt; and &lt;until&gt; date and time
               expressions.
 
-              The time range can also be specified  using  timestamps  with  a
-              syntax of:
+              The  time  range  can also be specified using timestamps without
+              including the date prefix using a syntax of:
 
               &lt;initial-timestamp&gt;..&lt;final-timestamp&gt;
 
-              Each  timestamp  is  a number representing the number of seconds
-              since 1970-01-01 00:00:00 UTC.
+              Each timestamp is a number representing the  number  of  seconds
+              since  1970-01-01 00:00:00 UTC. Specifying a time range this way
+              is considered legacy and predates the date prefix.
 
        <b>lastmod:&lt;initial-revision&gt;..&lt;final-revision&gt;</b>
               The <b>lastmod:</b> prefix can be used to restrict the  result  by  the
@@ -260,13 +275,32 @@
        will not.
 </pre>
 
+<h3> &nbsp; Quoting</h3>
+<pre>
+       Double  quotes  are  also  used  by the notmuch query parser to protect
+       boolean terms, regular expressions, or subqueries containing spaces  or
+       other special characters, e.g.
+
+          tag:&quot;a tag&quot;
+
+          folder:&quot;/^.*/(Junk|Spam)$/&quot;
+
+          thread:&quot;{from:mallory and date:2009}&quot;
+
+       As  with  phrases, you need to protect the double quotes from the shell
+       e.g.
+
+          % notmuch search &apos;folder:&quot;/^.*/(Junk|Spam)$/&quot;&apos;
+          % notmuch search &apos;thread:&quot;{from:mallory and date:2009}&quot; and thread:{to:mallory}&apos;
+</pre>
+
 <h2>DATE AND TIME SEARCH</h2>
 <pre>
-       notmuch  understands a variety of standard and natural ways of express‐
+       notmuch understands a variety of standard and natural ways of  express‐
        ing dates and times, both in absolute terms (&quot;2012-10-24&quot;) and in rela‐
-       tive  terms (&quot;yesterday&quot;). Any number of relative terms can be combined
-       (&quot;1 hour 25 minutes&quot;) and an absolute date/time can  be  combined  with
-       relative  terms  to  further adjust it. A non-exhaustive description of
+       tive terms (&quot;yesterday&quot;). Any number of relative terms can be  combined
+       (&quot;1  hour  25  minutes&quot;) and an absolute date/time can be combined with
+       relative terms to further adjust it. A  non-exhaustive  description  of
        the syntax supported for absolute and relative terms is given below.
 </pre>
 
@@ -274,14 +308,20 @@
 <pre>
        date:&lt;since&gt;..&lt;until&gt;
 
-       The above expression  restricts  the  results  to  only  messages  from
+       The  above  expression  restricts  the  results  to  only messages from
        &lt;since&gt; to &lt;until&gt;, based on the Date: header.
 
-       &lt;since&gt;  and &lt;until&gt; can describe imprecise times, such as &quot;yesterday&quot;.
-       In this case, &lt;since&gt; is taken as the earliest time it  could  describe
+       &lt;since&gt; and &lt;until&gt; can describe imprecise times, such as  &quot;yesterday&quot;.
+       In  this  case, &lt;since&gt; is taken as the earliest time it could describe
        (the beginning of yesterday) and &lt;until&gt; is taken as the latest time it
-       could describe (the end of yesterday). Similarly,  date:january..febru‐
+       could  describe (the end of yesterday). Similarly, date:january..febru‐
        ary matches from the beginning of January to the end of February.
+
+       If specifying a time range using timestamps  in  conjunction  with  the
+       date  prefix,  each  timestamp must be preceded by @ (ASCII hex 40). As
+       above, each timestamp is a number representing the  number  of  seconds
+       since 1970-01-01 00:00:00 UTC. For example:
+          date:@&lt;initial-timestamp&gt;..@&lt;final-timestamp&gt;
 
        date:&lt;expr&gt;..!  can be used as a shorthand for date:&lt;expr&gt;..&lt;expr&gt;. The
        expansion takes place before interpretation,  and  thus,  for  example,
@@ -391,6 +431,8 @@
        · named queries e.g. &quot;query:my_special_query&quot;
 
        · regular expression searches, e.g. &quot;subject:/^\[SPAM\]/&quot;
+
+       · thread subqueries, e.g. &quot;thread:{from:bob}&quot;
 </pre>
 
 <h2>SEE ALSO</h2>
@@ -411,4 +453,4 @@
        2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.26</h2>
+<h2>0.27</h2>

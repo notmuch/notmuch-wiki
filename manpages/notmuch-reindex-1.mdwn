@@ -47,12 +47,41 @@
               See also <b>index.decrypt</b> in <a href='../notmuch-config-1/'>notmuch-config</a>(1).
 </pre>
 
+<h2>EXAMPLES</h2>
+<pre>
+       A user just received an encrypted message without indexing its  cleart‐
+       ext.   After  reading it (via <b>notmuch</b> <b>show</b> <b>--decrypt=true</b>), they decide
+       that they want to index its cleartext so that they can easily  find  it
+       later and read it without having to have access to their secret keys:
+
+          notmuch reindex --decrypt=true id:1234567@example.com
+
+       A  user  wants  to  change their policy going forward to start indexing
+       cleartext.  But they also want indexed access to the cleartext  of  all
+       previously-received  encrypted  messages.   Some  messages  might  have
+       already been indexed in the clear (as in the example above).  They  can
+       ask notmuch to just reindex the not-yet-indexed messages:
+
+          notmuch config set index.decrypt true
+          notmuch reindex tag:encrypted and not property:index.decryption=success
+
+       Later,  the user changes their mind, and wants to stop indexing cleart‐
+       ext (perhaps their threat model has changed, or their  trust  in  their
+       index store has been shaken).  They also want to clear all of their old
+       cleartext from the index.  Note that they compact the  database  after‐
+       ward as a workaround for <u>https://trac.xapian.org/ticket/742</u>:
+
+          notmuch config set index.decrypt false
+          notmuch reindex property:index.decryption=success
+          notmuch compact
+</pre>
+
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not‐</a>
-       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),   <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
-       <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),  <a href='../notmuch-search-1/'>notmuch-search</a>(1),  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),  <a href='../notmuch-show-1/'>not‐</a>
-       <a href='../notmuch-show-1/'>much-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
+       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-compact-1/'>notmuch-compact</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1),  <a href='../notmuch-count-1/'>notmuch-count</a>(1),
+       <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),
+       <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),     <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),    <a href='../notmuch-search-1/'>notmuch-search</a>(1),    <a href='../notmuch-search-terms-7/'>not‐</a>
+       <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
 <h2>AUTHOR</h2>
@@ -65,4 +94,4 @@
        2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.26</h2>
+<h2>0.27</h2>
