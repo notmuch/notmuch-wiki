@@ -237,7 +237,7 @@ Including `QUERY.sort`, `QUERY.to_s`, `MESSAGE.maildir_flags_to_tags`,
 
 ### Python bindings have been updated and extended
 
-(docs online at http://packages.python.org/notmuch/)
+(docs online at https://notmuch.readthedocs.io/)
 
 New bindings:
 
