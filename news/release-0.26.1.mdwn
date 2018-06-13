@@ -1,0 +1,10 @@
+[[!meta date="2018-04-02"]]
+
+Notmuch 0.26.1 (2018-04-02)
+===========================
+
+Library Changes
+---------------
+
+Bump the library minor version. This should have happened in 0.26, but
+better late than never.

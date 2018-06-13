@@ -1,0 +1,38 @@
+[[!meta date="2018-06-13"]]
+
+Notmuch 0.27 (2018-06-13)
+=========================
+
+General
+-------
+
+### Add support for thread:{} queries
+
+Queries of the form `thread:{foo} and thread:{bar}` match threads
+containing (possibly distinct) messages matching foo and bar. See
+`notmuch-search-terms(7)` for details.
+
+Command Line Interface
+----------------------
+
+### Add the --full-scan option to `notmuch new`
+
+This option disables mtime based optimization of scanning for new mail.
+
+### Add new --decrypt=stash option for `notmuch show`
+
+This facilitates a workflow for encrypted messages where message
+cleartext are indexed on first read, but the user's decryption key
+does not have to be available during message receipt.
+
+Documentation
+-------------
+
+An initial manual for `notmuch-emacs` is now installed by default (in
+`info` format).
+
+Dependencies
+------------
+
+As of this release, support for versions of Xapian before 1.4.0 is
+deprecated, and may disappear in a future release of notmuch.
