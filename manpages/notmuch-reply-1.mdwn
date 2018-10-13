@@ -74,8 +74,8 @@
        <b>--decrypt=(false|auto|true)</b>
           If <b>true</b>, decrypt any MIME encrypted parts found in the selected con‐
           tent  (i.e.,  &quot;multipart/encrypted&quot; parts). Status of the decryption
-          will be reported (currently only supported  with  --format=json  and
-          --format=sexp), and on successful decryption the multipart/encrypted
+          will be reported (currently only supported  with  <b>--format=json</b>  and
+          <b>--format=sexp</b>), and on successful decryption the multipart/encrypted
           part will be replaced by the decrypted content.
 
           If <b>auto</b>, and a session key is already known for the message, then it
@@ -129,4 +129,4 @@
        2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.27</h2>
+<h2>0.28</h2>

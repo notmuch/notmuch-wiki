@@ -34,8 +34,8 @@
        <b>--output=(sender|recipients|count|address)</b>
               Controls which information appears in the  output.  This  option
               can  be given multiple times to combine different outputs.  When
-              neither --output=sender nor --output=recipients is given, --out‐
-              put=sender is implied.
+              neither <b>--output=sender</b> nor <b>--output=recipients</b> is given, <b>--out-</b>
+              <b>put=sender</b> is implied.
 
               <b>sender</b> Output all addresses from the <u>From</u> header.
 
@@ -62,12 +62,12 @@
               Control the deduplication of results.
 
               <b>no</b>     Output all occurrences of addresses in the matching  mes‐
-                     sages. This is not applicable with --output=count.
+                     sages. This is not applicable with <b>--output=count</b>.
 
               <b>mailbox</b>
                      Deduplicate  addresses  based on the full, case sensitive
                      name and email address, or mailbox. This  is  effectively
-                     the  same as piping the --deduplicate=no output to <b>sort</b> <b>|</b>
+                     the  same as piping the <b>--deduplicate=no</b> output to <b>sort</b> <b>|</b>
                      <b>uniq</b>, except for  the  order  of  results.  This  is  the
                      default.
 
@@ -75,7 +75,7 @@
                      Deduplicate  addresses  based  on  the  case  insensitive
                      address part of the mailbox. Of all  the  variants  (with
                      different  name  or  case),  print the one occurring most
-                     frequently among the matching messages. If --output=count
+                     frequently among the matching messages. If <b>--output=count</b>
                      is specified, include all variants in the count.
 
        <b>--sort=</b>(<b>newest-first</b>|<b>oldest-first</b>)
@@ -86,7 +86,7 @@
               By  default,  results will be displayed in reverse chronological
               order, (that is, the newest results will be displayed first).
 
-              However, if either --output=count  or  --deduplicate=address  is
+              However, if either <b>--output=count</b>  or  <b>--deduplicate=address</b>  is
               specified,  this  option is ignored and the order of the results
               is unspecified.
 
@@ -130,4 +130,4 @@
        2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.27</h2>
+<h2>0.28</h2>

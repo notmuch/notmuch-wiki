@@ -51,26 +51,26 @@
 
               <b>threads</b>
                      Output  the  thread  IDs  of all threads with any message
-                     matching the search terms, either one  per  line  (--for‐
-                     mat=text), separated by null characters (--format=text0),
-                     as a JSON array (--format=json), or an S-Expression  list
-                     (--format=sexp).
+                     matching the search terms, either one  per  line  (<b>--for-</b>
+                     <b>mat=text</b>), separated by null characters (<b>--format=text0</b>),
+                     as a JSON array (<b>--format=json</b>), or an S-Expression  list
+                     (<b>--format=sexp</b>).
 
               <b>messages</b>
                      Output  the  message  IDs  of  all  messages matching the
-                     search terms, either one per line (--format=text),  sepa‐
-                     rated  by  null  characters  (--format=text0),  as a JSON
-                     array (--format=json), or as an S-Expression list (--for‐
-                     mat=sexp).
+                     search terms, either one per line (<b>--format=text</b>),  sepa‐
+                     rated  by  null  characters  (<b>--format=text0</b>),  as a JSON
+                     array (<b>--format=json</b>), or as an S-Expression list (<b>--for-</b>
+                     <b>mat=sexp</b>).
 
               <b>files</b>  Output  the filenames of all messages matching the search
-                     terms, either one per line (--format=text), separated  by
-                     null characters (--format=text0), as a JSON array (--for‐
-                     mat=json), or as an S-Expression list (--format=sexp).
+                     terms, either one per line (<b>--format=text</b>), separated  by
+                     null characters (<b>--format=text0</b>), as a JSON array (<b>--for-</b>
+                     <b>mat=json</b>), or as an S-Expression list (<b>--format=sexp</b>).
 
                      Note that each message may have multiple filenames  asso‐
                      ciated  with  it.  All of them are included in the output
-                     (unless limited with the --duplicate=N option). This  may
+                     (unless limited with the <b>--duplicate=N</b> option). This  may
                      be  particularly  confusing for <b>folder:</b> or <b>path:</b> searches
                      in a specified directory, as the messages may have dupli‐
                      cates  in other directories that are included in the out‐
@@ -78,10 +78,10 @@
                      search.
 
               <b>tags</b>   Output  all  tags that appear on any message matching the
-                     search terms, either one per line (--format=text),  sepa‐
-                     rated  by  null  characters  (--format=text0),  as a JSON
-                     array (--format=json), or as an S-Expression list (--for‐
-                     mat=sexp).
+                     search terms, either one per line (<b>--format=text</b>),  sepa‐
+                     rated  by  null  characters  (<b>--format=text0</b>),  as a JSON
+                     array (<b>--format=json</b>), or as an S-Expression list (<b>--for-</b>
+                     <b>mat=sexp</b>).
 
        <b>--sort=</b>(<b>newest-first</b>|<b>oldest-first</b>)
               This option can be used to present results in either chronologi‐
@@ -179,4 +179,4 @@
        2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.27</h2>
+<h2>0.28</h2>

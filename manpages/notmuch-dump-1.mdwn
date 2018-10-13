@@ -24,7 +24,7 @@
 
        See  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7)  for  details  of the supported syntax for
        &lt;search-terms&gt;. With no search terms, a dump of  all  messages  in  the
-       database  will be generated. A &quot;--&quot; argument instructs notmuch that the
+       database  will  be  generated. A <b>--</b> argument instructs notmuch that the
        remaining arguments are search terms.
 
        Supported options for <b>dump</b> include
@@ -117,4 +117,4 @@
        2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.27</h2>
+<h2>0.28</h2>

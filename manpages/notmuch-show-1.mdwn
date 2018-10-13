@@ -70,7 +70,7 @@
                      is termed &quot;mboxrd&quot; format and described in detail here:
                         <u>http://homepage.ntlworld.com/jonathan.deboynepollard/FGA/mail-mbox-formats.html</u>
 
-              <b>raw</b> (default if --part is given)
+              <b>raw</b> (default if <b>--part</b> is given)
                      Write  the  raw bytes of the given MIME part of a message
                      to standard out. For this format, it is an error to spec‐
                      ify a query that matches more than one message.
@@ -105,16 +105,16 @@
 
        <b>--verify</b>
               Compute and report the validity of any MIME cryptographic signa‐
-              tures found in  the  selected  content  (ie.  &quot;multipart/signed&quot;
+              tures found in the selected  content  (e.g.,  &quot;multipart/signed&quot;
               parts). Status of the signature will be reported (currently only
-              supported with --format=json and --format=sexp), and the  multi‐
+              supported with <b>--format=json</b> and <b>--format=sexp</b>), and the  multi‐
               part/signed part will be replaced by the signed data.
 
        <b>--decrypt=(false|auto|true|stash)</b>
               If  <b>true</b>, decrypt any MIME encrypted parts found in the selected
-              content  (i.e.  &quot;multipart/encrypted&quot;  parts).  Status  of   the
+              content  (e.g.,  &quot;multipart/encrypted&quot;  parts).  Status  of  the
               decryption  will  be  reported  (currently  only  supported with
-              --format=json and --format=sexp) and  on  successful  decryption
+              <b>--format=json</b> and <b>--format=sexp</b>) and  on  successful  decryption
               the  multipart/encrypted  part will be replaced by the decrypted
               content.
 
@@ -169,7 +169,7 @@
               excluded  message  will  be marked with the exclude flag (except
               when output=mbox when there is nowhere to put the flag).
 
-              If  --entire-thread  is  specified  then  complete  threads  are
+              If  <b>--entire-thread</b>  is  specified  then  complete  threads  are
               returned  regardless  (with  the  excluded  flag  being set when
               appropriate) but threads that only match in an excluded  message
               are not returned when <b>--exclude=true.</b>
@@ -187,7 +187,7 @@
 
        <b>--include-html</b>
               Include  &quot;text/html&quot; parts as part of the output (currently only
-              supported with --format=json  and  --format=sexp).  By  default,
+              supported with <b>--format=json</b>  and  <b>--format=sexp</b>).  By  default,
               unless   <b>--part=N</b>   is   used  to  select  a  specific  part  or
               <b>--include-html</b> is used to include all &quot;text/html&quot; parts, no part
               with content type &quot;text/html&quot; is included in the output.
@@ -224,4 +224,4 @@
        2009-2018, Carl Worth and many others
 </pre>
 
-<h2>0.27</h2>
+<h2>0.28</h2>
