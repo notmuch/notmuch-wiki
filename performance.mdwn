@@ -15,68 +15,62 @@ After investigation and running different tests, a switch to a
 LUKS-btrfs based filesystem to replace the ext4-ecryptfs resolved the
 issue. It now takes some seconds to index hundreds of messages.
 
-## Xapian 1.2.x database format: chert vs. flint
+## Xapian database format: chert vs. flint vs. glass
 
-Xapian 1.2 (in contrast to 1.0.x) uses a new database format called
-`chert` which is a lot faster than the old format `flint`.
+Depending on the Xapian version that was used during the initial notmuch
+database creation, you might use another database format than the most recent
+one, which is often faster.
 
-Check whether you are on chert or flint:
+Check whether you are on chert, flint or glass:
 
     $ ls $(notmuch config get database.path)/.notmuch/xapian/iam*
-    iamchert
+    iamglass
 
-If it does not say `iamchert`, but `iamflint`, than you should migrate
-(read on).
+If it does not say `iamglass`, but `iamchert` or `iamflint`, than you should
+migrate (read on).
 
-There might be a file named `flintlock`, it is no indicator for your
-database format, but also used in case of `chert`.
+There might be a file named `flintlock`, it is no indicator for your database
+format, but also used in case of `chert`.
 
-### Migrate from flint to chert
+### Migrate from an older format to the most recent one (glass)
 
-Make sure you are using xapian 1.2.x (depends on your distribution)
+Make sure you are using xapian 1.4.x (depends on your distribution)
 
 XXX: add examples for different distributions
 
 Backup your notmuch tags:
 
     $ cd
-    $ notmuch dump --output=notmuch-dump-b4chert
+    $ notmuch dump --output=notmuch-dump-oldformat
 
 Move away your old database:
 
-    $ mv $(notmuch config get database.path)/.notmuch/ notmuch-db-b4chert
+    $ mv $(notmuch config get database.path)/.notmuch/ notmuch-db.bak
 
 Find and import your messages, a new and fresh database will be
 created:
 
-    $ XAPIAN_PREFER_CHERT=1 notmuch new
-
-I did not need the `XAPIAN_PREFER_CHERT`, but am not sure whether
-there are situations making it necessary (certain compile-time options
-to xapian?). This note is just here to be extended or removed by
-somebody more knowledgeable.
-
-After the initial import it is definitely not necessary to define
-`XAPIAN_PREFER_CHERT` for subsequent calls of `notmuch new`.
+    $ notmuch new
 
 Restore your tags:
 
-    $ notmuch restore --input=notmuch-dump-b4chert
+    $ notmuch restore --input=notmuch-dump-oldformat
 
-Check whether you are on chert now:
+Check whether you are on glass now:
 
     $ ls $(notmuch config get database.path)/.notmuch/xapian/iam*
-    iamchert
+    iamglass
 
-  If it says `iamflint`, most likely you are still using xapian 1.0.x.
+  If it says `iamflint` or `iamchert`, most likely you are still using an old
+  xapian version.
 
 Clean-up: if you are sure everything is fine, you can delete the old
 things. The dump of your tags you might want to keep anyway as a
 backup - on the other hand you should have some mechanism in place to
 make regular backups of your notmuch database:
 
-    $ rm notmuch-dump-b4chert
-    $ rm -R notmuch-db-b4chert
+    $ rm notmuch-dump-oldformat
+    $ rm -R notmuch-db.bak
 
 ### Compact your database
 
