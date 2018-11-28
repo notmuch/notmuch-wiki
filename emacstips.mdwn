@@ -249,6 +249,21 @@ Sometimes it may be necessary to display the message, or a single MIME part, in
 an external browser. This can be done by `(notmuch-show-view-part)`, bound to
 `. v` by default.
 
+This command will try to view the message part the point is on with an
+external viewer. The mime-type of the part will determine what viewer
+will be used. Typically a 'text/html' part will be send to your
+browser. 
+
+The configuration for this is kept in so called `mailcap`
+files. (typically the file is `~/.mailcap` or `/etc/mailcap`) If the
+wrong viewer is started or something else goes wrong, there's a good
+chance something needs to be adapted in the mailcap configuration.
+
+For Example: The `copiousoutput` setting in mailcap files needs to be
+removed for some mime-types to prevent immediate removal of tempory
+files so the configured viewer can access them.
+
+
 ## msmtp, message mode and multiple accounts
 
 As an alternative to running a mail server such as sendmail or postfix
