@@ -1,0 +1,10 @@
+[[!meta date="2019-02-01"]]
+
+Notmuch 0.28.1 (2019-02-01)
+===========================
+
+Build System
+------------
+
+`configure` no longer uses the special variable BASH, as this causes
+problems on systems where /bin/sh is bash.
