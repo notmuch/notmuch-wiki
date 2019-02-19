@@ -80,12 +80,10 @@ the 'new' tag approach discussed above.
   means for dealing with a large flux of messages with a low
   signal-to-noise.
 
-* [afew](https://github.com/teythoon/afew) is an initial tagging
+* [afew](https://github.com/afewmail/afew) is an initial tagging
   solution that should work out of the box for most basic tagging
   needs (mailinglist handling, killed thread handling, autoarchiving
-  of sent mails) and has some fancy features (e.g. mail classification
-  using bayesian filters).
-
+  of sent mails).
 * [p6-notmuch-filter](https://github.com/goneri/p6-notmuch-filter) a initial
   tagging script that read its configuration from a JSON file. The script is
   written in Perl6 and depends on the Email::Notmuch binding.
