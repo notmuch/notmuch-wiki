@@ -527,10 +527,16 @@ Encrypted and signed mime messages can be read and verified with:
 
         (setq notmuch-crypto-process-mime t)
 
-Decrypting or verifying inline pgp messages can be done by selecting
-an the inline pgp area and and using:
+Decrypting inline pgp messages can be done by selecting an the inline pgp area
+and using:
 
         M-x epa-decrypt-region RET
+
+Verifying of inline pgp messages is not supported directly ([reasons
+here](https://dkg.fifthhorseman.net/notes/inline-pgp-harmful/)). You can still
+verify a part using
+
+        M-x notmuch-show-pipe-part RET gpg --verify RET
 
 ## Multiple identities using gnus-alias
 
