@@ -109,7 +109,7 @@ distributions:
 * [Gentoo](http://packages.gentoo.org/package/net-mail/notmuch)
 * [NetBSD](http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/mail/notmuch/README.html)
 * [openSUSE](https://build.opensuse.org/search?search_text=notmuch)
-* OS X [Homebrew](https://github.com/Homebrew/homebrew-core/blob/09baa1c3f5a30f8450d2145d4fd988e4b4d48070/Formula/notmuch.rb), [MacPorts](https://www.macports.org/ports.php?by=name&substr=notmuch), or [pkgsrc](http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/mail/notmuch/README.html).
+* macOS [Homebrew](https://github.com/Homebrew/homebrew-core/blob/09baa1c3f5a30f8450d2145d4fd988e4b4d48070/Formula/notmuch.rb), [MacPorts](https://www.macports.org/ports.php?by=name&substr=notmuch), or [pkgsrc](http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/mail/notmuch/README.html).
 * [Slackware](http://slackbuilds.org/repository/13.37/office/notmuch/)
 * [Ubuntu](http://packages.ubuntu.com/search?keywords=notmuch)
 
