@@ -94,7 +94,7 @@ above. To get this behaviour on 0.17+ do the following:
         (define-key notmuch-search-mode-map "S"
           (lambda (&optional beg end)
             "mark thread as spam"
-            (interactive (notmuch-search-interactive-region))
+            (interactive (notmuch-interactive-region))
             (notmuch-search-tag (list "+spam" "-inbox") beg end)))
 
 The analogous functionality in notmuch-tree is currently missing.
