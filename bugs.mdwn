@@ -53,3 +53,8 @@ For example:
         Xapian::Query()
         Final query is:
         Xapian::Query((Tmail AND Zbig:(pos=1) AND Zbrown:(pos=2) AND Zfox:(pos=3)))
+
+## Rescuing your tags.
+
+If you're database is corrupt and you don't have a backup, a modified version of [xapian-check](https://git.xapian.org/?p=xapian;a=blob;f=README.notmuch;hb=refs/heads/notmuch-tag-rescue-hack) might still save your tags.
+
