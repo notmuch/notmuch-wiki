@@ -164,35 +164,36 @@
               Default: <b>auto</b>
 
        <b>--exclude=(true|false)</b>
-              Specify whether to omit threads only matching search.tag_exclude
-              from the search results (the default) or not. In either case the
-              excluded  message  will  be marked with the exclude flag (except
-              when output=mbox when there is nowhere to put the flag).
+              Specify     whether    to    omit    threads    only    matching
+              search.exclude_tags from the search  results  (the  default)  or
+              not. In either case the excluded message will be marked with the
+              exclude flag (except when output=mbox when there is  nowhere  to
+              put the flag).
 
               If  <b>--entire-thread</b>  is  specified  then  complete  threads  are
-              returned  regardless  (with  the  excluded  flag  being set when
-              appropriate) but threads that only match in an excluded  message
+              returned regardless (with  the  excluded  flag  being  set  when
+              appropriate)  but threads that only match in an excluded message
               are not returned when <b>--exclude=true.</b>
 
               The default is <b>--exclude=true.</b>
 
        <b>--body=(true|false)</b>
-              If  true  (the  default) <b>notmuch</b> <b>show</b> includes the bodies of the
-              messages  in  the  output;  if  false,   bodies   are   omitted.
-              <b>--body=false</b>  is  only implemented for the json and sexp formats
-              and it is incompatible with <b>--part</b> <b>&gt;</b> <b>0.</b>
+              If true (the default) <b>notmuch</b> <b>show</b> includes the  bodies  of  the
+              messages   in   the   output;  if  false,  bodies  are  omitted.
+              <b>--body=false</b> is only implemented for the  text,  json  and  sexp
+              formats and it is incompatible with <b>--part</b> <b>&gt;</b> <b>0.</b>
 
               This is useful if the caller only needs the headers as body-less
               output is much faster and substantially smaller.
 
        <b>--include-html</b>
-              Include  &quot;text/html&quot; parts as part of the output (currently only
-              supported with <b>--format=json</b>  and  <b>--format=sexp</b>).  By  default,
-              unless   <b>--part=N</b>   is   used  to  select  a  specific  part  or
+              Include &quot;text/html&quot; parts as part of the output (currently  only
+              supported  with <b>--format=text</b>, <b>--format=json</b> and <b>--format=sexp</b>).
+              By default, unless <b>--part=N</b> is used to select a specific part or
               <b>--include-html</b> is used to include all &quot;text/html&quot; parts, no part
               with content type &quot;text/html&quot; is included in the output.
 
-       A  common  use  of  <b>notmuch</b> <b>show</b> is to display a single thread of email
+       A common use of <b>notmuch</b> <b>show</b> is to display a  single  thread  of  email
        messages. For this, use a search term of &quot;thread:&lt;thread-id&gt;&quot; as can be
        seen in the first column of output from the <b>notmuch</b> <b>search</b> command.
 </pre>
@@ -208,8 +209,8 @@
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not‐</a>
-       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
+       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not‐</a>
+       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),   <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
        <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),  <a href='../notmuch-search-1/'>notmuch-search</a>(1),  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),  <a href='../notmuch-tag-1/'>not‐</a>
        <a href='../notmuch-tag-1/'>much-tag</a>(1)
 </pre>
@@ -221,7 +222,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2018, Carl Worth and many others
+       2009-2019, Carl Worth and many others
 </pre>
 
-<h2>0.28</h2>
+<h2>0.29</h2>

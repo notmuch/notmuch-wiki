@@ -181,9 +181,9 @@
                       │secret keys   │       │      │         │      │
                       ├──────────────┼───────┼──────┼─────────┼──────┤
                       │Stash session │       │      │         │ X    │
-                      │keys          │       │      │         │      │
+                      │keys
                       ├──────────────┼───────┼──────┼─────────┼──────┤
-                      │Delete        │       │      │         │      │
+                      │Delete
                       │stashed  ses‐ │       │      │         │      │
                       │sion  keys on │       │      │         │      │
                       │reindex       │       │      │         │      │
@@ -201,6 +201,15 @@
               the security of your index.
 
               Default: <b>auto</b>.
+
+       <b>index.header.&lt;prefix&gt;</b> <b>[STORED</b> <b>IN</b> <b>DATABASE]</b>
+              Define  the  query  prefix &lt;prefix&gt;, based on a mail header. For
+              example <b>index.header.List=List-Id</b> will add a probabilistic  pre‐
+              fix  <b>List:</b>  that  searches the <b>List-Id</b> field.  User defined pre‐
+              fixes must not start with &apos;a&apos;...&apos;z&apos;; in particular adding a pre‐
+              fix  with same name as a predefined prefix is not supported. See
+              <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7) for a list of existing prefixes, and  an
+              explanation of probabilistic prefixes.
 
        <b>built</b>_<b>with.&lt;name&gt;</b>
               Compile time feature &lt;name&gt;. Current possibilities include &quot;com‐
@@ -238,7 +247,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2018, Carl Worth and many others
+       2009-2019, Carl Worth and many others
 </pre>
 
-<h2>0.28</h2>
+<h2>0.29</h2>

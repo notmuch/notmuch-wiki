@@ -39,7 +39,7 @@
                      the same message-id).
 
        <b>--exclude=(true|false)</b>
-              Specify  whether  to  omit  messages matching search.tag_exclude
+              Specify  whether  to  omit messages matching search.exclude_tags
               from the count (the default) or not.
 
        <b>--batch</b>
@@ -74,7 +74,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2018, Carl Worth and many others
+       2009-2019, Carl Worth and many others
 </pre>
 
-<h2>0.28</h2>
+<h2>0.29</h2>

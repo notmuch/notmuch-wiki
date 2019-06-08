@@ -24,4 +24,4 @@ The manual pages are licensed under
 [the GNU General Public License](https://www.gnu.org/licenses/gpl.txt),
 either version 3.0 or at your option any later version.
 
-<h2>0.28</h2>
+<h2>0.29</h2>

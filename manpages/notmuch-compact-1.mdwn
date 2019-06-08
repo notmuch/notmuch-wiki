@@ -61,7 +61,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2018, Carl Worth and many others
+       2009-2019, Carl Worth and many others
 </pre>
 
-<h2>0.28</h2>
+<h2>0.29</h2>

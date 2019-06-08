@@ -106,9 +106,9 @@
 
        <b>--exclude=(true|false|all|flag)</b>
               A message is called &quot;excluded&quot; if it matches at least one tag in
-              search.tag_exclude that does not appear explicitly in the search
-              terms.  This  option specifies whether to omit excluded messages
-              in the search process.
+              search.exclude_tags that  does  not  appear  explicitly  in  the
+              search  terms.  This  option  specifies whether to omit excluded
+              messages in the search process.
 
               <b>true</b> (default)
                      Prevent excluded messages from matching the search terms.
@@ -176,7 +176,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2018, Carl Worth and many others
+       2009-2019, Carl Worth and many others
 </pre>
 
-<h2>0.28</h2>
+<h2>0.29</h2>
