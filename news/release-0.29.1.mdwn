@@ -1,0 +1,9 @@
+[[!meta date="2019-06-11"]]
+
+Notmuch 0.29.1 (2019-06-11)
+===========================
+
+Build
+-----
+
+Fix for installation failure with `configure --without-emacs`.
