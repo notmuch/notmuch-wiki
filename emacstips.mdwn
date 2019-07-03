@@ -583,8 +583,8 @@ Here is an example configuration.
         ;; Use "home" identity by default
         (setq gnus-alias-default-identity "home")
         ;; Define rules to match work identity
-        (setq gnus-alias-identity-rules)
-              '(("work" ("any" "john.doe@\\(example\\.com\\|help\\.example.com\\)" both) "work"))
+        (setq gnus-alias-identity-rules
+              '(("work" ("any" "john.doe@\\(example\\.com\\|help\\.example.com\\)" both) "work")))
         ;; Determine identity when message-mode loads
         (add-hook 'message-setup-hook 'gnus-alias-determine-identity)
 
