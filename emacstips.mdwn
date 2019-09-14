@@ -758,6 +758,9 @@ In general it is nice to have a key for org-links (not just for notmuch). For ex
 
     (define-key global-map "\C-cl" 'org-store-link)
 
+Note the package was renamed from `org-notmuch` to `ol-notmuch` in recent
+versions of org-mode, and you might want to `(require 'ol-notmuch)` instead.
+
 ## Viewing diffs in notmuch
 
 The following code allows you to view an inline patch in diff-mode
