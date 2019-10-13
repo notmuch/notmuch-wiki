@@ -14,7 +14,7 @@ front end.
 ## Understanding the structure of a problematic message
 
 The script
-[print-mime-structure](https://git.spwhitton.name/mailscripts/tree/email-print-mime-structure)
+[print-mime-structure](https://git.spwhitton.name/mailscripts/plain/email-print-mime-structure)
 prints out the mime structure of an email message as a (text)
 tree. This is usually safe to share and can help people understand
 your problem.
