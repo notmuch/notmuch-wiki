@@ -11,6 +11,14 @@ search" or "notmuch show"; it's easier for us to debug if the problem
 is there, and it's useful to know if the problem is introduced by a
 front end.
 
+## Understanding the structure of a problematic message
+
+The script
+[print-mime-structure](https://git.spwhitton.name/mailscripts/tree/email-print-mime-structure)
+prints out the mime structure of an email message as a (text)
+tree. This is usually safe to share and can help people understand
+your problem.
+
 ## Troubleshooting the Emacs interface
 
 It's very easy for Emacs packages to interfere with each other. For
