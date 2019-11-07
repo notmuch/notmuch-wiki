@@ -31,3 +31,10 @@
 
 * [patches](https://github.com/stefanha/patches), a patch tracking system.
 * [notmuch-extract-patch](https://github.com/aaptel/notmuch-extract-patch), a tool to extract patches from a thread.
+* [notmuch-import-patch](https://manpages.debian.org/notmuch-import-patch)
+  can import a git branch into your notmuch database as if it had been
+  sent to you with git-send-email(1), so that you can provide comments
+  on the branch by e-mail to its author
+
+notmuch-extract-patch and notmuch-import patch are included in the
+`mailscripts` package in Debian and its derivatives.

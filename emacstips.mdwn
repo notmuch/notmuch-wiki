@@ -867,3 +867,9 @@ attachment. This is currently work in progress, but you can already
 add the hook to your `~/.emacs.d/notmuch-config.el` file to test
 it. Details available (and feedback welcome) in the [relevant
 discussion](https://notmuchmail.org/pipermail/notmuch/2018/026414.html).
+
+## Applying patches to git repositories
+
+The `notmuch-extract-thread-patches` and
+`notmuch-extract-message-patches` commands from the `elpa-mailscripts`
+package in Debian (and its derivatives) can do this for you.
