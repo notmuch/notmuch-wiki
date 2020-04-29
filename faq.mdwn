@@ -64,18 +64,9 @@ with this query:
 
 ## How do I search for the `List-Id:` header?
 
-Currently there is no way to search for `List-Id:`. As a workaround, try using a
-`to:` prefix search (which covers both `To:` and `Cc:` headers) on the mailing
-list address.
+See `index.header.<prefix>` in `notmuch-config(1)` for details. TLD;R:
 
-Limitations in the duplicate message handling are the main reason for not
-indexing the `List-Id:` header. If you receive the same message via both the
-list and directly (by way of `To:` or `Cc:`), only the first message encountered
-will be indexed. Only the message received via the list will have `List-Id:`,
-but you would expect a `List-Id:` search to find the message, regardless of the
-order in which the duplicates were received. This is a more general problem than
-just `List-Id:`, and once this has been resolved, adding `List-Id:` indexing is
-trivial.
+    notmuch config set index.header.List List-Id
 
 ## Can I use notmuch with grsec?
 
