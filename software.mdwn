@@ -98,7 +98,7 @@ Have a separate [[wiki page|frontends]].
       <td>work in progress</td>
     </tr>
     <tr>
-      <td><a href="https://github.com/gauteh/gmailieer">gmailieer</a></td>
+      <td><a href="https://github.com/gauteh/lieer">lieer</a></td>
       <td>tags: yes, mail: fetch</td>
       <td>GMail</td>
       <td>bi-directional tag</td>
