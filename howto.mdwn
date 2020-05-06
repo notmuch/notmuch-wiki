@@ -38,7 +38,8 @@ utilities support these formats:
   your notmuch database (mail and tags) across machines
 
 * [lieer](https://github.com/gauteh/lieer) - Fast email-fetching and two-way tag
-  synchronization between notmuch and GMail (formerly known as gmailieer)
+  synchronization between notmuch and GMail (Note that lieer was formerly known
+  as gmailieer.)
 
 See more exhaustive list of [[software]] notmuch works with and the
 [[initial_tagging]] page for more info on initial tagging of messages.
