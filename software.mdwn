@@ -101,7 +101,7 @@ Have a separate [[wiki page|frontends]].
       <td><a href="https://guilhem.org/interimap/">interimap</a></td>
       <td>yes</td>
       <td>IMAP4</td>
-      <td>dovecot</td>
+      <td>standard-only</td>
       <td>Fast bidirectional synchronization between IMAP servers</td>
     </tr>
     <tr>
