@@ -98,6 +98,13 @@ Have a separate [[wiki page|frontends]].
       <td>work in progress</td>
     </tr>
     <tr>
+      <td><a href="https://guilhem.org/interimap/">interimap</a></td>
+      <td>yes</td>
+      <td>IMAP4</td>
+      <td>dovecot</td>
+      <td>Fast bidirectional synchronization between IMAP servers</td>
+    </tr>
+    <tr>
       <td><a href="https://github.com/gauteh/lieer">lieer</a></td>
       <td>tags: yes, mail: fetch</td>
       <td>GMail</td>

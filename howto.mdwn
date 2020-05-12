@@ -37,6 +37,9 @@ utilities support these formats:
 * [muchsync](http://www.muchsync.org/) - replicate and synchronize
   your notmuch database (mail and tags) across machines
 
+* [interimap](https://guilhem.org/interimap/) - Fast bidirectional
+  synchronization between IMAP servers.
+
 * [lieer](https://github.com/gauteh/lieer) - Fast email-fetching and two-way tag
   synchronization between notmuch and GMail (Note that lieer was formerly known
   as gmailieer.)
