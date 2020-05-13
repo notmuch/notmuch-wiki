@@ -93,6 +93,105 @@ this on the client, to Bcc mails to yourself:
 
 Starting from 0.23, Fcc is also done through notmuch-command.
 
+## Additional Emacs remote-notmuch configuration  ##
+
+To prevent you from having to maintain your GPG private keys on the remote
+server, you can add advice to `notmuch-show-view-raw-message` to enable epa
+inline decryption from notmuch raw message views.
+
+```elisp
+;; enable gpg decryption in raw view
+(defadvice notmuch-show-view-raw-message
+    (after notmuch-show-view-raw-message-after activate)
+  (epa-mail-mode))
+```
+
+When using remote-notmuch in an environment that brings the ssh tunnel up and
+down often (e.g. laptop suspends), it's helpful to have an Emacs process
+sentinel in place that will monitor the process state of your remote-notmuch
+ssh session.
+
+```elisp
+(defvar my/ssh-tunnel-notmuch-proc nil)
+
+(defun my/ssh-tunnel-notmuch ()
+  "Start and monitor ssh session for remote-notmuch."
+  (my/ssh-tunnel-with-proc
+   (proc "~/.ssh/config" "notmuch")
+   (set-process-sentinel
+    proc
+    #'(lambda (proc string)
+        (when (buffer-live-p (process-buffer proc))
+          (kill-buffer (process-buffer proc)))
+        (when (yes-or-no-p "Restart notmuch control master? ")
+          (setq my/ssh-tunnel-notmuch-proc (my/ssh-tunnel-notmuch)))))
+   proc))
+
+(defadvice notmuch
+    (before notmuch-before activate)
+  (unless (process-live-p my/ssh-tunnel-notmuch-proc)
+    (message "Starting notmuch control master")
+    (setq my/ssh-tunnel-notmuch-proc (my/ssh-tunnel-notmuch))))
+
+;;; here be dragons
+
+(require 'cl-lib)
+(require 'tramp)
+
+(cl-defmacro my/ssh-tunnel-with-proc ((proc ssh-tunnel-config-path ssh-tunnel-config-name) &body body)
+  "Bind PROC with an ssh process for SSH-TUNNEL-CONFIG-NAME from SSH-TUNNEL-CONFIG-PATH for BODY.
+
+  Example of use:
+
+  (defun my/ssh-tunnel-start ()
+    \"returns active process or nil\"
+    (my/ssh-tunnel-with-proc (proc \"~/my-ssh-configs/someconfig.ssh\"
+                                   \"name_of_config\")
+                             ;; BODY with process bound to proc
+                             proc))
+  "
+  `(assert (file-exists-p (expand-file-name ,ssh-tunnel-config-path)))
+  (let ((ssh-tunnel-process (gensym "ssh-tunnel-process")))
+
+    `(let ((,ssh-tunnel-process nil)
+           (ssh-tunnel-buffer-name (format "*%s*" ,ssh-tunnel-config-name))
+           (ssh-tunnel-config ,ssh-tunnel-config-name))
+       (if (not (process-live-p ,ssh-tunnel-process))
+           (let ((process (start-process
+                           ,ssh-tunnel-config-name
+                           (generate-new-buffer ssh-tunnel-buffer-name)
+                           "ssh"
+                           "-C"
+                           "-N"
+                           "-F"
+                           (format "%s" (expand-file-name ,ssh-tunnel-config-path))
+                           ,ssh-tunnel-config-name)))
+             (if (process-live-p process)
+                 (progn
+                   (setq ,ssh-tunnel-process process)
+                   (set-process-filter
+                    process
+                    #'(lambda (proc string)
+                        (when (and (process-live-p proc)
+                                   (buffer-live-p (process-buffer proc)))
+                          (if (string-match-p tramp-password-prompt-regexp string)
+                              (process-send-string proc (concat (read-passwd string) "\n"))
+                            (princ (format "%s" string)
+                                   (process-buffer proc))))))
+                   (set-process-sentinel
+                    process
+                    #'(lambda (proc string)
+                        (message "%s-sentinel: %s" ,ssh-tunnel-config-name string)))
+                   (message "Started ssh config: %s" ,ssh-tunnel-config-name))
+               ;; else
+               (message "Could not start ssh config: %s" ,ssh-tunnel-config-name)))
+         (message "%s already running" ,ssh-tunnel-config-name))
+       ;; BODY
+       (let ((,proc ,ssh-tunnel-process))
+         ,@body)
+       )))
+```
+
 ## Problems ##
 
 Some things probably won't work perfectly, and there might be some
