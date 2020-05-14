@@ -150,7 +150,6 @@ ssh session.
                              ;; BODY with process bound to proc
                              proc))
   "
-  `(assert (file-exists-p (expand-file-name ,ssh-tunnel-config-path)))
   (let ((ssh-tunnel-process (gensym "ssh-tunnel-process")))
 
     `(let ((,ssh-tunnel-process nil)
