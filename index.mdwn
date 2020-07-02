@@ -120,7 +120,7 @@ Comments? Please feel free to email the notmuch mailing list:
 also subscribe to the
 [notmuch mailing list](https://nmbug.notmuchmail.org/list/)). You
 can also browse the
-[online list archives](https://notmuchmail.org/pipermail/notmuch/),
+[online list archives](https://nmbug.notmuchmail.org/nmweb/),
 read them as a
 [web forum (nabble)](http://notmuch.198994.n3.nabble.com/), or
 download an [mbox file](https://notmuchmail.org/archives/notmuch.mbox)
