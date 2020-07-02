@@ -118,7 +118,7 @@ distributions:
 Comments? Please feel free to email the notmuch mailing list:
 <mailto:notmuch@notmuchmail.org> (subscription is not required, but you can
 also subscribe to the
-[notmuch mailing list](https://notmuchmail.org/mailman/listinfo/notmuch)). You
+[notmuch mailing list](https://nmbug.notmuchmail.org/list/)). You
 can also browse the
 [online list archives](https://notmuchmail.org/pipermail/notmuch/),
 read them as a
@@ -142,7 +142,7 @@ not be in your timezone.
 ## Troubleshooting, Reporting Bugs and Feature Requests
 
 Please send bug reports and feature requests to the [Notmuch mailing
-list](https://notmuchmail.org/mailman/listinfo/notmuch)
+list](https://nmbug.notmuchmail.org/list/)
 <mailto:notmuch@notmuchmail.org>.
 
 For hints about troubleshooting and bug reporting see [[bugs]].
