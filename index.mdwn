@@ -124,7 +124,7 @@ can also browse the
 read them as a
 [web forum (nabble)](http://notmuch.198994.n3.nabble.com/), or
 download an [mbox file](https://notmuchmail.org/archives/notmuch.mbox)
-of the entire mailing-list.
+of the entire mailing-list (the mbox file ends at 2020-07-01; we'll offer a more up-to-date full-list archive soon).
 
 The `mb2md` utility can be used to convert the archives to maildir
 format which is convenient for reading the archives within notmuch
