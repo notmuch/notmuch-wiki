@@ -158,10 +158,7 @@ versions can be checked out via git with this command:
         git clone https://git.notmuchmail.org/git/notmuch
 
 You can browse the [Notmuch code history
-online](https://git.notmuchmail.org/git/notmuch). A notification is sent to the
-[notmuch-commits mailing
-list](https://notmuchmail.org/mailman/listinfo/notmuch-commits) for every commit
-made to Notmuch and the notmuchmail.org web site. [The Notmuch OpenHub project
+online](https://git.notmuchmail.org/git/notmuch). [The Notmuch OpenHub project
 page](https://www.openhub.net/p/notmuch) has a nice summary of the codebase and
 activity.
 
