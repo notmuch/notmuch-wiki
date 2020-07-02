@@ -128,7 +128,7 @@ afterwards.
 ## Subscribe to the Notmuch mailing list
 
 While strictly not required, it is advisable to subscribe to the
-[Notmuch mailing list](https://notmuchmail.org/mailman/listinfo/notmuch)
+[Notmuch mailing list](https://nmbug.notmuchmail.org/list/)
 before submitting patches.
 
 ## Send your patches to the mailing list

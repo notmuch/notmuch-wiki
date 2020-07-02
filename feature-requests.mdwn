@@ -3,7 +3,7 @@
 **WARNING**: This page went away. It seems like nobody who works on
   notmuch read it regularly, and there was no convenient way to
   discuss ideas with the people who propose them.  Please use the
-  [notmuch mailing list](https://notmuchmail.org/mailman/listinfo/notmuch)
+  [notmuch mailing list](https://nmbug.notmuchmail.org/list/)
   instead.
 
 *********************
