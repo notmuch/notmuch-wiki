@@ -40,9 +40,8 @@
        terms to match against specific portions of an email, (where &lt;brackets&gt;
        indicate user-supplied values).
 
-       If notmuch is built with <b>Xapian</b> <b>Field</b> <b>Processors</b> (see  below)  some  of
-       the  prefixes  with  &lt;regex&gt;  forms  can  be  also used to restrict the
-       results  to  those  whose  value  matches  a  regular  expression  (see
+       Some of the prefixes with &lt;regex&gt; forms can be also  used  to  restrict
+       the  results  to  those  whose  value matches a regular expression (see
        <b>regex</b>(7)) delimited with //, for example:
 
           notmuch search &apos;from:&quot;/bob@.*[.]example[.]com/&quot;&apos;
@@ -51,47 +50,46 @@
               Match terms in the body of messages.
 
        <b>from:&lt;name-or-address&gt;</b> <b>or</b> <b>from:/&lt;regex&gt;/</b>
-              The  <b>from:</b>  prefix  is  used to match the name or address of the
+              The <b>from:</b> prefix is used to match the name  or  address  of  the
               sender of an email message.
 
        <b>to:&lt;name-or-address&gt;</b>
-              The <b>to:</b> prefix is used to match the names or  addresses  of  any
+              The  <b>to:</b>  prefix  is used to match the names or addresses of any
               recipient of an email message, (whether To, Cc, or Bcc).
 
        <b>subject:&lt;word-or-quoted-phrase&gt;</b> <b>or</b> <b>subject:/&lt;regex&gt;/</b>
-              Any  term  prefixed  with <b>subject:</b> will match only text from the
-              subject of an email. Searching for a phrase in  the  subject  is
-              supported  by including quotation marks around the phrase, imme‐
+              Any term prefixed with <b>subject:</b> will match only  text  from  the
+              subject  of  an  email. Searching for a phrase in the subject is
+              supported by including quotation marks around the phrase,  imme‐
               diately following <b>subject:</b>.
 
        <b>attachment:&lt;word&gt;</b>
-              The <b>attachment:</b> prefix can be used to search for specific  file‐
+              The  <b>attachment:</b> prefix can be used to search for specific file‐
               names (or extensions) of attachments to email messages.
 
        <b>mimetype:&lt;word&gt;</b>
-              The  <b>mimetype:</b>  prefix  will be used to match text from the con‐
-              tent-types of MIME parts within email messages (as specified  by
+              The <b>mimetype:</b> prefix will be used to match text  from  the  con‐
+              tent-types  of MIME parts within email messages (as specified by
               the sender).
 
        <b>tag:&lt;tag&gt;</b> <b>or</b> <b>tag:/&lt;regex&gt;/</b> <b>or</b> <b>is:&lt;tag&gt;</b> <b>or</b> <b>is:/&lt;regex&gt;/</b>
-              For  <b>tag:</b>  and  <b>is:</b> valid tag values include <b>inbox</b> and <b>unread</b> by
-              default for new messages added by <b>notmuch</b> <b>new</b>  as  well  as  any
+              For <b>tag:</b> and <b>is:</b> valid tag values include <b>inbox</b>  and  <b>unread</b>  by
+              default  for  new  messages  added by <b>notmuch</b> <b>new</b> as well as any
               other tag values added manually with <b>notmuch</b> <b>tag</b>.
 
        <b>id:&lt;message-id&gt;</b> <b>or</b> <b>mid:&lt;message-id&gt;</b> <b>or</b> <b>mid:/&lt;regex&gt;/</b>
-              For  <b>id:</b> and <b>mid:</b>, message ID values are the literal contents of
-              the Message-ID: header of email messages, but without  the  &apos;&lt;&apos;,
+              For <b>id:</b> and <b>mid:</b>, message ID values are the literal contents  of
+              the  Message-ID:  header of email messages, but without the &apos;&lt;&apos;,
               &apos;&gt;&apos; delimiters.
 
        <b>thread:&lt;thread-id&gt;</b>
-              The  <b>thread:</b>  prefix  can be used with the thread ID values that
-              are generated internally by notmuch (and do not appear in  email
-              messages).  These thread ID values can be seen in the first col‐
+              The <b>thread:</b> prefix can be used with the thread  ID  values  that
+              are  generated internally by notmuch (and do not appear in email
+              messages). These thread ID values can be seen in the first  col‐
               umn of output from <b>notmuch</b> <b>search</b>
 
        <b>thread:{&lt;notmuch</b> <b>query&gt;}</b>
-              If notmuch is built with <b>Xapian</b> <b>Field</b>  <b>Processors</b>  (see  below),
-              threads may be searched for indirectly by providing an arbitrary
+              Threads may be searched for indirectly by providing an arbitrary
               notmuch query in <b>{}</b>. For example, the following returns  threads
               containing  a  message from mallory and one (not necessarily the
               same message) with Subject containing the word &quot;crypto&quot;.
@@ -158,9 +156,7 @@
 
        <b>query:&lt;name&gt;</b>
               The <b>query:</b> prefix allows queries to refer  to  previously  saved
-              queries  added  with  <a href='../notmuch-config-1/'>notmuch-config</a>(1).  Named queries are only
-              available if notmuch is built with <b>Xapian</b> <b>Field</b> <b>Processors</b>  (see
-              below).
+              queries added with <a href='../notmuch-config-1/'>notmuch-config</a>(1).
 
        <b>property:&lt;key&gt;=&lt;value&gt;</b>
               The  <b>property:</b>  prefix  searches  for messages with a particular
@@ -329,22 +325,21 @@
        since 1970-01-01 00:00:00 UTC. For example:
           date:@&lt;initial-timestamp&gt;..@&lt;final-timestamp&gt;
 
-       date:&lt;expr&gt;..! can be used as a shorthand for date:&lt;expr&gt;..&lt;expr&gt;.  The
-       expansion  takes  place  before  interpretation, and thus, for example,
-       date:monday..! matches from the beginning of Monday until  the  end  of
-       Monday.   With  <b>Xapian</b>  <b>Field</b>  <b>Processor</b> support (see below), non-range
-       date queries such as date:yesterday will work, but otherwise will  give
-       unexpected results; if in doubt use date:yesterday..!
-
-       Currently,  we  do  not  support  spaces  in range expressions. You can
+       Currently, spaces in range  expressions  are  not  supported.  You  can
        replace the spaces with &apos;_&apos;, or (in most cases) &apos;-&apos;, or (in some cases)
-       leave  the  spaces out altogether. Examples in this man page use spaces
+       leave the spaces out altogether. Examples in this man page  use  spaces
        for clarity.
 
-       Open-ended ranges are supported (since Xapian 1.2.1), i.e. it&apos;s  possi‐
-       ble  to specify date:..&lt;until&gt; or date:&lt;since&gt;.. to not limit the start
-       or end time, respectively. Pre-1.2.1 Xapian does not report an error on
-       open ended ranges, but it does not work as expected either.
+       Open-ended   ranges  are  supported.  I.e.  it&apos;s  possible  to  specify
+       date:..&lt;until&gt; or date:&lt;since&gt;.. to not limit the start  or  end  time,
+       respectively.
+</pre>
+
+<h3> &nbsp; Single expression</h3>
+<pre>
+       date:&lt;expr&gt; works as a shorthand for date:&lt;expr&gt;..&lt;expr&gt;.  For example,
+       date:monday matches from the beginning of Monday until the end of  Mon‐
+       day.
 </pre>
 
 <h3> &nbsp; Relative date and time</h3>
@@ -421,31 +416,11 @@
        Some time zone codes, e.g. UTC, EET.
 </pre>
 
-<h2>XAPIAN FIELD PROCESSORS</h2>
-<pre>
-       Certain  optional  features  of the notmuch query processor rely on the
-       presence of the Xapian field processor API. You can determine  if  your
-       notmuch  was  built  against a sufficiently recent version of Xapian by
-       running
-
-          % notmuch config get built_with.field_processor
-
-       Currently the following features require field processor support:
-
-       · non-range date queries, e.g. &quot;date:today&quot;
-
-       · named queries e.g. &quot;query:my_special_query&quot;
-
-       · regular expression searches, e.g. &quot;subject:/^\[SPAM\]/&quot;
-
-       · thread subqueries, e.g. &quot;thread:{from:bob}&quot;
-</pre>
-
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not‐</a>
-       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1), <a href='../notmuch-reindex-1/'>notmuch-reindex</a>(1),
-       <b>notmuch-properties</b>(1),  <b>*notmuch-reply</b>(1),   <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),   <a href='../notmuch-search-1/'>not‐</a>
+       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not‐</a>
+       <a href='../notmuch-hooks-5/'>much-hooks</a>(5), <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reindex-1/'>notmuch-reindex</a>(1),
+       <b>notmuch-properties</b>(1),   <b>*notmuch-reply</b>(1),   <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),  <a href='../notmuch-search-1/'>not‐</a>
        <a href='../notmuch-search-1/'>much-search</a>(1), <b>*notmuch-show</b>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
@@ -456,7 +431,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2019, Carl Worth and many others
+       2009-2020, Carl Worth and many others
 </pre>
 
-<h2>0.29</h2>
+<h2>0.30</h2>

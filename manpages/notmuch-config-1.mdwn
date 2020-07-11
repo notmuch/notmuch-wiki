@@ -37,7 +37,7 @@
        <b>list</b>   Every  configuration  item is printed to stdout, each on a sepa‐
               rate line of the form:
 
-                 *section*.\ *item*\ =\ *value*
+                 section.item=value
 
               No additional whitespace surrounds the dot or equals sign  char‐
               acters.  In a multiple-value item (a list), the values are sepa‐
@@ -136,36 +136,28 @@
 
               Default: <b>true</b>.
 
-       <b>crypto.gpg</b>_<b>path</b>
-              Name  (or  full  path)  of gpg binary to use in verification and
-              decryption of PGP/MIME messages.  NOTE: This configuration  item
-              is  deprecated,  and will be ignored if notmuch is built against
-              GMime 3.0 or later.
-
-              Default: <b>gpg</b>.
-
        <b>index.decrypt</b> <b>[STORED</b> <b>IN</b> <b>DATABASE]</b>
-              Policy for decrypting encrypted messages during indexing.   Must
+              Policy  for decrypting encrypted messages during indexing.  Must
               be one of: <b>false</b>, <b>auto</b>, <b>nostash</b>, or <b>true</b>.
 
-              When  indexing  an encrypted e-mail message, if this variable is
-              set to <b>true</b>, notmuch will try to decrypt the message  and  index
-              the  cleartext,  stashing  a copy of any discovered session keys
+              When indexing an encrypted e-mail message, if this  variable  is
+              set  to  <b>true</b>, notmuch will try to decrypt the message and index
+              the cleartext, stashing a copy of any  discovered  session  keys
               for the message.  If <b>auto</b>, it will try to index the cleartext if
-              a  stashed  session  key  is already known for the message (e.g.
-              from a previous copy), but will not try to  access  your  secret
+              a stashed session key is already known  for  the  message  (e.g.
+              from  a  previous  copy), but will not try to access your secret
               keys.  Use <b>false</b> to avoid decrypting even when a stashed session
               key is already present.
 
-              <b>nostash</b> is the same as  <b>true</b>  except  that  it  will  not  stash
+              <b>nostash</b>  is  the  same  as  <b>true</b>  except  that it will not stash
               newly-discovered session keys in the database.
 
-              From   the   command  line  (i.e.  during  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-insert-1/'>not‐</a>
-              <a href='../notmuch-insert-1/'>much-insert</a>(1), or <a href='../notmuch-reindex-1/'>notmuch-reindex</a>(1)), the  user  can  override
-              the  database&apos;s  stored  decryption  policy  with the <b>--decrypt=</b>
+              From  the  command  line  (i.e.  during   <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-insert-1/'>not‐</a>
+              <a href='../notmuch-insert-1/'>much-insert</a>(1),  or  <a href='../notmuch-reindex-1/'>notmuch-reindex</a>(1)),  the user can override
+              the database&apos;s stored  decryption  policy  with  the  <b>--decrypt=</b>
               option.
 
-              Here is a table that summarizes the  functionality  of  each  of
+              Here  is  a  table  that summarizes the functionality of each of
               these policies:
 
                       ┌──────────────┬───────┬──────┬─────────┬──────┐
@@ -185,36 +177,37 @@
                       ├──────────────┼───────┼──────┼─────────┼──────┤
                       │Delete
                       │stashed  ses‐ │       │      │         │      │
-                      │sion  keys on │       │      │         │      │
+                      │sion keys  on │       │      │         │      │
                       │reindex       │       │      │         │      │
                       └──────────────┴───────┴──────┴─────────┴──────┘
 
-              Stashed session keys are kept  in  the  database  as  properties
+              Stashed  session  keys  are  kept  in the database as properties
               associated with the message.  See <b>session-key</b> in <a href='../notmuch-properties-7/'>notmuch-proper‐</a>
               <a href='../notmuch-properties-7/'>ties</a>(7) for more details about how they can be useful.
 
-              Be aware that the notmuch index  is  likely  sufficient  (and  a
-              stashed  session key is certainly sufficient) to reconstruct the
-              cleartext of the message itself, so please ensure that the  not‐
-              much   message  index  is  adequately  protected.   DO  NOT  USE
-              <b>index.decrypt=true</b> or <b>index.decrypt=nostash</b> without  considering
+              Be  aware  that  the  notmuch  index is likely sufficient (and a
+              stashed session key is certainly sufficient) to reconstruct  the
+              cleartext  of the message itself, so please ensure that the not‐
+              much  message  index  is  adequately  protected.   DO  NOT   USE
+              <b>index.decrypt=true</b>  or <b>index.decrypt=nostash</b> without considering
               the security of your index.
 
               Default: <b>auto</b>.
 
        <b>index.header.&lt;prefix&gt;</b> <b>[STORED</b> <b>IN</b> <b>DATABASE]</b>
-              Define  the  query  prefix &lt;prefix&gt;, based on a mail header. For
-              example <b>index.header.List=List-Id</b> will add a probabilistic  pre‐
-              fix  <b>List:</b>  that  searches the <b>List-Id</b> field.  User defined pre‐
+              Define the query prefix &lt;prefix&gt;, based on a  mail  header.  For
+              example  <b>index.header.List=List-Id</b> will add a probabilistic pre‐
+              fix <b>List:</b> that searches the <b>List-Id</b> field.   User  defined  pre‐
               fixes must not start with &apos;a&apos;...&apos;z&apos;; in particular adding a pre‐
-              fix  with same name as a predefined prefix is not supported. See
-              <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7) for a list of existing prefixes, and  an
+              fix with same name as a predefined prefix is not supported.  See
+              <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7)  for a list of existing prefixes, and an
               explanation of probabilistic prefixes.
 
        <b>built</b>_<b>with.&lt;name&gt;</b>
-              Compile time feature &lt;name&gt;. Current possibilities include &quot;com‐
-              pact&quot; (see <a href='../notmuch-compact-1/'>notmuch-compact</a>(1)) and &quot;field_processor&quot;  (see  <a href='../notmuch-search-terms-7/'>not‐</a>
-              <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7)).
+              Compile  time  feature  &lt;name&gt;.  Current  possibilities  include
+              &quot;retry_lock&quot;  (configure  option,  included by default).  (since
+              notmuch  0.30,  &quot;compact&quot;  and  &quot;field_processor&quot;   are   always
+              included.)
 
        <b>query.&lt;name&gt;</b> <b>[STORED</b> <b>IN</b> <b>DATABASE]</b>
               Expansion    for   named   query   called   &lt;name&gt;.   See   <a href='../notmuch-search-terms-7/'>not‐</a>
@@ -247,7 +240,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2019, Carl Worth and many others
+       2009-2020, Carl Worth and many others
 </pre>
 
-<h2>0.29</h2>
+<h2>0.30</h2>
