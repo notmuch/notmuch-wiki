@@ -104,7 +104,7 @@ distributions:
 
 * [Arch Linux](https://www.archlinux.org/packages/?q=notmuch)
 * [Debian](http://packages.debian.org/search?keywords=notmuch)
-* [Fedora](https://apps.fedoraproject.org/packages/notmuch)
+* [Fedora](https://src.fedoraproject.org/rpms/notmuch)
 * [FreeBSD](http://www.freshports.org/mail/notmuch)
 * [Gentoo](http://packages.gentoo.org/package/net-mail/notmuch)
 * [NetBSD](http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/mail/notmuch/README.html)
