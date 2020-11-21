@@ -464,6 +464,7 @@ These functions are available via the standard `message-mode` keybindings
 
         ;; Sign messages by default.
         (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
+        (setq mml-secure-openpgp-sign-with-sender t)
 
 This inserts the required `<#part sign=pgpmime>` into the beginning
 of the mail text body and will be converted into a pgp signature
