@@ -15,6 +15,7 @@
 * [alot](https://github.com/pazz/alot), a curses frontend written in Python with the [Urwid](http://excess.org/urwid/) toolkit.
 * [astroid](https://github.com/astroidmail/astroid), a graphical threads-with-tags mail user agent for notmuch. Written in C++ using GTK+, WebKit and gmime.
 * [bower](https://github.com/wangp/bower), a curses frontend written in [Mercury](http://www.cs.mu.oz.au/research/mercury/).
+* [meli](https://meli.delivery), curses-like mail client written in Rust.
 * [neomutt](https://www.neomutt.org/feature/notmuch), a fork of [mutt](http://www.mutt.org/) able to use Notmuch for virtual folders. 
 * [netviel](https://github.com/DavidMStraub/netviel), a single-page web app with Javascript frontend and Python backend.
 * [noservice](https://gitlab.com/noservice/noservice). Web interface, written in Clojure.
