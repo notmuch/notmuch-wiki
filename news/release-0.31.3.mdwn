@@ -1,0 +1,19 @@
+[[!meta date="2020-12-25"]]
+
+Notmuch 0.31.3 (2020-12-25)
+===========================
+
+Bindings
+--------
+
+Fix for exclude tags in notmuch2 bindings.
+
+Build
+-----
+
+### Portability update for T360-symbol-hiding
+
+Library
+-------
+
+### Fix for memory error in notmuch_database_get_config_list
