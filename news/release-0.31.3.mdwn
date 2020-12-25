@@ -11,9 +11,9 @@ Fix for exclude tags in notmuch2 bindings.
 Build
 -----
 
-### Portability update for T360-symbol-hiding
+Portability update for T360-symbol-hiding.
 
 Library
 -------
 
-### Fix for memory error in notmuch_database_get_config_list
+Fix for memory error in notmuch_database_get_config_list.
