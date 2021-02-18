@@ -1,0 +1,14 @@
+[[!meta date="2021-02-18"]]
+
+Notmuch 0.31.4 (2021-02-18)
+===========================
+
+Library
+-------
+
+Fix include bug triggered by glib 2.67.
+
+Test
+----
+
+Fix race condition in T568-lib-thread.
