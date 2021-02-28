@@ -198,5 +198,5 @@ The `%25` represents hex code for a character that cannot be used directly
 - Currently the parser of nmbug (like that of notmuch restore) assumes
   that there are no spaces in message-ids.
 
-[archive]: https://notmuchmail.org/archives/notmuch.mbox
+[archive]: https://nmbug.notmuchmail.org/archive/notmuch-list.tar.xz
 [nmbug]: https://git.notmuchmail.org/git/notmuch/blob/HEAD:/devel/nmbug/nmbug
