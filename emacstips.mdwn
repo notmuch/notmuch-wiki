@@ -6,7 +6,7 @@ Emacs Interface|notmuch-emacs]] page for basics.
 
 [[!toc levels=2]]
 
-## Issues with Emacs 24
+## Issues with Emacs 24 (unsupported since notmuch 0.31 (2020-09-05))
 
 If notmuch-show-mode behaves badly for you in emacs 24.x try adding one of
 
@@ -25,6 +25,53 @@ adding a .mailcap file in your home directory. Here is an example:
 
     application/pdf; /usr/bin/mupdf %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
     application/x-pdf; /usr/bin/mupdf %s; test=test "$DISPLAY" != ""; description=Portable Document Format; nametemplate=%s.pdf
+
+### Convert ".pdf" and ".docx" to text and pop to buffer
+
+Add the following (hacky but effective!) code to `.emacs.d/notmuch-config.el`;
+the overwritten `defcustom` will change action when pressing RET on top of an
+attachment; ".pdf" and ".docx" attachments are converted to text (using
+"pdf2text" and "docx2txt.pl" commands to do the conversion), saving to file
+(the default action of `notmuch-show-part-button-default-action`) is offered
+to attachments of other types.
+
+    (defun user/mm-pipe-- (handle cmd)
+      ;; conveniently, '-' '-' a args to pdftotext and docx2txt.pl work fine
+      ;; fixme: naming inconsistency (fn name and buffer name)
+      (let ((buffer (get-buffer-create "*attachment-to-text*")))
+        (with-current-buffer buffer
+          (setq buffer-read-only nil)
+          (erase-buffer))
+        (with-temp-buffer
+          ;; "based on mm-pipe-part in mm-decode.el"
+          (mm-with-unibyte-buffer
+        (mm-insert-part handle)
+        (mm-add-meta-html-tag handle)
+        (let ((coding-system-for-write 'binary))
+          (call-process-region (point-min) (point-max)
+                               cmd nil buffer nil "-" "-"))))
+        (pop-to-buffer buffer)
+        (goto-char (point-min))
+        (text-mode)
+        (visual-line-mode)
+        (view-mode)))
+
+    (defun user/notmuch-show-pop-attachment-to-buffer ()
+      ;; "based on notmuch-show-apply-to-current-part-handle"
+      (interactive)
+      (let ((handle (notmuch-show-current-part-handle)))
+        ;;(message "%s" handle)
+        (unwind-protect
+        (pcase (car (nth 1 handle))
+          ("application/pdf"
+           (user/mm-pipe-- handle "pdftotext"))
+          ("application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+           (user/mm-pipe-- handle "docx2txt.pl"))
+          (_ (notmuch-show-save-part)))
+          (kill-buffer (mm-handle-buffer handle)))))
+
+    (setq notmuch-show-part-button-default-action
+          #'user/notmuch-show-pop-attachment-to-buffer)
 
 ## Overwriting the sender address
 
