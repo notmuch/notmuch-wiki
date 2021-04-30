@@ -506,12 +506,20 @@ address.
 Messages can be signed using gpg by invoking
 `M-x mml-secure-sign-pgpmime` (or `M-x mml-secure-encrypt-pgpmime`).
 These functions are available via the standard `message-mode` keybindings
-`C-c C-m s p` and `C-c C-m c p`. To sign outgoing mail by default, use the
-`message-setup-hook` in your `.emacs` file:
+`C-c C-m s p` and `C-c C-m c p`.
+
+In Emacs 28 you will be asked whether to sign the message using the
+sender and are offered to remember your choice.  In Emacs 27 you will
+get a slightly misleading error and have to manually add the following
+line to you init file.  Older Emacsen just do this unconditionally.
+
+        (setq mml-secure-openpgp-sign-with-sender t)
+
+To sign outgoing mail by default, use the `message-setup-hook` in your
+init file:
 
         ;; Sign messages by default.
         (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
-        (setq mml-secure-openpgp-sign-with-sender t)
 
 This inserts the required `<#part sign=pgpmime>` into the beginning
 of the mail text body and will be converted into a pgp signature
