@@ -27,8 +27,8 @@
        <b>--output=(messages|threads|files)</b>
 
               <b>messages</b>
-                     Output  the  number  of  matching  messages.  This is the
-                     default.
+                     Output  the  number of matching messages. This is the de‐
+                     fault.
 
               <b>threads</b>
                      Output the number of matching threads.
@@ -74,7 +74,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2020, Carl Worth and many others
+       2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.31</h2>
+<h2>0.32</h2>

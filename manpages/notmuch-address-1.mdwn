@@ -27,9 +27,9 @@
               available).
 
        <b>--format-version=N</b>
-              Use the specified structured  output  format  version.  This  is
-              intended  for  programs  that  invoke  <a href='../notmuch-1/'>notmuch</a>(1) internally. If
-              omitted, the latest supported version will be used.
+              Use the specified structured output format version. This is  in‐
+              tended  for programs that invoke <a href='../notmuch-1/'>notmuch</a>(1) internally. If omit‐
+              ted, the latest supported version will be used.
 
        <b>--output=(sender|recipients|count|address)</b>
               Controls which information appears in the  output.  This  option
@@ -68,15 +68,15 @@
                      Deduplicate  addresses  based on the full, case sensitive
                      name and email address, or mailbox. This  is  effectively
                      the  same as piping the <b>--deduplicate=no</b> output to <b>sort</b> <b>|</b>
-                     <b>uniq</b>, except for  the  order  of  results.  This  is  the
-                     default.
+                     <b>uniq</b>, except for the order of results. This  is  the  de‐
+                     fault.
 
               <b>address</b>
-                     Deduplicate  addresses  based  on  the  case  insensitive
-                     address part of the mailbox. Of all  the  variants  (with
-                     different  name  or  case),  print the one occurring most
-                     frequently among the matching messages. If <b>--output=count</b>
-                     is specified, include all variants in the count.
+                     Deduplicate  addresses  based on the case insensitive ad‐
+                     dress part of the mailbox. Of all the variants (with dif‐
+                     ferent  name  or case), print the one occurring most fre‐
+                     quently among the matching messages. If <b>--output=count</b> is
+                     specified, include all variants in the count.
 
        <b>--sort=</b>(<b>newest-first</b>|<b>oldest-first</b>)
               This option can be used to present results in either chronologi‐
@@ -127,7 +127,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2020, Carl Worth and many others
+       2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.31</h2>
+<h2>0.32</h2>

@@ -8,8 +8,8 @@
 
 <h2>SYNOPSIS</h2>
 <pre>
-       <b>notmuch</b>    <b>restore</b>    [--accumulate]    [--format=(auto|batch-tag|sup)]
-       [--input=&lt;<u>filename</u>&gt;]
+       <b>notmuch</b> <b>restore</b> [--accumulate]  [--format=(auto|batch-tag|sup)]  [--in‐
+       put=&lt;<u>filename</u>&gt;]
 </pre>
 
 <h2>DESCRIPTION</h2>
@@ -44,8 +44,8 @@
 
                      <b>notmuch</b> <b>restore</b> updates the maildir  flags  according  to
                      tag  changes  if the <b>maildir.synchronize</b>_<b>flags</b> configura‐
-                     tion  option  is  enabled.  See   <a href='../notmuch-config-1/'>notmuch-config</a>(1)   for
-                     details.
+                     tion option is enabled.  See  <a href='../notmuch-config-1/'>notmuch-config</a>(1)  for  de‐
+                     tails.
 
               <b>auto</b>   This  option (the default) tries to guess the format from
                      the input. For correctly formed input in either supported
@@ -70,8 +70,8 @@
               <b>tags</b>   Restore  per-message  metadata,  namely  tags. See <u>format</u>
                      above for more details.
 
-              The default is to restore  all  available  types  of  data.  The
-              option can be specified multiple times to select some subset.
+              The default is to restore all available types of data.  The  op‐
+              tion can be specified multiple times to select some subset.
 
        <b>--input=&lt;filename&gt;</b>
               Read input from given file instead of stdin.
@@ -99,7 +99,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2020, Carl Worth and many others
+       2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.31</h2>
+<h2>0.32</h2>

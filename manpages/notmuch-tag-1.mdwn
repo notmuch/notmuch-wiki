@@ -36,8 +36,8 @@
        Supported options for <b>tag</b> include
 
        <b>--remove-all</b>
-              Remove all tags from each  message  matching  the  search  terms
-              before  applying  the tag changes appearing on the command line.
+              Remove all tags from each message matching the search terms  be‐
+              fore  applying  the  tag  changes appearing on the command line.
               This means setting the tags of each message to the  tags  to  be
               added.  If there are no tags to be added, the messages will have
               no tags.
@@ -113,7 +113,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2020, Carl Worth and many others
+       2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.31</h2>
+<h2>0.32</h2>

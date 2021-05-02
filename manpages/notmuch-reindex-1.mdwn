@@ -18,8 +18,8 @@
        &lt;<u>search-term</u>&gt;.
 
        The <b>reindex</b> command searches for all  messages  matching  the  supplied
-       search  terms,  and  re-creates  the  full-text index on these messages
-       using the supplied options.
+       search  terms, and re-creates the full-text index on these messages us‐
+       ing the supplied options.
 
        Supported options for <b>reindex</b> include
 
@@ -41,8 +41,8 @@
               sion key is certainly sufficient) to reconstruct  the  cleartext
               of the message itself, so please ensure that the notmuch message
               index is adequately protected.  DO  NOT  USE  <b>--decrypt=true</b>  or
-              <b>--decrypt=nostash</b>  without  considering  the  security  of  your
-              index.
+              <b>--decrypt=nostash</b>  without  considering the security of your in‐
+              dex.
 
               See also <b>index.decrypt</b> in <a href='../notmuch-config-1/'>notmuch-config</a>(1).
 </pre>
@@ -58,9 +58,9 @@
 
        A  user  wants  to  change their policy going forward to start indexing
        cleartext.  But they also want indexed access to the cleartext  of  all
-       previously-received  encrypted  messages.   Some  messages  might  have
-       already been indexed in the clear (as in the example above).  They  can
-       ask notmuch to just reindex the not-yet-indexed messages:
+       previously-received  encrypted  messages.  Some messages might have al‐
+       ready been indexed in the clear (as in the example above). They can ask
+       notmuch to just reindex the not-yet-indexed messages:
 
           notmuch config set index.decrypt true
           notmuch reindex tag:encrypted and not property:index.decryption=success
@@ -91,7 +91,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2020, Carl Worth and many others
+       2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.31</h2>
+<h2>0.32</h2>

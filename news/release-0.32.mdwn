@@ -36,7 +36,8 @@ The previously severe slowdowns from large numbers calls to
 notmuch_database_remove_message or notmuch_message_delete in one
 session has been fixed.
 
-### As always, the canonical source of API documentation is `lib/notmuch.h`, or the doxygen formatted documentation in `notmuch(3)`
+As always, the canonical source of API documentation is `lib/notmuch.h`,
+or the doxygen formatted documentation in `notmuch(3)`.
 
 CLI
 ---

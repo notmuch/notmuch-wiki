@@ -36,8 +36,8 @@
               one message-id per line, followed by a list of tags.
 
               <b>batch-tag</b>
-                     The  default  <b>batch-tag</b>  dump  format is intended to more
-                     robust against malformed message-ids and tags  containing
+                     The default <b>batch-tag</b> dump format is intended to more ro‐
+                     bust against malformed message-ids  and  tags  containing
                      whitespace  or non-<b>ascii</b>(7) characters. Each line has the
                      form:
 
@@ -49,8 +49,8 @@
                      query, quoted using Xapian boolean term quoting rules: if
                      the ID contains whitespace or a  close  paren  or  starts
                      with a double quote, it must be enclosed in double quotes
-                     and double quotes inside the  ID  must  be  doubled.  The
-                     astute  reader  will notice this is a special case of the
+                     and double quotes inside the ID must be doubled. The  as‐
+                     tute  reader  will  notice  this is a special case of the
                      batch input format for <a href='../notmuch-tag-1/'>notmuch-tag</a>(1); note that the sin‐
                      gle message-id query is mandatory for <a href='../notmuch-restore-1/'>notmuch-restore</a>(1).
 
@@ -86,8 +86,8 @@
               <b>tags</b>   Output per-message boolean  metadata,  namely  tags.  See
                      <u>format</u> above for description of the output.
 
-              The  default  is  to  include  all available types of data.  The
-              option can be specified multiple times to select some subset. As
+              The  default is to include all available types of data.  The op‐
+              tion can be specified multiple times to select some  subset.  As
               of  version  3 of the dump format, there is a header line of the
               following form:
 
@@ -102,9 +102,9 @@
 <h2>SEE ALSO</h2>
 <pre>
        <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5), <a href='../notmuch-insert-1/'>not‐</a>
-       <a href='../notmuch-insert-1/'>much-insert</a>(1),     <a href='../notmuch-new-1/'>notmuch-new</a>(1),     <a href='../notmuch-properties-7/'>notmuch-properties</a>(7),     <a href='../notmuch-reply-1/'>not‐</a>
-       <a href='../notmuch-reply-1/'>much-reply</a>(1),     <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),     <a href='../notmuch-search-1/'>notmuch-search</a>(1),      <a href='../notmuch-search-terms-7/'>not‐</a>
-       <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7), <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
+       <a href='../notmuch-insert-1/'>much-insert</a>(1),   <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-properties-7/'>notmuch-properties</a>(7),  <a href='../notmuch-reply-1/'>notmuch-re‐</a>
+       <a href='../notmuch-reply-1/'>ply</a>(1), <a href='../notmuch-restore-1/'>notmuch-restore</a>(1), <a href='../notmuch-search-1/'>notmuch-search</a>(1), <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),
+       <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
 <h2>AUTHOR</h2>
@@ -114,7 +114,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2020, Carl Worth and many others
+       2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.31</h2>
+<h2>0.32</h2>

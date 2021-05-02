@@ -57,13 +57,13 @@
        <b>index.decryption</b>
               If  a  message  contains encrypted content, and notmuch tries to
               decrypt that content during indexing, it will add  the  property
-              <b>index.decryption=success</b>  when  the  cleartext  was successfully
-              indexed.  If notmuch attempts to decrypt any part of  a  message
+              <b>index.decryption=success</b> when the cleartext was successfully in‐
+              dexed.  If notmuch attempts to decrypt any  part  of  a  message
               during  indexing  and that decryption attempt fails, it will add
               the property <b>index.decryption=failure</b> to the message.
 
-              Note that it&apos;s possible  for  a  single  message  to  have  both
-              <b>index.decryption=success</b> and <b>index.decryption=failure</b>.  Consider
+              Note that it&apos;s possible for a single message to  have  both  <b>in-</b>
+              <b>dex.decryption=success</b>  and  <b>index.decryption=failure</b>.  Consider
               an encrypted e-mail  message  that  contains  another  encrypted
               e-mail  message  as an attachment -- if the outer message can be
               decrypted, but the attached part cannot,  then  both  properties
@@ -84,13 +84,13 @@
           present, you should pass those programs <b>--decrypt=false</b>.
 
           Using a stashed session key with &quot;notmuch show&quot; will speed  up  ren‐
-          dering  of  long  encrypted  threads.   It  also  allows the user to
-          destroy the secret part of  any  expired  encryption-capable  subkey
-          while  still being able to read any retained messages for which they
-          have stashed the session key.  This enables truly deletable  e-mail,
-          since   (once  the  session  key  and  asymmetric  subkey  are  both
-          destroyed) there are no keys left that can be used  to  decrypt  any
-          copy of the original message previously stored by an adversary.
+          dering  of  long  encrypted threads.  It also allows the user to de‐
+          stroy the secret part of any expired encryption-capable subkey while
+          still  being  able to read any retained messages for which they have
+          stashed the session key.  This enables truly deletable e-mail, since
+          (once  the  session  key  and  asymmetric subkey are both destroyed)
+          there are no keys left that can be used to decrypt any copy  of  the
+          original message previously stored by an adversary.
 
           However,  access to the stashed session key for an encrypted message
           permits full byte-for-byte reconstruction of the cleartext  message.
@@ -115,8 +115,8 @@
           to both detect and repair such a problematic message, it will do  so
           during indexing.
 
-          If  it  applies  a  message  repair during indexing, it will use the
-          <b>index.repaired</b> property to note the type of repair(s) it performed.
+          If  it applies a message repair during indexing, it will use the <b>in-</b>
+          <b>dex.repaired</b> property to note the type of repair(s) it performed.
 
           <b>index.repaired=skip-protected-headers-legacy-display</b> indicates  that
           when indexing the cleartext of an encrypted message, notmuch skipped
@@ -124,8 +124,8 @@
           that  message,  since  it  was  able to index the built-in protected
           headers directly.
 
-          <b>index.repaired=mixedup</b>  indicates  the  repair  of  a   &quot;Mixed   Up&quot;
-          encrypted  PGP/MIME message, a mangling typically produced by Micro‐
+          <b>index.repaired=mixedup</b> indicates the repair  of  a  &quot;Mixed  Up&quot;  en‐
+          crypted  PGP/MIME  message,  a mangling typically produced by Micro‐
           soft&apos;s
           <u>https://tools.ietf.org/html/draft-dkg-openpgp-pgpmime-message-mangling</u>
           for more information.
@@ -145,7 +145,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2020, Carl Worth and many others
+       2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.31</h2>
+<h2>0.32</h2>

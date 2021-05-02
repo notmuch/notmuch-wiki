@@ -28,8 +28,8 @@
        <b>--entire-thread=(true|false)</b>
               If true, <b>notmuch</b> <b>show</b> outputs all messages in the thread of  any
               message matching the search terms; if false, it outputs only the
-              matching messages.  For  <b>--format=json</b>  and  <b>--format=sexp</b>  this
-              defaults to true. For other formats, this defaults to false.
+              matching messages. For <b>--format=json</b> and <b>--format=sexp</b> this  de‐
+              faults to true. For other formats, this defaults to false.
 
        <b>--format=(text|json|sexp|mbox|raw)</b>
 
@@ -48,8 +48,8 @@
                      for automated processing. The nested structure of  multi‐
                      part MIME messages is reflected in nested JSON output. By
                      default JSON output includes all messages in  a  matching
-                     thread;   that   is,   by   default,  <b>--format=json</b>  sets
-                     <b>--entire-thread</b>. The caller can disable this behaviour by
+                     thread;  that  is,  by  default, <b>--format=json</b> sets <b>--en-</b>
+                     <b>tire-thread</b>. The caller can  disable  this  behaviour  by
                      setting <b>--entire-thread=false</b>.  The JSON output is always
                      encoded as UTF-8 and any message content included in  the
                      output will be charset-converted to UTF-8.
@@ -88,9 +88,9 @@
                      decoding and similar functions.
 
        <b>--format-version=N</b>
-              Use  the  specified  structured  output  format version. This is
-              intended for programs  that  invoke  <a href='../notmuch-1/'>notmuch</a>(1)  internally.  If
-              omitted, the latest supported version will be used.
+              Use  the specified structured output format version. This is in‐
+              tended for programs that invoke <a href='../notmuch-1/'>notmuch</a>(1) internally. If  omit‐
+              ted, the latest supported version will be used.
 
        <b>--part=N</b>
               Output  the  single decoded MIME part N of a single message. The
@@ -112,11 +112,11 @@
 
        <b>--decrypt=(false|auto|true|stash)</b>
               If  <b>true</b>, decrypt any MIME encrypted parts found in the selected
-              content  (e.g.,  &quot;multipart/encrypted&quot;  parts).  Status  of  the
-              decryption  will  be  reported  (currently  only  supported with
-              <b>--format=json</b> and <b>--format=sexp</b>) and  on  successful  decryption
-              the  multipart/encrypted  part will be replaced by the decrypted
-              content.
+              content (e.g., &quot;multipart/encrypted&quot; parts). Status of  the  de‐
+              cryption  will be reported (currently only supported with <b>--for-</b>
+              <b>mat=json</b> and <b>--format=sexp</b>) and  on  successful  decryption  the
+              multipart/encrypted  part will be replaced by the decrypted con‐
+              tent.
 
               <b>stash</b> behaves like <b>true</b>, but upon successful decryption it  will
               also  stash the message&apos;s session key in the database, and index
@@ -164,16 +164,16 @@
               Default: <b>auto</b>
 
        <b>--exclude=(true|false)</b>
-              Specify     whether    to    omit    threads    only    matching
-              search.exclude_tags from the search  results  (the  default)  or
-              not. In either case the excluded message will be marked with the
-              exclude flag (except when output=mbox when there is  nowhere  to
-              put the flag).
+              Specify   whether  to  omit  threads  only  matching  search.ex‐
+              clude_tags from the search results (the default) or not. In  ei‐
+              ther  case  the excluded message will be marked with the exclude
+              flag (except when output=mbox when there is nowhere to  put  the
+              flag).
 
-              If  <b>--entire-thread</b>  is  specified  then  complete  threads  are
-              returned regardless (with  the  excluded  flag  being  set  when
-              appropriate)  but threads that only match in an excluded message
-              are not returned when <b>--exclude=true.</b>
+              If  <b>--entire-thread</b>  is  specified then complete threads are re‐
+              turned regardless (with the excluded flag being set when  appro‐
+              priate)  but  threads that only match in an excluded message are
+              not returned when <b>--exclude=true.</b>
 
               The default is <b>--exclude=true.</b>
 
@@ -222,7 +222,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2020, Carl Worth and many others
+       2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.31</h2>
+<h2>0.32</h2>

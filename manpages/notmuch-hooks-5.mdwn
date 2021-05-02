@@ -7,31 +7,31 @@
 
 <h2>SYNOPSIS</h2>
 <pre>
-       $DATABASEDIR/.notmuch/hooks/*
+       &lt;hook_dir&gt;/{pre-new, post-new, post-insert}
 </pre>
 
 <h2>DESCRIPTION</h2>
 <pre>
        Hooks  are  scripts (or arbitrary executables or symlinks to such) that
        notmuch invokes before and after certain actions. These scripts  reside
-       in  the .notmuch/hooks directory within the database directory and must
+       in  a  directory  defined  as described in <a href='../notmuch-config-1/'>notmuch-config</a>(1). They must
        have executable permissions.
 
        The currently available hooks are described below.
 
        <b>pre-new</b>
-              This hook is invoked by  the  <b>new</b>  command  before  scanning  or
-              importing  new  messages  into  the database. If this hook exits
-              with a non-zero status, notmuch will abort further processing of
-              the <b>new</b> command.
+              This hook is invoked by the <b>new</b> command before scanning  or  im‐
+              porting  new messages into the database. If this hook exits with
+              a non-zero status, notmuch will abort further processing of  the
+              <b>new</b> command.
 
               Typically  this hook is used for fetching or delivering new mail
               to be imported into the database.
 
        <b>post-new</b>
               This hook is invoked by the <b>new</b> command after new messages  have
-              been  imported  into  the  database  and  initial tags have been
-              applied. The hook will not be run if there have been any  errors
+              been  imported  into the database and initial tags have been ap‐
+              plied. The hook will not be run if there have  been  any  errors
               during the scan or import.
 
               Typically  this  hook  is used to perform additional query-based
@@ -63,7 +63,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2020, Carl Worth and many others
+       2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.31</h2>
+<h2>0.32</h2>

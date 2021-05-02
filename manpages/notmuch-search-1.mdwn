@@ -12,8 +12,8 @@
 
 <h2>DESCRIPTION</h2>
 <pre>
-       Search  for  messages  matching  the given search terms, and display as
-       results the threads containing the matched messages.
+       Search for messages matching the given search terms, and display as re‐
+       sults the threads containing the matched messages.
 
        The output consists of one line per thread, giving  a  thread  ID,  the
        date  of  the  newest (or oldest, depending on the sort option) matched
@@ -33,9 +33,9 @@
               available).
 
        <b>--format-version=N</b>
-              Use the specified structured  output  format  version.  This  is
-              intended  for  programs  that  invoke  <a href='../notmuch-1/'>notmuch</a>(1) internally. If
-              omitted, the latest supported version will be used.
+              Use the specified structured output format version. This is  in‐
+              tended  for programs that invoke <a href='../notmuch-1/'>notmuch</a>(1) internally. If omit‐
+              ted, the latest supported version will be used.
 
        <b>--output=(summary|threads|messages|files|tags)</b>
 
@@ -46,8 +46,8 @@
                      ber  matched  and  the  total number), the authors of the
                      thread and the subject. In the case where a  thread  con‐
                      tains  multiple files for some messages, the total number
-                     of files is printed in  parentheses  (see  below  for  an
-                     example).
+                     of files is printed in parentheses (see below for an  ex‐
+                     ample).
 
               <b>threads</b>
                      Output  the  thread  IDs  of all threads with any message
@@ -59,8 +59,8 @@
               <b>messages</b>
                      Output  the  message  IDs  of  all  messages matching the
                      search terms, either one per line (<b>--format=text</b>),  sepa‐
-                     rated  by  null  characters  (<b>--format=text0</b>),  as a JSON
-                     array (<b>--format=json</b>), or as an S-Expression list (<b>--for-</b>
+                     rated  by null characters (<b>--format=text0</b>), as a JSON ar‐
+                     ray (<b>--format=json</b>), or as an S-Expression  list  (<b>--for-</b>
                      <b>mat=sexp</b>).
 
               <b>files</b>  Output  the filenames of all messages matching the search
@@ -79,8 +79,8 @@
 
               <b>tags</b>   Output  all  tags that appear on any message matching the
                      search terms, either one per line (<b>--format=text</b>),  sepa‐
-                     rated  by  null  characters  (<b>--format=text0</b>),  as a JSON
-                     array (<b>--format=json</b>), or as an S-Expression list (<b>--for-</b>
+                     rated  by null characters (<b>--format=text0</b>), as a JSON ar‐
+                     ray (<b>--format=json</b>), or as an S-Expression  list  (<b>--for-</b>
                      <b>mat=sexp</b>).
 
        <b>--sort=</b>(<b>newest-first</b>|<b>oldest-first</b>)
@@ -88,8 +88,8 @@
               cal order (<b>oldest-first</b>) or reverse  chronological  order  (<b>new-</b>
               <b>est-first</b>).
 
-              Note:  The  thread  order  will  be  distinct  between these two
-              options (beyond being simply reversed).  When  sorting  by  <b>old-</b>
+              Note:  The  thread  order will be distinct between these two op‐
+              tions (beyond being  simply  reversed).  When  sorting  by  <b>old-</b>
               <b>est-first</b>  the  threads  will be sorted by the oldest message in
               each thread, but when sorting by <b>newest-first</b> the  threads  will
               be sorted by the newest message in each thread.
@@ -114,8 +114,8 @@
                      Prevent excluded messages from matching the search terms.
 
               <b>all</b>    Additionally prevent excluded messages from appearing  in
-                     displayed  results,  in  effect  behaving  as  though the
-                     excluded messages do not exist.
+                     displayed  results,  in effect behaving as though the ex‐
+                     cluded messages do not exist.
 
               <b>false</b>  Allow excluded messages to match search terms and  appear
                      in  displayed results. Excluded messages are still marked
@@ -176,7 +176,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2020, Carl Worth and many others
+       2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.31</h2>
+<h2>0.32</h2>

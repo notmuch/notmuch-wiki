@@ -26,16 +26,16 @@
        base (it has same Message-ID), it will be added to the  maildir  folder
        and notmuch database, but the tags will not be changed.
 
-       The  <b>insert</b>  command  supports  hooks.  See  <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5)  for more
-       details on hooks.
+       The  <b>insert</b>  command  supports hooks. See <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5) for more de‐
+       tails on hooks.
 
        Option arguments must appear before any tag operation arguments.   Sup‐
        ported options for <b>insert</b> include
 
        <b>--folder=&lt;</b>folder<b>&gt;</b>
               Deliver  the  message  to  the specified folder, relative to the
-              top-level directory given by the  value  of  <b>database.path</b>.  The
-              default  is  the  empty  string,  which  means delivering to the
+              top-level directory given by the value of <b>database.path</b>. The de‐
+              fault  is  the  empty  string,  which  means  delivering  to the
               top-level directory.
 
        <b>--create-folder</b>
@@ -73,8 +73,8 @@
               sion key is certainly sufficient) to reconstruct  the  cleartext
               of the message itself, so please ensure that the notmuch message
               index is adequately protected.  DO  NOT  USE  <b>--decrypt=true</b>  or
-              <b>--decrypt=nostash</b>  without  considering  the  security  of  your
-              index.
+              <b>--decrypt=nostash</b>  without  considering the security of your in‐
+              dex.
 
               See also <b>index.decrypt</b> in <a href='../notmuch-config-1/'>notmuch-config</a>(1).
 </pre>
@@ -113,7 +113,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2020, Carl Worth and many others
+       2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.31</h2>
+<h2>0.32</h2>
