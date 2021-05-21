@@ -130,7 +130,7 @@ The archive unpacks to maildir format which is convenient for reading
 the archives within notmuch itself.
 
 If you prefer real-time chat, there is often someone on the
-[#notmuch](irc://chat.freenode.net/#notmuch)@irc.freenode.net IRC channel. Don't
+[#notmuch](irc://irc.libera.chat/#notmuch)@irc.libera.chat IRC channel. Don't
 ask if you can ask a question, just ask, and please wait for an answer, we might
 not be in your timezone.
 
