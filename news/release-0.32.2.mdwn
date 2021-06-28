@@ -1,0 +1,31 @@
+[[!meta date="2021-06-27"]]
+
+Notmuch 0.32.2 (2021-06-27)
+===========================
+
+General
+-------
+
+Fix a bug from 2017 that can add duplicate thread-id terms to message
+documents.
+
+CLI
+---
+
+Fix small memory leak in notmuch new.
+
+Emacs
+-----
+
+Add `(require 'seq)` for `seq-some`.
+
+Documentation
+-------------
+
+Fix man page build for Sphinx 4.x. Fix variable name in emacs docs.
+
+Tests
+-----
+
+Fix backup creation in `perf-test/T00-new`.  Check openssl
+prerequisite in `add_gpgsm_home`.
