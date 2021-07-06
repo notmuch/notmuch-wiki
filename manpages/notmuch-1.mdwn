@@ -175,7 +175,7 @@
        posting, but is available from the notmuchmail.org website.
 
        Real-time  interaction  with the Notmuch community is available via IRC
-       (server: irc.libera.net, channel: #notmuch).
+       (server: irc.libera.chat, channel: #notmuch).
 </pre>
 
 <h2>AUTHOR</h2>
