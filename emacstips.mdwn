@@ -299,7 +299,7 @@ an external browser. This can be done by `(notmuch-show-view-part)`, bound to
 This command will try to view the message part the point is on with an
 external viewer. The mime-type of the part will determine what viewer
 will be used. Typically a 'text/html' part will be send to your
-browser. 
+browser.
 
 The configuration for this is kept in so called `mailcap`
 files. (typically the file is `~/.mailcap` or `/etc/mailcap`) If the
@@ -803,19 +803,29 @@ In NixOS, using `emacsWithPackages (epkgs: [ epkgs.orgPackages.org-plus-contrib 
 
     (loop for p in load-path
           do (if (file-accessible-directory-p p)
-                 (let ((m (directory-files-recursively p "^org-notmuch.el$")))
+                 (let ((m (directory-files-recursively p "^ol-notmuch.el$")))
                       (if m (add-to-list 'load-path (file-name-directory (car m)))))))
 
 Then
 
-    (require 'org-notmuch)
+    (require 'ol-notmuch)
 
 In general it is nice to have a key for org-links (not just for notmuch). For example
 
-    (define-key global-map "\C-cl" 'org-store-link)
+    (define-key global-map "\C-c l" 'org-store-link)
+
+If you're using `use-package` the package can be loaded using the following:
+
+```emacs-lisp
+(use-package ol-notmuch
+  :ensure t
+  :bind
+  ("C-c l" . org-store-link))
+```
 
 Note the package was renamed from `org-notmuch` to `ol-notmuch` in recent
-versions of org-mode, and you might want to `(require 'ol-notmuch)` instead.
+versions of org-mode. If you're using an old version of notmuch you might want
+to `(require 'org-notmuch)` instead.
 
 ## Viewing diffs in notmuch
 
