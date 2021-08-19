@@ -36,8 +36,7 @@ The previously severe slowdowns from large numbers calls to
 notmuch_database_remove_message or notmuch_message_delete in one
 session has been fixed.
 
-As always, the canonical source of API documentation is `lib/notmuch.h`,
-or the doxygen formatted documentation in `notmuch(3)`.
+### As always, the canonical source of API documentation is `lib/notmuch.h`, or the doxygen formatted documentation in `notmuch(3)`
 
 CLI
 ---
@@ -65,9 +64,16 @@ Lexical binding is now used in all notmuch-emacs libraries.
 Fix bug in calling `notmuch-mua-mail` with a non-nil RETURN-ACTION.
 
 Removed, inlined or renamed functions and variables:
-`notmuch-address-locate-command`,
-`notmuch-documentation-first-line`, `notmuch-folder`,
-`notmuch-hello-trim', `notmuch-hello-versions` => `notmuch-version`,
-`notmuch-remove-if-not`, `notmuch-search-disjunctive-regexp`,
-`notmuch-sexp-eof`, `notmuch-split-content-type`, and
-`notmuch-tree-button-activate`.
+    `notmuch-address-locate-command`,
+    `notmuch-documentation-first-line`, `notmuch-folder`,
+    `notmuch-hello-trim', `notmuch-hello-versions` => `notmuch-version`,
+    `notmuch-remove-if-not`, `notmuch-search-disjunctive-regexp`,
+    `notmuch-sexp-eof`, `notmuch-split-content-type`, and
+    `notmuch-tree-button-activate`.
+
+Keymaps are no longer fset, which means they need to be referred to in
+define-key directly (without quotes).  If your Emacs configuration has a
+keybinding like:
+    (define-key 'notmuch-show-mode-map "7" 'foo)
+you should change it to:
+    (define-key notmuch-show-mode-map "7" 'foo)
