@@ -43,9 +43,9 @@
               Even if a window system is available, use the current terminal.
 
        <b>--client</b>
-              Use <b>emacsclient</b>, rather than <b>emacs</b>. For <b>emacsclient</b> to work, you
-              need an already running Emacs with a server, or use  <b>--auto-dae-</b>
-              <b>mon</b>.
+              Use  <b>emacsclient</b>(1), rather than <b>emacs</b>(1). For <b>emacsclient</b>(1) to
+              work, you need an already running Emacs with a  server,  or  use
+              <b>--auto-daemon</b>.
 
        <b>--auto-daemon</b>
               Automatically start Emacs in daemon mode, if the Emacs server is
@@ -61,9 +61,9 @@
               Output the resulting elisp to stdout instead of evaluating it.
 
        The  supported positional parameters and short options are a compatible
-       subset of the <b>mutt</b> MUA command-line options. The options and positional
-       parameters  modifying  the  message  can&apos;t be combined with the mailto:
-       URL.
+       subset of the <b>mutt</b>(1) MUA command-line options. The options  and  posi‐
+       tional  parameters  modifying  the  message  can&apos;t be combined with the
+       mailto: URL.
 
        Options may be specified multiple times.
 </pre>
@@ -92,4 +92,4 @@
        2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.32</h2>
+<h2>0.33</h2>

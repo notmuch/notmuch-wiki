@@ -18,16 +18,16 @@
        full-text indexing on new messages that are  found.  Each  new  message
        will automatically be tagged with both the <b>inbox</b> and <b>unread</b> tags.
 
-       You  should  run  <b>notmuch</b> <b>new</b> once after first running <b>notmuch</b> <b>setup</b> to
+       You should run <b>notmuch</b> <b>new</b> once after first running <b>notmuch-setup</b>(1) to
        create the initial database. The first run may take a long time if  you
        have a significant amount of mail (several hundred thousand messages or
        more). Subsequently, you should run <b>notmuch</b> <b>new</b> whenever  new  mail  is
        delivered and you wish to incorporate it into the database.  These sub‐
        sequent runs will be much quicker than the initial run.
 
-       Invoking <b>notmuch</b> with no command argument will run <b>new</b> if <b>notmuch</b> <b>setup</b>
-       has  previously been completed, but <b>notmuch</b> <b>new</b> has not previously been
-       run.
+       Invoking <b>notmuch</b>  with  no  command  argument  will  run  <b>new</b>  if  <b>not-</b>
+       <b>much-setup</b>(1)  has  previously  been completed, but <b>notmuch</b> <b>new</b> has not
+       previously been run.
 
        <b>notmuch</b> <b>new</b> updates tags according  to  maildir  flag  changes  if  the
        <b>maildir.synchronize</b>_<b>flags</b>  configuration  option  is  enabled. See <a href='../notmuch-config-1/'>not‐</a>
@@ -95,4 +95,4 @@
        2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.32</h2>
+<h2>0.33</h2>

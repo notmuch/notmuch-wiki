@@ -43,28 +43,50 @@
               acters.  In a multiple-value item (a list), the values are sepa‐
               rated by semicolon characters.
 
-       The available configuration items are described below.
+       The available configuration items  are  described  below.  Non-absolute
+       paths are presumed relative to <u>$HOME</u> for items in section <b>database</b>.
 
        <b>database.path</b>
-              Notmuch will store its database here,  (in  sub-directory  named
+              Notmuch  will  store  its database here, (in sub-directory named
               <b>.notmuch</b> if <b>database.mail</b>_<b>root</b> is unset).
 
-              Default: <b>$MAILDIR</b> variable if set, otherwise <b>$HOME/mail</b>.
+              Default: see <u>DATABASE</u> <u>LOCATION</u>
 
        <b>database.mail</b>_<b>root</b>
-              The  top-level directory where your mail currently exists and to
-              where mail will be delivered in the future. Files should be  in‐
+              The top-level directory where your mail currently exists and  to
+              where  mail will be delivered in the future. Files should be in‐
               dividual email messages.
+
+              History: this configuration  value  was  introduced  in  notmuch
+              0.32.
+
+              Default:  For compatibility with older configurations, the value
+              of database.path is used if <b>database.mail</b>_<b>root</b> is unset.
+
+       <b>database.backup</b>_<b>dir</b>
+              Directory to store tag dumps when upgrading database.
+
+              History: this configuration  value  was  introduced  in  notmuch
+              0.32.
+
+              Default: A sibling directory of the Xapian database called <u>back‐</u>
+              <u>ups</u>.
+
+       <b>database.hook</b>_<b>dir</b>
+              Directory containing hooks run by  notmuch  commands.  See  <a href='../notmuch-hooks-5/'>not‐</a>
+              <a href='../notmuch-hooks-5/'>much-hooks</a>(5).
 
               History:  this  configuration  value  was  introduced in notmuch
               0.32.
 
-              Default: For compatibility with older configurations, the  value
-              of database.path is used if <b>database.mail</b>_<b>root</b> is unset.
+              Default: See HOOKS, below.
 
-       <b>database.hook</b>_<b>dir</b>
-          Directory  containing  hooks  run  by  notmuch  commands.  See  <a href='../notmuch-hooks-5/'>not‐</a>
-          <a href='../notmuch-hooks-5/'>much-hooks</a>(5).
+       <b>database.autocommit</b>
+          How often to commit transactions to disk. <u>0</u> means wait until command
+          completes,  otherwise an integer <u>n</u> specifies to commit to disk after
+          every <u>n</u> completed transactions.
+
+          History: this configuration value was introduced in notmuch 0.33.
 
        <b>user.name</b>
               Your full name.
@@ -90,8 +112,8 @@
 
        <b>new.ignore</b>
               A list to  specify  files  and  directories  that  will  not  be
-              searched  for messages by <b>notmuch</b> <b>new</b>. Each entry in the list is
-              either:
+              searched  for messages by <a href='../notmuch-new-1/'>notmuch-new</a>(1). Each entry in the list
+              is either:
 
               A file or a directory name, without path, that will be  ignored,
               regardless  of  the location in the mail store directory hierar‐
@@ -135,16 +157,16 @@
                             │     │ flag is not present)       │
                             └─────┴────────────────────────────┘
 
-              The <b>notmuch</b> <b>new</b> command will notice flag  changes  in  filenames
-              and  update tags, while the <b>notmuch</b> <b>tag</b> and <b>notmuch</b> <b>restore</b> com‐
-              mands will notice tag changes and update flags in filenames.
+              The <a href='../notmuch-new-1/'>notmuch-new</a>(1) command will notice flag changes in filenames
+              and update tags, while the <a href='../notmuch-tag-1/'>notmuch-tag</a>(1) and <a href='../notmuch-restore-1/'>notmuch-restore</a>(1)
+              commands will notice tag changes and update flags in filenames.
 
               If there have been any changes  in  the  maildir  (new  messages
               added,  old  ones  removed  or  renamed,  maildir flags changed,
-              etc.), it is advisable to run <b>notmuch</b> <b>new</b> before <b>notmuch</b> <b>tag</b>  or
-              <b>notmuch</b>  <b>restore</b> commands to ensure the tag changes are properly
-              synchronized to the maildir flags, as the  commands  expect  the
-              database and maildir to be in sync.
+              etc.),  it  is  advisable  to  run  <a href='../notmuch-new-1/'>notmuch-new</a>(1)  before  <a href='../notmuch-tag-1/'>not‐</a>
+              <a href='../notmuch-tag-1/'>much-tag</a>(1)  or  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1)  commands  to ensure the tag
+              changes are properly synchronized to the maildir flags,  as  the
+              commands expect the database and maildir to be in sync.
 
               Default: <b>true</b>.
 
@@ -173,7 +195,8 @@
 
                       ┌──────────────┬───────┬──────┬─────────┬──────┐
                       │              │ false │ auto │ nostash │ true │
-                      ├──────────────┼───────┼──────┼─────────┼──────┤
+                      └──────────────┴───────┴──────┴─────────┴──────┘
+
                       │Index cleart‐ │       │ X    │ X       │ X    │
                       │ext     using │       │      │         │      │
                       │stashed  ses‐ │       │      │         │      │
@@ -225,47 +248,61 @@
               <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7) for more information about named queries.
 </pre>
 
-<h2>ENVIRONMENT</h2>
-<pre>
-       The following environment variables can be used to control the behavior
-       of notmuch.
-
-       <b>NOTMUCH</b>_<b>CONFIG</b>
-              Specifies the location of the notmuch configuration file.
-
-       <b>NOTMUCH</b>_<b>PROFILE</b>
-              Selects among notmuch configurations.
-</pre>
-
 <h2>FILES</h2>
 
 <h3> &nbsp; CONFIGURATION</h3>
 <pre>
-       If <b>NOTMUCH</b>_<b>CONFIG</b> is unset, notmuch tries (in order)
+       Notmuch configuration file search order:
 
-       • <b>$XDG</b>_<b>CONFIG</b>_<b>HOME/notmuch/&lt;profile&gt;/config</b> where <b>&lt;profile&gt;</b> is  defined
-         by <b>$NOTMUCH</b>_<b>PROFILE</b> or &quot;default&quot;
+       1. File specified by <b>notmuch</b> <b>--config</b> global option; see <a href='../notmuch-1/'>notmuch</a>(1).
 
-       • <b>${HOME}/.notmuch-config&lt;profile&gt;</b> where <b>&lt;profile&gt;</b> is <b>.$NOTMUCH</b>_<b>PROFILE</b>
-         or &quot;&quot;
+       2. File specified by <b>NOTMUCH</b>_<b>CONFIG</b> environment variable.
+
+       3. <b>$XDG</b>_<b>CONFIG</b>_<b>HOME/notmuch/&lt;profile&gt;/config</b> where <b>&lt;profile&gt;</b> is defined
+          by  <b>NOTMUCH</b>_<b>PROFILE</b>   environment   variable   if   set,   <b>$XDG</b>_<b>CON-</b>
+          <b>FIG</b>_<b>HOME/notmuch/default/config</b> otherwise.
+
+       4. <b>$HOME/.notmuch-config.&lt;profile&gt;</b>  where  <b>&lt;profile&gt;</b> is defined by <b>NOT-</b>
+          <b>MUCH</b>_<b>PROFILE</b> environment variable if set, <b>$HOME/.notmuch-config</b> oth‐
+          erwise.
 </pre>
 
-<h3> &nbsp; Hooks</h3>
+<h3> &nbsp; DATABASE LOCATION</h3>
 <pre>
-       If <b>database.hook</b>_<b>dir</b> is unset, notmuch tries (in order)
+       Notmuch database search order:
 
-       • <b>$XDG</b>_<b>CONFIG</b>_<b>HOME/notmuch/&lt;profile&gt;/hooks</b> where <b>&lt;profile&gt;</b>  is  defined
-         by <b>$NOTMUCH</b>_<b>PROFILE</b> or &quot;default&quot;
+       1. Directory specified by <b>NOTMUCH</b>_<b>DATABASE</b> environment variable.
 
-       • <b>&lt;database.path&gt;/.notmuch/hooks</b>
+       2. Directory specified by config key <b>database.path</b>.
+
+       3. <b>$XDG</b>_<b>DATA</b>_<b>HOME/notmuch/&lt;profile&gt;</b>  where <b>&lt;profile&gt;</b> is defined by <b>NOT-</b>
+          <b>MUCH</b>_<b>PROFILE</b> environment variable if set, <b>$XDG</b>_<b>DATA</b>_<b>HOME/notmuch/de-</b>
+          <b>fault</b> otherwise.
+
+       4. Directory specified by <b>MAILDIR</b> environment variable.
+
+       5. <b>$HOME/mail</b>
+</pre>
+
+<h3> &nbsp; HOOKS</h3>
+<pre>
+       Notmuch hook directory search order:
+
+       1. Directory specified by <b>database.hook</b>_<b>dir</b> configuration option.
+
+       2. <b>$XDG</b>_<b>CONFIG</b>_<b>HOME/notmuch/&lt;profile&gt;/hooks</b>  where <b>&lt;profile&gt;</b> is defined
+          by  <b>NOTMUCH</b>_<b>PROFILE</b>   environment   variable   if   set,   <b>$XDG</b>_<b>CON-</b>
+          <b>FIG</b>_<b>HOME/notmuch/default/hooks</b> otherwise.
+
+       3. <b>&lt;database.path&gt;/.notmuch/hooks</b>
 </pre>
 
 <h2>SEE ALSO</h2>
 <pre>
        <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-count-1/'>notmuch-count</a>(1),  <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5), <a href='../notmuch-insert-1/'>not‐</a>
-       <a href='../notmuch-insert-1/'>much-insert</a>(1), <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
-       <a href='../notmuch-search-1/'>notmuch-search</a>(1), <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7), <a href='../notmuch-properties-7/'>notmuch-properties</a>(7), <a href='../notmuch-show-1/'>not‐</a>
-       <a href='../notmuch-show-1/'>much-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
+       <a href='../notmuch-insert-1/'>much-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-properties-7/'>notmuch-properties</a>(7),   <a href='../notmuch-reply-1/'>notmuch-re‐</a>
+       <a href='../notmuch-reply-1/'>ply</a>(1), <a href='../notmuch-restore-1/'>notmuch-restore</a>(1), <a href='../notmuch-search-1/'>notmuch-search</a>(1), <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),
+       <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
 <h2>AUTHOR</h2>
@@ -278,4 +315,4 @@
        2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.32</h2>
+<h2>0.33</h2>

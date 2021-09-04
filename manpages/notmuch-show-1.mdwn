@@ -103,35 +103,47 @@
               part still has two MIME parts:  part  0  is  the  whole  message
               (headers and body) and part 1 is just the body.
 
+       <b>--sort=(newest-first|oldest-first)</b>
+              This option can be used to present results in either chronologi‐
+              cal order (<b>oldest-first</b>) or reverse  chronological  order  (<b>new-</b>
+              <b>est-first</b>).
+
+              Only  threads  as  a  whole are reordered.  Ordering of messages
+              within each thread will not be affected by this flag, since that
+              order is always determined by the thread&apos;s replies.
+
+              By  default,  results will be displayed in reverse chronological
+              order, (that is, the newest results will be displayed first).
+
        <b>--verify</b>
               Compute and report the validity of any MIME cryptographic signa‐
-              tures found in the selected  content  (e.g.,  &quot;multipart/signed&quot;
+              tures  found  in  the selected content (e.g., &quot;multipart/signed&quot;
               parts). Status of the signature will be reported (currently only
-              supported with <b>--format=json</b> and <b>--format=sexp</b>), and the  multi‐
+              supported  with <b>--format=json</b> and <b>--format=sexp</b>), and the multi‐
               part/signed part will be replaced by the signed data.
 
        <b>--decrypt=(false|auto|true|stash)</b>
-              If  <b>true</b>, decrypt any MIME encrypted parts found in the selected
-              content (e.g., &quot;multipart/encrypted&quot; parts). Status of  the  de‐
-              cryption  will be reported (currently only supported with <b>--for-</b>
-              <b>mat=json</b> and <b>--format=sexp</b>) and  on  successful  decryption  the
-              multipart/encrypted  part will be replaced by the decrypted con‐
+              If <b>true</b>, decrypt any MIME encrypted parts found in the  selected
+              content  (e.g.,  &quot;multipart/encrypted&quot; parts). Status of the de‐
+              cryption will be reported (currently only supported with  <b>--for-</b>
+              <b>mat=json</b>  and  <b>--format=sexp</b>)  and  on successful decryption the
+              multipart/encrypted part will be replaced by the decrypted  con‐
               tent.
 
-              <b>stash</b> behaves like <b>true</b>, but upon successful decryption it  will
-              also  stash the message&apos;s session key in the database, and index
-              the cleartext of the message, enabling automatic  decryption  in
+              <b>stash</b>  behaves like <b>true</b>, but upon successful decryption it will
+              also stash the message&apos;s session key in the database, and  index
+              the  cleartext  of the message, enabling automatic decryption in
               the future.
 
-              If  <b>auto</b>,  and  a  session key is already known for the message,
-              then it will be decrypted, but notmuch will not  try  to  access
+              If <b>auto</b>, and a session key is already  known  for  the  message,
+              then  it  will  be decrypted, but notmuch will not try to access
               the user&apos;s keys.
 
               Use <b>false</b> to avoid even automatic decryption.
 
-              Non-automatic  decryption  (<b>stash</b>  or  <b>true</b>, in the absence of a
-              stashed session key) expects a functioning <b>gpg-agent</b>(1) to  pro‐
-              vide  any  needed  credentials. Without one, the decryption will
+              Non-automatic decryption (<b>stash</b> or <b>true</b>, in  the  absence  of  a
+              stashed  session key) expects a functioning <b>gpg-agent</b>(1) to pro‐
+              vide any needed credentials. Without one,  the  decryption  will
               fail.
 
               Note: setting either <b>true</b> or <b>stash</b> here implies <b>--verify</b>.
@@ -147,7 +159,7 @@
                        │already known │       │      │      │       │
                        ├──────────────┼───────┼──────┼──────┼───────┤
                        │Use    secret │       │      │ X    │ X     │
-                       │keys to  show │       │      │      │       │
+                       │keys  to show │       │      │      │       │
                        │cleartext     │       │      │      │       │
                        ├──────────────┼───────┼──────┼──────┼───────┤
                        │Stash     any │       │      │      │ X     │
@@ -158,44 +170,44 @@
                        │sage if found │       │      │      │       │
                        └──────────────┴───────┴──────┴──────┴───────┘
 
-              Note: <b>--decrypt=stash</b> requires write  access  to  the  database.
+              Note:  <b>--decrypt=stash</b>  requires  write  access to the database.
               Otherwise, <b>notmuch</b> <b>show</b> operates entirely in read-only mode.
 
               Default: <b>auto</b>
 
        <b>--exclude=(true|false)</b>
-              Specify   whether  to  omit  threads  only  matching  search.ex‐
-              clude_tags from the search results (the default) or not. In  ei‐
-              ther  case  the excluded message will be marked with the exclude
-              flag (except when output=mbox when there is nowhere to  put  the
+              Specify  whether  to  omit  threads  only  matching   search.ex‐
+              clude_tags  from the search results (the default) or not. In ei‐
+              ther case the excluded message will be marked with  the  exclude
+              flag  (except  when output=mbox when there is nowhere to put the
               flag).
 
-              If  <b>--entire-thread</b>  is  specified then complete threads are re‐
-              turned regardless (with the excluded flag being set when  appro‐
-              priate)  but  threads that only match in an excluded message are
+              If <b>--entire-thread</b> is specified then complete  threads  are  re‐
+              turned  regardless (with the excluded flag being set when appro‐
+              priate) but threads that only match in an excluded  message  are
               not returned when <b>--exclude=true.</b>
 
               The default is <b>--exclude=true.</b>
 
        <b>--body=(true|false)</b>
-              If true (the default) <b>notmuch</b> <b>show</b> includes the  bodies  of  the
-              messages   in   the   output;  if  false,  bodies  are  omitted.
-              <b>--body=false</b> is only implemented for the  text,  json  and  sexp
+              If  true  (the  default) <b>notmuch</b> <b>show</b> includes the bodies of the
+              messages  in  the  output;  if  false,   bodies   are   omitted.
+              <b>--body=false</b>  is  only  implemented  for the text, json and sexp
               formats and it is incompatible with <b>--part</b> <b>&gt;</b> <b>0.</b>
 
               This is useful if the caller only needs the headers as body-less
               output is much faster and substantially smaller.
 
        <b>--include-html</b>
-              Include &quot;text/html&quot; parts as part of the output (currently  only
-              supported  with <b>--format=text</b>, <b>--format=json</b> and <b>--format=sexp</b>).
+              Include  &quot;text/html&quot; parts as part of the output (currently only
+              supported with <b>--format=text</b>, <b>--format=json</b> and  <b>--format=sexp</b>).
               By default, unless <b>--part=N</b> is used to select a specific part or
               <b>--include-html</b> is used to include all &quot;text/html&quot; parts, no part
               with content type &quot;text/html&quot; is included in the output.
 
-       A common use of <b>notmuch</b> <b>show</b> is to display a  single  thread  of  email
+       A  common  use  of  <b>notmuch</b> <b>show</b> is to display a single thread of email
        messages. For this, use a search term of &quot;thread:&lt;thread-id&gt;&quot; as can be
-       seen in the first column of output from the <b>notmuch</b> <b>search</b> command.
+       seen in the first column of output from the <a href='../notmuch-search-1/'>notmuch-search</a>(1) command.
 </pre>
 
 <h2>EXIT STATUS</h2>
@@ -209,8 +221,8 @@
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not‐</a>
-       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),   <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
+       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not‐</a>
+       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
        <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),  <a href='../notmuch-search-1/'>notmuch-search</a>(1),  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),  <a href='../notmuch-tag-1/'>not‐</a>
        <a href='../notmuch-tag-1/'>much-tag</a>(1)
 </pre>
@@ -225,4 +237,4 @@
        2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.32</h2>
+<h2>0.33</h2>

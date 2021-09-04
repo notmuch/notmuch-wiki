@@ -15,8 +15,8 @@
        <b>notmuch</b> <b>insert</b> reads a message from standard input and delivers it into
        the maildir directory given by configuration option <b>database.path</b>, then
        incorporates  the  message into the notmuch database. It is an alterna‐
-       tive to using a separate tool to deliver the message then running  <b>not-</b>
-       <b>much</b> <b>new</b> afterwards.
+       tive to using a separate tool to deliver the message then running  <a href='../notmuch-new-1/'>not‐</a>
+       <a href='../notmuch-new-1/'>much-new</a>(1) afterwards.
 
        The  new message will be tagged with the tags specified by the <b>new.tags</b>
        configuration option, then by operations specified on the command-line:
@@ -32,7 +32,7 @@
        Option arguments must appear before any tag operation arguments.   Sup‐
        ported options for <b>insert</b> include
 
-       <b>--folder=&lt;</b>folder<b>&gt;</b>
+       <b>--folder=&lt;folder&gt;</b>
               Deliver  the  message  to  the specified folder, relative to the
               top-level directory given by the value of <b>database.path</b>. The de‐
               fault  is  the  empty  string,  which  means  delivering  to the
@@ -116,4 +116,4 @@
        2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.32</h2>
+<h2>0.33</h2>

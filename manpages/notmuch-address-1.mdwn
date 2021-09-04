@@ -20,7 +20,7 @@
 
        Supported options for <b>address</b> include
 
-       <b>--format=</b>(<b>json</b>|<b>sexp</b>|<b>text</b>|<b>text0</b>)
+       <b>--format=(json|sexp|text|text0)</b>
               Presents  the  results  in  either  JSON, S-Expressions, newline
               character separated plain-text (default), or null character sep‐
               arated  plain-text  (compatible  with  <b>xargs</b>(1)  -0 option where
@@ -78,7 +78,7 @@
                      quently among the matching messages. If <b>--output=count</b> is
                      specified, include all variants in the count.
 
-       <b>--sort=</b>(<b>newest-first</b>|<b>oldest-first</b>)
+       <b>--sort=(newest-first|oldest-first)</b>
               This option can be used to present results in either chronologi‐
               cal order (<b>oldest-first</b>) or reverse  chronological  order  (<b>new-</b>
               <b>est-first</b>).
@@ -116,8 +116,8 @@
 <pre>
        <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not‐</a>
        <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
-       <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),   <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),   <a href='../notmuch-show-1/'>notmuch-show</a>(1),  <a href='../notmuch-tag-1/'>not‐</a>
-       <a href='../notmuch-tag-1/'>much-tag</a>(1), <a href='../notmuch-search-1/'>notmuch-search</a>(1)
+       <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),  <a href='../notmuch-search-1/'>notmuch-search</a>(1),  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),  <a href='../notmuch-show-1/'>not‐</a>
+       <a href='../notmuch-show-1/'>much-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
 
 <h2>AUTHOR</h2>
@@ -130,4 +130,4 @@
        2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.32</h2>
+<h2>0.33</h2>

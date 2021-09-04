@@ -20,29 +20,29 @@
        The currently available hooks are described below.
 
        <b>pre-new</b>
-              This hook is invoked by the <b>new</b> command before scanning  or  im‐
-              porting  new messages into the database. If this hook exits with
-              a non-zero status, notmuch will abort further processing of  the
-              <b>new</b> command.
+              This hook is invoked by the <a href='../notmuch-new-1/'>notmuch-new</a>(1) command before  scan‐
+              ning  or  importing new messages into the database. If this hook
+              exits with a non-zero status, notmuch will  abort  further  pro‐
+              cessing of the <a href='../notmuch-new-1/'>notmuch-new</a>(1) command.
 
               Typically  this hook is used for fetching or delivering new mail
               to be imported into the database.
 
        <b>post-new</b>
-              This hook is invoked by the <b>new</b> command after new messages  have
-              been  imported  into the database and initial tags have been ap‐
-              plied. The hook will not be run if there have  been  any  errors
-              during the scan or import.
+              This hook is invoked by the  <a href='../notmuch-new-1/'>notmuch-new</a>(1)  command  after  new
+              messages  have  been imported into the database and initial tags
+              have been applied. The hook will not be run if there  have  been
+              any errors during the scan or import.
 
               Typically  this  hook  is used to perform additional query-based
               tagging on the imported messages.
 
        <b>post-insert</b>
-              This hook is invoked by the <b>insert</b> command after the message has
-              been  delivered,  added  to  the database, and initial tags have
-              been applied. The hook will not be run if there  have  been  any
-              errors during the message delivery; what is regarded as success‐
-              ful delivery depends on the <b>--keep</b> option.
+              This hook is invoked by the <a href='../notmuch-insert-1/'>notmuch-insert</a>(1) command after  the
+              message  has  been delivered, added to the database, and initial
+              tags have been applied. The hook will not be run if  there  have
+              been any errors during the message delivery; what is regarded as
+              successful delivery depends on the <b>--keep</b> option.
 
               Typically this hook is used to  perform  additional  query-based
               tagging on the delivered messages.
@@ -66,4 +66,4 @@
        2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.32</h2>
+<h2>0.33</h2>

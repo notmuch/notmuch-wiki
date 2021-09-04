@@ -14,7 +14,7 @@
 
 <h2>DESCRIPTION</h2>
 <pre>
-       Restores the tags from the given file (see <b>notmuch</b> <b>dump</b>).
+       Restores the tags from the given file (see <a href='../notmuch-dump-1/'>notmuch-dump</a>(1)).
 
        The input is read from the given filename, if any, or from stdin.
 
@@ -102,4 +102,4 @@
        2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.32</h2>
+<h2>0.33</h2>

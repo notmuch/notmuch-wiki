@@ -50,9 +50,9 @@
 
        <b>--config=FILE</b>
               Specify  the  configuration file to use. This overrides any con‐
-              figuration file specified by ${NOTMUCH_CONFIG}. The empty string
-              is  a  permitted and sometimes useful value of <u>FILE</u>, which tells
-              <b>notmuch</b> to use only configuration metadata from the database.
+              figuration file specified by <u>NOTMUCH</u>_<u>CONFIG</u>. The empty string is
+              a permitted and sometimes useful value of <u>FILE</u>, which tells <b>not-</b>
+              <b>much</b> to use only configuration metadata from the database.
 
        <b>--uuid=HEX</b>
               Enforce that the database UUID (a unique identifier  which  per‐
@@ -76,7 +76,7 @@
        The  setup  command  will prompt for your full name, your primary email
        address, any alternate email addresses you use, and the directory  con‐
        taining your email archives. Your answers will be written to a configu‐
-       ration file in ${NOTMUCH_CONFIG} (if set) or ${HOME}/.notmuch-config  .
+       ration file in <u>NOTMUCH</u>_<u>CONFIG</u> (if  set)  or  ${HOME}/.notmuch-config  .
        This configuration file will be created with descriptive comments, mak‐
        ing it easy to edit by hand later to change the configuration.  Or  you
        can run <b>notmuch</b> <b>setup</b> again to change the configuration.
@@ -90,7 +90,7 @@
        Mail  storage that uses mbox format, (where one mbox file contains many
        messages), will not work with notmuch. If that&apos;s how your mail is  cur‐
        rently stored, it is recommended you first convert it to maildir format
-       with a utility such as mb2md before running <b>notmuch</b> <b>setup</b> <b>.</b>
+       with a utility such as <b>mb2md</b>(1) before running <b>notmuch</b> <b>setup</b>.
 
        Invoking <b>notmuch</b> with no command argument will run <b>setup</b> if  the  setup
        command has not previously been completed.
@@ -99,38 +99,39 @@
 <h3> &nbsp; OTHER COMMANDS</h3>
 <pre>
        Several  of the notmuch commands accept search terms with a common syn‐
-       tax. See <b>notmuch-search-terms</b>(7) for more details on the supported syn‐
+       tax. See <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7) for more details on the supported syn‐
        tax.
 
-       The  <b>search</b>,  <b>show</b>,  <b>address</b>  and  <b>count</b> commands are used to query the
-       email database.
+       The  <a href='../notmuch-search-1/'>notmuch-search</a>(1),  <a href='../notmuch-show-1/'>notmuch-show</a>(1),  <a href='../notmuch-address-1/'>notmuch-address</a>(1)  and <a href='../notmuch-count-1/'>not‐</a>
+       <a href='../notmuch-count-1/'>much-count</a>(1) commands are used to query the email database.
 
-       The <b>reply</b> command is useful for preparing a template for an  email  re‐
-       ply.
+       The <a href='../notmuch-reply-1/'>notmuch-reply</a>(1) command is useful for preparing a template for  an
+       email reply.
 
-       The <b>tag</b> command is the only command available for manipulating database
-       contents.
+       The <a href='../notmuch-tag-1/'>notmuch-tag</a>(1) command is the only command available for manipulat‐
+       ing database contents.
 
-       The <b>dump</b> and <b>restore</b> commands can be used to create a textual  dump  of
-       email tags for backup purposes, and to restore from that dump.
+       The <a href='../notmuch-dump-1/'>notmuch-dump</a>(1) and <a href='../notmuch-restore-1/'>notmuch-restore</a>(1) commands can be used to cre‐
+       ate  a  textual  dump of email tags for backup purposes, and to restore
+       from that dump.
 
-       The  <b>config</b>  command  can be used to get or set settings in the notmuch
-       configuration file.
+       The <a href='../notmuch-config-1/'>notmuch-config</a>(1) command can be used to get or set settings in the
+       notmuch configuration file.
 </pre>
 
 <h3> &nbsp; CUSTOM COMMANDS</h3>
 <pre>
-       If the given command is not known to notmuch, notmuch tries to  execute
-       the external <b>notmuch-&lt;subcommand&gt;</b> in ${PATH} instead. This allows users
-       to have their own notmuch related tools to be run via the notmuch  com‐
-       mand. By design, this does not allow notmuch&apos;s own commands to be over‐
-       ridden using external commands.
+       If  the given command is not known to notmuch, notmuch tries to execute
+       the external <b>notmuch-&lt;subcommand&gt;</b> in <b>PATH</b> instead. This allows users to
+       have their own notmuch related tools to be run via the notmuch command.
+       By design, this does not allow notmuch&apos;s own commands to be  overridden
+       using external commands.
 </pre>
 
 <h3> &nbsp; OPTION SYNTAX</h3>
 <pre>
        All options accepting an argument can be used with &apos;=&apos; or &apos;:&apos; as a sep‐
-       arator.  Except for boolean options (which would be ambiguous), a space
+       arator. Except for boolean options (which would be ambiguous), a  space
        can also be used as a separator. The following are all equivalent:
 
           notmuch --config=alt-config config get user.name
@@ -144,9 +145,16 @@
        of notmuch.
 
        <b>NOTMUCH</b>_<b>CONFIG</b>
-              Specifies  the  location of the notmuch configuration file. Not‐
-              much will use ${HOME}/.notmuch-config if this  variable  is  not
-              set.
+              Specifies the location of the notmuch  configuration  file.  See
+              <a href='../notmuch-config-1/'>notmuch-config</a>(1) for details.
+
+       <b>NOTMUCH</b>_<b>DATABASE</b>
+              Specifies the location of the notmuch database. See <a href='../notmuch-config-1/'>notmuch-con‐</a>
+              <a href='../notmuch-config-1/'>fig</a>(1) for details.
+
+       <b>NOTMUCH</b>_<b>PROFILE</b>
+              Selects among notmuch configurations. See <a href='../notmuch-config-1/'>notmuch-config</a>(1)  for
+              details.
 
        <b>NOTMUCH</b>_<b>TALLOC</b>_<b>REPORT</b>
               Location  to  write a talloc memory usage report. See <b>talloc</b>_<b>en-</b>
@@ -188,4 +196,4 @@
        2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.32</h2>
+<h2>0.33</h2>

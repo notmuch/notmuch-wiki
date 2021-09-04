@@ -55,11 +55,11 @@
                      gle message-id query is mandatory for <a href='../notmuch-restore-1/'>notmuch-restore</a>(1).
 
               <b>sup</b>    The  <b>sup</b>  dump  file  format is specifically chosen to be
-                     compatible with the format of files produced by sup-dump.
-                     So if you&apos;ve previously been using sup for mail, then the
-                     <b>notmuch</b> <b>restore</b> command provides you a way to import  all
-                     of your tags (or labels as sup calls them). Each line has
-                     the following form:
+                     compatible  with  the  format  of   files   produced   by
+                     <b>sup-dump</b>(1).  So  if you&apos;ve previously been using sup for
+                     mail, then the <a href='../notmuch-restore-1/'>notmuch-restore</a>(1) command provides you  a
+                     way  to  import  all of your tags (or labels as sup calls
+                     them). Each line has the following form:
 
                         &lt;*message-id*\ &gt; **(** &lt;*tag*\ &gt; ... **)**
 
@@ -117,4 +117,4 @@
        2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.32</h2>
+<h2>0.33</h2>
