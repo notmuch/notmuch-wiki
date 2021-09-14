@@ -1,0 +1,11 @@
+[[!meta date="2021-09-10"]]
+
+Notmuch 0.33.1 (2021-09-10)
+===========================
+
+General
+-------
+
+Replace the fully-qualified-domain-name of the host with "localhost"
+in the default email address.  This should fix two flaky subtests in
+T590-libconfig.
