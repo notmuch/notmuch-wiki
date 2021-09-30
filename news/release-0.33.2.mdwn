@@ -1,0 +1,9 @@
+[[!meta date="2021-09-30"]]
+
+Notmuch 0.33.2 (2021-09-30)
+===========================
+
+Tests
+-----
+
+Improve reliability of T355-smime by changing gpgsm initialization.
