@@ -19,9 +19,10 @@ Manual page index
 * <a href='notmuch-hooks-5/'>notmuch-hooks</a>(5) - hooks for notmuch
 * <a href='notmuch-properties-7/'>notmuch-properties</a>(7) - notmuch message property conventions and documentation
 * <a href='notmuch-search-terms-7/'>notmuch-search-terms</a>(7) - syntax for notmuch queries
+* <a href='notmuch-sexp-queries-7/'>notmuch-sexp-queries</a>(7) - s-expression syntax for notmuch queries
 
 The manual pages are licensed under
 [the GNU General Public License](https://www.gnu.org/licenses/gpl.txt),
 either version 3.0 or at your option any later version.
 
-<h2>0.33</h2>
+<h2>0.34</h2>

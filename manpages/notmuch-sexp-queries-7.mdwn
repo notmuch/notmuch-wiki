@@ -1,0 +1,295 @@
+<h1>NOTMUCH-SEXP-QUERIES(7)</h1>
+
+<h2>NAME</h2>
+<pre>
+       notmuch-sexp-queries - s-expression syntax for notmuch queries
+</pre>
+
+<h2>SYNOPSIS</h2>
+<pre>
+       <b>notmuch</b> <u>subcommand</u> <b>--query=sexp</b> [option ...]  <b>--</b> &apos;(and (to santa) (date
+       december))&apos;
+</pre>
+
+<h2>DESCRIPTION</h2>
+<pre>
+       Notmuch supports an alternative query syntax based on  <u>S-expressions</u>  .
+       It  can  be selected with the command line <b>--query=sexp</b> or with the ap‐
+       propriate option to the library function <b>notmuch</b>_<b>query</b>_<b>create</b>_<b>with</b>_<b>syn-</b>
+       <b>tax()</b>.   Support for this syntax is currently optional, you can test if
+       your build of notmuch supports it with
+
+          $ notmuch config get built_with.sexpr_query
+</pre>
+
+<h3> &nbsp; S-EXPRESSIONS</h3>
+<pre>
+       An <u>s-expression</u> is either an atom,  or  list  of  whitespace  delimited
+       s-expressions inside parentheses. Atoms are either
+
+       <u>basic</u> <u>value</u>
+              A  basic  value  is an unquoted string containing no whitespace,
+              double quotes, or parentheses.
+
+       <u>quoted</u> <u>string</u>
+              Double quotes (&quot;) delimit strings possibly containing whitespace
+              or parentheses. These can contain double quote characters by es‐
+              caping with backslash. E.g. <b>&quot;this</b> <b>is</b> <b>a</b> <b>quote</b> <b>\&quot;&quot;</b>.
+</pre>
+
+<h3> &nbsp; S-EXPRESSION QUERIES</h3>
+<pre>
+       An s-expression query is either an atom, the empty list, or a  <u>compound</u>
+       <u>query</u>  consisting  of  a  prefix atom (first element) defining a <u>field</u>,
+       <u>logical</u> <u>operation</u>, or <u>modifier</u>, and 0 or more subqueries.
+
+       <b>*</b>      &quot;*&quot; matches any non-empty string in the current field.
+
+       <b>()</b>     The empty list matches all messages
+
+       <u>term</u>
+          Match all messages  containing  <u>term</u>,  possibly  after  stemming  or
+          phrase  splitting.  For  discussion  of stemming in notmuch see <a href='../notmuch-search-terms-7/'>not‐</a>
+          <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7). Stemming only applies to unquoted terms (basic
+          values)  in  s-expression queries.  For information on phrase split‐
+          ting see <u>FIELDS</u>.
+
+       <b>(</b> <u>field</u> <b>q</b>_<b>1</b> <b>q</b>_<b>2</b> <b>...</b> <b>q</b>_<b>n</b> <b>)</b>
+              Restrict the queries q_1 to q_n to <u>field</u>, and combine  with  <u>and</u>
+              (for most fields) or <u>or</u>. See <u>FIELDS</u> for more information.
+
+       <b>(</b> <u>operator</u> <b>q</b>_<b>1</b> <b>q</b>_<b>2</b> <b>...</b> <b>q</b>_<b>n</b> <b>)</b>
+              Combine  queries  q_1  to q_n. Currently supported operators are
+              <b>and</b>, <b>or</b>, and <b>not</b>. <b>(not</b> q_1 ... q_n <b>)</b> is equivalent to <b>(and</b>  <b>(not</b>
+              q_1 <b>)</b> <b>...</b> <b>(not</b> q_n <b>))</b>.
+
+       <b>(</b> <u>modifier</u> <b>q</b>_<b>1</b> <b>q</b>_<b>2</b> <b>...</b> <b>q</b>_<b>n</b> <b>)</b>
+              Combine  queries q_1 to q_n, and reinterpret the result (e.g. as
+              a regular expression).  See <u>MODIFIERS</u> for more information.
+
+       <b>(macro</b> <b>(</b> <b>p</b>_<b>1</b> <b>...</b> <b>p</b>_<b>n</b> <b>)</b> <b>body)</b>
+              Define saved query with parameter substitution.  The  syntax  is
+              recognized  only  in saved s-expression queries (see <b>squery.*</b> in
+              <a href='../notmuch-config-1/'>notmuch-config</a>(1)). Parameter names in  <b>body</b>  must  be  prefixed
+              with <b>,</b> to be expanded (see <u>MACRO</u> <u>EXAMPLES</u>).  Macros may refer to
+              other macros, but only to their own parameters [1].
+</pre>
+
+<h3> &nbsp; FIELDS</h3>
+<pre>
+       <u>Fields</u> [2] correspond to attributes of mail messages. Some are inherent
+       (and  immutable)  like  <b>subject</b>, while others <b>tag</b> and <b>property</b> are set‐
+       table by the user.  Each concrete field in <u>the</u> <u>table</u> <u>below</u> is discussed
+       further  under  &quot;Search  prefixes&quot;  in <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7). The row
+       <u>user</u> refers to user defined fields, described in <a href='../notmuch-config-1/'>notmuch-config</a>(1).
+
+       Most fields are either <u>phrase</u> <u>fields</u>  [3]  (which  match  sequences  of
+       words),  or  <u>term</u> <u>fields</u> [4] (which match exact strings). <u>Phrase</u> <u>split‐</u>
+       <u>ting</u> breaks the term (basic value or quoted string) into words,  ignore
+       punctuation.  Phrase  splitting  is  applied to terms in phrase (proba‐
+       bilistic) fields. Both phrase splitting  and  stemming  apply  only  in
+       phrase fields.
+
+       Each  term or phrase field has an associated combining operator (<b>and</b> or
+       <b>or</b>) used to combine the queries from each element of the  tail  of  the
+       list.  This  is  generally  <b>or</b> for those fields where a message has one
+       such attribute, and <b>and</b> otherwise.
+
+       Term or phrase fields can contain arbitrarily complex queries  made  up
+       from terms, operators, and modifiers, but not other fields.
+</pre>
+
+<h3> &nbsp; Fields with supported modifiers</h3>
+<pre>
+             ┌───────────┬─────────┬────────┬────────┬──────────┬───────┐
+             │field      │ combine │ type   │ expand │ wildcard │ regex │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │<u>none</u>       │ and     │        │ no     │ yes      │ no    │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │<u>user</u>       │ and     │ phrase │ no     │ yes      │ no    │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │attachment │ and     │ phrase │ yes    │ yes      │ no    │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │body       │ and     │ phrase │ no     │ no       │ no    │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │date       │         │ range  │ no     │ no       │ no    │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │folder     │ or      │ phrase │ yes    │ yes      │ yes   │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │from       │ and     │ phrase │ yes    │ yes      │ yes   │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │id         │ or      │ term   │ no     │ yes      │ yes   │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │is         │ and     │ term   │ yes    │ yes      │ yes   │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │lastmod    │         │ range  │ no     │ no       │ no    │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │mid        │ or      │ term   │ no     │ yes      │ yes   │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │mimetype   │ or      │ phrase │ yes    │ yes      │ no    │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │path       │ or      │ term   │ no     │ yes      │ yes   │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │property   │ and     │ term   │ yes    │ yes      │ yes   │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │subject    │ and     │ phrase │ yes    │ yes      │ yes   │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │tag        │ and     │ term   │ yes    │ yes      │ yes   │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │thread     │ or      │ term   │ yes    │ yes      │ yes   │
+             ├───────────┼─────────┼────────┼────────┼──────────┼───────┤
+             │to         │ and     │ phrase │ yes    │ yes      │ no    │
+             └───────────┴─────────┴────────┴────────┴──────────┴───────┘
+</pre>
+
+<h3> &nbsp; MODIFIERS</h3>
+<pre>
+       <u>Modifiers</u>  refer  to  any prefixes (first elements of compound queries)
+       that are neither operators nor fields.
+
+       <b>(infix</b> <u>atom</u> <b>)</b>
+              Interpret  <u>atom</u>  as   an   infix   notmuch   query   (see   <a href='../notmuch-search-terms-7/'>not‐</a>
+              <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7)). Not supported inside fields.
+
+       <b>(matching</b> <b>q</b>_<b>1</b> <b>q</b>_<b>2</b> <b>...</b> <b>q</b>_<b>n</b> <b>)</b> <b>(of</b> <b>q</b>_<b>1</b> <b>q</b>_<b>2</b> <b>...</b> <b>q</b>_<b>n</b> <b>)</b>
+              Match  all messages have the same values of the current field as
+              those matching all of q_1 ... q_n. Supported in most term [7] or
+              phrase fields. Most commonly used in the <b>thread</b> field.
+
+       <b>(query</b> <u>atom</u> <b>)</b>
+              Expand  to  the saved query named by <u>atom</u>. See <a href='../notmuch-config-1/'>notmuch-config</a>(1)
+              for more. Note that the saved query  must  be  in  infix  syntax
+              (<a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7)). Not supported inside fields.
+
+       <b>(regex</b> <u>atom</u> <b>)</b> <b>(rx</b> <u>atom</u> <b>)</b>
+              Interpret  <u>atom</u>  as a POSIX.2 regular expression (see <b>regex</b>(7)).
+              This applies in term fields and a subset [5]  of  phrase  fields
+              (see <u>Fields</u> <u>with</u> <u>supported</u> <u>modifiers</u>).
+
+       <b>(starts-with</b> <u>subword</u> <b>)</b>
+              Matches  any term starting with <u>subword</u>.  This applies in either
+              phrase or term <u>fields</u>, or outside of fields  [6].  Note  that  a
+              <b>starts-with</b>  query  cannot  be part of a phrase. The atom <b>*</b> is a
+              synonym for <b>(starts-with</b> <b>&quot;&quot;)</b>.
+</pre>
+
+<h2>EXAMPLES</h2>
+<pre>
+       <b>Wizard</b> Match all messages containing the word &quot;wizard&quot;, ignoring case.
+
+       <b>added</b>  Match all messages containing &quot;added&quot;, but also those containing
+              &quot;add&quot;, &quot;additional&quot;, &quot;Additional&quot;, &quot;adds&quot;, etc... via stemming.
+
+       <b>(and</b> <b>Bob</b> <b>Marley)</b>
+              Match  messages  containing  words  &quot;Bob&quot; and &quot;Marley&quot;, or their
+              stems The words need not be adjacent.
+
+       <b>(not</b> <b>Bob</b> <b>Marley)</b>
+              Match messages containing neither &quot;Bob&quot; nor &quot;Marley&quot;, nor  their
+              stems,
+
+       <b>&quot;quick</b> <b>fox&quot;</b> <b>quick-fox</b> <b>quick@fox</b>
+              Match  the <u>phrase</u> &quot;quick&quot; followed by &quot;fox&quot; in phrase fields (or
+              outside a field). Match the literal string in a term field.
+
+       <b>(folder</b> <b>(of</b> <b>(id</b> <b>1234@invalid)))</b>
+              Match any message in the same folder as the one with  Message-Id
+              &quot;<u>1234@invalid</u>&quot;
+
+       <b>(id</b> <b>1234@invalid</b> <b>blah@test)</b>
+              Matches Message-Id &quot;<u>1234@invalid</u>&quot; <u>or</u> Message-Id &quot;<u>blah@test</u>&quot;
+
+       <b>(and</b> <b>(infix</b> <b>date:2009-11-18..2009-11-18</b> <b>)</b> <b>(tag</b> <b>unread))</b>
+              Match messages in the given date range with tag unread.
+
+       <b>(starts-with</b> <b>prelim)</b>
+              Match any words starting with &quot;prelim&quot;.
+
+       <b>(subject</b> <b>quick</b> <b>brown</b> <b>fox</b> <b>)</b>
+              Match   messages   whose  subject  contains  &quot;quick&quot;  (anywhere,
+              stemmed) and the phrase &quot;brown fox&quot;.
+
+       <b>(subject</b> <b>(starts-with</b> <b>prelim))</b>
+              Matches any word starting with &quot;prelim&quot;, inside a  message  sub‐
+              ject.
+
+       <b>(subject</b> <b>(starts-wih</b> <b>quick)</b> <b>brown</b> <b>fox</b> <b>)</b>
+              Match  messages  whose  subject  contains &quot;quick brown fox&quot;, but
+              also &quot;brown fox quicksand&quot;.
+
+       <b>(thread</b> <b>(of</b> <b>(id</b> <b>1234@invalid)))</b>
+              Match any message in the same thread as the one with  Message-Id
+              &quot;<u>1234@invalid</u>&quot;
+
+       <b>(thread</b> <b>(matching</b> <b>(from</b> <b>bob@example.com)</b> <b>(to</b> <b>bob@example.com)))</b>
+              Match  any  (messages  in) a thread containing a message from &quot;‐
+              <u>bob@example.com</u>&quot; and a (possibly distinct) message  to  &quot;bob  at
+              example.com&quot;)
+
+       <b>(to</b>  <b>(or</b> <b>bob@example.com</b> <b>mallory@example.org))</b> <b>(or</b> <b>(to</b> <b>bob@example.com)</b>
+       <b>(to</b> <b>mallory@example.org))</b>
+              Match  in  the  &quot;To&quot;  or  &quot;Cc&quot;  headers,  &quot;<u>bob@example.com</u>&quot;,  &quot;‐
+              <u>mallory@example.org</u>&quot;,  and  also  &quot;<u>bob@example.com.au</u>&quot;  since it
+              contains the adjacent triple &quot;bob&quot;, &quot;example&quot;, &quot;com&quot;.
+
+       <b>(not</b> <b>(to</b> <b>*))</b>
+              Match messages with an empty or invalid &apos;To&apos; and &apos;Cc&apos; field.
+
+       <b>(List</b> <b>*)</b>
+              Match messages with a non-empty List-Id header, assuming config‐
+              uration <b>index.header.List=List-Id</b>
+</pre>
+
+<h3> &nbsp; MACRO EXAMPLES</h3>
+<pre>
+       A macro that takes two parameters and applies different fields to them.
+
+          $ notmuch config set squery.TagSubject &apos;(macro (tagname subj) (and (tag ,tagname) (subject ,subj)))&apos;
+          $ notmuch search --query=sexp &apos;(TagSubject inbox maildir)&apos;
+
+       Nested macros are allowed.
+
+          $ notmuch config set squery.Inner &apos;(macro (x) (subject ,x))&apos;
+          $ notmuch config set squery.Outer  &apos;(macro (x y) (and (tag ,x) (Inner ,y)))&apos;
+          $ notmuch search --query=sexp &apos;(Outer inbox maildir)&apos;
+
+       Parameters  can  be re-used to reduce boilerplate. Any field, including
+       user defined fields is permitted within a macro.
+
+          $ notmuch config set squery.About &apos;(macro (name) (or (subject ,name) (List ,name)))&apos;
+          $ notmuch search --query=sexp &apos;(About notmuch)&apos;
+</pre>
+
+<h2>NOTES</h2>
+<pre>
+       [1]  Technically macros impliment lazy evaluation  and  lexical  scope.
+            There is one top level scope containing all macro definitions, but
+            all parameter definitions are local to a given macro.
+
+       [2]  a.k.a. prefixes
+
+       [3]  a.k.a. probabilistic prefixes
+
+       [4]  a.k.a. boolean prefixes
+
+       [5]  Due to the implemention of phrase fields in Xapian, regex  queries
+            could only match individual words.
+
+       [6]  Due  the  the way <b>body</b> is implemented in notmuch, this modifier is
+            not supported in the <b>body</b> field.
+
+       [7]  Due to the way recursive <b>path</b> queries are implemented in  notmuch,
+            this modifier is not supported in the <b>path</b> field.
+</pre>
+
+<h2>AUTHOR</h2>
+<pre>
+       Carl Worth and many others
+</pre>
+
+<h2>COPYRIGHT</h2>
+<pre>
+       2009-2021, Carl Worth and many others
+</pre>
+
+<h2>0.34</h2>

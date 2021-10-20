@@ -246,6 +246,11 @@
        <b>query.&lt;name&gt;</b>
               Expansion   for   named   query   called   &lt;name&gt;.   See    <a href='../notmuch-search-terms-7/'>not‐</a>
               <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7) for more information about named queries.
+
+       <b>squery.&lt;name&gt;</b>
+              Expansion for named query called &lt;name&gt;, using s-expression syn‐
+              tax. See  <a href='../notmuch-sexp-queries-7/'>notmuch-sexp-queries</a>(7)  for  more  information  about
+              s-expression queries.
 </pre>
 
 <h2>FILES</h2>
@@ -315,4 +320,4 @@
        2009-2021, Carl Worth and many others
 </pre>
 
-<h2>0.33</h2>
+<h2>0.34</h2>
