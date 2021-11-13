@@ -12,6 +12,7 @@
 
 ## Other email clients and front ends based on Notmuch
 
+* [aerc](https://git.sr.ht/~rjarry/aerc), a pretty good terminal email client written in Go that supports notmuch.
 * [alot](https://github.com/pazz/alot), a curses frontend written in Python with the [Urwid](http://excess.org/urwid/) toolkit.
 * [astroid](https://github.com/astroidmail/astroid), a graphical threads-with-tags mail user agent for notmuch. Written in C++ using GTK+, WebKit and gmime.
 * [bower](https://github.com/wangp/bower), a curses frontend written in [Mercury](http://www.cs.mu.oz.au/research/mercury/).
