@@ -112,10 +112,16 @@ Notmuch source.
 If you modify or add new features to the Notmuch Emacs UI, you should
 update the Emacs documentation.
 
+If you add a new keybinding, update `devel/emacs-keybindings.org`. As
+much as possible, try to be consistent between modes.
+
 ## Update NEWS
 
 If you make user visible changes, you should add an entry to the
 [`NEWS`](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/NEWS) file.
+
+In practice adding NEWS items can be done later during the release
+process, but then you typically get a one line mention, if at all.
 
 ## Update command-line completion
 
