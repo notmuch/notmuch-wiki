@@ -664,12 +664,12 @@ See also the **Usage:** section in `gnus-alias.el`.
 ## Multiple identities (and more) with message-templ
 
 Another option for multiple identities is
-[message-templ](http://pivot.cs.unb.ca/git?p=message-templ.git;a=summary)
+[message-templ](http://git.tethera.net?p=message-templ.git;a=summary)
 (also a available in marmalade).  This provides roughly the same
 facilities as wanderlust's template facility.
 
 See
-[example.emacs.el](http://pivot.cs.unb.ca/git?p=message-templ.git;a=blob;f=example.emacs.el;hb=HEAD)
+[example.emacs.el](http://git.tethera.net?p=message-templ.git;a=blob;f=example.emacs.el;hb=HEAD)
 for some simple examples of usage.
 
 ## Resending (or bouncing) messages
