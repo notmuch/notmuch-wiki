@@ -130,7 +130,7 @@ Following software can deliver to Maildir mailboxes:
 * Postfix: [local](http://www.postfix.org/local.8.html)
 * Exim: [appendfile](http://exim.org/exim-html-current/doc/html/spec_html/ch-the_appendfile_transport.html#SECTmaildirdelivery)
 * Qmail: [qmail-local](http://qmail.org/man/man8/qmail-local.html)
-* OpenSMTPD: supports tuning via [.forward](https://www.opensmtpd.org/forward.5.html) files
+* OpenSMTPD: supports tuning via [.forward](https://man.openbsd.org/forward) files
 
 Many MDAs also support filtering via [Sieve](https://en.wikipedia.org/wiki/Sieve_%28mail_filtering_language%29) language.
 
