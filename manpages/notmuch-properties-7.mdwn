@@ -75,66 +75,69 @@
               sage.
 
        <b>session-key</b>
-          When <a href='../notmuch-show-1/'>notmuch-show</a>(1) or <a href='../notmuch-reply-1/'>notmuch-reply</a>(1) encounters a  message  with
-          an  encrypted  part, if notmuch finds a <b>session-key</b> property associ‐
-          ated with the message, it will try that stashed session key for  de‐
-          cryption.
+              When <a href='../notmuch-show-1/'>notmuch-show</a>(1) or <a href='../notmuch-reply-1/'>notmuch-reply</a>(1)  encounters  a  message
+              with  an encrypted part, if notmuch finds a <b>session-key</b> property
+              associated with the message, it will try  that  stashed  session
+              key for decryption.
 
-          If  you  do  not  want to use any stashed session keys that might be
-          present, you should pass those programs <b>--decrypt=false</b>.
+              If you do not want to use any stashed session keys that might be
+              present, you should pass those programs <b>--decrypt=false</b>.
 
-          Using a stashed session key with &quot;notmuch show&quot; will speed  up  ren‐
-          dering  of  long  encrypted threads.  It also allows the user to de‐
-          stroy the secret part of any expired encryption-capable subkey while
-          still  being  able to read any retained messages for which they have
-          stashed the session key.  This enables truly deletable e-mail, since
-          (once  the  session  key  and  asymmetric subkey are both destroyed)
-          there are no keys left that can be used to decrypt any copy  of  the
-          original message previously stored by an adversary.
+              Using a stashed session key with &quot;notmuch show&quot;  will  speed  up
+              rendering of long encrypted threads.  It also allows the user to
+              destroy the secret part of any expired encryption-capable subkey
+              while  still  being able to read any retained messages for which
+              they have stashed the session key.  This enables truly deletable
+              e-mail,  since  (once  the session key and asymmetric subkey are
+              both destroyed) there are no keys left that can be used  to  de‐
+              crypt  any  copy of the original message previously stored by an
+              adversary.
 
-          However,  access to the stashed session key for an encrypted message
-          permits full byte-for-byte reconstruction of the cleartext  message.
-          This includes attachments, cryptographic signatures, and other mate‐
-          rial that cannot be reconstructed from the index alone.
+              However, access to the stashed session key for an encrypted mes‐
+              sage  permits full byte-for-byte reconstruction of the cleartext
+              message.  This includes attachments,  cryptographic  signatures,
+              and  other  material that cannot be reconstructed from the index
+              alone.
 
-          See <b>index.decrypt</b> in <a href='../notmuch-config-1/'>notmuch-config</a>(1) for more details about how to
-          set notmuch&apos;s policy on when to store session keys.
+              See <b>index.decrypt</b> in <a href='../notmuch-config-1/'>notmuch-config</a>(1) for  more  details  about
+              how to set notmuch&apos;s policy on when to store session keys.
 
-          The  session key should be in the ASCII text form produced by GnuPG.
-          For OpenPGP, that consists of a decimal representation of  the  hash
-          algorithm  used  (identified  by  number from RFC 4880, e.g. 9 means
-          AES-256) followed by a colon, followed by a hexadecimal  representa‐
-          tion  of  the  algorithm-specific  key.  For example, an AES-128 key
-          might   be   stashed   in    a    notmuch    property    as:    <b>ses-</b>
-          <b>sion-key=7:14B16AF65536C28AF209828DFE34C9E0</b>.
+              The  session  key  should  be in the ASCII text form produced by
+              GnuPG.  For OpenPGP, that consists of a  decimal  representation
+              of  the hash algorithm used (identified by number from RFC 4880,
+              e.g. 9 means AES-256) followed by a colon, followed by  a  hexa‐
+              decimal representation of the algorithm-specific key.  For exam‐
+              ple, an AES-128 key might be stashed in a notmuch  property  as:
+              <b>session-key=7:14B16AF65536C28AF209828DFE34C9E0</b>.
 
        <b>index.repaired</b>
-          Some  messages  arrive in forms that are confusing to view; they can
-          be mangled by mail transport agents, or the sending mail user  agent
-          may structure them in a way that is confusing.  If notmuch knows how
-          to both detect and repair such a problematic message, it will do  so
-          during indexing.
+              Some  messages  arrive in forms that are confusing to view; they
+              can be mangled by mail transport agents,  or  the  sending  mail
+              user  agent  may  structure them in a way that is confusing.  If
+              notmuch knows how to both detect and repair such  a  problematic
+              message, it will do so during indexing.
 
-          If  it applies a message repair during indexing, it will use the <b>in-</b>
-          <b>dex.repaired</b> property to note the type of repair(s) it performed.
+              If  it applies a message repair during indexing, it will use the
+              <b>index.repaired</b> property to note the type of  repair(s)  it  per‐
+              formed.
 
-          <b>index.repaired=skip-protected-headers-legacy-display</b> indicates  that
-          when indexing the cleartext of an encrypted message, notmuch skipped
-          over a &quot;legacy-display&quot; text/rfc822-headers part that  it  found  in
-          that  message,  since  it  was  able to index the built-in protected
-          headers directly.
+              <b>index.repaired=skip-protected-headers-legacy-display</b>   indicates
+              that when indexing the cleartext of an encrypted  message,  not‐
+              much  skipped  over  a &quot;legacy-display&quot; text/rfc822-headers part
+              that it found in that message, since it was able  to  index  the
+              built-in protected headers directly.
 
-          <b>index.repaired=mixedup</b> indicates the repair  of  a  &quot;Mixed  Up&quot;  en‐
-          crypted  PGP/MIME  message,  a mangling typically produced by Micro‐
-          soft&apos;s
-          <u>https://tools.ietf.org/html/draft-dkg-openpgp-pgpmime-message-mangling</u>
-          for more information.
+              <b>index.repaired=mixedup</b>  indicates the repair of a &quot;Mixed Up&quot; en‐
+              crypted PGP/MIME message, a mangling typically produced  by  Mi‐
+              crosoft&apos;s
+              <u>https://tools.ietf.org/html/draft-dkg-openpgp-pgpmime-message-mangling</u>
+              for more information.
 </pre>
 
 <h2>SEE ALSO</h2>
 <pre>
        <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-insert-1/'>notmuch-insert</a>(1), <a href='../notmuch-new-1/'>not‐</a>
-       <a href='../notmuch-new-1/'>much-new</a>(1),  <a href='../notmuch-reindex-1/'>notmuch-reindex</a>(1), <a href='../notmuch-reply-1/'>notmuch-reply</a>(1), <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
+       <a href='../notmuch-new-1/'>much-new</a>(1), <a href='../notmuch-reindex-1/'>notmuch-reindex</a>(1), <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),
        <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7), <a href='../notmuch-show-1/'>notmuch-show</a>(1)
 </pre>
 
@@ -145,7 +148,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2021, Carl Worth and many others
+       2009-2022, Carl Worth and many others
 </pre>
 
-<h2>0.34</h2>
+<h2>0.35</h2>

@@ -110,7 +110,7 @@
               search  terms.  This  option  specifies whether to omit excluded
               messages in the search process.
 
-              <b>true</b> (default)
+              <b>true</b> <b>(default)</b>
                      Prevent excluded messages from matching the search terms.
 
               <b>all</b>    Additionally prevent excluded messages from appearing  in
@@ -176,7 +176,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2021, Carl Worth and many others
+       2009-2022, Carl Worth and many others
 </pre>
 
-<h2>0.34</h2>
+<h2>0.35</h2>

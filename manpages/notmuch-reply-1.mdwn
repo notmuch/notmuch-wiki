@@ -62,7 +62,7 @@
 
        <b>--reply-to=(all|sender)</b>
 
-              <b>all</b> (default)
+              <b>all</b> <b>(default)</b>
                      Replies to all addresses.
 
               <b>sender</b> Replies only to the sender. If  replying  to  user&apos;s  own
@@ -127,7 +127,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2021, Carl Worth and many others
+       2009-2022, Carl Worth and many others
 </pre>
 
-<h2>0.34</h2>
+<h2>0.35</h2>

@@ -138,6 +138,16 @@
               Default:   empty   list.   Note   that   <b>notmuch-setup</b>(1)   puts
               <b>deleted;spam</b> here when creating new configuration file.
 
+       <b>show.extra_headers</b>
+          By default <a href='../notmuch-show-1/'>notmuch-show</a>(1) includes the following headers in  struc‐
+          tured  output if they are present in the message: <u>Subject</u>, <u>From</u>, <u>To</u>,
+          <u>Cc</u>, <u>Bcc</u>, <u>Reply-To</u>, <u>Date</u>. This option allows the specification  of  a
+          list of further headers to output.
+
+          History: This configuration value was introduced in notmuch 0.35.
+
+          Default: empty list.
+
        <b>maildir.synchronize</b>_<b>flags</b>
               If true, then the following maildir flags (in message filenames)
               will be synchronized with the corresponding notmuch tags:
@@ -153,7 +163,7 @@
                             ├─────┼────────────────────────────┤
                             │R    │ replied                    │
                             ├─────┼────────────────────────────┤
-                            │S    │ unread   (added  when  &apos;S&apos; │
+                            │S    │ unread  (added  when   &apos;S&apos; │
                             │     │ flag is not present)       │
                             └─────┴────────────────────────────┘
 
@@ -161,42 +171,41 @@
               and update tags, while the <a href='../notmuch-tag-1/'>notmuch-tag</a>(1) and <a href='../notmuch-restore-1/'>notmuch-restore</a>(1)
               commands will notice tag changes and update flags in filenames.
 
-              If there have been any changes  in  the  maildir  (new  messages
-              added,  old  ones  removed  or  renamed,  maildir flags changed,
+              If  there  have  been  any  changes in the maildir (new messages
+              added, old ones  removed  or  renamed,  maildir  flags  changed,
               etc.),  it  is  advisable  to  run  <a href='../notmuch-new-1/'>notmuch-new</a>(1)  before  <a href='../notmuch-tag-1/'>not‐</a>
-              <a href='../notmuch-tag-1/'>much-tag</a>(1)  or  <a href='../notmuch-restore-1/'>notmuch-restore</a>(1)  commands  to ensure the tag
-              changes are properly synchronized to the maildir flags,  as  the
+              <a href='../notmuch-tag-1/'>much-tag</a>(1) or <a href='../notmuch-restore-1/'>notmuch-restore</a>(1) commands  to  ensure  the  tag
+              changes  are  properly synchronized to the maildir flags, as the
               commands expect the database and maildir to be in sync.
 
               Default: <b>true</b>.
 
        <b>index.decrypt</b>
-              Policy  for decrypting encrypted messages during indexing.  Must
+              Policy for decrypting encrypted messages during indexing.   Must
               be one of: <b>false</b>, <b>auto</b>, <b>nostash</b>, or <b>true</b>.
 
-              When indexing an encrypted e-mail message, if this  variable  is
-              set  to  <b>true</b>, notmuch will try to decrypt the message and index
-              the cleartext, stashing a copy of any  discovered  session  keys
+              When  indexing  an encrypted e-mail message, if this variable is
+              set to <b>true</b>, notmuch will try to decrypt the message  and  index
+              the  cleartext,  stashing  a copy of any discovered session keys
               for the message.  If <b>auto</b>, it will try to index the cleartext if
-              a stashed session key is already known  for  the  message  (e.g.
-              from  a  previous  copy), but will not try to access your secret
+              a  stashed  session  key  is already known for the message (e.g.
+              from a previous copy), but will not try to  access  your  secret
               keys.  Use <b>false</b> to avoid decrypting even when a stashed session
               key is already present.
 
-              <b>nostash</b>  is  the  same  as  <b>true</b>  except  that it will not stash
+              <b>nostash</b> is the same as  <b>true</b>  except  that  it  will  not  stash
               newly-discovered session keys in the database.
 
-              From the command line (i.e. during  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-insert-1/'>notmuch-in‐</a>
+              From  the  command line (i.e. during <a href='../notmuch-new-1/'>notmuch-new</a>(1), <a href='../notmuch-insert-1/'>notmuch-in‐</a>
               <a href='../notmuch-insert-1/'>sert</a>(1), or <a href='../notmuch-reindex-1/'>notmuch-reindex</a>(1)), the user can override the data‐
               base&apos;s stored decryption policy with the <b>--decrypt=</b> option.
 
-              Here is a table that summarizes the  functionality  of  each  of
+              Here  is  a  table  that summarizes the functionality of each of
               these policies:
 
                       ┌──────────────┬───────┬──────┬─────────┬──────┐
                       │              │ false │ auto │ nostash │ true │
-                      └──────────────┴───────┴──────┴─────────┴──────┘
-
+                      ├──────────────┼───────┼──────┼─────────┼──────┤
                       │Index cleart‐ │       │ X    │ X       │ X    │
                       │ext     using │       │      │         │      │
                       │stashed  ses‐ │       │      │         │      │
@@ -211,45 +220,45 @@
                       ├──────────────┼───────┼──────┼─────────┼──────┤
                       │Delete
                       │stashed  ses‐ │       │      │         │      │
-                      │sion  keys on │       │      │         │      │
+                      │sion keys  on │       │      │         │      │
                       │reindex       │       │      │         │      │
                       └──────────────┴───────┴──────┴─────────┴──────┘
 
-              Stashed session keys are kept in the database as properties  as‐
-              sociated  with  the message.  See <b>session-key</b> in <a href='../notmuch-properties-7/'>notmuch-proper‐</a>
+              Stashed  session keys are kept in the database as properties as‐
+              sociated with the message.  See <b>session-key</b>  in  <a href='../notmuch-properties-7/'>notmuch-proper‐</a>
               <a href='../notmuch-properties-7/'>ties</a>(7) for more details about how they can be useful.
 
-              Be aware that the notmuch index  is  likely  sufficient  (and  a
-              stashed  session key is certainly sufficient) to reconstruct the
-              cleartext of the message itself, so please ensure that the  not‐
-              much  message  index  is  adequately  protected.  DO NOT USE <b>in-</b>
-              <b>dex.decrypt=true</b> or  <b>index.decrypt=nostash</b>  without  considering
+              Be  aware  that  the  notmuch  index is likely sufficient (and a
+              stashed session key is certainly sufficient) to reconstruct  the
+              cleartext  of the message itself, so please ensure that the not‐
+              much message index is adequately  protected.   DO  NOT  USE  <b>in-</b>
+              <b>dex.decrypt=true</b>  or  <b>index.decrypt=nostash</b>  without considering
               the security of your index.
 
               Default: <b>auto</b>.
 
        <b>index.header.&lt;prefix&gt;</b>
-              Define  the  query  prefix &lt;prefix&gt;, based on a mail header. For
-              example <b>index.header.List=List-Id</b> will add a probabilistic  pre‐
-              fix  <b>List:</b>  that  searches the <b>List-Id</b> field.  User defined pre‐
+              Define the query prefix &lt;prefix&gt;, based on a  mail  header.  For
+              example  <b>index.header.List=List-Id</b> will add a probabilistic pre‐
+              fix <b>List:</b> that searches the <b>List-Id</b> field.   User  defined  pre‐
               fixes must not start with &apos;a&apos;...&apos;z&apos;; in particular adding a pre‐
-              fix  with same name as a predefined prefix is not supported. See
-              <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7) for a list of existing prefixes, and  an
+              fix with same name as a predefined prefix is not supported.  See
+              <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7)  for a list of existing prefixes, and an
               explanation of probabilistic prefixes.
 
        <b>built</b>_<b>with.&lt;name&gt;</b>
               Compile  time  feature  &lt;name&gt;.  Current  possibilities  include
-              &quot;retry_lock&quot; (configure option, included  by  default).   (since
-              notmuch  0.30,  &quot;compact&quot;  and  &quot;field_processor&quot; are always in‐
+              &quot;retry_lock&quot;  (configure  option,  included by default).  (since
+              notmuch 0.30, &quot;compact&quot; and  &quot;field_processor&quot;  are  always  in‐
               cluded.)
 
        <b>query.&lt;name&gt;</b>
-              Expansion   for   named   query   called   &lt;name&gt;.   See    <a href='../notmuch-search-terms-7/'>not‐</a>
+              Expansion    for   named   query   called   &lt;name&gt;.   See   <a href='../notmuch-search-terms-7/'>not‐</a>
               <a href='../notmuch-search-terms-7/'>much-search-terms</a>(7) for more information about named queries.
 
        <b>squery.&lt;name&gt;</b>
               Expansion for named query called &lt;name&gt;, using s-expression syn‐
-              tax. See  <a href='../notmuch-sexp-queries-7/'>notmuch-sexp-queries</a>(7)  for  more  information  about
+              tax.  See  <a href='../notmuch-sexp-queries-7/'>notmuch-sexp-queries</a>(7)  for  more  information about
               s-expression queries.
 </pre>
 
@@ -264,10 +273,10 @@
        2. File specified by <b>NOTMUCH</b>_<b>CONFIG</b> environment variable.
 
        3. <b>$XDG</b>_<b>CONFIG</b>_<b>HOME/notmuch/&lt;profile&gt;/config</b> where <b>&lt;profile&gt;</b> is defined
-          by  <b>NOTMUCH</b>_<b>PROFILE</b>   environment   variable   if   set,   <b>$XDG</b>_<b>CON-</b>
+          by   <b>NOTMUCH</b>_<b>PROFILE</b>   environment   variable   if   set,  <b>$XDG</b>_<b>CON-</b>
           <b>FIG</b>_<b>HOME/notmuch/default/config</b> otherwise.
 
-       4. <b>$HOME/.notmuch-config.&lt;profile&gt;</b>  where  <b>&lt;profile&gt;</b> is defined by <b>NOT-</b>
+       4. <b>$HOME/.notmuch-config.&lt;profile&gt;</b> where <b>&lt;profile&gt;</b> is defined  by  <b>NOT-</b>
           <b>MUCH</b>_<b>PROFILE</b> environment variable if set, <b>$HOME/.notmuch-config</b> oth‐
           erwise.
 </pre>
@@ -280,7 +289,7 @@
 
        2. Directory specified by config key <b>database.path</b>.
 
-       3. <b>$XDG</b>_<b>DATA</b>_<b>HOME/notmuch/&lt;profile&gt;</b>  where <b>&lt;profile&gt;</b> is defined by <b>NOT-</b>
+       3. <b>$XDG</b>_<b>DATA</b>_<b>HOME/notmuch/&lt;profile&gt;</b> where <b>&lt;profile&gt;</b> is defined by  <b>NOT-</b>
           <b>MUCH</b>_<b>PROFILE</b> environment variable if set, <b>$XDG</b>_<b>DATA</b>_<b>HOME/notmuch/de-</b>
           <b>fault</b> otherwise.
 
@@ -295,8 +304,8 @@
 
        1. Directory specified by <b>database.hook</b>_<b>dir</b> configuration option.
 
-       2. <b>$XDG</b>_<b>CONFIG</b>_<b>HOME/notmuch/&lt;profile&gt;/hooks</b>  where <b>&lt;profile&gt;</b> is defined
-          by  <b>NOTMUCH</b>_<b>PROFILE</b>   environment   variable   if   set,   <b>$XDG</b>_<b>CON-</b>
+       2. <b>$XDG</b>_<b>CONFIG</b>_<b>HOME/notmuch/&lt;profile&gt;/hooks</b> where <b>&lt;profile&gt;</b> is  defined
+          by   <b>NOTMUCH</b>_<b>PROFILE</b>   environment   variable   if   set,  <b>$XDG</b>_<b>CON-</b>
           <b>FIG</b>_<b>HOME/notmuch/default/hooks</b> otherwise.
 
        3. <b>&lt;database.path&gt;/.notmuch/hooks</b>
@@ -304,8 +313,8 @@
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-count-1/'>notmuch-count</a>(1),  <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5), <a href='../notmuch-insert-1/'>not‐</a>
-       <a href='../notmuch-insert-1/'>much-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-properties-7/'>notmuch-properties</a>(7),   <a href='../notmuch-reply-1/'>notmuch-re‐</a>
+       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>notmuch-hooks</a>(5),  <a href='../notmuch-insert-1/'>not‐</a>
+       <a href='../notmuch-insert-1/'>much-insert</a>(1),   <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-properties-7/'>notmuch-properties</a>(7),  <a href='../notmuch-reply-1/'>notmuch-re‐</a>
        <a href='../notmuch-reply-1/'>ply</a>(1), <a href='../notmuch-restore-1/'>notmuch-restore</a>(1), <a href='../notmuch-search-1/'>notmuch-search</a>(1), <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),
        <a href='../notmuch-show-1/'>notmuch-show</a>(1), <a href='../notmuch-tag-1/'>notmuch-tag</a>(1)
 </pre>
@@ -317,7 +326,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2021, Carl Worth and many others
+       2009-2022, Carl Worth and many others
 </pre>
 
-<h2>0.34</h2>
+<h2>0.35</h2>

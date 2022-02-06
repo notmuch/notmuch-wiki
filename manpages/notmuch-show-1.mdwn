@@ -33,7 +33,7 @@
 
        <b>--format=(text|json|sexp|mbox|raw)</b>
 
-              <b>text</b> (default for messages)
+              <b>text</b> <b>(default</b> <b>for</b> <b>messages)</b>
                      The  default  plain-text format has all text-content MIME
                      parts decoded. Various components in  the  output,  (<b>mes-</b>
                      <b>sage</b>,  <b>header</b>,  <b>body</b>, <b>attachment</b>, and MIME <b>part</b>), will be
@@ -70,7 +70,7 @@
                      is termed &quot;mboxrd&quot; format and described in detail here:
                         <u>http://homepage.ntlworld.com/jonathan.deboynepollard/FGA/mail-mbox-formats.html</u>
 
-              <b>raw</b> (default if <b>--part</b> is given)
+              <b>raw</b> <b>(default</b> <b>if</b> <b>--part</b> <b>is</b> <b>given)</b>
                      Write  the  raw bytes of the given MIME part of a message
                      to standard out. For this format, it is an error to spec‐
                      ify a query that matches more than one message.
@@ -210,6 +210,12 @@
        seen in the first column of output from the <a href='../notmuch-search-1/'>notmuch-search</a>(1) command.
 </pre>
 
+<h2>CONFIGURATION</h2>
+<pre>
+       Structured  output (json / sexp) is influenced by the configuration op‐
+       tion show.extra_headers. See <a href='../notmuch-config-1/'>notmuch-config</a>(1) for details.
+</pre>
+
 <h2>EXIT STATUS</h2>
 <pre>
        This command supports the following special exit status codes
@@ -221,8 +227,8 @@
 
 <h2>SEE ALSO</h2>
 <pre>
-       <a href='../notmuch-1/'>notmuch</a>(1),  <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1), <a href='../notmuch-hooks-5/'>not‐</a>
-       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),  <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),   <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
+       <a href='../notmuch-1/'>notmuch</a>(1), <a href='../notmuch-config-1/'>notmuch-config</a>(1), <a href='../notmuch-count-1/'>notmuch-count</a>(1), <a href='../notmuch-dump-1/'>notmuch-dump</a>(1),  <a href='../notmuch-hooks-5/'>not‐</a>
+       <a href='../notmuch-hooks-5/'>much-hooks</a>(5),   <a href='../notmuch-insert-1/'>notmuch-insert</a>(1),  <a href='../notmuch-new-1/'>notmuch-new</a>(1),  <a href='../notmuch-reply-1/'>notmuch-reply</a>(1),
        <a href='../notmuch-restore-1/'>notmuch-restore</a>(1),  <a href='../notmuch-search-1/'>notmuch-search</a>(1),  <a href='../notmuch-search-terms-7/'>notmuch-search-terms</a>(7),  <a href='../notmuch-tag-1/'>not‐</a>
        <a href='../notmuch-tag-1/'>much-tag</a>(1)
 </pre>
@@ -234,7 +240,7 @@
 
 <h2>COPYRIGHT</h2>
 <pre>
-       2009-2021, Carl Worth and many others
+       2009-2022, Carl Worth and many others
 </pre>
 
-<h2>0.34</h2>
+<h2>0.35</h2>
