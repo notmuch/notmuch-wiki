@@ -939,3 +939,31 @@ discussion](https://notmuchmail.org/pipermail/notmuch/2018/026414.html).
 The `notmuch-extract-thread-patches` and
 `notmuch-extract-message-patches` commands from the `elpa-mailscripts`
 package in Debian (and its derivatives) can do this for you.
+
+## Allow content preference based on message context
+
+The preference for which sub-part of a multipart/alternative part is shown is
+globally set. For example, if you prefer showing the html version over the text
+based, you can set:
+
+    (setq notmuch-multipart/alternative-discouraged '("text/plain" "text/html"))
+
+However, sometimes you might want to adapt your preference depending on the
+context. You can override the default settings on a per-message basis by
+providing a function that has access to the message and which returns the
+discouraged type list. For example:
+
+    (defun my/determine-discouraged (msg)
+      (let* ((headers (plist-get msg :headers))
+             (from (or (plist-get headers :From) "")))
+        (cond
+         ((string-match "whatever@mail.address.com" from)
+          '("text/plain"))
+         (t
+          '("text/html" "multipart/related")))))
+
+    (setq notmuch-multipart/alternative-discouraged
+          'my/determine-discouraged)
+
+This would discourage text/html and multipart/related generally, but discourage
+text/plain should the message be sent from whatever@mail.address.com.
