@@ -74,31 +74,17 @@ make regular backups of your notmuch database:
 
 ### Compact your database
 
-In order to greatly reduce the size of your database, you should
-compact it. Carl says "This functionality is not yet available in the
-Xapian library interface or else I would probably make notmuch call it
-after building the database." and Pieter "[compacting] will cause
-writes to be a bit more expensive in the short term, but will
-significantly reduce the db's size, which your SSD will surely
-appreciate."
+In order to greatly reduce the size of your database, you should compact it. 
+This can be easily achieved with `notmuch compact`:
 
-This needs xapian 1.2
+    $ notmuch compact
 
-Backup your database:
-
-    $ cd
-    $ notmuch dump --output=notmuch-dump-b4compact
-
-Compact it:
-
-    $ cd $(notmuch config get database.path)/.notmuch
-    $ xapian-compact --no-renumber xapian xapian-compacted
-
-Remove old and renamed compacted, if compacting went well:
-
-    $ rm -R xapian
-    $ mv xapian-compacted xapian
-
+Note that this process can take a long time for large database and a write lock
+will be held for the duration to ensure data integrity. The process will create
+a new compacted database in a temporary directory and finally replace the
+original database if compaction is successful. For added safety you can provide
+`--backup=<directory>` option to preserve a copy of the original database. For
+more details on this process see `notmuch-compact` man page.
 
 ### More information about this in the email archives:
 
