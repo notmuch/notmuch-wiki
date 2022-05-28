@@ -29,7 +29,8 @@ See help for `message-citation-line-format` for details.
 
 ## What are sexp queries?
 
-For the syntax of sexp queries, see [[the man page|manpages/notmuch-sexp-queries-7]].
+For the syntax of sexp queries, see [the manual
+page](https://notmuchmail.org/doc/latest/man7/notmuch-sexp-queries.html).
 
 To see if your version of notmuch supports them, run
 
