@@ -69,6 +69,17 @@ searches. Punctuation is mostly ignored.
 The boolean prefix searches (see Boolean and Probabilistic Prefixes in the man
 page), such as tag: or path: searches, need an exact match.
 
+For [specific
+fields](https://notmuchmail.org/doc/latest/man7/notmuch-search-terms.html#search-prefixes)
+it is possible to use regex searches (although these are often
+noticeably slower than native Xapian queries). The limited set of
+fields is a quirk of implementation which requires a Xapian "value
+slot" in the database schema. Adding regex support for more fields to
+would require of adding more value slots to the schema. The
+performance impact of that needs to be experimentally evaluated, and
+assuming it is not too bad, some database upgrade code would need to
+be written.
+
 ## How do I search for folders or paths with spaces?
 
 The spaces in the names must be escaped. For example if you use bash or zsh,
