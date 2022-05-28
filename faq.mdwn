@@ -27,11 +27,26 @@ See [[excluding]].
 
 See help for `message-citation-line-format` for details.
 
+## What are sexp queries
+
+For the syntax of sexp queries, see [the manual
+page](https://notmuchmail.org/doc/latest/man7/notmuch-sexp-queries.html).
+
+To see if your version of notmuch supports them, run
+
+        $ notmuch config get built_with.sexp_queries
+
 ## How do I search for messages that have no tags?
 
-Unfortunately, there is no way to do this directly.
+To do this directly, you need a recent notmuch compiled with sexp
+queries (see above). You can then run
 
-However, it's possible to accomplish this using two searches in shell. First,
+        $ notmuch search --query=sexp --output=messages '(not (tag *))'
+
+The same style of query should work for any prefix, even user defined
+prefixes like `List` (see below).
+
+Otherwise, it's possible to accomplish this using two searches in shell. First,
 you need to query all tags in the database, and transform the result into a
 query that matches messages that have none of those tags:
 
