@@ -27,7 +27,7 @@ See [[excluding]].
 
 See help for `message-citation-line-format` for details.
 
-## What are sexp queries
+## What are sexp queries?
 
 For the syntax of sexp queries, see [the manual
 page](https://notmuchmail.org/doc/latest/man7/notmuch-sexp-queries.html).
