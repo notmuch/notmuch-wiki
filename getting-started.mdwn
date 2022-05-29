@@ -9,7 +9,7 @@ This is your friendly guide and tutorial to getting started with Notmuch. It
 will help you through the first steps of setting up Notmuch.
 
 All Notmuch commands have [manual
-pages](https://notmuchmail.org/doc/latest/) Please refer to them for
+pages](https://notmuchmail.org/doc/latest/). Please refer to them for
 details.
 
 ## Prerequisites
