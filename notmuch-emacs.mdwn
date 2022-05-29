@@ -13,9 +13,10 @@ the [[tips and tricks page|emacstips]] for more advanced details.
 
 ## Prerequisites
 
-The Notmuch Emacs interface uses the Notmuch [[command line interface|manpages]]
-to interact with the Notmuch database and your mail store. Please make sure
-you've [[set up Notmuch|getting-started]] first.
+The Notmuch Emacs interface uses the Notmuch [command line
+interface](https://notmuchmail.org/doc/latest/man1/notmuch.html) to
+interact with the Notmuch database and your mail store. Please make
+sure you've [[set up Notmuch|getting-started]] first.
 
 ## Installation
 

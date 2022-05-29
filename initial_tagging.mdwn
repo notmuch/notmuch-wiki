@@ -92,6 +92,6 @@ the 'new' tag approach discussed above.
 
 ## Notmuch MDA -- `notmuch-insert`
 
-The [[notmuch insert command|manpages/notmuch-insert-1]] is a tool for
+The [notmuch insert command](https://notmuchmail.org/doc/latest/man1/notmuch-insert.html) is a tool for
 delivering emails to maildir, indexing them to the Notmuch database, and tagging
 them as desired.

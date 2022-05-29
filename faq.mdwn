@@ -59,8 +59,8 @@ Next, use that to query the messages:
 
 ## How do I search for punctuation, specific special characters, or regexp?
 
-Please see the [[notmuch-search-terms manual
-page|manpages/notmuch-search-terms-7]] first.
+Please see the [notmuch-search-terms manual
+page](https://notmuchmail.org/doc/latest/man7/notmuch-search-terms.html) first.
 
 The main thing to understand is that Xapian, and therefore Notmuch, searches are
 closer to natural language searches than regular expression
@@ -106,8 +106,8 @@ This is required in order to run the `pre-new` and `post-new` hooks.
 No. Tagging is message based.
 
 It is possible, however, to make tags propagate to all messages in a thread
-using a little bit of scripting in the [[post-new
-hook|manpages/notmuch-hooks-5]]. For example, to add the muted tag to all
+using a little bit of scripting in the [post-new
+hook](https://notmuchmail.org/doc/latest/man5/notmuch-hooks.html). For example, to add the muted tag to all
 messages in threads that have at least one message with the muted tag:
 
         THREAD_TAGS="muted"

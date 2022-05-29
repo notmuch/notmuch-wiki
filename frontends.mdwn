@@ -3,7 +3,7 @@
 
 ## Shipping with Notmuch
 
-* [[notmuch-cli|manpages]], the CLI bindings provided with Notmuch.
+* [notmuch-cli](https://notmuchmail.org/doc/latest/man1/notmuch.html), the CLI bindings provided with Notmuch.
 * [[notmuch-emacs|notmuch-emacs]], the Emacs email client.
 * [notmuch-vim](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/vim/README), the vim frontend.
 * [[notmuch-mutt]], mutt interoperability script.

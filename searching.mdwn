@@ -4,9 +4,10 @@
 What good is an advanced indexing mail client if we don't know how to 
 use it to actually find e-mail?
 
-The [[notmuch-search-terms manual page|manpages/notmuch-search-terms-7]] should
-cover everything in a fairly concise manner. Please refer to that for any
-details.
+The [notmuch-search-terms manual
+pages](https://notmuchmail.org/doc/latest/man7/notmuch-search-terms.html)
+should cover everything in a fairly concise manner. Please refer to
+that for any details.
 
 Notmuch uses the [Xapian](http://xapian.org/) search engine. The [Xapian
 QueryParser](http://xapian.org/docs/queryparser.html) documentation has
@@ -171,6 +172,7 @@ work:
 
 For `<since>` and `<until>`, notmuch understands a variety of standard
 and natural ways of expressing dates and times, both in absolute terms
-("2012-10-24") and in relative terms ("yesterday"). Please refer to the
-[[notmuch-search-terms manual page|manpages/notmuch-search-terms-7]] for
-details.
+("2012-10-24") and in relative terms ("yesterday"). Please refer to
+the [notmuch-search-terms
+manual](https://notmuchmail.org/doc/latest/man7/notmuch-search-terms.html)
+for details.

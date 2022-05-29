@@ -73,7 +73,7 @@ procedure:
 
 ## <span id="exclude">**killing threads**</span>
 
-In a [[hook|manpages/notmuch-hooks-5]]
+In a [hook](https://notmuchmail.org/doc/latest/man5/notmuch-hooks.html)
 
     notmuch tag +muted $(notmuch search --output=threads tag:muted)"
 

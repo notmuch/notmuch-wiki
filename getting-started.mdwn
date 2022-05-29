@@ -8,7 +8,8 @@
 This is your friendly guide and tutorial to getting started with Notmuch. It
 will help you through the first steps of setting up Notmuch.
 
-All Notmuch commands have [[manual pages|manpages]]. Please refer to them for
+All Notmuch commands have [manual
+pages](https://notmuchmail.org/doc/latest/) Please refer to them for
 details.
 
 ## Prerequisites
@@ -64,8 +65,9 @@ Depending on the amount of mail you have the initial indexing process can take a
 long time, so expect that. Also, the resulting database will require roughly the
 same amount of storage space as your current collection of email.
 
-After this step, you can try out the [[Notmuch command-line
-interface|manpages]], or [[Notmuch Emacs interface|notmuch-emacs]].
+After this step, you can try out the [Notmuch command line
+interface](https://notmuchmail.org/doc/latest/man1/notmuch.html), or
+[[Notmuch Emacs interface|notmuch-emacs]].
 
 ## Converting Existing mbox to Maildir
 
@@ -93,13 +95,15 @@ There are two ways to deliver and index messages:
 
 ## Automation Via Hooks
 
-Notmuch supports running [[user defined hooks|manpages/notmuch-hooks-5]] before
-or after certain commands. Hooks can be arbitrary executable programs or
-scripts. For example, if you always run your mail delivery tool first and
-`notmuch new` after that, you can run the tool from Notmuch `pre-new` hook, and
-simply run `notmuch new` to do both. If you always do some tagging after
-indexing of new messages, you may want to set up a `post-new` or `post-insert`
-hook to do that automatically.
+Notmuch supports running [user defined
+hooks](https://notmuchmail.org/doc/latest/man5/notmuch-hooks.html)
+before or after certain commands. Hooks can be arbitrary executable
+programs or scripts. For example, if you always run your mail delivery
+tool first and `notmuch new` after that, you can run the tool from
+Notmuch `pre-new` hook, and simply run `notmuch new` to do both. If
+you always do some tagging after indexing of new messages, you may
+want to set up a `post-new` or `post-insert` hook to do that
+automatically.
 
 ## Backing Up and Restoring the Database
 
