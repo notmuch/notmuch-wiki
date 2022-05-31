@@ -17,21 +17,23 @@ notmuch, or use a sets of scripts/handler within mutt to achieve something close
 There's a page about the [[notmuch-mutt]] scripts that are distributed along
 with notmuch, in its contrib directory.
 
-# Using Notmuch with mutt-kz
+# Using Notmuch with neomutt
 
-Here is a tip about how to set up [mutt-kz](https://github.com/karelzak/mutt-kz), a fork
-of the mutt MUA with support of notmuch integrated.
+*Note*: This discussion was updated by a non-mutt user from talking about mutt-kz to 
+[neomutt](https://neomutt.org/). Caveat lector!
+
 
 ## Install:
 
-You'll need to first have notmuch installed and the notmuch library available to 
-configure. Otherwise, it is a good old autoconf setup, so here it goes:
-
-        git clone https://github.com/karelzak/mutt-kz.git
-        cd mutt-kz
-        ./configure && make && make install
+See (the neomutt install page)[https://neomutt.org/distro]. If
+building from source see [build
+instructions](https://neomutt.org/dev/build/build). Note in particular
+the `--notmuch`
 
 ## Configuration:
+
+*N.B.* From here is unmodified previous discussion about `mutt-kz`,
+which hopefully also applies to neomutt.
 
 Here is my `.muttrc` I use with `mutt-kz`, explanations as comments:
 
@@ -75,7 +77,7 @@ the bindings defined in configuration (such as A/I/S/+/-).
 
 ## Mail tagging on sending
 
-You may have noticed in `mutt-kz`'s configuration that I set the `sendmail` variable
+You may have noticed in `neomutts`'s configuration that I set the `sendmail` variable
 of mutt to a `nm_sendmail` script. This is for tagging outgoing mail each time I send
 a mail. Here is the content of the script (which may be used directly in mutt's 
 variable, I did not try). 
