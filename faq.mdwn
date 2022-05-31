@@ -12,6 +12,19 @@ with the same message (i.e. the files have identical Message-ID). A
 `folder:` search will match the folder of any of the files. The
 `--output=files` option outputs all the files of all matching messages.
 
+## How come this query does not list all the emails on the file system? `notmuch search --output=files -- folder:inbox`
+
+You may have emails that only have some of the excluded tags.
+
+Notmuch can be configured to exclude some tags while searching. You can list excluded tags with
+
+	$ notmuch config get search.exclude_tags
+	deleted
+
+To verify this is the reason of the discrepancy, add the excluded tags explicitly to your query.
+
+	$ notmuch search --output=files -- folder:inbox tag:deleted
+
 ## Shouldn't notmuch support inline PGP?
 
 [Why it might not be a good idea](https://dkg.fifthhorseman.net/notes/inline-pgp-harmful/)
