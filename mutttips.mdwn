@@ -25,7 +25,7 @@ with notmuch, in its contrib directory.
 
 ## Install:
 
-See (the neomutt install page)[https://neomutt.org/distro]. If
+See [the neomutt install page](https://neomutt.org/distro). If
 building from source see [build
 instructions](https://neomutt.org/dev/build/build). Note in particular
 the `--notmuch`
