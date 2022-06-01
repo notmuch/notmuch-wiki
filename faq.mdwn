@@ -125,12 +125,14 @@ messages in threads that have at least one message with the muted tag:
 
         THREAD_TAGS="muted"
         for tag in "$THREAD_TAGS"; do
-                notmuch tag +$tag $(notmuch search --output=threads tag:$tag)
+                notmuch tag +$tag thread:{tag:$tag}
         done
 
-You can add other tags to `THREAD_TAGS` as needed. Note that this is one way
-only; you need to explicitly remove the tag from all the messages in a thread to
-stop it from propagating again.
+You can add other tags to `THREAD_TAGS` as needed. Note that this is
+one way only; you need to explicitly remove the tag from all the
+messages in a thread to stop it from propagating again. See
+[notmuch-search-terms](https://notmuchmail.org/doc/latest/man5/notmuch-hooks.html)
+for discussion of `thread:{}` queries.
 
 
 ## How can I extract a git patchset for an email thread?
