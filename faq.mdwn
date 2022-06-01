@@ -131,7 +131,7 @@ messages in threads that have at least one message with the muted tag:
 You can add other tags to `THREAD_TAGS` as needed. Note that this is
 one way only; you need to explicitly remove the tag from all the
 messages in a thread to stop it from propagating again. See
-[notmuch-search-terms](https://notmuchmail.org/doc/latest/man5/notmuch-hooks.html)
+[notmuch-search-terms](https://notmuchmail.org/doc/latest/man7/notmuch-search-terms.html)
 for discussion of `thread:{}` queries.
 
 
