@@ -137,7 +137,10 @@ for discussion of `thread:{}` queries.
 
 ## How can I extract a git patchset for an email thread?
 
-See [notmuch-extract-patch](https://github.com/aaptel/notmuch-extract-patch).
+See
+[notmuch-extract-patch](https://github.com/aaptel/notmuch-extract-patch). See
+also notmuch-extract-patch in
+[mailscripts]](https://git.spwhitton.name/mailscripts/).
 
 ## T150-tagging.sh is failing with Xapian 1.4.6
 
