@@ -18,12 +18,12 @@ You may have emails that only have some of the excluded tags.
 
 Notmuch can be configured to exclude some tags while searching. You can list excluded tags with
 
-	$ notmuch config get search.exclude_tags
-	deleted
+    $ notmuch config get search.exclude_tags
+    deleted
 
 To verify this is the reason of the discrepancy, add the excluded tags explicitly to your query.
 
-	$ notmuch search --output=files -- folder:inbox tag:deleted
+    $ notmuch search --output=files -- folder:inbox tag:deleted
 
 ## Shouldn't notmuch support inline PGP?
 
