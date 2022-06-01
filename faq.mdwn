@@ -1,7 +1,7 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Frequently Asked Questions
 
-See also [[Less Frequently Asked Question|lfaq]].
+See also [[Less Frequently Asked Questions|lfaq]].
 
 [[!toc levels=2]]
 

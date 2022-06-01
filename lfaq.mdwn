@@ -1,7 +1,7 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Less Frequently Asked Questions
 
-[[!toc levels=2]]
+[[!toc levels=1]]
 
 ## T150-tagging.sh is failing with Xapian 1.4.6
 
