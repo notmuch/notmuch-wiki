@@ -3,9 +3,10 @@
 
 One of the more popular Notmuch message reading clients is **notmuch.el**, or
 `notmuch-mode`, an [Emacs](https://www.gnu.org/software/emacs/) major mode for
-interacting with Notmuch. It is included in the Notmuch package (`elpa-notmuch`
-in current Debian or `notmuch-emacs` in Debian 10 or prior). The
-[[screenshots|screenshots]] give a good overview of the mode.
+interacting with Notmuch. It is included in the Notmuch package (as
+`elpa-notmuch` within the `notmuch` package in current Debian or as
+`notmuch-emacs` in Debian 10 or prior). The [[screenshots|screenshots]] give a
+good overview of the mode.
 
 This page is a basic guide for setting up and using Notmuch with Emacs. See also
 the [[tips and tricks page|emacstips]] for more advanced details.
