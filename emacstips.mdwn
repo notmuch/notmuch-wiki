@@ -967,3 +967,33 @@ discouraged type list. For example:
 
 This would discourage text/html and multipart/related generally, but discourage
 text/plain should the message be sent from whatever@mail.address.com.
+
+## See the recipient address instead of your address when listing sent messages
+
+If you like to see your sent messages in unthreaded view, by default you will
+see your address in the authors column, which is maybe not what you want. The
+following code allows for showing the recipients if your email address (an
+arbitrary address, whatever@mail.address.com in the example) is included in the
+From field.
+
+    (defun my/notmuch-unthreaded-show-recipient-if-sent (format-string result)
+    (let* ((headers (plist-get result :headers))
+           (to (plist-get headers :To))
+           (author (plist-get headers :From))
+           (face (if (plist-get result :match)
+                     'notmuch-tree-match-author-face
+                   'notmuch-tree-no-match-author-face)))
+      (propertize
+       (format format-string
+               (if (string-match "whatever@mail.address.com" author)
+                   (concat "↦ " (notmuch-tree-clean-address to))
+                   (notmuch-tree-clean-address to)
+                 author))
+       'face face)))
+
+    (setq notmuch-unthreaded-result-format
+          '(("date" . "%12s  ")
+            (my/notmuch-unthreaded-show-recipient-if-sent . "%-20.20s")
+            ((("subject" . "%s"))
+             . " %-54s ")
+            ("tags" . "(%s)")))
