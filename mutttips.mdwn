@@ -19,7 +19,7 @@ with notmuch, in its contrib directory.
 
 # Using Notmuch with neomutt
 
-*Note*: This discussion was updated by a non-mutt user from talking about mutt-kz to 
+*Note*: This discussion was updated by a non-mutt user from talking about mutt-kz to
 [neomutt](https://neomutt.org/). Caveat lector!
 
 
@@ -79,8 +79,8 @@ the bindings defined in configuration (such as A/I/S/+/-).
 
 You may have noticed in `neomutts`'s configuration that I set the `sendmail` variable
 of mutt to a `nm_sendmail` script. This is for tagging outgoing mail each time I send
-a mail. Here is the content of the script (which may be used directly in mutt's 
-variable, I did not try). 
+a mail. Here is the content of the script (which may be used directly in mutt's
+variable, I did not try).
 
 Source of `nm_sendmail`:
 
@@ -146,7 +146,7 @@ enough for my needs, and here is an example of configuration that can be useful:
         ### All unmatched mails
         :0:notmuch.lock
         * .*
-        | notmuch insert -v $TAGS 
+        | notmuch insert $TAGS
 
 there's a line that updates the addressbook with addresses of current mail, and you'll
 be able to read more about it on the [[vimtips]] page.
