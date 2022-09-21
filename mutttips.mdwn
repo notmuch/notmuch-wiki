@@ -85,12 +85,12 @@ variable, I did not try).
 Source of `nm_sendmail`:
 
         #!/bin/bash
-        tee >(notmuch-deliver -t sent -f Sent) | sendmail $*
+        tee >(notmuch insert --folder=Sent +sent) | sendmail $*
 
 ## Mail filtering/tagging
 
-For mail tagging on arrival, I prefer to use a simple procmail delivery along with 
-notmuch-delivery (which can be compiled in the `contrib/` directory of notmuch's sources).
+For mail tagging on arrival, I prefer to use a simple procmail delivery along with
+`notmuch insert`.
 
 Of course, you could use formail or maildrop, instead of procmail, but it is flexible
 enough for my needs, and here is an example of configuration that can be useful:
@@ -105,7 +105,7 @@ enough for my needs, and here is an example of configuration that can be useful:
         :0 Wh
         | /usr/local/bin/notmuch_abook update
 
-        NOINBOX="-r inbox"
+        NOINBOX="-inbox"
         TAGS=""
 
         # manage dynamic tagging, using the ' + ' token in mail addresses
@@ -114,39 +114,39 @@ enough for my needs, and here is an example of configuration that can be useful:
         * ^TO\/user\+[a-z0-9]+@fqdn\.tld
         * MATCH ?? ^user\+\/[a-z0-9]+
         {
-        TAGS="-t ${MATCH}"
+        TAGS="+${MATCH}"
         }
 
         # match all mails from mailing-lists, don't let them go to inbox, but tag them with ml
         :0:notmuch.lock
         * ^List-[Ii][dD]:.*
         {
-        TAGS="${TAGS} -t ml -r inbox"
+        TAGS="${TAGS} +ml -inbox"
         }
 
         # tag all mails coming from mutt-kz mailing list
         :0:notmuch.lock
         * .*mutt-kz\.lists\.fedoraproject\.org.*
-        | notmuch-deliver $TAGS -t mutt -t notmuch
+        | notmuch insert $TAGS +mutt +notmuch
 
         # tag all mails coming from notmuch mailing list
         :0:notmuch.lock
         * .*notmuch\.notmuchmail\.org.*
-        | notmuch-deliver $TAGS -t notmuch
+        | notmuch insert $TAGS +notmuch
 
         # Mark all spams as junk mail
         :0:notmuch.lock
         * ^X-Spam-Status: Yes
-        | notmuch-deliver -t junk
+        | notmuch insert +junk
 
         :0:notmuch.lock
         * ^Subject: .*SPAM.*
-        | notmuch-deliver -t junk
+        | notmuch insert +junk
 
         ### All unmatched mails
         :0:notmuch.lock
         * .*
-        | notmuch-deliver -v $TAGS 
+        | notmuch insert -v $TAGS 
 
 there's a line that updates the addressbook with addresses of current mail, and you'll
 be able to read more about it on the [[vimtips]] page.
