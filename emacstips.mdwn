@@ -716,8 +716,7 @@ tabs with spaces in subject lines:
 
         (add-hook 'notmuch-show-markup-headers-hook 'notmuch-show-subject-tabs-to-spaces)
 
-And in header lines (this will only work with the yet to be released
-notmuch version 0.15):
+And in header lines:
 
         (defun notmuch-show-header-tabs-to-spaces ()
           "Replace tabs with spaces in header line."
