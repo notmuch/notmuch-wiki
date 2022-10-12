@@ -6,18 +6,6 @@ Emacs Interface|notmuch-emacs]] page for basics.
 
 [[!toc levels=2]]
 
-## Issues with Emacs 24 (unsupported since notmuch 0.31 (2020-09-05))
-
-If notmuch-show-mode behaves badly for you in emacs 24.x try adding one of
-
-        (setq gnus-inhibit-images nil)
-
-or
-
-        (require 'gnus-art)
-
-to your .emacs file.
-
 ## Controlling external handlers for attachments
 
 You can choose e.g. which pdf viewer to invoke from notmuch-show mode by
@@ -997,3 +985,15 @@ From field.
             ((("subject" . "%s"))
              . " %-54s ")
             ("tags" . "(%s)")))
+
+## Issues with Emacs 24 (unsupported since notmuch 0.31 (2020-09-05))
+
+If notmuch-show-mode behaves badly for you in emacs 24.x try adding one of
+
+        (setq gnus-inhibit-images nil)
+
+or
+
+        (require 'gnus-art)
+
+to your .emacs file.
