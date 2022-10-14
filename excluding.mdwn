@@ -75,7 +75,7 @@ procedure:
 
 In a [hook](https://notmuchmail.org/doc/latest/man5/notmuch-hooks.html)
 
-    notmuch tag +muted $(notmuch search --output=threads tag:muted)"
+    notmuch tag +muted $(notmuch search --output=threads tag:muted)
 
-New messages in the thread get the muted tag. Make muted an excluded tag.
-To kill a thread, tag it with muted, run notmuch new.
+New messages in the thread get the muted tag.  Make muted an excluded tag (see
+above).  To kill a thread, tag it with muted, run notmuch new.
