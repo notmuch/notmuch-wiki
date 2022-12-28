@@ -295,7 +295,7 @@ wrong viewer is started or something else goes wrong, there's a good
 chance something needs to be adapted in the mailcap configuration.
 
 For Example: The `copiousoutput` setting in mailcap files needs to be
-removed for some mime-types to prevent immediate removal of tempory
+removed for some mime-types to prevent immediate removal of temporary
 files so the configured viewer can access them.
 
 

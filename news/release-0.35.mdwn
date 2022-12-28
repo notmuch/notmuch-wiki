@@ -20,7 +20,7 @@ Fix some small memory leaks in `notmuch_database_open_with_config`.
 CLI
 ---
 
-Improve handling of leading/trailing punctation and space for
+Improve handling of leading/trailing punctuation and space for
 configuration lists.
 
 Only ignore `.notmuch` at the top level in `notmuch new`.
@@ -39,7 +39,7 @@ lazily.
 Don't add space to completion candidates, improves compatibility with
 third party completion frameworks.
 
-Make citation formating more robust against whitespace.
+Make citation formatting more robust against whitespace.
 
 Use `--excludes=false` when generating the 'All tags' section.
 
