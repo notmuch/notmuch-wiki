@@ -1,0 +1,6 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+# Results from running the performance test suite
+
+[[!inline  sort="age"  reverse="no" show=0 archive="yes"
+   pages="perf-test-results/*"]]
+

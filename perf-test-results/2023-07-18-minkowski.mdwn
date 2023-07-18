@@ -1,0 +1,91 @@
+Here are the results of "make time test" on a "12th Gen Intel(R)
+Core(TM) i7-12700" with NVME SSD. The file system is ext4. System was
+not completely idle, but no heavy computation or I/O was run at the
+same time.
+
+Notmuch is 0.37+71~ge9ff896f
+
+<pre>
+T00-new.sh: Testing notmuch new                         [0.5 large]
+Unpacking corpus
+....................................................................
+                        Wall(s)	Usr(s)	Sys(s)	Res(K)	In/Out(512B)
+  Initial notmuch new   284.55	262.62	16.73	324816	1963992/18146064
+  notmuch new #2        0.01	0.00	0.00	10160	264/160
+  notmuch new #3        0.01	0.01	0.00	10116	0/8
+  notmuch new #4        0.01	0.00	0.01	10112	0/8
+  notmuch new #5        0.01	0.00	0.00	10192	0/8
+  notmuch new #6        0.00	0.00	0.00	10152	0/8
+  new (52374 mv)        232.60	161.81	66.64	240324	273704/6079784
+  new (52374 mv back)   227.73	160.67	66.35	241312	0/5974504
+  new (52374 rm)        79.60	57.73	20.90	398168	10432/8966656
+  new (52374 restore)   90.41	80.86	8.69	377412	0/8567616
+  new (52374 cp)        140.60	99.95	40.22	210936	0/4687776
+
+T01-dump-restore.sh: Testing dump and restore           [0.5 large]
+			Wall(s)	Usr(s)	Sys(s)	Res(K)	In/Out(512B)
+  load nmbug tags       2.23	1.25	0.94	13296	600/66424
+  dump *                2.71	2.63	0.07	26548	0/27928
+  restore *             2.99	2.77	0.21	10112	0/0
+
+T02-tag.sh: Testing tagging                             [0.5 large]
+			Wall(s)	Usr(s)	Sys(s)	Res(K)	In/Out(512B)
+  tag * +new_tag        159.78	95.57	63.52	111608	16/1522752
+  tag * +existing_tag   0.00	0.00	0.00	9852	0/0
+  tag * -existing_tag   117.39	66.38	50.72	36636	0/1416928
+  tag * -missing_tag    0.00	0.00	0.00	9812	0/0
+
+T03-reindex.sh: Testing reindexing                      [0.5 large]
+			Wall(s)	Usr(s)	Sys(s)	Res(K)	In/Out(512B)
+  reindex *             322.18	298.32	10.56	481964	2394952/13304936
+  reindex *             302.69	293.20	9.27	480724	160/12683736
+  reindex *             309.10	299.98	8.87	480772	0/12762280
+  reindex (52374 mv)    272.50	262.54	9.16	453880	137016/12690920
+  reindex (52374 mv back)225.50	218.26	6.92	447908	40/10640696
+  reindex (52374 rm)    224.23	216.86	7.04	447952	0/10888088
+  reindex (52374 restore)222.33	215.35	6.71	447500	0/10797176
+  reindex (52374 cp)    222.81	215.56	7.02	449040	72/10732264
+
+T04-thread-subquery.sh: Testing thread subqueries       [0.5 large]
+			Wall(s)	Usr(s)	Sys(s)	Res(K)	In/Out(512B)
+  search thread:{} ...  1.50	1.38	0.12	27332	0/144
+  search thread:{} ...  1.53	1.44	0.08	28860	0/144
+  search thread:{} ...  1.52	1.41	0.11	28412	0/144
+
+T05-ruby.sh: Testing ruby bindings                      [0.5 large]
+			Wall(s)	Usr(s)	Sys(s)	Res(K)	In/Out(512B)
+  print all messages    324.65	302.12	22.45	94748	8952/1912640
+
+T06-emacs.sh: Testing emacs operations                  [0.5 large]
+			Wall(s)	Usr(s)	Sys(s)	Res(K)	In/Out(512B)
+			Wall(s)	GCs	GC time(s)
+tag messages		2.05	0.60	0.01
+show warmup		1.96	12.40	0.25
+show thread #1		2.02	3.60	0.20
+depth bound #1		0.33	0.60	0.06
+height bound #1		0.34	0.40	0.04
+size bound #1		0.40	0.40	0.05
+show thread #2		0.87	0.80	0.09
+depth bound #2		0.37	0.40	0.05
+height bound #2		0.34	0.40	0.06
+size bound #2		0.31	0.40	0.05
+show thread #3		1.22	0.60	0.09
+depth bound #3		0.51	0.20	0.03
+height bound #3		0.49	0.20	0.03
+size bound #3		0.48	0.00	0.00
+show thread #4		9.69	1.80	0.35
+depth bound #4		0.76	0.20	0.05
+height bound #4		0.73	0.20	0.05
+size bound #4		0.95	0.40	0.11
+
+T07-git.sh: Testing notmuch-git                         [0.5 large]
+			Wall(s)	Usr(s)	Sys(s)	Res(K)	In/Out(512B)
+  init                  0.05	0.04	0.00	16156	6624/264
+  commit --force        14.70	16.23	3.31	247192	2800/854568
+  commit                2.47	0.83	1.61	135040	0/8
+  commit                2.44	0.94	1.47	135100	0/8
+  checkout              2.49	0.91	1.54	134960	0/8
+  tag -inbox            159.53	95.26	63.85	110976	0/1545296
+  checkout --force      168.29	102.16	71.01	211480	0/5527376
+</pre>
+
