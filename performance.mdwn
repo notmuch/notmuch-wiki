@@ -86,11 +86,6 @@ original database if compaction is successful. For added safety you can provide
 `--backup=<directory>` option to preserve a copy of the original database. For
 more details on this process see `notmuch-compact` man page.
 
-### Performance test suite
-
-Notmuch ships with a [[performance test suite|perf-test]] which uses a downloadable
-[[corpus]] of email.
-
 ### More information about this in the email archives:
 
 * [Carl Worth](https://notmuchmail.org/pipermail/notmuch/2010/001105.html)
@@ -98,3 +93,9 @@ Notmuch ships with a [[performance test suite|perf-test]] which uses a downloada
 * [Sebastian Spaeth](https://notmuchmail.org/pipermail/notmuch/2011/004048.html)
 
 * [Pieter Praet](https://notmuchmail.org/pipermail/notmuch/2011/004175.html)
+
+## Performance test suite
+
+Notmuch ships with a [[performance test suite|perf-test]] which uses a downloadable
+[[corpus]] of email.
+
