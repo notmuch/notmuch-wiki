@@ -28,5 +28,4 @@ The corpus is gpg signed by David Bremner with  key fingerprint:
 
 You can download the corpus from
 
-- [notmuchmail.org](https://notmuchmail.org/releases/notmuch-email-corpus-0.3.tar.xz) [signature](https://notmuchmail.org/releases/notmuch-email-corpus-0.3.tar.xz.asc)
-- [UNB](http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.3.tar.xz) [signature](http://tesseract.cs.unb.ca/notmuch/notmuch-email-corpus-0.3.tar.xz.asc)
+- [notmuchmail.org](https://notmuchmail.org/releases/notmuch-email-corpus-0.5.tar.xz) [signature](https://notmuchmail.org/releases/notmuch-email-corpus-0.5.tar.xz.asc)
