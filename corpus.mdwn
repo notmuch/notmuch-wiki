@@ -1,7 +1,7 @@
 [[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
 # Notmuch Email Corpus
 
-A corpus of about 108k messages is available for performance testing of
+A corpus of about 209k messages is available for performance testing of
 notmuch (or other uses).
 
 The contents are as follows
@@ -21,6 +21,8 @@ The contents are as follows
       http://www.searchdaimon.com/community/dataset/
 
    - massaged with scripts/unpack-enron.sh (in the corpus tarball)
+
+- `Mail/lkml`: lkml messages 1000000 to 1100000 from the gmane archive
 
 The corpus is gpg signed by David Bremner with  key fingerprint:
 
