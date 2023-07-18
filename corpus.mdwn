@@ -24,7 +24,7 @@ The contents are as follows
 
 The corpus is gpg signed by David Bremner with  key fingerprint:
 
-     815B 6398 2A79 F8E7 C727  86C4 762B 57BB 7842 06AD
+     7A18 807F 100A 4570 C596  8420 7E4E 65C8 720B 706B
 
 You can download the corpus from
 
