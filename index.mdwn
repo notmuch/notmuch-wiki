@@ -82,7 +82,7 @@ on Notmuch.
   * [[Searching]]
   * [[Excluding and deleting messages|excluding]]
   * [[Initial tagging|Initial_Tagging]]
-  * Tips for using Notmuch with [[Emacs|emacstips]], [[Vim|vimtips]], [[Postfix and Dovecot|postfixdovecottips]]and [[Mutt|mutttips]]
+  * Tips for using Notmuch with [[Emacs|emacstips]], [[Vim|vimtips]], [[Postfix & Dovecot|postfixdovecottips]] and [[Mutt|mutttips]]
   * [[Emacs remote usage|remoteusage]]
   * [[Performance|performance]]
   * [[References|references]]
