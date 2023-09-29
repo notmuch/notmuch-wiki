@@ -1,0 +1,48 @@
+[[!img notmuch-logo.png alt="Notmuch logo" class="left"]]
+
+Postfix can be used for delivering mail and Dovecot for making your maildir
+available using IMAP.
+
+Dovecot Pigeonhole Sieve can be used for filtering incoming mail and index it
+using notmuch.
+
+[[!toc levels=2]]
+
+# Configuration
+
+## Configure Postfix to use Dovecot Sieve
+
+Set `mailbox_command` to dovecot deliver:
+
+        postconf -e 'mailbox_command=/usr/libexec/dovecot/deliver -f "$SENDER" -a "$RECIPIENT"'
+
+## Configure Dovecot Sieve to allow running notmuch
+
+* Add `mail_plugins = sieve` to `/etc/dovecot/conf.d/15-lda.conf` to enable Sieve
+* Add `sieve_plugins = sieve_extprograms` to `/etc/dovecot/conf.d/90-sieve.conf` to allow running external programs
+* Add `sieve_extensions = +vnd.dovecot.pipe` to `/etc/dovecot/conf.d/90-sieve.conf` to allow pipe to external programs
+* Add `sieve_pipe_bin_dir = /usr/libexec/dovecot/sieve-pipe` to `/etc/dovecot/conf.d/90-sieve-extprograms.conf` to configure directory with allowed programs
+* Add `mail_location = maildir:~/Maildir` to `/etc/dovecot/conf.d/10-mail.conf` to use Maildir
+* Run `mkdir /usr/libexec/dovecot/sieve-pipe` to create the directory with allowed programs
+* Run `ln -s /usr/bin/notmuch /usr/libexec/dovecot/sieve-pipe/notmuch` to add a link to notmuch to the directory with allowed programs
+
+## Example Sieve configuration
+
+Create `~/.dovecot.sieve` with the following contents:
+
+        require ["fileinto", "vnd.dovecot.pipe"];
+        if header :contains "X-Spam-Flag" "YES" {
+            pipe "notmuch" [ "insert", "--folder=.spam", "--create-folder", "+spam" ];
+        } elsif anyof (header :matches "From" "notmuch@notmuchmail.org") {
+            pipe "notmuch" [ "insert", "--folder=.mailinglist", "--create-folder", "+mailinglist" ];
+        } else {
+            pipe "notmuch" [ "insert", "+notmuch-insert", "+inbox" ];
+        }
+
+# Notes
+
+## Postfix file size limit
+
+Postfix sets a `file size` ulimit before executing the `mailbox_command`. This
+also affects the notmuch index. Make sure `mailbox_size_limit` is at least the
+size of your largest notmuch index files.
