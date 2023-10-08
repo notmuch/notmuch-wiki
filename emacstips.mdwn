@@ -228,6 +228,11 @@ address. Please see the documentation for the variable
 `notmuch-fcc-dirs` in the customization window for how to arrange
 this.
 
+The `notmuch-fcc-dirs` variable is only taken into account when mails
+are composed using `notmuch-mua-mail`. If you want to use the notmuch
+mail user agent by default, the `mail-user-agent` needs to be
+customized to use the `notmuch-user-agent`.
+
 ## How to customize `notmuch-saved-searches`
 
 When starting notmuch, a list of saved searches and message counts is
