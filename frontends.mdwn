@@ -23,6 +23,7 @@
 * [noservice](https://gitlab.com/noservice/noservice). Web interface, written in Clojure.
 * [notmuchfs](https://github.com/tsto/notmuchfs), a virtual maildir file system for Notmuch queries.
 * [epistula](https://github.com/emdete/epistula), a terminal MUA based on gpgme and gmime written in go and with tcell (alpha status).
+* [notmuch-email-client](https://github.com/inbasic/notmuch-email-client/), an [extension](https://add0n.com/notmuch-email-client.html) for using notmuch in web browsers
 
 ## Historical
 
