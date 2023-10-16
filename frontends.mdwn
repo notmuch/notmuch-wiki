@@ -29,7 +29,7 @@
 * ner, a curses frontend written in C++ ([github mirror](https://github.com/pioto/ner)).
 * [mutt-kz](https://github.com/karelzak/mutt-kz), a fork of [mutt](http://www.mutt.org/) with Notmuch as a backend (actually linked against lib notmuch). Deprecated in favour of neomutt.
 * [jaro-mail](http://www.dyne.org/software/jaro-mail). Command line client emphasizing privacy. ([github mirror](https://github.com/dyne/JaroMail))
-* [notmuch-web](https://bitbucket.org/wuzzeb/notmuch-web) A web front end written in [Haskell](http://hackage.haskell.org/package/notmuch-web). Not active upstream since 2014.
+* [notmuch-web](https://github.com/afcady/notmuch-web) A web front end written in [Haskell](http://hackage.haskell.org/package/notmuch-web). Not active upstream since 2014.
 
 ## Tools based on Notmuch
 
