@@ -19,20 +19,19 @@ The Notmuch command-line interface is based on the C library.
 
 Notmuch includes Python bindings to the Notmuch shared library. Please refer to
 the nice and extensive [Notmuch Python API
-documentation](http://notmuch.readthedocs.org/projects/notmuch-python/).
+documentation](https://notmuchmail.org/doc/latest/python-bindings.html).
 
 The bindings are very simple to use. As an example, given you have the Python
 bindings installed (or simply set your PYTHONPATH environment variable to point
 to the .../bindings/python directory), this snippet will produce a list of mails
 matching the given expression:
 
-        >>> import notmuch
-        >>> db = notmuch.Database()
-        >>> query = db.create_query('tag:inbox AND NOT tag:killed')
-        >>> list(query.search_messages()) # doctest:+ELLIPSIS
+        >>> from notmuch2 import Database
+        >>> db = Database()
+        >>> messages = list(db.messages('tag:inbox AND NOT tag:killed'))
         [...]
 
-[The source](https://git.notmuchmail.org/git/notmuch/tree/HEAD:/bindings/python/)
+[The source](https://git.notmuchmail.org/git/notmuch/tree/HEAD:/bindings/python-cffi/)
 
 ## Ruby
 
