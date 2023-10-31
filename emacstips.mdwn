@@ -919,12 +919,22 @@ Very often we forget to actually attach the file when we send an email
 that's supposed to have an attachment. Did this never happen to you?
 If not, then it will.
 
-There is a hook out there that checks the content of the email for
-keywords and warns you before the email is sent out if there's no
-attachment. This is currently work in progress, but you can already
-add the hook to your `~/.emacs.d/notmuch-config.el` file to test
-it. Details available (and feedback welcome) in the [relevant
-discussion](https://notmuchmail.org/pipermail/notmuch/2018/026414.html).
+Since version 0.29 Notmuch includes the `notmuch-mua-attachment-check`
+function.  This function checks whether a message references an
+attachment and if it finds none it asks for confirmation before
+sending the message.  The function is meant to be added to the
+`message-send-hook`, like so:
+
+    (add-hook 'message-send-hook 'notmuch-mua-attachment-check)
+
+The "customize"able variable `notmuch-mua-attachment-regexp` controls
+how reference to an attachment are identified.  By default, it
+identifies English and French terms.  For example, the following makes
+it recognise English and Portuguese terms:
+
+    (setq-default notmuch-mua-attachment-regexp
+                  "\\b\\(attach\\|attachment\\|attached\\|anexo\\|anexado\\)\\b")
+
 
 ## Applying patches to git repositories
 
