@@ -1,0 +1,16 @@
+[[!meta date="2023-12-01"]]
+
+Notmuch 0.38.2 (2023-12-01)
+===========================
+
+Library
+-------
+
+Make sorting of string maps lexicographic on (key,value) pairs. This
+avoids some test failures due to variation in message property output
+order.
+
+Emacs
+-----
+
+Avoid extra separators after the last address in `notmuch-emacs-mua`.
