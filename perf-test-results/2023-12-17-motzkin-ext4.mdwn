@@ -1,0 +1,87 @@
+Here are the results of "make time-test" on a 
+"13th Gen Intel(R) Core(TM) i7-1365U". File system is ext4 on lvm on luks.
+
+notmuch is 0.38.1-15-gbddeb201
+
+<pre>
+T00-new.sh: Testing notmuch new                         [0.5 large]
+            Wall(s) Usr(s)  Sys(s)  Res(K)  In/Out(512B)
+  Initial notmuch new   359.70  294.83  20.58   325524  7127120/18533216
+  notmuch new #2        0.01    0.00    0.00    9984    0/160
+  notmuch new #3        0.00    0.00    0.00    10112   0/8
+  notmuch new #4        0.00    0.00    0.00    10112   0/8
+  notmuch new #5        0.00    0.00    0.00    10112   0/8
+  notmuch new #6        0.00    0.00    0.00    10112   0/8
+  new (52374 mv)        248.98  173.85  74.49   237060  304/6114280
+  new (52374 mv back)   250.19  174.82  74.79   238340  0/6045736
+  new (52374 rm)        45.87   37.05   7.75    388864  24/8765296
+  new (52374 restore)   99.77   89.63   9.24    381204  0/8388352
+  new (52374 cp)        150.42  106.02  43.98   211744  8/4667440
+
+T01-dump-restore.sh: Testing dump and restore           [0.5 large]
+            Wall(s) Usr(s)  Sys(s)  Res(K)  In/Out(512B)
+  load nmbug tags       2.76    1.14    1.42    13056   760/32248
+  dump *                2.67    2.55    0.12    26740   0/27928
+  restore *             2.89    2.68    0.21    10152   0/0
+
+T02-tag.sh: Testing tagging                             [0.5 large]
+            Wall(s) Usr(s)  Sys(s)  Res(K)  In/Out(512B)
+  tag * +new_tag        168.91  95.08   73.30   111276  136/1576400
+  tag * +existing_tag   0.01    0.00    0.00    9856    0/0
+  tag * -existing_tag   124.70  65.10   59.32   37228   0/1601200
+  tag * -missing_tag    0.00    0.00    0.00    9856    0/0
+
+T03-reindex.sh: Testing reindexing                      [0.5 large]
+            Wall(s) Usr(s)  Sys(s)  Res(K)  In/Out(512B)
+  reindex *             338.91  328.44  10.22   482332  8/13564952
+  reindex *             335.58  325.85  9.42    481152  0/13905656
+  reindex *             333.80  324.58  9.04    481276  0/13917480
+  reindex (52374 mv)    295.09  285.04  9.85    454384  32/13139592
+  reindex (52374 mv back)249.74 242.16  7.24    452172  0/11474632
+  reindex (52374 rm)    244.04  236.23  7.40    452884  0/10569496
+  reindex (52374 restore)247.86 240.15  7.53    451748  0/11424312
+  reindex (52374 cp)    253.09  244.48  8.04    452644  0/11601752
+
+T04-thread-subquery.sh: Testing thread subqueries       [0.5 large]
+            Wall(s) Usr(s)  Sys(s)  Res(K)  In/Out(512B)
+  search thread:{} ...  1.52    1.44    0.07    27676   8/144
+  search thread:{} ...  1.52    1.44    0.08    27204   0/144
+  search thread:{} ...  1.52    1.44    0.08    27528   0/144
+
+T05-ruby.sh: Testing ruby bindings                      [0.5 large]
+            Wall(s) Usr(s)  Sys(s)  Res(K)  In/Out(512B)
+  print all messages    346.17  321.86  24.19   101072  1552/1912632
+
+T06-emacs.sh: Testing emacs operations                  [0.5 large]
+            Wall(s) Usr(s)  Sys(s)  Res(K)  In/Out(512B)
+            Wall(s) GCs GC time(s)
+tag messages        2.10    0.40    0.01
+show warmup     0.75    13.00   0.22
+show thread #1      0.78    3.60    0.19
+depth bound #1      0.16    0.40    0.03
+height bound #1     0.18    0.60    0.05
+size bound #1       0.17    0.40    0.03
+show thread #2      0.46    1.00    0.10
+depth bound #2      0.16    0.40    0.04
+height bound #2     0.14    0.20    0.02
+size bound #2       0.17    0.40    0.05
+show thread #3      0.64    0.80    0.10
+depth bound #3      0.28    0.20    0.03
+height bound #3     0.27    0.20    0.03
+size bound #3       0.27    0.20    0.03
+show thread #4      2.01    1.80    0.33
+depth bound #4      0.27    0.20    0.04
+height bound #4     0.32    0.40    0.09
+size bound #4       0.28    0.20    0.05
+rm: cannot remove '/home/bremner/software/upstream/notmuch/performance-test/tmp.T06-emacs': Directory not empty
+
+T07-git.sh: Testing notmuch-git                         [0.5 large]
+            Wall(s) Usr(s)  Sys(s)  Res(K)  In/Out(512B)
+  init                  0.07    0.04    0.00    15872   4624/272
+  commit --force        14.21   18.34   3.50    248152  400/854584
+  commit                2.83    0.95    1.87    135128  0/8
+  commit                2.77    1.05    1.71    134996  0/8
+  checkout              2.76    0.95    1.80    135124  0/8
+  tag -inbox            176.95  100.30  76.17   110568  0/1560400
+  checkout --force      194.89  112.79  88.50   211364  8/5653888
+</pre>
