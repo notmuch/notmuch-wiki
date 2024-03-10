@@ -1,0 +1,11 @@
+[[!meta date="2024-03-09"]]
+
+Notmuch 0.38.3 (2024-03-09)
+===========================
+
+CLI
+---
+
+Fix a bug in configuration code that caused the notmuch command to
+erroneously report "Error: could not locate database" under some
+circumstances.
