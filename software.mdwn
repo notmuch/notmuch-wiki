@@ -58,6 +58,13 @@ Have a separate [[wiki page|frontends]].
       <td>-</td>
     </tr>
     <tr>
+      <td><a href="https://github.com/larskotthoff/notmuch-sync">notmuch-sync</a></td>
+      <td>yes</td>
+      <td>custom</td>
+      <td>notmuch database</td>
+      <td>compatible with mbsync/isync (allows to sync its state files)</td>
+    </tr>
+    <tr>
       <td><a href="http://wiki2.dovecot.org/Tools/Doveadm/Sync">dsync</a></td>
       <td>yes</td>
       <td>IMAP4/POP3/custom</td>
