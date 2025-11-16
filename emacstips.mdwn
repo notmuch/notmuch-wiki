@@ -994,19 +994,28 @@ arbitrary address, whatever@mail.address.com in the example) is included in the
 From field.
 
     (defun my/notmuch-unthreaded-show-recipient-if-sent (format-string result)
-    (let* ((headers (plist-get result :headers))
-           (to (plist-get headers :To))
-           (author (plist-get headers :From))
-           (face (if (plist-get result :match)
-                     'notmuch-tree-match-author-face
-                   'notmuch-tree-no-match-author-face)))
-      (propertize
-       (format format-string
-               (if (string-match "whatever@mail.address.com" author)
-                   (concat "↦ " (notmuch-tree-clean-address to))
-                   (notmuch-tree-clean-address to)
-                 author))
-       'face face)))
+      "Custom function for `notmuch-unthreaded-result-format' to use instead of \"authors\".
+    Show \"From:\" address from RESULT, unless we sent the message. Then show \"To:\".
+    Formatted with FORMAT-STRING.
+    Example on wiki https://notmuchmail.org/emacstips/"
+
+      (let* ((headers (plist-get result :headers))
+             (to (plist-get headers :To))
+             (author (plist-get headers :From))
+             ;; NOTE: `user-mail-address` has to be set correctly
+             (is-me? (string-match user-mail-address author))
+             (face (if (plist-get result :match)
+                       'notmuch-tree-match-author-face
+                     'notmuch-tree-no-match-author-face)))
+        (propertize
+         (format format-string
+                 (if is-me?
+                      ;; NOTE: "To:" may have more than one address.
+                      ;;  `notmuch-tree-clean-address` will pull
+                      ;;  all but the last address combined as name
+                      (concat "↪" (notmuch-tree-clean-address to))
+                      (notmuch-tree-clean-address author)))
+         'face face)))
 
     (setq notmuch-unthreaded-result-format
           '(("date" . "%12s  ")
