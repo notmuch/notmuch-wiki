@@ -1,0 +1,35 @@
+[[!meta date="2026-01-31"]]
+
+Notmuch 0.40 (2026-01-31)
+=========================
+
+General
+-------
+
+Accept "key-missing" from a signature from a revoked key to match
+apparent change in GnuPG behaviour.
+
+Library
+-------
+
+New API `notmuch_{threads,messages}_status` to allow distinguishing
+iterator exaustion from iterator invalidation due to errors.
+
+Emacs
+-----
+
+Documentation improvements. Fix for bug related to "hide-exclude" in
+notmuch-hello. A new autoloads file is generated for people installing
+without package.el or similar. Fix disabling notmuch-show-header-line
+via custom.
+
+Python Bindings
+---------------
+
+Provide a binding reopen a database. Some small fixes to
+documentation. Make IndexOptions public.
+
+Ruby Bindings
+-------------
+
+Simplify and cleanup build, fix talloc flags.
