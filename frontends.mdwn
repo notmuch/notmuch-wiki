@@ -13,9 +13,9 @@
 ## Other email clients and front ends based on Notmuch
 
 * [aerc](https://git.sr.ht/~rjarry/aerc), a pretty good terminal email client written in Go that supports notmuch.
-* [alot](https://github.com/pazz/alot), a curses frontend written in Python with the [Urwid](http://excess.org/urwid/) toolkit.
+* [alot](https://github.com/pazz/alot), a curses frontend written in Python with the [Urwid](https://urwid.org/) toolkit.
 * [astroid](https://github.com/astroidmail/astroid), a graphical threads-with-tags mail user agent for notmuch. Written in C++ using GTK+, WebKit and gmime.
-* [bower](https://github.com/wangp/bower), a curses frontend written in [Mercury](http://www.cs.mu.oz.au/research/mercury/).
+* [bower](https://github.com/wangp/bower), a curses frontend written in [Mercury](https://mercurylang.org/).
 * [dodo](https://github.com/akissinger/dodo), a graphical, hackable notmuch frontend based on Python/PyQt.
 * [meli](https://meli.delivery), curses-like mail client written in Rust.
 * [neomutt](https://www.neomutt.org/feature/notmuch), a fork of [mutt](http://www.mutt.org/) able to use Notmuch for virtual folders.
@@ -30,8 +30,8 @@
 
 * ner, a curses frontend written in C++ ([github mirror](https://github.com/pioto/ner)).
 * [mutt-kz](https://github.com/karelzak/mutt-kz), a fork of [mutt](http://www.mutt.org/) with Notmuch as a backend (actually linked against lib notmuch). Deprecated in favour of neomutt.
-* [jaro-mail](http://www.dyne.org/software/jaro-mail). Command line client emphasizing privacy. ([github mirror](https://github.com/dyne/JaroMail))
-* [notmuch-web](https://github.com/afcady/notmuch-web) A web front end written in [Haskell](http://hackage.haskell.org/package/notmuch-web). Not active upstream since 2014.
+* [jaro-mail](https://dyne.org/jaromail/). Command line client emphasizing privacy. ([github mirror](https://github.com/dyne/JaroMail))
+* [notmuch-web](https://github.com/afcady/notmuch-web) A web front end written in [Haskell](https://hackage.haskell.org/package/notmuch-web). Not active upstream since 2014.
 
 ## Tools based on Notmuch
 
