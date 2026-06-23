@@ -30,7 +30,7 @@ On Linux, the easiest way to install Notmuch is through your distribution's
 package repository. If you're installing Notmuch from a [git
 checkout](https://git.notmuchmail.org/git/notmuch) or a [source
 release](https://notmuchmail.org/releases/), please refer to the
-[INSTALL](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/INSTALL) document.
+[INSTALL](https://git.notmuchmail.org/git/notmuch/tree/INSTALL) document.
 
 ## Configuration
 
