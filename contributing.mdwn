@@ -8,11 +8,24 @@ you may find it difficult to get your first contributions accepted,
 but once you get the hang of it, it'll be fun. This page should help
 you get there. DON'T PANIC.
 
-The headlines below act as a checklist. Not all of them apply in all
-situations. Use your best judgment, and the Notmuch community will
-help out as needed.
+The headlines below act as a checklist. Other than the prohibition of generative AI based contributions, not all of them apply in all
+situations. Use your best
+judgment, and the Notmuch community will help out as needed.
+
+There is a much shorter version of this in the source as
+CONTRIBUTING. In some circumstances that might be more up to date, 
+and it is certainly faster to read.
 
 [[!toc levels=2]]
+
+# Don't use generative AI (LLMs)
+
+Use of generative AI (LLMs, diffusion models and similar technology)
+is not acceptable for contributions to or interactions with the
+Notmuch project.
+
+This includes words, images and code. It includes bug reports, commit
+messages, and email (mailing list or private) and IRC messages.
 
 ## Obtain the Notmuch source code
 
