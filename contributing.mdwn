@@ -62,7 +62,7 @@ achieve. You may prefix the subjects of such patches with "RFC" or
 
 The Notmuch code base follows a fairly uniform coding style. See the existing
 code around your changes, and read
-[`devel/STYLE`](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/devel/STYLE)
+[`devel/STYLE`](https://git.notmuchmail.org/git/notmuch/tree/devel/STYLE)
 in the Notmuch source. It's not difficult to get it right, and may save you an
 extra review round.
 
@@ -113,7 +113,7 @@ easy to confirm your changes actually fix the issue. Some people use this
 approach also for adding new features.
 
 See
-[`test/README`](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/test/README)
+[`test/README`](https://git.notmuchmail.org/git/notmuch/tree/test/README)
 in the Notmuch source for further information.
 
 ## Update the documentation
@@ -131,7 +131,7 @@ much as possible, try to be consistent between modes.
 ## Update NEWS
 
 If you make user visible changes, you should add an entry to the
-[`NEWS`](https://git.notmuchmail.org/git/notmuch/blob/HEAD:/NEWS) file.
+[`NEWS`](https://git.notmuchmail.org/git/notmuch/tree/NEWS) file.
 
 In practice adding NEWS items can be done later during the release
 process, but then you typically get a one line mention, if at all.
